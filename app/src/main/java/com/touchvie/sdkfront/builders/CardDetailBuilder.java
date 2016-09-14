@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 
  */
-public class CardDetailBuilder extends BaseCardDetailBuilder {
+public class CardDetailBuilder extends BaseCardDetailBuilder<CardDetailBuilder> {
 
     /**
      * Default constructor

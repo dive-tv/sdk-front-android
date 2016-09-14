@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * 
  */
-public class CardDetailJson extends BaseCardDetailBuilder {
+public class CardDetailJson extends BaseCardDetailBuilder<CardDetailJson> {
 
     /**
      * Default constructor
