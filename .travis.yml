@@ -1,0 +1,43 @@
+language: android
+
+branches:
+  only:
+    - master
+    - develop
+
+android:
+  components:
+    - tools
+    - build-tools-24.0.2
+    - android-24
+    - android-22
+    - platform-tools
+    - extra-android-support # because I'm use support library
+    - extra-android-m2repository # because I'm use support library
+    - sys-img-armeabi-v7a-android-22
+  licenses:
+    - '.+'
+
+jdk:
+  - oraclejdk8
+
+env:
+  global:
+  - secure: "mjREuHlwUMrYAnf2eDHydOa1qPcIzxpshIxOkw1Tpkw5jSoBr43AnQ4jYCeXK7W5PRn/3D+fdZ3NB1G/rYl1iHzRlTSotFqecOdnCcWGIyWRG1XULnW9jxXjRDmmezqO0603wIMDAIs+WjBXP8mJ9aBAMdOTBsxc8jXMm3FR2AjHpatK+aSHJ+MLyi4BGowRNRpj+4eBTa5hnVGOPdm/N6S6kg1XBcd5+0IdSL7w0K71hAVls0/hp3CSHg4/DmSV9y4lUiiFjQt3x4TKRsXFmN6yeNgRtERycxpw5wL17UW2CJwjf+x/9GBb1AGZrryBbodVO+XKe80QfCw0WL3ugpEOOFwjrt7W2VHwP//mGV1SekuRqH/ddlrre1h0lyoHFWPpcjXkPxUhZ2zMHAQArWgtKV7V547e+4NYAvsv8SjwaCDm5tlCd9mRjn1GF1Sv39SoBRePWOCym9BnCfi0pZt0JsR7k1u38maJkQoRrnB1ain3d7cKUl90XgoaNycEZKUEzT5gL6MSB8CnA9+NAwuZ56xnvLLYAAxoXN3WKB3W+AsAzi+CHC9/AgQo34Uxg63LI0n317KVpf0ESCXM5iulr9E++HSfpxiGQQw+CrLqM8ENCebd0eK77dA1yG/rqZRAJLfck1M9Dt8zDfcG2Ot2ES7OdO9cEzXBrET0VCI="
+
+install: true
+
+before_script:
+  - chmod +x gradlew
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+
+script: "./gradlew build generateReleaseJavadoc --info --stacktrace"
+
+after_success:
+  - chmod +x .utility/push-javadoc-to-gh-pages.sh
+  - .utility/push-javadoc-to-gh-pages.sh
+
+sudo: required
