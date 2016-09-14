@@ -15,11 +15,6 @@ import java.util.*;
  */
 public class BaseCardDetailBuilder {
 
-    /**
-     * Default constructor
-     */
-    public BaseCardDetailBuilder() {
-    }
 
     /**
      * JSON with the style configuration
@@ -27,23 +22,29 @@ public class BaseCardDetailBuilder {
     public JSONObject styleConfig;
 
     /**
-     * Dictionary with the Modules nested to the Sections
-     * Key: Name of the Section
-     * Value: Section
+     * Dictionary with the modules nested to the sections
+     * Key: Name of the section
+     * Value: section
      */
-    public HashMap<String, ConfigSection> sectionModules;
+    public HashMap<String, ConfigSection> idSection;
 
 
     /**
-     * Fill the Modules with the data from the server, validate them and build the Card Detail.
+     * Default constructor
+     */
+    public BaseCardDetailBuilder() {
+    }
+
+    /**
+     * Fill the modules with the data from the server, validate them and build the card detail.
      * callback: function to be called when the card detail is done.
      * @param cardID  the card identifier.
      * @param listener the object to be notified when the card detail is built.
      * @return
      */
-    public CardDetail build(String cardID, CardDetailListener listener) {
+    public void build(String cardID, CardDetailListener listener) {
         // TODO implement here
-        return null;
+
     }
 
     /**
@@ -100,5 +101,6 @@ public class BaseCardDetailBuilder {
 
         void onCardDetailCreated(CardDetail cardDetail);
     }
+
 
 }
