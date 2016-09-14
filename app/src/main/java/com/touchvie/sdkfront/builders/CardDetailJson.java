@@ -28,7 +28,12 @@ public class CardDetailJson extends BaseCardDetailBuilder {
      */
     public CardDetailJson loadDataConfig(JSONObject dataConfig) {
         // TODO implement here
-        return null;
+        return getThis();
+    }
+
+    @Override
+    protected CardDetailJson getThis() {
+        return this;
     }
 
 }

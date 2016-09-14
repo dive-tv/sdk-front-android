@@ -14,7 +14,7 @@ public class CardDetailBuilder extends BaseCardDetailBuilder {
     }
 
     /**
-     *
+     * Makes parent showAll method public.
      * @return
      */
     public CardDetailBuilder showAll(){
@@ -23,7 +23,7 @@ public class CardDetailBuilder extends BaseCardDetailBuilder {
     }
 
     /**
-     *
+     * Makes parent addSection method public.
      * @return
      */
     public CardDetailBuilder addSection(){
@@ -31,4 +31,8 @@ public class CardDetailBuilder extends BaseCardDetailBuilder {
         return (CardDetailBuilder) super.addSection();
     }
 
+    @Override
+    protected CardDetailBuilder getThis() {
+        return this;
+    }
 }

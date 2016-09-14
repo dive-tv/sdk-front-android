@@ -13,8 +13,10 @@ import java.util.*;
 /**
  * 
  */
-public class BaseCardDetailBuilder {
+public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>{
 
+
+    protected abstract T getThis();
 
     /**
      * JSON with the style configuration
@@ -83,17 +85,21 @@ public class BaseCardDetailBuilder {
      * @param styleConfig
      * @return
      */
-    public CardDetailBuilder loadStyleConfig(JSONObject styleConfig) {
+    public T loadStyleConfig(JSONObject styleConfig) {
         // TODO implement here
-        return null;
+        return getThis();
     }
 
-    protected BaseCardDetailBuilder showAll(){
-        return this;
+    /**
+     *
+     * @return
+     */
+    protected T showAll(){
+        return getThis();
     }
 
-    protected BaseCardDetailBuilder addSection(){
-        return this;
+    protected T addSection(){
+        return getThis();
     }
 
 
