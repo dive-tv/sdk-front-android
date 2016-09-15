@@ -13,22 +13,14 @@ public class CardDetailBuilder extends BaseCardDetailBuilder<CardDetailBuilder> 
     public CardDetailBuilder() {
     }
 
-    /**
-     * Makes parent showAll method public.
-     * @return
-     */
-    public CardDetailBuilder showAll(){
-
-        return (CardDetailBuilder) super.showAll();
-    }
 
     /**
      * Makes parent addSection method public.
      * @return
      */
-    public CardDetailBuilder addSection(){
+    public CardDetailBuilder addSection(String sectionId, ConfigSection section, boolean isMain){
 
-        return (CardDetailBuilder) super.addSection();
+        return super.addSection(sectionId, section, isMain);
     }
 
     @Override

@@ -53,6 +53,11 @@ public class CardDetail {
      * @return
      */
     public void setSection(Section section) {
+        if(section==null){
+            return;
+        }
+
+
         // TODO implement here
     }
 

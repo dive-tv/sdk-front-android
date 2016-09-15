@@ -1,7 +1,6 @@
 package com.touchvie.sdkfront.builders;
 
 import com.touchvie.sdkfront.datatypes.ModuleType;
-import com.touchvie.sdkfront.datatypes.NavigationType;
 
 import java.util.*;
 
@@ -19,7 +18,11 @@ public class ConfigSection {
     /**
      * List of Modules in this Section
      */
-    public ArrayList<ModuleType> modules;
+    protected ArrayList<ConfigModule> modules;
+
+    protected String title;
+
+    protected boolean main;
 
     /**
      * Add new Module to the Section
@@ -35,9 +38,8 @@ public class ConfigSection {
      * Add a new Navigation Module to another Section
      * @param targetSection Target Section
      * @param title Text in the button
-     * @param type
      */
-    public void addNavigation(String targetSection, String title, NavigationType type) {
+    public void addNavigation(String targetSection, String title) {
         // TODO implement here
     }
 
@@ -45,9 +47,26 @@ public class ConfigSection {
      * Load the Modules style configuration
      * @return
      */
-    public ArrayList<ModuleType> getModulesConfig() {
+    public ArrayList<ConfigModule> getModulesConfig() {
         // TODO implement here
         return null;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public boolean isMain() {
+        return main;
+    }
+
+    public void setMain(boolean main) {
+        this.main = main;
+    }
+
 
 }

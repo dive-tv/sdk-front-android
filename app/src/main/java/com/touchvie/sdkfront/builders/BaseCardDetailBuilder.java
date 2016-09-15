@@ -1,5 +1,7 @@
 package com.touchvie.sdkfront.builders;
 
+import com.touchvie.backend.CardData;
+import com.touchvie.sdkclient.listeners.CardDataListener;
 import com.touchvie.sdkfront.datatypes.JsonDataType;
 import com.touchvie.sdkfront.datatypes.ModuleType;
 import com.touchvie.sdkfront.ui.CardDetail;
@@ -11,26 +13,40 @@ import org.json.JSONObject;
 import java.util.*;
 
 /**
- * 
+ * Class to inherit the card detail builders common methods.
  */
-public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>{
+public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>> implements CardDataListener{
 
 
     protected abstract T getThis();
 
     /**
-     * JSON with the style configuration
+     *
      */
-    public JSONObject styleConfig;
+    protected CardDetailListener listener=null;
 
     /**
-     * Dictionary with the modules nested to the sections
+     * JSON with the style configuration
+     */
+    protected JSONObject styleConfig;
+
+    /**
+     * Dictionary with the modules nested in sections
      * Key: Name of the section
      * Value: section
      */
-    public HashMap<String, ConfigSection> idSection;
+    protected HashMap<String, ConfigSection> idSection;
+
+    protected CardData data;
 
 
+    /**
+     *
+     */
+    protected String mainSectionKey= "main";
+
+
+    protected boolean buildDefault=false;
     /**
      * Default constructor
      */
@@ -38,51 +54,71 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
     }
 
     /**
-     * Fill the modules with the data from the server, validate them and build the card detail.
-     * callback: function to be called when the card detail is done.
+     * Requests the server the modules for the given card.
      * @param cardID  the card identifier.
      * @param listener the object to be notified when the card detail is built.
      * @return
      */
     public void build(String cardID, CardDetailListener listener) {
-        // TODO implement here
+
+        buildDefault=false;
+        this.listener=listener;
+        //requestCard(cardId)
 
     }
 
+    public void buildAll(String cardID, CardDetailListener listener) {
+
+        buildDefault=true;
+        this.listener=listener;
+        //requestCard(cardId)
+
+    }
+
+
     /**
-     * Create new Module
-     * @param modType the module that will be created.
-     * @param types the identifiers of the data that will be used to build the module
+     * Creates a new module
+     * @param modType the type of the module that will be created.
+     * @param dataTypes the identifiers of the data that will be used to build the module
      * @return
      */
-    protected Module buildModule(ModuleType modType, JsonDataType[] types) {
+    protected Module buildModule(ModuleType modType, JsonDataType[] dataTypes) {
         // TODO implement here
         return null;
     }
 
     /**
-     * Create new Section
-     * @param modules 
+     * Creates a new section
+     * @param section
      * @return
      */
-    protected Section buildSection(Set<Module> modules) {
-        // TODO implement here
+    protected Section buildSection( ConfigSection section) {
+
+        for(ConfigModule config: section.getModulesConfig() ){
+
+                ModuleType type= config.getModuleType();
+                if(!Module.validate(data, type )){
+                    continue;
+                }
+
+
+        }
         return null;
     }
 
     /**
-     * Get Data from server
+     * Gets the card data from server
      * @param param 
      * @return
      */
- /*   protected CardData getCardData(Set<String> param) {
-        // TODO implement here
+    protected CardData getCardData(Set<String> param) {
+        // TODO implement here. Get it from local while the server does not implement this method.
         return null;
-    }*/
+    }
 
     /**
-     * Load the style configuration from a JSON file
-     * @param styleConfig
+     * Loads the style configuration from a JSON file
+     * @param styleConfig A JSON containing all the style information for the card to be built.
      * @return
      */
     public T loadStyleConfig(JSONObject styleConfig) {
@@ -90,22 +126,46 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
         return getThis();
     }
 
-    /**
-     *
-     * @return
-     */
-    protected T showAll(){
+    protected void composeCardDetail(){
+
+        //First off all get the main section from the dictionary.
+        ConfigSection main = idSection.get(mainSectionKey);
+        if(main == null){
+            listener.onCardDetailError();
+            return;
+        }
+
+        //Compose all the modules with the data.
+
+        CardDetail cardDetail= new CardDetail();
+        cardDetail.setSection(buildSection(main));
+
+    }
+
+    @Override
+    public void onCardReceived(CardData data){
+
+            this.data=data;
+            composeCardDetail();
+    }
+
+    protected T addSection(String sectionId, ConfigSection section, boolean isMain){
         return getThis();
     }
 
-    protected T addSection(){
-        return getThis();
+    protected String getMainSectionKey() {
+        return mainSectionKey;
+    }
+
+    protected void setMainSectionKey(String mainSectionKey) {
+        this.mainSectionKey = mainSectionKey;
     }
 
 
     public interface CardDetailListener{
 
         void onCardDetailCreated(CardDetail cardDetail);
+        void onCardDetailError();
     }
 
 

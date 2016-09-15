@@ -1,5 +1,6 @@
 package com.touchvie.sdkfront.ui;
 
+import com.touchvie.backend.CardData;
 import com.touchvie.sdkfront.datatypes.JsonDataType;
 import com.touchvie.sdkfront.datatypes.ModuleType;
 
@@ -50,6 +51,31 @@ public class Module {
      */
     public static boolean validate(JSONObject json, ModuleType modType, JsonDataType arguments) {
         // TODO implement here
+        return false;
+    }
+
+    /**
+     * Static method to check whether the module can be created with the given data or not.
+     * @param data
+     * @param modType
+     * @return
+     */
+    public static boolean validate(CardData data, ModuleType modType) {
+        // TODO implement here.
+
+        ArrayList<JsonDataType> datatypes=new ArrayList<>();
+
+        switch(modType){
+            case gallery:
+
+                break;
+            case header:
+                break;
+
+
+        }
+
+
         return false;
     }
 
