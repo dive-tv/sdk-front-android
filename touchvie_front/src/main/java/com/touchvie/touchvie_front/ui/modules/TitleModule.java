@@ -1,5 +1,9 @@
 package com.touchvie.touchvie_front.ui.modules;
 
+import android.view.View;
+import android.widget.ImageView;
+
+import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.Module;
 
 /**
@@ -7,17 +11,13 @@ import com.touchvie.touchvie_front.ui.Module;
  */
 public class TitleModule extends Module {
 
+    private ImageView mImage;
     /**
      * Default constructor
      */
-    public TitleModule() {
-
+    public TitleModule(View v) {
+        super(v);
+        mImage = (ImageView) v.findViewById(R.id.module_image_img);
     }
 
-/*
-    public View getView(){
-        View view = inflater.inflate(R.layout.section_base, container, false);
-        return
-    }
-*/
 }
