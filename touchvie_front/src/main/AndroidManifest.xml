@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.touchvie.sdk_front">
+    package="com.touchvie.touchvie_front">
 
     <application
         android:allowBackup="true"

@@ -1,1 +1,1 @@
-include ':app', ':sdk_front'
+include ':app', ':touchvie_front'
