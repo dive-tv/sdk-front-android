@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/sdk-front-android.iml" filepath="$PROJECT_DIR$/sdk-front-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/touchvie_front/sdk_front.iml" filepath="$PROJECT_DIR$/touchvie_front/sdk_front.iml" />
+      <module fileurl="file://$PROJECT_DIR$/touchvie_front/touchvie_front.iml" filepath="$PROJECT_DIR$/touchvie_front/touchvie_front.iml" />
     </modules>
   </component>
 </project>
