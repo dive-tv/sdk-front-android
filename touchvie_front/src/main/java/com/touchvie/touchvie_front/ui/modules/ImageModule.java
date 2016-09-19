@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.Module;
+import com.touchvie.touchvie_front.ui.views.Module;
 
 /**
  * Created by rodrigo.moral on 16/09/2016.
@@ -21,11 +21,11 @@ public class ImageModule extends Module {
         mImage = (ImageView) v.findViewById(R.id.module_image_img);
     }
 
-    public ImageView getmImage() {
+    public ImageView getImage() {
         return mImage;
     }
 
-    public void setmImage(ImageView mImage) {
+    public void setImage(ImageView mImage) {
         this.mImage = mImage;
     }
 

@@ -1,12 +1,12 @@
-package com.touchvie.touchvie_front.ui;
+package com.touchvie.touchvie_front.ui.views;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * 
+ *
  */
-public class Module extends RecyclerView.ViewHolder{
+public class Module extends RecyclerView.ViewHolder {
 
     /**
      * Default constructor
@@ -22,7 +22,7 @@ public class Module extends RecyclerView.ViewHolder{
 
     /**
      * Set Module type
-     * @param modType 
+     * @param modType type of the Module
      */
     public void setType(String modType) {
         this.type = modType;
@@ -35,8 +35,6 @@ public class Module extends RecyclerView.ViewHolder{
     public String getType() {
         return type;
     }
-
-
 
 
 }

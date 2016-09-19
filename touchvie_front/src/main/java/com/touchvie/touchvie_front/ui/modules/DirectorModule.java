@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.Module;
+import com.touchvie.touchvie_front.ui.views.Module;
 
 /**
  * Created by rodrigo.moral on 16/09/2016.
