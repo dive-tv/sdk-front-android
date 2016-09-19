@@ -1,4 +1,4 @@
-package com.touchvie.touchvie_front.ui;
+package com.touchvie.touchvie_front.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
+import com.touchvie.touchvie_front.ui.views.Module;
 import com.touchvie.touchvie_front.ui.adapters.ModulesAdapter;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
@@ -19,6 +20,10 @@ import java.util.ArrayList;
  *
  */
 public class Section extends Fragment {
+
+    public enum SectionType {recycler_view, linear_layout}
+
+    private SectionType sectionType;
 
     /**
      * The Section instance
@@ -124,5 +129,13 @@ public class Section extends Fragment {
     public void onDetach() {
         super.onDetach();
 //        mListener = null;
+    }
+
+    public SectionType getSectionType() {
+        return sectionType;
+    }
+
+    public void setSectionType(SectionType sectionType) {
+        this.sectionType = sectionType;
     }
 }

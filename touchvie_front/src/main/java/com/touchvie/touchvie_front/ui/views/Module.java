@@ -1,20 +1,14 @@
-package com.touchvie.touchvie_front.ui;
+package com.touchvie.touchvie_front.ui.views;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.touchvie.backend.CardData;
-import com.touchvie.touchvie_front.datatypes.JsonDataType;
 import com.touchvie.touchvie_front.datatypes.ModuleType;
 
-import org.json.JSONObject;
-
-import java.util.*;
-
 /**
- * 
+ *
  */
-public class Module extends RecyclerView.ViewHolder{
+public class Module extends RecyclerView.ViewHolder {
 
     /**
      * Default constructor
@@ -30,7 +24,8 @@ public class Module extends RecyclerView.ViewHolder{
 
     /**
      * Set Module type
-     * @param modType 
+     *
+     * @param modType
      * @return
      */
     public void setType(ModuleType modType) {
@@ -39,14 +34,13 @@ public class Module extends RecyclerView.ViewHolder{
 
     /**
      * Get Module type
+     *
      * @return
      */
     public ModuleType getType() {
         // TODO implement here
         return null;
     }
-
-
 
 
 }
