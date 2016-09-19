@@ -1,7 +1,5 @@
 package com.touchvie.touchvie_front.builders;
 
-import com.touchvie.touchvie_front.datatypes.ModuleType;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -10,14 +8,14 @@ import java.util.ArrayList;
  */
 public class ConfigModule implements Serializable{
 
-    protected ModuleType moduleType;
+    protected String moduleType;
     protected ArrayList<Target> targets;
 
-    public ModuleType getModuleType() {
+    public String getModuleType() {
         return moduleType;
     }
 
-    public void setModuleType(ModuleType moduleType) {
+    public void setModuleType(String moduleType) {
         this.moduleType = moduleType;
     }
 
@@ -29,4 +27,18 @@ public class ConfigModule implements Serializable{
         this.targets = targets;
     }
 
+    /**
+     * Check if class exists.
+     *
+     * @param className name of the class we are looking for
+     * @return boolean whether it exists or not
+     */
+    public boolean isClass(String className) {
+        try {
+            Class.forName(className);
+            return true;
+        } catch (final ClassNotFoundException e) {
+            return false;
+        }
+    }
 }

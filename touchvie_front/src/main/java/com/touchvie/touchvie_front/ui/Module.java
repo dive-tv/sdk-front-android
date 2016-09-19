@@ -3,14 +3,6 @@ package com.touchvie.touchvie_front.ui;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.touchvie.backend.CardData;
-import com.touchvie.touchvie_front.datatypes.JsonDataType;
-import com.touchvie.touchvie_front.datatypes.ModuleType;
-
-import org.json.JSONObject;
-
-import java.util.*;
-
 /**
  * 
  */
@@ -26,24 +18,22 @@ public class Module extends RecyclerView.ViewHolder{
     /**
      * Type of Module (from enum)
      */
-    public ModuleType type;
+    public String type;
 
     /**
      * Set Module type
      * @param modType 
-     * @return
      */
-    public void setType(ModuleType modType) {
-        // TODO implement here
+    public void setType(String modType) {
+        this.type = modType;
     }
 
     /**
      * Get Module type
-     * @return
+     * @return type
      */
-    public ModuleType getType() {
-        // TODO implement here
-        return null;
+    public String getType() {
+        return type;
     }
 
 

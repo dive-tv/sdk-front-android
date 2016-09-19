@@ -1,7 +1,5 @@
 package com.touchvie.touchvie_front.builders;
 
-import com.touchvie.touchvie_front.datatypes.ModuleType;
-
 import java.util.*;
 
 /**
@@ -29,7 +27,7 @@ public class ConfigSection {
      * @param modType 
      * @return
      */
-    public void addModule(ModuleType modType) {
+    public void addModule(String modType) {
         // TODO implement here
         return;
     }

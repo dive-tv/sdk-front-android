@@ -3,14 +3,9 @@ package com.touchvie.touchvie_front.builders;
 import android.util.Log;
 
 import com.touchvie.backend.CardData;
-import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
-import com.touchvie.touchvie_front.datatypes.JsonDataType;
-import com.touchvie.touchvie_front.datatypes.ModuleType;
 import com.touchvie.touchvie_front.ui.CardDetail;
-import com.touchvie.touchvie_front.ui.Section;
 import com.touchvie.touchvie_client.CardDataListener;
-import com.touchvie.touchvie_front.ui.Module;
 import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
