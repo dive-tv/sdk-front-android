@@ -1,12 +1,27 @@
 package com.touchvie.touchvie_front.ui.utils;
 
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 
 import com.squareup.picasso.Transformation;
 
 public class CropSquareTransformation implements Transformation {
 
-    public Bitmap transform(Bitmap source, int anchor_x, int anchor_y, int targetWidth, int targetHeight) {
+    int targetWidth;
+    int targetHeight;
+    int anchor_x;
+    int anchor_y;
+
+    public CropSquareTransformation(int targetWidth, int targetHeight, int anchor_x, int anchor_y) {
+        this.targetWidth = targetWidth;
+        this.targetHeight = targetHeight;
+        this.anchor_x = anchor_x;
+        this.anchor_y = anchor_y;
+    }
+
+
+    @Override
+    public Bitmap transform(Bitmap source) {
 
         int inWidth =source.getWidth();  //ancho imagen
         int inHeight =source.getHeight();  //alto imagen
@@ -14,6 +29,8 @@ public class CropSquareTransformation implements Transformation {
         int drawX = 0;
         int drawHeight = 0;
         int drawWidth = 0;
+
+        Matrix matrix = new Matrix();
 
 
         float widthRatio =
@@ -38,23 +55,18 @@ public class CropSquareTransformation implements Transformation {
             drawWidth = inWidth;
             scaleX = scaleY = heightRatio;
         }
-       /* if (shouldResize(onlyScaleDown, inWidth, inHeight, targetWidth, targetHeight)) {
+//        if (shouldResize(onlyScaleDown, inWidth, inHeight, targetWidth, targetHeight)) {
             matrix.preScale(scaleX, scaleY);
-        }*/
-
-        int size = Math.min(source.getWidth(), source.getHeight());
-        int x = (source.getWidth() - size) / 2;
-        int y = (source.getHeight() - size) / 2;
-        Bitmap result = Bitmap.createBitmap(source, x, y, size, size);
-        if (result != source) {
+//        }
+        Bitmap newResult =
+                Bitmap.createBitmap(source, drawX, drawY, drawWidth, drawHeight, matrix, true);
+        if (newResult != source) {
             source.recycle();
+            source = newResult;
         }
-        return result;
-    }
 
-    @Override
-    public Bitmap transform(Bitmap source) {
-        return null;
+        return source;
+
     }
 
     @Override

@@ -203,4 +203,27 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
         onCardReceived(cardData, manager,container);
     }
 
+    /**
+     * FOR TESTING PURPOSES
+     */
+
+    private void requestDataConfig(){
+        String jsonString = null;
+        try {
+            Resources res = context.getResources();
+            InputStream in_s = res.openRawResource(R.raw.dataconfig);
+
+            byte[] b = new byte[in_s.available()];
+            in_s.read(b);
+            jsonString = new String(b);
+        } catch (Exception e) {
+            //jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+        }
+        CardData cardData = new GsonBuilder().create().fromJson(jsonString, CardData.class);
+        if (cardData == null) {
+            cardData = new CardData();
+        }
+       // onDataConfigReceived(cardData);
+    }
+
 }
