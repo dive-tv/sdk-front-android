@@ -1,60 +1,72 @@
 {
-  "main": {
-    "modules": [
-      {
-        "type": "image"
-      },
-      {
-        "type": "title"
-      },
-      {
-        "type": "year"
-      },
-      {
-        "type": "director"
-      },
-      {
-        "type": "categories"
-      },
-      {
-        "type": "rating"
-      },
-      {
-        "type": "runtime"
-      },
-      {
-        "type": "synopsis"
-      },
-      {
-        "type": "navigation",
-        "section": "cast"
-      },
-      {
-        "type": "navigation",
-        "section": "premios"
-      },
-      {
-        "type": "productos"
-      },
-      {
-        "type": "tab",
-        "section":"awards",
-        "section":"cast"
-      }
-    ]
-  },
-  "cast": {
-    "modules": [
-      {
-        "type": "actors"
-      }
-    ]
-  },
-  "awards": {
-    "modules": [
-      {
-        "type": "awards"
-      }
-    ]
-  }
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "description"
+        },
+        {
+          "type": "title"
+        },
+        {
+          "type": "year"
+        },
+        {
+          "type": "director"
+        },
+        {
+          "type": "categories"
+        },
+        {
+          "type": "rating"
+        },
+        {
+          "type": "runtime"
+        },
+        {
+          "type": "synopsis"
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            "cast"
+          ]
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            "premios"
+          ]
+        },
+        {
+          "type": "productos"
+        },
+        {
+          "type": "tab",
+          "targets": [
+            "cast",
+            "awards"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cast",
+      "modules": [
+        {
+          "type": "actors"
+        }
+      ]
+    },
+    {
+      "title": "awards",
+      "modules": [
+        {
+          "type": "awards"
+        }
+      ]
+    }
+  ]
 }

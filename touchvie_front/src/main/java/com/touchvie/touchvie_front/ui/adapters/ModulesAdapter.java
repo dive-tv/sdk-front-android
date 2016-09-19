@@ -38,7 +38,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     //Returns the view type of the item at position for the purposes of view recycling.
     @Override
     public int getItemViewType(int position) {
-        switch (configModules[position].getModuleType()) {
+        switch (configModules[position].getType()) {
             case "Header":
                 return 0;
             case "Description":

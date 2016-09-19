@@ -16,7 +16,7 @@ public class ConfigSection {
     /**
      * List of Modules in this Section
      */
-    protected ArrayList<ConfigModule> modules;
+    protected ConfigModule[] modules;
 
     protected String title;
 
@@ -45,9 +45,8 @@ public class ConfigSection {
      * Load the Modules style configuration
      * @return
      */
-    public ArrayList<ConfigModule> getModulesConfig() {
-        // TODO implement here
-        return null;
+    public ConfigModule[] getConfigModules() {
+        return modules;
     }
 
     public String getTitle() {

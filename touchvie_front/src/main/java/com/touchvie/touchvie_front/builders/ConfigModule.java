@@ -8,22 +8,22 @@ import java.util.ArrayList;
  */
 public class ConfigModule implements Serializable{
 
-    protected String moduleType;
-    protected ArrayList<Target> targets;
+    protected String type;
+    protected Target[] targets;
 
-    public String getModuleType() {
-        return moduleType;
+    public String getType() {
+        return type;
     }
 
-    public void setModuleType(String moduleType) {
-        this.moduleType = moduleType;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public ArrayList<Target> getTargets() {
+    public Target[] getTargets() {
         return targets;
     }
 
-    public void setTargets(ArrayList<Target> targets) {
+    public void setTargets(Target[] targets) {
         this.targets = targets;
     }
 
