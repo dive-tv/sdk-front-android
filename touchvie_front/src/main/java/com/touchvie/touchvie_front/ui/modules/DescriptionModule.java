@@ -1,0 +1,68 @@
+package com.touchvie.touchvie_front.ui.modules;
+
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
+import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.ui.views.Module;
+
+/**
+ * Created by rodrigo.moral on 16/09/2016.
+ */
+public class DescriptionModule extends Module {
+
+    private TextView mTitle;
+    private TextView mBody;
+    private FrameLayout mSourceLine;
+    private TextView mSource;
+
+    /**
+     * Default constructor
+     */
+    public DescriptionModule(View v) {
+        super(v);
+        mTitle = (TextView) v.findViewById(R.id.module_description_title);
+        mBody = (TextView) v.findViewById(R.id.module_description_body);
+        mSourceLine = (FrameLayout) v.findViewById(R.id.module_description_source_line);
+        mSource = (TextView) v.findViewById(R.id.module_description_source);
+    }
+
+    public TextView getTitle() {
+        return mTitle;
+    }
+
+    public void setTitle(TextView mTitle) {
+        this.mTitle = mTitle;
+    }
+
+    public TextView getBody() {
+        return mBody;
+    }
+
+    public void setBody(TextView mBody) {
+        this.mBody = mBody;
+    }
+
+    public FrameLayout getSourceLine() {
+        return mSourceLine;
+    }
+
+    public void setSourceLine(FrameLayout mSourceLine) {
+        this.mSourceLine = mSourceLine;
+    }
+
+    public TextView getSource() {
+        return mSource;
+    }
+
+    public void setSource(TextView mSource) {
+        this.mSource = mSource;
+    }
+
+    public void configure(DescriptionModule descriptionVH, int position) {
+        descriptionVH.getTitle().setText("TITLE TEST");
+        descriptionVH.getBody().setText("BODY TEST");
+        descriptionVH.getSource().setText("SOURCE TEST");
+    }
+}

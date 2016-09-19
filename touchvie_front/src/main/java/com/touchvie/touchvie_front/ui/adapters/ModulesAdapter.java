@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
+import com.touchvie.touchvie_front.ui.modules.DescriptionModule;
 import com.touchvie.touchvie_front.ui.modules.ImageModule;
 import com.touchvie.touchvie_front.ui.modules.TitleModule;
 
@@ -33,7 +34,15 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     //Returns the view type of the item at position for the purposes of view recycling.
     @Override
     public int getItemViewType(int position) {
-        return 1;
+        switch (configModules[position].getModuleType()){
+            case "Header":
+                return 0;
+            case "Description":
+                return 1;
+            case "RelatedMovies":
+                return 2;
+        }
+        return 0;
     }
 
     /**
@@ -49,15 +58,19 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
 
         switch (viewType) {
-            case 0: //ImageModule
+            case 0: //HeaderModule
                 ViewGroup vImageModule = (ViewGroup) inflater.inflate(R.layout.module_image, viewGroup, false);
                 viewHolder = new ImageModule(vImageModule);
                 break;
-            case 1: //TitleModule
+            case 1: //DescriptionModule
+                ViewGroup vDescriptionModule = (ViewGroup) inflater.inflate(R.layout.module_description, viewGroup, false);
+                viewHolder = new DescriptionModule(vDescriptionModule);
+                break;
+            case 2: //RelatedMoviesModule
                 ViewGroup vTitleModule = (ViewGroup) inflater.inflate(R.layout.module_title, viewGroup, false);
                 viewHolder = new TitleModule(vTitleModule);
                 break;
-            default: //TitleModule for test
+            default: //HeaderModule for test
                 ViewGroup vDefaultModule = (ViewGroup) inflater.inflate(R.layout.module_title, viewGroup, false);
                 viewHolder = new TitleModule(vDefaultModule);
                 break;
@@ -83,6 +96,10 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             case 1:
                 TitleModule titleVH = (TitleModule) viewHolder;
                 titleVH.configure(titleVH, position);
+                break;
+            case 2:
+                DescriptionModule descriptionVH = (DescriptionModule) viewHolder;
+                descriptionVH.configure(descriptionVH, position);
                 break;
             default:
                 TitleModule defaultVH = (TitleModule) viewHolder;
