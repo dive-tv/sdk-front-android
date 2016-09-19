@@ -8,3 +8,4 @@ public class Utils {
     public static final String CONFIG_MODULES = "CONFIG_MODULES";
     public static final String SECTION_TYPE = "SECTION_TYPE";
 }
+
