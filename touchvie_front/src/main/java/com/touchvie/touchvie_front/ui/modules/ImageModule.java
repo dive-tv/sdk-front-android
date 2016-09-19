@@ -28,4 +28,8 @@ public class ImageModule extends Module {
     public void setmImage(ImageView mImage) {
         this.mImage = mImage;
     }
+
+    public void configure(ImageModule imageVH, int position) {
+        //TODO
+    }
 }
