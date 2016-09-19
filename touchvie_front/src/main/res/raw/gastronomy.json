@@ -1,0 +1,45 @@
+{
+	"card_id": "d0b9f119-c052-11e5-97ac-0684985cbbe3",
+	"locale": "es_ES",
+	"title": "Cóctel Vesper",
+	"subtitle": null,
+	"type": 23,
+	"image": "d0b9f119-c052-11e5-97ac-0684985cbbe3/d0b9f119-c052-11e5-97ac-0684985cbbe3_0.jpg",
+	"source": "http://caledoniaspirits.com/wp-content/uploads/2015/01/life-styled-cocktail-spotlight-the-vesper1.jpg",
+	"anchor_x": 51,
+	"anchor_y": 27,
+	"description": {
+			"type_data": "description",
+			"type": "text",
+			"title": "Descripción",
+			"text": "La bebida fue inventada y titulada por el agente secreto de ficción James Bond en la novela de 1953 Casino Royale. Dado que tanto la Kina Lillet como la Ginebra Gordon's han sido reformuladas desde 1953, se pueden sustituir estas marcas por otras para tratar de mantener los sabores originales: Lillet Blanc es la elección para sustituir la Kina Lillet-- la Quina fue sustituida debido a la preferencia en Europa por aperitivos menos amargos.5 El Cocchi Americano también es considerado un sustituto aceptable.6 Para un sabor más tradicional, se puede usar un Vodka Stolichnaya de 50 grados, rememorando los niveles alcohólicos de 1953. También se aproximaría al sabor del 'vodkadegrano' mencionado por Bond en el libro. La ginebra Tanqueray daría la graduación alcohólica de 47 grados. La versión de exportación de Gordon's también posee esa graduación (no así la de consumo en Gran Bretaña, formulada para 40 grados). La copa de cóctel moderna, que es más grande que la de 1953, es a menudo sustituida por una copa alargada de champán.",
+			"source": "https://es.wikipedia.org/wiki/Vesper_(c%C3%B3ctel)"
+	},
+	"is_exact": false,
+	"url": "https://pre-card-web.touchvie.com/rKoHXE5CTTrbZ7AnHqYo9f",
+	"is_user_locale": true,
+	"user_info": {
+		"conversation_nr": 0,
+		"unread_conversation_nr": 0,
+		"is_liked": true,
+		"collection_nr": 0},
+	"related_movies": {
+		"title": "Películas relacionadas",
+		"type": "related_movies",
+		"type_data": "related_movies",
+		"movies": [{
+			"type": 1,
+			"image": "481462f2-ccdd-3529-881b-fbf98804eda7/481462f2-ccdd-3529-881b-fbf98804eda7_1_es_ES.jpg",
+			"anchor_x": 50,
+			"anchor_y": 50,
+			"title": "Casino Royale",
+			"subtitle": "Martin Campbell",
+			"touchvie_ready": true,
+			"mean_score": 3.725,
+			"year": 2006,
+			"summary": null,
+			"movie_id": "481462f2-ccdd-3529-881b-fbf98804eda7"
+		}]
+	},
+	"product_info": []
+}
