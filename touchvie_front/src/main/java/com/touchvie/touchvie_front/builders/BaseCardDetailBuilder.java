@@ -1,8 +1,14 @@
 package com.touchvie.touchvie_front.builders;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
+import android.widget.LinearLayout;
 
+import com.google.gson.GsonBuilder;
 import com.touchvie.backend.CardData;
+import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.ui.CardDetail;
 import com.touchvie.touchvie_client.CardDataListener;
@@ -10,6 +16,7 @@ import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -56,7 +63,7 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
      */
     protected ModuleValidator validator=null;
 
-
+    private Context context=null;
     /**
      * Default constructor
      */
@@ -66,13 +73,12 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
     /**
      * Requests the server the modules for the given card.
      * @param cardID  the card identifier.
-     * @return
-     */
-    public void build(String cardID, JSONObject customValidator) {
+     * @return*/
+    public void build(String cardID, FragmentManager manager, LinearLayout container, Context ctx) {
 
         buildDefault=false;
-
-        //requestCard(cardId)
+        context = ctx;
+        requestCard(cardID, manager, container);
 
     }
 
@@ -81,11 +87,11 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
      * @param cardID  the card identifier.
      * @return
      */
-    public void buildAll(String cardID,JSONObject customValidator ) {
+    public void buildAll(String cardID, FragmentManager manager, LinearLayout container, Context ctx ) {
 
         buildDefault=true;
-
-        //requestCard(cardId)
+        context = ctx;
+        requestCard(cardID, manager, container);
 
     }
 
@@ -108,7 +114,7 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
         return getThis();
     }
 
-    protected void composeCardDetail(){
+    protected void composeCardDetail(FragmentManager manager, LinearLayout container){
 
         //First off all get the main section from the dictionary.
         ConfigSection main = idSection.get(mainSectionKey);
@@ -119,7 +125,7 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
 
         //Compose all the modules with the data.
 
-        CardDetail cardDetail= new CardDetail();
+        CardDetail cardDetail= new CardDetail(manager,container);
 
         for(String id: idSection.keySet()){
 
@@ -135,10 +141,10 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
     }
 
     @Override
-    public void onCardReceived(CardData data){
+    public void onCardReceived(CardData data, FragmentManager manager, LinearLayout container){
 
             this.data=data;
-            composeCardDetail();
+            composeCardDetail(manager, container);
     }
 
     protected T addSection(String sectionId, ConfigSection section, boolean isMain){
@@ -153,5 +159,28 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
         this.mainSectionKey = mainSectionKey;
     }
 
+
+    /**
+     * FOR TESTING PURPOSES
+     */
+    private void requestCard(String cardId, FragmentManager manager, LinearLayout container){
+        String jsonString = null;
+//        CardData cardData=null;
+        try {
+            Resources res = context.getResources();
+            InputStream in_s = res.openRawResource(R.raw.gastronomy);
+
+            byte[] b = new byte[in_s.available()];
+            in_s.read(b);
+            jsonString = new String(b);
+        } catch (Exception e) {
+            //jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
+        }
+        CardData cardData = new GsonBuilder().create().fromJson(jsonString, CardData.class);
+        if (cardData == null) {
+            cardData = new CardData();
+        }
+        onCardReceived(cardData, manager,container);
+    }
 
 }

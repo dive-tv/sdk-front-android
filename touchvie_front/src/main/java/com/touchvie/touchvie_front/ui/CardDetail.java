@@ -1,6 +1,9 @@
 package com.touchvie.touchvie_front.ui;
 
 
+import android.support.v4.app.FragmentManager;
+import android.widget.LinearLayout;
+
 import com.touchvie.touchvie_front.builders.ConfigSection;
 
 import java.util.*;
@@ -13,7 +16,7 @@ public class CardDetail {
     /**
      * Default constructor
      */
-    public CardDetail() {
+    public CardDetail(FragmentManager manager, LinearLayout container) {
     }
 
     /**
