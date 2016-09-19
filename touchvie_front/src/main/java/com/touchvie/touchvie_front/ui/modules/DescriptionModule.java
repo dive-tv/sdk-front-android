@@ -4,11 +4,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.touchvie.backend.CardData;
+import com.touchvie.backend.Description;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.Module;
 
 /**
- * Created by rodrigo.moral on 16/09/2016.
+ * Created by Tagsonomy S.L. on 16/09/2016.
  */
 public class DescriptionModule extends Module {
 
@@ -60,9 +62,30 @@ public class DescriptionModule extends Module {
         this.mSource = mSource;
     }
 
-    public void configure(DescriptionModule descriptionVH, int position) {
-        descriptionVH.getTitle().setText("TITLE TEST");
-        descriptionVH.getBody().setText("BODY TEST");
-        descriptionVH.getSource().setText("SOURCE TEST");
+    public void configure(DescriptionModule descriptionVH, CardData cardData) {
+        if (cardData != null && cardData.getDescription() != null) {
+            Description description = cardData.getDescription();
+            //Title
+            if (description.getTitle() != null && description.getTitle().length() > 0) {
+                descriptionVH.getTitle().setText(description.getTitle());
+            }
+            else{
+                descriptionVH.getTitle().setText("");
+            }
+            //Body text
+            if (description.getText() != null && description.getText().length() > 0){
+                descriptionVH.getBody().setText(description.getText());
+            }
+            else{
+                descriptionVH.getBody().setText("");
+            }
+            //Source
+            if (description.getSource() != null && description.getSource().length() > 0) {
+                descriptionVH.getSource().setText(description.getSource());
+                descriptionVH.getSource().setVisibility(View.VISIBLE);
+            } else {
+                descriptionVH.getSource().setVisibility(View.GONE);
+            }
+        }
     }
 }
