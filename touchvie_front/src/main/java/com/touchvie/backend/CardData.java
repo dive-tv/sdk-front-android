@@ -3,7 +3,7 @@ package com.touchvie.backend;
 import java.io.Serializable;
 
 /**
- * Created by rodrigo.moral on 16/09/2016.
+ * Created by Tagsonomy S.L. on 16/09/2016.
  */
 public class CardData implements Serializable {
     String card_id;
@@ -21,4 +21,19 @@ public class CardData implements Serializable {
     Boolean is_user_locale;
     RelatedMovies related_movies;
 
+    public Description getDescription() {
+        return description;
+    }
+
+    public void setDescription(Description description) {
+        this.description = description;
+    }
+
+    public RelatedMovies getRelated_movies() {
+        return related_movies;
+    }
+
+    public void setRelated_movies(RelatedMovies related_movies) {
+        this.related_movies = related_movies;
+    }
 }

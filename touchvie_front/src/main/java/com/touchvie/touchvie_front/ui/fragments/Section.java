@@ -119,7 +119,7 @@ public class Section extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
-        modulesAdapter = new ModulesAdapter(cardData, configModules);
+        modulesAdapter = new ModulesAdapter(getContext(), cardData, configModules);
 
         switch (sectionType) {
             case recycler_view:

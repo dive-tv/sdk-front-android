@@ -7,7 +7,7 @@ import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.Module;
 
 /**
- * Created by rodrigo.moral on 16/09/2016.
+ * Created by Tagsonomy S.L. on 16/09/2016.
  */
 public class DirectorModule extends Module {
 

@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import com.touchvie.backend.CardData;
 
 /**
- * Created by noemi.leon on 14/09/2016.
+ * Created by Tagsonomy S.L. on 14/09/2016.
  */
 public interface CardDataListener {
 
