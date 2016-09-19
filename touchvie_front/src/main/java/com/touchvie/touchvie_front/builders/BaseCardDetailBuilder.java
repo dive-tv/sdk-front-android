@@ -1,12 +1,17 @@
 package com.touchvie.touchvie_front.builders;
 
+import android.util.Log;
+
 import com.touchvie.backend.CardData;
+import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.datatypes.JsonDataType;
 import com.touchvie.touchvie_front.datatypes.ModuleType;
 import com.touchvie.touchvie_front.ui.CardDetail;
 import com.touchvie.touchvie_front.ui.Section;
-import com.touchvie.listeners.CardDataListener;
+import com.touchvie.touchvie_client.CardDataListener;
 import com.touchvie.touchvie_front.ui.Module;
+import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
 
@@ -21,32 +26,42 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
     protected abstract T getThis();
 
     /**
-     *
-     */
-    protected CardDetailListener listener=null;
-
-    /**
-     * JSON with the style configuration
+     * JSON with the style configuration: colors, fonts...
      */
     protected JSONObject styleConfig;
 
+
     /**
-     * Dictionary with the modules nested in sections
+     * Dictionary with the config sections created for the card detail without beeing validated.
      * Key: Name of the section
      * Value: section
      */
     protected HashMap<String, ConfigSection> idSection;
 
+    /**
+     * Data received from the server.
+     */
     protected CardData data;
 
 
     /**
-     *
+     * Key to the main section of the card detail.
      */
     protected String mainSectionKey= "main";
 
 
+    /**
+     * Sets wheter the card detail must show all the modules by default or not.
+     */
     protected boolean buildDefault=false;
+
+
+    /**
+     * Object to validate the modules to be added.
+     */
+    protected ModuleValidator validator=null;
+
+
     /**
      * Default constructor
      */
@@ -56,63 +71,36 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
     /**
      * Requests the server the modules for the given card.
      * @param cardID  the card identifier.
-     * @param listener the object to be notified when the card detail is built.
      * @return
      */
-    public void build(String cardID, CardDetailListener listener) {
+    public void build(String cardID, JSONObject customValidator) {
 
         buildDefault=false;
-        this.listener=listener;
+
         //requestCard(cardId)
 
     }
 
-    public void buildAll(String cardID, CardDetailListener listener) {
+    /**
+     * Requests the server the modules for the given card.
+     * @param cardID  the card identifier.
+     * @return
+     */
+    public void buildAll(String cardID,JSONObject customValidator ) {
 
         buildDefault=true;
-        this.listener=listener;
+
         //requestCard(cardId)
 
     }
 
-
-    /**
-     * Creates a new module
-     * @param modType the type of the module that will be created.
-     * @param dataTypes the identifiers of the data that will be used to build the module
-     * @return
-     */
-    protected Module buildModule(ModuleType modType, JsonDataType[] dataTypes) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * Creates a new section
-     * @param section
-     * @return
-     */
-    protected Section buildSection(ConfigSection section) {
-
-        for(ConfigModule config: section.getModulesConfig() ){
-
-                ModuleType type= config.getModuleType();
-                if(!Module.validate(data, type.toString() )){
-                    continue;
-                }
-
-
-        }
-        return null;
-    }
 
     /**
      * Gets the card data from server
-     * @param param 
+     * @param cardId The card identifier.
      * @return
      */
-    protected CardData getCardData(Set<String> param) {
-        // TODO implement here. Get it from local while the server does not implement this method.
+    protected CardData getCardData(String cardId) {
         return null;
     }
 
@@ -122,7 +110,6 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
      * @return
      */
     public T loadStyleConfig(JSONObject styleConfig) {
-        // TODO implement here
         return getThis();
     }
 
@@ -131,14 +118,24 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
         //First off all get the main section from the dictionary.
         ConfigSection main = idSection.get(mainSectionKey);
         if(main == null){
-            listener.onCardDetailError();
+            Log.e(this.getClass().getName(), Utils.getError(Utils.ErrorCode.no_main_error));
             return;
         }
 
         //Compose all the modules with the data.
 
         CardDetail cardDetail= new CardDetail();
-        cardDetail.setSection(buildSection(main));
+
+        for(String id: idSection.keySet()){
+
+            ConfigSection section= idSection.get(id);
+
+            for(ConfigModule module: section.getModulesConfig()){
+                if(true /*ModuleValidator.validate(data, module )*/){
+                    cardDetail.setSection(section);
+                }
+            }
+        }
 
     }
 
@@ -159,13 +156,6 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
 
     protected void setMainSectionKey(String mainSectionKey) {
         this.mainSectionKey = mainSectionKey;
-    }
-
-
-    public interface CardDetailListener{
-
-        void onCardDetailCreated(CardDetail cardDetail);
-        void onCardDetailError();
     }
 
 

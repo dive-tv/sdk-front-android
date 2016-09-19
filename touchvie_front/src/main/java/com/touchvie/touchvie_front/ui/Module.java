@@ -42,40 +42,7 @@ public class Module {
         return null;
     }
 
-    /**
-     * Static method to check whether the module can be created with the given data or not.
-     * @param json 
-     * @param modType 
-     * @param arguments 
-     * @return
-     */
-    public static boolean validate(JSONObject json, ModuleType modType, JsonDataType arguments) {
-        // TODO implement here
-        return false;
-    }
-
-    /**
-     * Static method to check whether the module can be created with the given data or not.
-     * @param data
-     * @param modType
-     * @return
-     */
-    public static boolean validate(CardData data, String modType) {
-        // TODO implement here.
-
-        ArrayList<JsonDataType> datatypes=new ArrayList<>();
-
-        switch(modType){
-            case "Gallery":
-                break;
-            case "Header":
-                break;
 
 
-        }
-
-
-        return false;
-    }
 
 }

@@ -1,6 +1,8 @@
 package com.touchvie.touchvie_front.ui;
 
 
+import com.touchvie.touchvie_front.builders.ConfigSection;
+
 import java.util.*;
 
 /**
@@ -24,7 +26,7 @@ public class CardDetail {
      * Key: Section name
      * Value: Section
      */
-    public HashMap<String,Section> sections;
+    public HashMap<String,ConfigSection> sections;
 
 
 
@@ -52,13 +54,9 @@ public class CardDetail {
      * @param section 
      * @return
      */
-    public void setSection(Section section) {
-        if(section==null){
-            return;
-        }
+    public void setSection(ConfigSection section) {
 
-
-        // TODO implement here
+        sections.put(section.getTitle(), section);
     }
 
     /**
@@ -66,7 +64,7 @@ public class CardDetail {
      * @param sections
      * @return
      */
-    public void setSections(HashMap<String, Section> sections) {
+    public void setSections(HashMap<String, ConfigSection> sections) {
         // TODO implement here
     }
 
@@ -74,7 +72,7 @@ public class CardDetail {
      * Get the sections
      * @return
      */
-    public HashMap<String, Section> getSections() {
+    public HashMap<String, ConfigSection> getSections() {
         // TODO implement here
         return sections;
     }

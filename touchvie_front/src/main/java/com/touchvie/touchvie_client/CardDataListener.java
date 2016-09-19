@@ -1,4 +1,4 @@
-package com.touchvie.listeners;
+package com.touchvie.touchvie_client;
 
 import com.touchvie.backend.CardData;
 
@@ -7,5 +7,9 @@ import com.touchvie.backend.CardData;
  */
 public interface CardDataListener {
 
+    /**
+     * Interface to be reported when the data of a card has been received.
+     * @param data
+     */
     void onCardReceived(CardData data);
 }
