@@ -15,6 +15,8 @@ public class CardDetail {
 
     /**
      * Default constructor
+     * @param manager: fragment manager
+     * @param container: Linear layout
      */
     public CardDetail(FragmentManager manager, LinearLayout container) {
     }

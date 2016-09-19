@@ -73,6 +73,9 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
     /**
      * Requests the server the modules for the given card.
      * @param cardID  the card identifier.
+     * @param manager  fragment manager.
+     * @param container  LinearLayout where will show cardDetail.
+     * @param ctx  the application context.
      * @return*/
     public void build(String cardID, FragmentManager manager, LinearLayout container, Context ctx) {
 
@@ -85,6 +88,9 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
     /**
      * Requests the server the modules for the given card.
      * @param cardID  the card identifier.
+     * @param manager  fragment manager.
+     * @param container  LinearLayout where will show cardDetail.
+     * @param ctx  the application context.
      * @return
      */
     public void buildAll(String cardID, FragmentManager manager, LinearLayout container, Context ctx ) {
@@ -114,6 +120,11 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
         return getThis();
     }
 
+    /**
+     *
+     * @param manager  fragment manager.
+     * @param container  LinearLayout where will show cardDetail.
+     */
     protected void composeCardDetail(FragmentManager manager, LinearLayout container){
 
         //First off all get the main section from the dictionary.
@@ -140,6 +151,12 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
 
     }
 
+    /**
+     * CallBack of data received
+     * @param data Carddata
+     * @param manager  fragment manager.
+     * @param container  LinearLayout where will show cardDetail.
+     */
     @Override
     public void onCardReceived(CardData data, FragmentManager manager, LinearLayout container){
 
@@ -162,10 +179,13 @@ public abstract class BaseCardDetailBuilder <T extends BaseCardDetailBuilder<T>>
 
     /**
      * FOR TESTING PURPOSES
+     * @param cardId  Card identifier.
+     * @param manager  fragment manager.
+     * @param container  LinearLayout where will show cardDetail.
      */
+
     private void requestCard(String cardId, FragmentManager manager, LinearLayout container){
         String jsonString = null;
-//        CardData cardData=null;
         try {
             Resources res = context.getResources();
             InputStream in_s = res.openRawResource(R.raw.gastronomy);

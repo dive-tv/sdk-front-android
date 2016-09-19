@@ -7,7 +7,7 @@ public class RelatedMovies {
     String title;
     String type;
     String type_data;
-    Movies movies;
+    Movies movies[];
     String summary;
     String movie_id;
 }
