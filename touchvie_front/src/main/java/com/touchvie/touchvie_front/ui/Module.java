@@ -1,5 +1,8 @@
 package com.touchvie.touchvie_front.ui;
 
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_front.datatypes.JsonDataType;
 import com.touchvie.touchvie_front.datatypes.ModuleType;
@@ -11,12 +14,13 @@ import java.util.*;
 /**
  * 
  */
-public class Module {
+public class Module extends RecyclerView.ViewHolder{
 
     /**
      * Default constructor
      */
-    public Module() {
+    public Module(View view) {
+        super(view);
     }
 
     /**

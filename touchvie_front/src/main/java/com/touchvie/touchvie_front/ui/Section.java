@@ -10,6 +10,7 @@ import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.ui.adapters.ModulesAdapter;
+import com.touchvie.touchvie_front.ui.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -36,12 +37,12 @@ public class Section extends Fragment {
     /**
      * CardData object, with all the data of the card
      */
-    private static CardData cardData;
+    private CardData cardData;
 
     /**
      * Module configuration file
      */
-    private static ConfigModule configModule;
+    private ConfigModule[] configModules;
 
     /**
      * Set the Modules in this Section
@@ -84,10 +85,13 @@ public class Section extends Fragment {
      *
      * @return A new instance of fragment Home.
      */
-    public static Section newInstance(CardData data, ConfigModule config) {
-        cardData = data;
-        configModule = config;
-        return new Section();
+    public static Section newInstance(CardData data, ConfigModule[] config) {
+        Section fragment = new Section();
+        Bundle extras = new Bundle();
+        extras.putSerializable(Utils.CARD_DATA, data);
+        extras.putSerializable(Utils.CONFIG_MODULES, config);
+        fragment.setArguments(extras);
+        return fragment;
     }
 
 
@@ -97,13 +101,17 @@ public class Section extends Fragment {
         instance = this;
 
         Bundle extras = getArguments();
+        if(extras!=null){
+            cardData = (CardData) extras.getSerializable(Utils.CARD_DATA);
+            configModules = (ConfigModule[]) extras.getSerializable(Utils.CONFIG_MODULES);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.section_base, container, false);
-        modulesAdapter = new ModulesAdapter(cardData);
+        modulesAdapter = new ModulesAdapter(cardData, configModules);
         return view;
     }
 
