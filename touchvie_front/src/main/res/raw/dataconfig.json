@@ -8,63 +8,24 @@
           "type": "description"
         },
         {
-          "type": "title"
-        },
-        {
-          "type": "year"
-        },
-        {
-          "type": "director"
-        },
-        {
-          "type": "categories"
-        },
-        {
-          "type": "rating"
-        },
-        {
-          "type": "runtime"
-        },
-        {
-          "type": "synopsis"
+          "type": "relatedMovies"
         },
         {
           "type": "navigation",
           "targets": [
-            "cast"
-          ]
-        },
-        {
-          "type": "navigation",
-          "targets": [
-            "premios"
-          ]
-        },
-        {
-          "type": "productos"
-        },
-        {
-          "type": "tab",
-          "targets": [
-            "cast",
-            "awards"
+            {
+              "sectionId": "second",
+              "text": "GO TO SECOND SECTION"
+            }
           ]
         }
       ]
     },
     {
-      "title": "cast",
+      "title": "second",
       "modules": [
         {
-          "type": "actors"
-        }
-      ]
-    },
-    {
-      "title": "awards",
-      "modules": [
-        {
-          "type": "awards"
+          "type": "relatedMovies"
         }
       ]
     }

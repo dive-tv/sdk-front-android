@@ -1,60 +1,33 @@
 {
-  "main": {
-    "modules": [
-      {
-        "type": "image"
-      },
-      {
-        "type": "title"
-      },
-      {
-        "type": "year"
-      },
-      {
-        "type": "director"
-      },
-      {
-        "type": "categories"
-      },
-      {
-        "type": "rating"
-      },
-      {
-        "type": "runtime"
-      },
-      {
-        "type": "synopsis"
-      },
-      {
-        "type": "navigation",
-        "section": "cast"
-      },
-      {
-        "type": "navigation",
-        "section": "premios"
-      },
-      {
-        "type": "productos"
-      },
-      {
-        "type": "tab",
-        "section":"awards",
-        "section":"cast"
-      }
-    ]
-  },
-  "cast": {
-    "modules": [
-      {
-        "type": "actors"
-      }
-    ]
-  },
-  "awards": {
-    "modules": [
-      {
-        "type": "awards"
-      }
-    ]
-  }
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "description"
+        },
+        {
+          "type": "relatedMovies"
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            {
+              "sectionId": "second",
+              "text": "GO TO SECOND SECTION"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "second",
+      "modules": [
+        {
+          "type": "relatedMovies"
+        }
+      ]
+    }
+  ]
 }

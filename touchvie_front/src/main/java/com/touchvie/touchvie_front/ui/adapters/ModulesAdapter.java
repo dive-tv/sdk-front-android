@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
+import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
 import com.touchvie.touchvie_front.ui.modules.DescriptionModule;
 import com.touchvie.touchvie_front.ui.modules.ImageModule;
+import com.touchvie.touchvie_front.ui.modules.NavigationModule;
 import com.touchvie.touchvie_front.ui.modules.RelatedMoviesModule;
 import com.touchvie.touchvie_front.ui.modules.TitleModule;
 
@@ -20,13 +22,16 @@ import com.touchvie.touchvie_front.ui.modules.TitleModule;
 public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final Context context;
+    private final CardDetailListener mListener;
     private CardData cardData;
     private final ConfigModule[] configModules;
 
-    public ModulesAdapter(Context context, CardData cardData, ConfigModule[] configModules) {
+    public ModulesAdapter(Context context, CardData cardData, ConfigModule[] configModules, CardDetailListener mListener) {
         this.context = context;
         this.cardData = cardData;
         this.configModules = configModules;
+        this.mListener = mListener;
+        System.out.println("KKKKKKKKKKKKKK ModulesAdapter");
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -38,13 +43,16 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     //Returns the view type of the item at position for the purposes of view recycling.
     @Override
     public int getItemViewType(int position) {
+        System.out.println("KKKKKKKKKKKKKK ModulesAdapter getItemViewType " + configModules[position].getType());
         switch (configModules[position].getType()) {
-            case "Header":
+            case "header":
                 return 0;
-            case "Description":
+            case "description":
                 return 1;
-            case "RelatedMovies":
+            case "relatedMovies":
                 return 2;
+            case "navigation":
+                return 3;
         }
         return 0;
     }
@@ -60,6 +68,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        System.out.println("KKKKKKKKKKKKKK ModulesAdapter onCreateViewHolder " + viewType);
 
         switch (viewType) {
             case 0: //HeaderModule
@@ -71,8 +80,12 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 viewHolder = new DescriptionModule(vDescriptionModule);
                 break;
             case 2: //RelatedMoviesModule
-                ViewGroup vRelatedMoviesModule = (ViewGroup) inflater.inflate(R.layout.module_title, viewGroup, false);
+                ViewGroup vRelatedMoviesModule = (ViewGroup) inflater.inflate(R.layout.module_related_movies, viewGroup, false);
                 viewHolder = new RelatedMoviesModule(vRelatedMoviesModule);
+                break;
+            case 3: //NavigationModule
+                ViewGroup vNavigationModule = (ViewGroup) inflater.inflate(R.layout.module_navigation, viewGroup, false);
+                viewHolder = new NavigationModule(vNavigationModule);
                 break;
             default: //HeaderModule for test
                 ViewGroup vDefaultModule = (ViewGroup) inflater.inflate(R.layout.module_title, viewGroup, false);
@@ -92,18 +105,23 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      */
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+        System.out.println("KKKKKKKKKKKKKK ModulesAdapter onBindViewHolder " + position + " " + viewHolder.getItemViewType());
         switch (viewHolder.getItemViewType()) {
             case 0:
                 ImageModule imageVH = (ImageModule) viewHolder;
                 imageVH.configure(imageVH, position);
                 break;
-            case 1:
+            case 1: //Description module
                 DescriptionModule descriptionVH = (DescriptionModule) viewHolder;
                 descriptionVH.configure(descriptionVH, cardData);
                 break;
-            case 2:
+            case 2: //Related Movies module
                 RelatedMoviesModule relatedMoviesVH = (RelatedMoviesModule) viewHolder;
                 relatedMoviesVH.configure(context, relatedMoviesVH, cardData);
+                break;
+            case 3: //Navigation module
+                NavigationModule navigationVH = (NavigationModule) viewHolder;
+                navigationVH.configure(context, navigationVH, configModules[position].getTargets(), mListener);
                 break;
             default:
                 TitleModule defaultVH = (TitleModule) viewHolder;

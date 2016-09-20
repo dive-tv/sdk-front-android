@@ -21,4 +21,8 @@
     <dimen name="module_related_movies_row_title">15sp</dimen>
     <dimen name="module_related_movies_row_subtitle">13sp</dimen>
 
+    <!-- Module Navigation -->
+    <dimen name="module_navigation_height">100dp</dimen>
+    <dimen name="module_navigation_text_size">20sp</dimen>
+
 </resources>

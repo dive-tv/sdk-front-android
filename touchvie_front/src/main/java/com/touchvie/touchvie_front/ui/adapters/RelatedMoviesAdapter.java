@@ -94,6 +94,7 @@ public class RelatedMoviesAdapter extends BaseAdapter {
         }
         Movies relatedMovie = movies[position];
         //Photo
+        System.out.println("KKKKKKKK RelatesMoviesAdapter image " + relatedMovie.getImage());
         if (relatedMovie.getImage() != null && relatedMovie.getImage().length() > 0) {
             mPicasso
                     .load(relatedMovie.getImage())

@@ -13,12 +13,15 @@ import com.touchvie.touchvie_client.CardDataListener;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.ui.CardDetail;
+import com.touchvie.touchvie_front.ui.fragments.Section;
 import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.HashMap;
+
+import static com.touchvie.touchvie_front.ui.fragments.Section.SectionType.recycler_view;
 
 /**
  * Class to inherit the card detail builders common methods.
@@ -102,6 +105,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         buildDefault = true;
         context = ctx;
+        System.out.println("KKKKKKKKKK BaseCardDetailBuilder buildAll");
         requestCard(cardID, manager, container);
 
     }
@@ -132,6 +136,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * @param container LinearLayout where will show cardDetail.
      */
     protected void composeCardDetail(FragmentManager manager, LinearLayout container) {
+        System.out.println("KKKKKKKKKK BaseCardDetailBuilder composeCardDetail ");
 
         requestDataConfig();
 
@@ -144,18 +149,21 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         //Compose all the modules with the data.
 
-        CardDetail cardDetail = new CardDetail(manager, container);
+        CardDetail cardDetail = new CardDetail(data, idSection, "main",manager, container);
 
+/*
         for (String id : idSection.keySet()) {
-
+            System.out.println("KKKKKKKKKK BaseCardDetailBuilder idSction for " + id);
             ConfigSection section = idSection.get(id);
-
             for (ConfigModule module : section.getConfigModules()) {
-                if (true /*ModuleValidator.validate(data, module )*/) {
+                if (true */
+            /*ModuleValidator.validate(data, module )*//*
+            ) {
                     cardDetail.setSection(section);
                 }
             }
         }
+*/
 
     }
 
@@ -210,6 +218,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         if (cardData == null) {
             cardData = new CardData();
         }
+        System.out.println("KKKKKKKKKK BaseCardDetailBuilder request " + cardData.getCard_id());
         onCardReceived(cardData, manager, container);
     }
 
@@ -240,5 +249,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
                 idSection.put((dataConfig.getSections()[i]).getTitle(), dataConfig.getSections()[i]);
             }
         }
+        System.out.println("KKKKKKKKKK BaseCardDetailBuilder requestDataConfig " + idSection.size());
+
     }
 }
