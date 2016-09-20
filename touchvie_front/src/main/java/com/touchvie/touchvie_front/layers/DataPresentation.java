@@ -1,18 +1,17 @@
 package com.touchvie.touchvie_front.layers;
 
-import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.ui.data.Scene;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+
 
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
  */
-public class DataPresentationLayer implements CarouselCardListener{
+public class DataPresentation implements CarouselCardListener{
 
     private HashMap<String, Scene> scenes;
     private String currentScene=null;
@@ -20,7 +19,7 @@ public class DataPresentationLayer implements CarouselCardListener{
     private ArrayList<CarouselCard> orphanedCards;
 
 
-    DataPresentationLayer(){
+    public DataPresentation(){
         scenes=new HashMap<>();
     }
 
