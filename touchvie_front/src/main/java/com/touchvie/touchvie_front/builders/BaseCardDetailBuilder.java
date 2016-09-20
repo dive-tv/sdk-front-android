@@ -5,7 +5,7 @@ import android.util.Log;
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.ui.CardDetail;
-import com.touchvie.touchvie_client.CardDataListener;
+import com.touchvie.touchvie_client.listeners.CardDataListener;
 import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
