@@ -1,9 +1,11 @@
 package com.touchvie.backend;
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
  */
-public class RelatedMovies {
+public class RelatedMovies implements Serializable {
     String title;
     String type;
     String type_data;

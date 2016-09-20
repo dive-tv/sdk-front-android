@@ -1,11 +1,9 @@
 package com.touchvie.touchvie_front.ui.fragments;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,6 +82,11 @@ public class Section extends Fragment {
         return modules;
     }
 
+
+    public ConfigSection getConfigSection() {
+        return configSection;
+    }
+
     /**
      * Set a new Module on this Section
      *
@@ -147,6 +150,7 @@ public class Section extends Fragment {
                 recyclerView.setAdapter(modulesAdapter);
                 break;
             case linear_layout:
+                System.out.println("KKKKKKKKKKKKKK Section linear");
                 view = inflater.inflate(R.layout.section_base_linear, container, false);
                 RecyclerListLayout recyclerListLayout = (RecyclerListLayout) view.findViewById(R.id.recycler_list_layout);
                 recyclerListLayout.setList(modulesAdapter, true);
@@ -161,13 +165,6 @@ public class Section extends Fragment {
         }
 
         return view;
-    }
-
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        //mListener = null;
     }
 
     public SectionType getSectionType() {

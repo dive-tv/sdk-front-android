@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Movies;
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
 import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
 
 /**
@@ -25,14 +26,16 @@ public class RelatedMoviesAdapter extends BaseAdapter {
 
     private final Movies[] movies;
     private final Picasso mPicasso;
+    private final CardDetailListener mListener;
     Context context;
     LayoutInflater mInflater;
 
-    public RelatedMoviesAdapter(Context context, Movies[] movies) {
+    public RelatedMoviesAdapter(Context context, Movies[] movies, CardDetailListener mListener) {
         this.context = context;
         this.movies = movies;
         this.mInflater = LayoutInflater.from(context);
         this.mPicasso = Picasso.with(context);
+        this.mListener = mListener;
     }
 
     /**
@@ -93,7 +96,7 @@ public class RelatedMoviesAdapter extends BaseAdapter {
         } else {
             holder = (RelatedMoviesViewHolder) convertView.getTag();
         }
-        Movies relatedMovie = movies[position];
+        final Movies relatedMovie = movies[position];
         //Photo
         System.out.println("KKKKKKKK RelatesMoviesAdapter image " + relatedMovie.getImage());
         if (relatedMovie.getImage() != null && relatedMovie.getImage().length() > 0) {
@@ -119,6 +122,14 @@ public class RelatedMoviesAdapter extends BaseAdapter {
         } else {
             holder.subtitle.setText("");
         }
+
+        holder.row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                mListener.goToNewCard(relatedMovie.getMovie_id())
+                mListener.goToNewCard("2");
+            }
+        });
 
         return convertView;
     }

@@ -149,7 +149,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         //Compose all the modules with the data.
 
-        CardDetail cardDetail = new CardDetail(data, idSection, "main",manager, container);
+        CardDetail cardDetail = new CardDetail(context, data, idSection, "main",manager, container);
 
 /*
         for (String id : idSection.keySet()) {
@@ -206,8 +206,13 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         String jsonString = null;
         try {
             Resources res = context.getResources();
-            InputStream in_s = res.openRawResource(R.raw.gastronomy);
-
+            InputStream in_s;
+            if("1".equals(cardId)) {
+                in_s = res.openRawResource(R.raw.gastronomy);
+            }
+            else{
+                in_s = res.openRawResource(R.raw.vehicle);
+            }
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
             jsonString = new String(b);

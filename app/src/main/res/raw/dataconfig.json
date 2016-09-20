@@ -18,6 +18,19 @@
               "text": "GO TO SECOND SECTION"
             }
           ]
+        },
+        {
+          "type": "tabs",
+          "targets": [
+            {
+              "sectionId": "second",
+              "text": "SECOND TAB"
+            },
+            {
+              "sectionId": "third",
+              "text": "THIRD TAB"
+            }
+          ]
         }
       ]
     },
@@ -26,6 +39,32 @@
       "modules": [
         {
           "type": "relatedMovies"
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            {
+              "sectionId": "main",
+              "text": "BACK TO MAIN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "third",
+      "modules": [
+        {
+          "type": "description"
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            {
+              "sectionId": "main",
+              "text": "BACK TO MAIN"
+            }
+          ]
         }
       ]
     }

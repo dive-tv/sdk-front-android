@@ -8,6 +8,7 @@ import com.touchvie.backend.CardData;
 import com.touchvie.backend.RelatedMovies;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.adapters.RelatedMoviesAdapter;
+import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
 import com.touchvie.touchvie_front.ui.views.LinearListLayout;
 import com.touchvie.touchvie_front.ui.views.Module;
 
@@ -44,7 +45,7 @@ public class RelatedMoviesModule extends Module {
         this.mList = mList;
     }
 
-    public void configure(Context context, RelatedMoviesModule relatedMoviesVH, CardData cardData) {
+    public void configure(Context context, RelatedMoviesModule relatedMoviesVH, CardData cardData, CardDetailListener mListener) {
         if (cardData != null && cardData.getRelated_movies() != null) {
             RelatedMovies relatedMovies = cardData.getRelated_movies();
             System.out.println("KKKKKKKKKKKKKK RelatedMoviesModule " + relatedMovies.getTitle());
@@ -56,7 +57,7 @@ public class RelatedMoviesModule extends Module {
             }
             //Related Movies
             if (relatedMovies.getMovies() != null && relatedMovies.getMovies().length > 0) {
-                RelatedMoviesAdapter relatedMoviesAdapter = new RelatedMoviesAdapter(context, relatedMovies.getMovies());
+                RelatedMoviesAdapter relatedMoviesAdapter = new RelatedMoviesAdapter(context, relatedMovies.getMovies(), mListener);
                 relatedMoviesVH.getList().setList(relatedMoviesAdapter, true);
             }
         }

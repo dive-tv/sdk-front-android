@@ -1,9 +1,11 @@
 package com.touchvie.touchvie_front.builders;
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 15/09/2016.
  */
-public class Target {
+public class Target implements Serializable {
 
     protected String sectionId;
     protected String text;

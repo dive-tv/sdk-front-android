@@ -1,9 +1,11 @@
 package com.touchvie.backend;
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
  */
-public class Movies {
+public class Movies implements Serializable {
     int type;
     String image;
     int anchor_x;
@@ -13,6 +15,7 @@ public class Movies {
     Boolean touchvie_ready;
     float mean_score;
     int year;
+    String movie_id;
 
     public int getType() {
         return type;
@@ -84,5 +87,13 @@ public class Movies {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public String getMovie_id() {
+        return movie_id;
+    }
+
+    public void setMovie_id(String movie_id) {
+        this.movie_id = movie_id;
     }
 }

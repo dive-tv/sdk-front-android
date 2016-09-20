@@ -1,11 +1,13 @@
 package com.touchvie.touchvie_front.ui;
 
 
+import android.content.Context;
 import android.os.Parcel;
 import android.support.v4.app.FragmentManager;
 import android.widget.LinearLayout;
 
 import com.touchvie.backend.CardData;
+import com.touchvie.touchvie_front.builders.BaseCardDetailBuilder;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.builders.ConfigSection;
 import com.touchvie.touchvie_front.ui.fragments.Section;
@@ -18,6 +20,8 @@ import java.util.HashMap;
  */
 public class CardDetail implements CardDetailListener {
 
+    private final CardDetail instance;
+    private final Context context;
     /**
      * Card Type
      */
@@ -38,17 +42,20 @@ public class CardDetail implements CardDetailListener {
     /**
      * Default constructor
      *
+     * @param context
      * @param data
      * @param idSection
      * @param mainKey
      * @param manager   :   fragment manager
      * @param container : Linear layout
      */
-    public CardDetail(CardData data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
+    public CardDetail(Context context, CardData data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
         System.out.println("KKKKKKKKKK CardDetail new carddetail ");
         this.mFragmentManager = manager;
+        this.context = context;
         this.container = container;
         this.data = data;
+        instance = this;
 
         for (String id : idSection.keySet()) {
             System.out.println("KKKKKKKKKK BaseCardDetailBuilder idSction for " + id);
@@ -63,7 +70,7 @@ public class CardDetail implements CardDetailListener {
             }
         }
 
-        Section newSection = Section.newInstance(this.data, sections.get(mainSection), Section.SectionType.recycler_view, this);
+        Section newSection = Section.newInstance(this.data, sections.get(mainSection), Section.SectionType.recycler_view, instance);
         mFragmentManager.beginTransaction().replace(this.container.getId(), newSection).addToBackStack(mainSection).commit();
     }
 
@@ -118,11 +125,35 @@ public class CardDetail implements CardDetailListener {
 
     @Override
     public void goToSection(String sectionName) {
-        if(sections.containsKey(sectionName)){
-            Section newSection = Section.newInstance(data, sections.get(sectionName), Section.SectionType.recycler_view, this);
+        if (sections.containsKey(sectionName)) {
+            Section newSection = Section.newInstance(data, sections.get(sectionName), Section.SectionType.recycler_view, instance);
             mFragmentManager.beginTransaction().replace(this.container.getId(), newSection).addToBackStack(mainSection).commit();
-
         }
+    }
+
+    @Override
+    public void goToNewCard(String cardId) {
+        BaseCardDetailBuilder cardDetail = new BaseCardDetailBuilder() {
+            @Override
+            protected BaseCardDetailBuilder getThis() {
+                return null;
+            }
+        };
+        cardDetail.buildAll(cardId, mFragmentManager, container, context);
+
+    }
+
+    @Override
+    public Section requestSectionForTab(String sectionName) {
+        if (sections.containsKey(sectionName)) {
+            return Section.newInstance(data, sections.get(sectionName), Section.SectionType.linear_layout, instance);
+        }
+        return null;
+    }
+
+    @Override
+    public FragmentManager requestFragmentManager() {
+        return mFragmentManager;
     }
 
     @Override

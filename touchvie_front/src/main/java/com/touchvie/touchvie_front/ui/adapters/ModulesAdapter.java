@@ -13,6 +13,7 @@ import com.touchvie.touchvie_front.ui.modules.DescriptionModule;
 import com.touchvie.touchvie_front.ui.modules.ImageModule;
 import com.touchvie.touchvie_front.ui.modules.NavigationModule;
 import com.touchvie.touchvie_front.ui.modules.RelatedMoviesModule;
+import com.touchvie.touchvie_front.ui.modules.TabsModule;
 import com.touchvie.touchvie_front.ui.modules.TitleModule;
 
 
@@ -53,6 +54,8 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 return 2;
             case "navigation":
                 return 3;
+            case "tabs":
+                return 4;
         }
         return 0;
     }
@@ -71,21 +74,25 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         System.out.println("KKKKKKKKKKKKKK ModulesAdapter onCreateViewHolder " + viewType);
 
         switch (viewType) {
-            case 0: //HeaderModule
+            case 0: //Header Module
                 ViewGroup vImageModule = (ViewGroup) inflater.inflate(R.layout.module_image, viewGroup, false);
                 viewHolder = new ImageModule(vImageModule);
                 break;
-            case 1: //DescriptionModule
+            case 1: //Description Module
                 ViewGroup vDescriptionModule = (ViewGroup) inflater.inflate(R.layout.module_description, viewGroup, false);
                 viewHolder = new DescriptionModule(vDescriptionModule);
                 break;
-            case 2: //RelatedMoviesModule
+            case 2: //Related Movies Module
                 ViewGroup vRelatedMoviesModule = (ViewGroup) inflater.inflate(R.layout.module_related_movies, viewGroup, false);
                 viewHolder = new RelatedMoviesModule(vRelatedMoviesModule);
                 break;
-            case 3: //NavigationModule
+            case 3: //Navigation Module
                 ViewGroup vNavigationModule = (ViewGroup) inflater.inflate(R.layout.module_navigation, viewGroup, false);
                 viewHolder = new NavigationModule(vNavigationModule);
+                break;
+            case 4: //Tabs Module
+                ViewGroup vTabsModule = (ViewGroup) inflater.inflate(R.layout.module_tabs, viewGroup, false);
+                viewHolder = new TabsModule(vTabsModule);
                 break;
             default: //HeaderModule for test
                 ViewGroup vDefaultModule = (ViewGroup) inflater.inflate(R.layout.module_title, viewGroup, false);
@@ -117,15 +124,19 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 break;
             case 2: //Related Movies module
                 RelatedMoviesModule relatedMoviesVH = (RelatedMoviesModule) viewHolder;
-                relatedMoviesVH.configure(context, relatedMoviesVH, cardData);
+                relatedMoviesVH.configure(context, relatedMoviesVH, cardData, mListener);
                 break;
             case 3: //Navigation module
                 NavigationModule navigationVH = (NavigationModule) viewHolder;
                 navigationVH.configure(context, navigationVH, configModules[position].getTargets(), mListener);
                 break;
+            case 4: //Tabs module
+                TabsModule tabsVH = (TabsModule) viewHolder;
+                tabsVH.configure(context, tabsVH, configModules[position].getTargets(), mListener);
+                break;
             default:
-                TitleModule defaultVH = (TitleModule) viewHolder;
-                defaultVH.configure(defaultVH, position);
+                DescriptionModule defaultVH = (DescriptionModule) viewHolder;
+                defaultVH.configure(defaultVH, cardData);
                 break;
         }
     }
