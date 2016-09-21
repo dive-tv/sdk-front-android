@@ -1,60 +1,72 @@
 {
-  "main": {
-    "modules": [
-      {
-        "type": "image"
-      },
-      {
-        "type": "title"
-      },
-      {
-        "type": "year"
-      },
-      {
-        "type": "director"
-      },
-      {
-        "type": "categories"
-      },
-      {
-        "type": "rating"
-      },
-      {
-        "type": "runtime"
-      },
-      {
-        "type": "synopsis"
-      },
-      {
-        "type": "navigation",
-        "section": "cast"
-      },
-      {
-        "type": "navigation",
-        "section": "premios"
-      },
-      {
-        "type": "productos"
-      },
-      {
-        "type": "tab",
-        "section":"awards",
-        "section":"cast"
-      }
-    ]
-  },
-  "cast": {
-    "modules": [
-      {
-        "type": "actors"
-      }
-    ]
-  },
-  "awards": {
-    "modules": [
-      {
-        "type": "awards"
-      }
-    ]
-  }
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "description"
+        },
+        {
+          "type": "relatedMovies"
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            {
+              "sectionId": "second",
+              "text": "GO TO SECOND SECTION"
+            }
+          ]
+        },
+        {
+          "type": "tabs",
+          "targets": [
+            {
+              "sectionId": "second",
+              "text": "SECOND TAB"
+            },
+            {
+              "sectionId": "third",
+              "text": "THIRD TAB"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "second",
+      "modules": [
+        {
+          "type": "relatedMovies"
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            {
+              "sectionId": "main",
+              "text": "BACK TO MAIN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "third",
+      "modules": [
+        {
+          "type": "description"
+        },
+        {
+          "type": "navigation",
+          "targets": [
+            {
+              "sectionId": "main",
+              "text": "BACK TO MAIN"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

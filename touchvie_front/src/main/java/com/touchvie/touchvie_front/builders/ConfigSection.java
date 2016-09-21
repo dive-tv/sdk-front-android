@@ -1,13 +1,11 @@
 package com.touchvie.touchvie_front.builders;
 
-import com.touchvie.touchvie_front.datatypes.ModuleType;
-
-import java.util.*;
+import java.io.Serializable;
 
 /**
- * 
+ *
  */
-public class ConfigSection {
+public class ConfigSection implements Serializable {
 
     /**
      * Default constructor
@@ -18,7 +16,7 @@ public class ConfigSection {
     /**
      * List of Modules in this Section
      */
-    protected ArrayList<ConfigModule> modules;
+    protected ConfigModule[] modules;
 
     protected String title;
 
@@ -26,18 +24,20 @@ public class ConfigSection {
 
     /**
      * Add new Module to the Section
-     * @param modType 
+     *
+     * @param modType
      * @return
      */
-    public void addModule(ModuleType modType) {
+    public void addModule(String modType) {
         // TODO implement here
         return;
     }
 
     /**
      * Add a new Navigation Module to another Section
+     *
      * @param targetSection Target Section
-     * @param title Text in the button
+     * @param title         Text in the button
      */
     public void addNavigation(String targetSection, String title) {
         // TODO implement here
@@ -45,11 +45,11 @@ public class ConfigSection {
 
     /**
      * Load the Modules style configuration
+     *
      * @return
      */
-    public ArrayList<ConfigModule> getModulesConfig() {
-        // TODO implement here
-        return null;
+    public ConfigModule[] getConfigModules() {
+        return modules;
     }
 
     public String getTitle() {
