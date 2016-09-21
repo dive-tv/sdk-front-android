@@ -32,7 +32,7 @@ public class CardDetail implements CardDetailListener {
      * Key: Section name
      * Value: Section
      */
-    public HashMap<String, ConfigSection> sections = new HashMap<>();
+    public HashMap<String, ConfigSection> configSectionsDict = new HashMap<>();
 
     private final FragmentManager mFragmentManager;
     private final LinearLayout container;
@@ -62,7 +62,7 @@ public class CardDetail implements CardDetailListener {
             ConfigSection section = idSection.get(id);
             for (ConfigModule module : section.getConfigModules()) {
                 if (true /*ModuleValidator.validate(data, module )*/) {
-                    setSection(section);
+                    setConfigSection(section);
                     if (section.isMain()) {
                         mainSection = id;
                     }
@@ -70,7 +70,7 @@ public class CardDetail implements CardDetailListener {
             }
         }
 
-        Section newSection = Section.newInstance(this.data, sections.get(mainSection), Section.SectionType.recycler_view, instance);
+        Section newSection = Section.newInstance(this.data, configSectionsDict.get(mainSection), Section.SectionType.recycler_view, instance);
         mFragmentManager.beginTransaction().replace(this.container.getId(), newSection).addToBackStack(mainSection).commit();
     }
 
@@ -100,17 +100,17 @@ public class CardDetail implements CardDetailListener {
      * @param section
      * @return
      */
-    public void setSection(ConfigSection section) {
-        sections.put(section.getTitle(), section);
+    public void setConfigSection(ConfigSection section) {
+        configSectionsDict.put(section.getTitle(), section);
     }
 
     /**
      * Set multiple sections at once
      *
-     * @param sections
+     * @param configSection
      * @return
      */
-    public void setSections(HashMap<String, ConfigSection> sections) {
+    public void setConfigSections(HashMap<String, ConfigSection> configSection) {
         // TODO implement here
     }
 
@@ -120,13 +120,13 @@ public class CardDetail implements CardDetailListener {
      * @return sections
      */
     public HashMap<String, ConfigSection> getSections() {
-        return sections;
+        return configSectionsDict;
     }
 
     @Override
     public void goToSection(String sectionName) {
-        if (sections.containsKey(sectionName)) {
-            Section newSection = Section.newInstance(data, sections.get(sectionName), Section.SectionType.recycler_view, instance);
+        if (configSectionsDict.containsKey(sectionName)) {
+            Section newSection = Section.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.recycler_view, instance);
             mFragmentManager.beginTransaction().replace(this.container.getId(), newSection).addToBackStack(mainSection).commit();
         }
     }
@@ -145,9 +145,16 @@ public class CardDetail implements CardDetailListener {
 
     @Override
     public Section requestSectionForTab(String sectionName) {
-        if (sections.containsKey(sectionName)) {
-            System.out.println("KKKKKKKKKK CardDetails requestSectionForTab " + sectionName);
-            return Section.newInstance(data, sections.get(sectionName), Section.SectionType.linear_layout, instance);
+        if (configSectionsDict.containsKey(sectionName)) {
+            return Section.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.linear_layout, instance);
+        }
+        return null;
+    }
+
+    @Override
+    public String requestSectionTitleForTab(String sectionName) {
+        if (configSectionsDict.containsKey(sectionName)) {
+            return configSectionsDict.get(sectionName).getTitle();
         }
         return null;
     }

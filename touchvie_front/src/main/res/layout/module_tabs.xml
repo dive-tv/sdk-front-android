@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/module_tabs_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <com.touchvie.touchvie_front.ui.views.AutoHeightViewPager
         android:id="@+id/module_tabs_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="500dp" />
-</LinearLayout>
+        android:layout_height="100dp"
+        android:layout_below="@+id/module_tabs_tablayout" />
+
+</RelativeLayout>
