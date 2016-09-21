@@ -10,6 +10,7 @@ import com.google.gson.GsonBuilder;
 import com.touchvie.backend.CardData;
 import com.touchvie.backend.DataConfig;
 
+import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.ui.CardDetail;
 
