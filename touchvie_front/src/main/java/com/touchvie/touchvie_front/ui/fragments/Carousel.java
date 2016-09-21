@@ -3,6 +3,7 @@ package com.touchvie.touchvie_front.ui.fragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,16 @@ import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.data.Scene;
+import com.touchvie.touchvie_front.ui.views.CarouselItem;
+import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
+import eu.davidea.flexibleadapter.FlexibleAdapter;
+import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
+import eu.davidea.flexibleadapter.items.IFlexible;
 
 
 public class Carousel extends Fragment implements CarouselCardListener {
@@ -23,6 +32,11 @@ public class Carousel extends Fragment implements CarouselCardListener {
     private Integer subsceneIndex=0;
 
     private CarouselListener mListener;
+
+    private RecyclerView carouselView=null;
+    List<AbstractFlexibleItem>  carouselItems = null;
+
+    FlexibleAdapter<AbstractFlexibleItem> mAdapter =null;
 
     /**
      * Empty public constructor
@@ -53,11 +67,28 @@ public class Carousel extends Fragment implements CarouselCardListener {
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
         receivedScenes= new HashMap<>();
         visibleScenes= new HashMap<>();
+        carouselItems=getTestCarouselItems();//For testing purposes only
+        mAdapter = new FlexibleAdapter<>(carouselItems);
+        mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
+                .enableStickyHeaders();
+        carouselView=(RecyclerView) view.findViewById(R.id.carousel_view);
+        carouselView.setAdapter(mAdapter);
         return view;
 
     }
 
+    private  List<AbstractFlexibleItem> getTestCarouselItems(){
 
+        List<AbstractFlexibleItem> items= new ArrayList<>();
+        for (int i=0; i<4; i++){
+            SceneHeaderItem sceneHeader= new SceneHeaderItem(i, " SCENE ");
+
+            for (int j = 0; j < 7; i++) {
+                carouselItems.add(new CarouselItem(j + 1, sceneHeader));
+            }
+        }
+        return items;
+    }
 
     @Override
     public void onAttach(Context context) {

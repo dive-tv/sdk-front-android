@@ -3,5 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.touchvie.touchvie_front.ui.fragments.Carousel">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/carousel_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
