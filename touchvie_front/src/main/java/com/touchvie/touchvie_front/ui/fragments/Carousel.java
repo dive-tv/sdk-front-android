@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import eu.davidea.flexibleadapter.FlexibleAdapter;
+import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 import eu.davidea.flexibleadapter.items.IFlexible;
 
@@ -71,7 +72,9 @@ public class Carousel extends Fragment implements CarouselCardListener {
         mAdapter = new FlexibleAdapter<>(carouselItems);
         mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
                 .enableStickyHeaders();
+
         carouselView=(RecyclerView) view.findViewById(R.id.carousel_view);
+        carouselView.setLayoutManager(new SmoothScrollLinearLayoutManager(getActivity()));
         carouselView.setAdapter(mAdapter);
         return view;
 
@@ -79,12 +82,12 @@ public class Carousel extends Fragment implements CarouselCardListener {
 
     private  List<AbstractFlexibleItem> getTestCarouselItems(){
 
-        List<AbstractFlexibleItem> items= new ArrayList<>();
+        ArrayList<AbstractFlexibleItem> items= new ArrayList<>();
         for (int i=0; i<4; i++){
             SceneHeaderItem sceneHeader= new SceneHeaderItem(i, " SCENE ");
 
-            for (int j = 0; j < 7; i++) {
-                carouselItems.add(new CarouselItem(j + 1, sceneHeader));
+            for (int j = 0; j < 7; j++) {
+                items.add(new CarouselItem(j + 1, sceneHeader));
             }
         }
         return items;

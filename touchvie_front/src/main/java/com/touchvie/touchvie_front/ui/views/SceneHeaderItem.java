@@ -9,6 +9,8 @@ import com.touchvie.touchvie_front.R;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 
 import eu.davidea.flexibleadapter.items.AbstractHeaderItem;
@@ -63,22 +65,20 @@ public HeaderViewHolder createViewHolder(FlexibleAdapter adapter, LayoutInflater
 @Override
 @SuppressWarnings("unchecked")
 public void bindViewHolder(FlexibleAdapter adapter, HeaderViewHolder holder, int position, List payloads) {
-        if (payloads.size() > 0) {
 
-        } else {
         String title = this.title + " (" + adapter.getSectionItems(this).size() + ")";
         holder.title.setText(title);
-        }
-        }
+}
+
 
 static class HeaderViewHolder extends FlexibleViewHolder {
 
-
-    TextView title;
+   TextView title;
 
 
     public HeaderViewHolder(View view, FlexibleAdapter adapter) {
         super(view, adapter, true);//True for sticky
+        title=(TextView)view.findViewById(R.id.title);
 
     }
 }
