@@ -9,6 +9,7 @@ import com.touchvie.touchvie_front.builders.Target;
 import com.touchvie.touchvie_front.ui.adapters.TabsModuleAdapter;
 import com.touchvie.touchvie_front.ui.fragments.Section;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
+import com.touchvie.touchvie_front.ui.views.AutoHeightViewPager;
 import com.touchvie.touchvie_front.ui.views.Module;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  */
 public class TabsModule extends Module {
 
-    private ViewPager mViewPager;
+    private AutoHeightViewPager mViewPager;
     private ArrayList<Section> sectionList;
 
     /**
@@ -26,26 +27,44 @@ public class TabsModule extends Module {
      */
     public TabsModule(View v) {
         super(v);
-        mViewPager = (ViewPager) v.findViewById(R.id.module_tabs_viewpager);
+        mViewPager = (AutoHeightViewPager) v.findViewById(R.id.module_tabs_viewpager);
         sectionList = new ArrayList<>();
     }
 
-    public ViewPager getmViewPager() {
+    public AutoHeightViewPager getViewPager() {
         return mViewPager;
     }
 
-    public void setmViewPager(ViewPager mViewPager) {
+    public void setViewPager(AutoHeightViewPager mViewPager) {
         this.mViewPager = mViewPager;
     }
 
-    public void configure(Context context, TabsModule relatedMoviesVH, final Target[] target, final CardDetailListener mListener) {
-        System.out.println("KKKKKKKKKKKKKK NavigationModule ");
+    public void configure(Context context, final TabsModule relatedMoviesVH, final Target[] target, final CardDetailListener mListener) {
+        System.out.println("KKKKKKKKKKKKKK TabsModule ");
         if (target != null && target.length > 0) {
             for (int i = 0; i < target.length; i++) {
                 sectionList.add(mListener.requestSectionForTab(target[i].getSectionId()));
             }
-            TabsModuleAdapter tabsModuleAdapter = new TabsModuleAdapter(mListener.requestFragmentManager(), sectionList);
-            relatedMoviesVH.getmViewPager().setAdapter(tabsModuleAdapter);
+            if (sectionList.size() > 0) {
+                TabsModuleAdapter tabsModuleAdapter = new TabsModuleAdapter(mListener.requestFragmentManager(), sectionList);
+                relatedMoviesVH.getViewPager().setAdapter(tabsModuleAdapter);
+                relatedMoviesVH.getViewPager().addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        relatedMoviesVH.getViewPager().reMeasureCurrentPage(relatedMoviesVH.getViewPager().getCurrentItem());
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                });
+            }
         }
     }
 }

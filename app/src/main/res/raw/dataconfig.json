@@ -44,8 +44,8 @@
           "type": "navigation",
           "targets": [
             {
-              "sectionId": "main",
-              "text": "BACK TO MAIN"
+              "sectionId": "third",
+              "text": "SECOND SECTION BTN"
             }
           ]
         }
@@ -61,8 +61,8 @@
           "type": "navigation",
           "targets": [
             {
-              "sectionId": "main",
-              "text": "BACK TO MAIN"
+              "sectionId": "second",
+              "text": "THIRD SECTION BTN"
             }
           ]
         }

@@ -146,6 +146,7 @@ public class CardDetail implements CardDetailListener {
     @Override
     public Section requestSectionForTab(String sectionName) {
         if (sections.containsKey(sectionName)) {
+            System.out.println("KKKKKKKKKK CardDetails requestSectionForTab " + sectionName);
             return Section.newInstance(data, sections.get(sectionName), Section.SectionType.linear_layout, instance);
         }
         return null;

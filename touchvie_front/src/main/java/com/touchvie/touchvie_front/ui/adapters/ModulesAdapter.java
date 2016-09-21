@@ -51,6 +51,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             case "description":
                 return 1;
             case "relatedMovies":
+                System.out.println("KKKKKKKKKK return 2");
                 return 2;
             case "navigation":
                 return 3;
@@ -113,6 +114,29 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         System.out.println("KKKKKKKKKKKKKK ModulesAdapter onBindViewHolder " + position + " " + viewHolder.getItemViewType());
+
+        if (viewHolder instanceof ImageModule) {
+            ImageModule imageVH = (ImageModule) viewHolder;
+            imageVH.configure(imageVH, position);
+
+        } else if (viewHolder instanceof DescriptionModule) {
+            DescriptionModule descriptionVH = (DescriptionModule) viewHolder;
+            descriptionVH.configure(descriptionVH, cardData);
+
+        } else if (viewHolder instanceof RelatedMoviesModule) {
+            RelatedMoviesModule relatedMoviesVH = (RelatedMoviesModule) viewHolder;
+            relatedMoviesVH.configure(context, relatedMoviesVH, cardData, mListener);
+
+        } else if (viewHolder instanceof NavigationModule) {
+            NavigationModule navigationVH = (NavigationModule) viewHolder;
+            navigationVH.configure(context, navigationVH, configModules[position].getTargets(), mListener);
+
+        } else if (viewHolder instanceof TabsModule) {
+            TabsModule tabsVH = (TabsModule) viewHolder;
+            tabsVH.configure(context, tabsVH, configModules[position].getTargets(), mListener);
+
+        }
+/*
         switch (viewHolder.getItemViewType()) {
             case 0:
                 ImageModule imageVH = (ImageModule) viewHolder;
@@ -139,5 +163,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 defaultVH.configure(defaultVH, cardData);
                 break;
         }
+*/
     }
 }
