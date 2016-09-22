@@ -7,9 +7,8 @@ import java.io.Serializable;
  */
 public class Target implements Serializable {
 
-    protected String sectionId;
-    protected String text;
-
+    private String sectionId;
+    private String text;
 
     public String getSectionId() {
         return sectionId;
