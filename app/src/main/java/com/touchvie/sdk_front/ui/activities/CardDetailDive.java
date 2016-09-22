@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.touchvie.sdkfront.R;
 import com.touchvie.touchvie_front.builders.BaseCardDetailBuilder;
+import com.touchvie.touchvie_front.builders.CardDetailJson;
 
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
@@ -40,12 +41,7 @@ public class CardDetailDive extends FragmentActivity {
         getWindow().setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 
         mManager = getSupportFragmentManager();
-        BaseCardDetailBuilder cardDetail = new BaseCardDetailBuilder() {
-            @Override
-            protected BaseCardDetailBuilder getThis() {
-                return null;
-            }
-        };
+        CardDetailJson cardDetail = new CardDetailJson();
         cardDetail.buildAll("1",mManager, mContainer, getApplicationContext());
 
     }
