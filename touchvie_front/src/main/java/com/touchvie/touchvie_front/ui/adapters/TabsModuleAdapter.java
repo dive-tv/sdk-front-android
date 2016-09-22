@@ -19,11 +19,13 @@ import java.util.ArrayList;
 public class TabsModuleAdapter extends FragmentStatePagerAdapter {
 
     private final ArrayList<Section> sections;
+    private final ArrayList<String> sectionNames;
     Context context;
 
-    public TabsModuleAdapter(FragmentManager fm, ArrayList<Section> sections) {
+    public TabsModuleAdapter(FragmentManager fm, ArrayList<Section> sections, ArrayList<String> sectionNames) {
         super(fm);
         this.sections = sections;
+        this.sectionNames = sectionNames;
     }
 
     /**
@@ -51,6 +53,6 @@ public class TabsModuleAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return sections.get(position).getConfigSection().getTitle();
+        return sectionNames.get(position);
     }
 }

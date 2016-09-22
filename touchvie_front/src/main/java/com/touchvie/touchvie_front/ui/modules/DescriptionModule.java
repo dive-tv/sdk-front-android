@@ -65,7 +65,6 @@ public class DescriptionModule extends Module {
     public void configure(DescriptionModule descriptionVH, CardData cardData) {
         if (cardData != null && cardData.getDescription() != null) {
             Description description = cardData.getDescription();
-            System.out.println("KKKKKKKKKKKKKK DescriptionModule " + description.getTitle());
             //Title
             if (description.getTitle() != null && description.getTitle().length() > 0) {
                 descriptionVH.getTitle().setText(description.getTitle());

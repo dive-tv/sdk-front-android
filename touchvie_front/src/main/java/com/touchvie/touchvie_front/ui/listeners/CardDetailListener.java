@@ -19,19 +19,30 @@ public interface CardDetailListener extends Parcelable {
 
     /**
      * Go to a different Card Detail
+     *
      * @param cardId
      */
     void goToNewCard(String cardId);
 
     /**
      * Request a new Section to Card Detail, to put it in our view pager
+     *
      * @param sectionName
      * @return the newly created Section
      */
     Section requestSectionForTab(String sectionName);
 
     /**
+     * Request the title of the Section, used in the Tab Module
+     *
+     * @param sectionName
+     * @return the title of the Sectoin
+     */
+    String requestSectionTitleForTab(String sectionName);
+
+    /**
      * Request the fragment manager, used inside viewpager's adapter.
+     *
      * @return the fragment manager
      */
     FragmentManager requestFragmentManager();

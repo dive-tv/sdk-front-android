@@ -9,15 +9,10 @@ import android.widget.LinearLayout;
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.CardData;
 import com.touchvie.backend.DataConfig;
-
+import com.touchvie.touchvie_client.listeners.CardDataListener;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.ui.CardDetail;
-
-import com.touchvie.touchvie_client.listeners.CardDataListener;
-
-import com.touchvie.touchvie_front.ui.fragments.Section;
-
 import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
@@ -25,13 +20,14 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.HashMap;
 
-import static com.touchvie.touchvie_front.ui.fragments.Section.SectionType.recycler_view;
-
 /**
  * Class to inherit the card detail builders common methods.
  */
 public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> implements CardDataListener {
 
+
+    private FragmentManager mManager;
+    private LinearLayout mLayout;
 
     protected abstract T getThis();
 
@@ -109,7 +105,8 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         buildDefault = true;
         context = ctx;
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder buildAll");
+        this.mManager = manager;
+        this.mLayout = container;
         requestCard(cardID, manager, container);
 
     }
@@ -136,11 +133,9 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
     }
 
     /**
-     * @param manager   fragment manager.
-     * @param container LinearLayout where will show cardDetail.
+     * Create the Card Detail
      */
-    protected void composeCardDetail(FragmentManager manager, LinearLayout container) {
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder composeCardDetail ");
+    protected void composeCardDetail() {
 
         requestDataConfig();
 
@@ -153,7 +148,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         //Compose all the modules with the data.
 
-        CardDetail cardDetail = new CardDetail(context, data, idSection, "main",manager, container);
+        CardDetail cardDetail = new CardDetail(context, data, idSection, "main", mManager, mLayout);
 
 /*
         for (String id : idSection.keySet()) {
@@ -182,7 +177,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
     public void onCardReceived(CardData data, FragmentManager manager, LinearLayout container) {
 
         this.data = data;
-        composeCardDetail(manager, container);
+        composeCardDetail();
     }
 
     protected T addSection(String sectionId, ConfigSection section, boolean isMain) {
@@ -211,10 +206,9 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         try {
             Resources res = context.getResources();
             InputStream in_s;
-            if("1".equals(cardId)) {
+            if ("1".equals(cardId)) {
                 in_s = res.openRawResource(R.raw.gastronomy);
-            }
-            else{
+            } else {
                 in_s = res.openRawResource(R.raw.vehicle);
             }
             byte[] b = new byte[in_s.available()];
@@ -227,7 +221,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         if (cardData == null) {
             cardData = new CardData();
         }
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder request " + cardData.getCard_id());
         onCardReceived(cardData, manager, container);
     }
 
@@ -258,7 +251,5 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
                 idSection.put((dataConfig.getSections()[i]).getTitle(), dataConfig.getSections()[i]);
             }
         }
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder requestDataConfig " + idSection.size());
-
     }
 }
