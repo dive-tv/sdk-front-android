@@ -1,4 +1,4 @@
-package com.touchvie.touchvie_front.layers;
+package com.touchvie.touchvie_front.managers;
 
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;

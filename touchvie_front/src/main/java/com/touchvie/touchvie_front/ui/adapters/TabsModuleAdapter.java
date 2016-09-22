@@ -20,7 +20,6 @@ public class TabsModuleAdapter extends FragmentStatePagerAdapter {
 
     private final ArrayList<Section> sections;
     private final ArrayList<String> sectionNames;
-    Context context;
 
     public TabsModuleAdapter(FragmentManager fm, ArrayList<Section> sections, ArrayList<String> sectionNames) {
         super(fm);

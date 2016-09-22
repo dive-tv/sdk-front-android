@@ -1,7 +1,7 @@
 package com.touchvie.touchvie_front.ui.listeners;
 
 import com.touchvie.touchvie_client.data.CarouselCard;
-import com.touchvie.touchvie_front.ui.data.Scene;
+import com.touchvie.touchvie_front.data.Scene;
 
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.

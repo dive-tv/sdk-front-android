@@ -7,10 +7,10 @@ import com.squareup.picasso.Transformation;
 
 public class CropSquareTransformation implements Transformation {
 
-    int targetWidth;
-    int targetHeight;
-    int anchor_x;
-    int anchor_y;
+    private int targetWidth;
+    private int targetHeight;
+    private int anchor_x;
+    private int anchor_y;
 
     /**
      * Constructor
@@ -27,15 +27,18 @@ public class CropSquareTransformation implements Transformation {
     }
 
     /**
+<<<<<<< HEAD
      * Override tranform method to set the image anchors
+=======
+     * Override transform method to set the image anchors
+>>>>>>> develop
      * @param source: bitmap
      * @return
      */
     @Override
     public Bitmap transform(Bitmap source) {
-
-        int inWidth =source.getWidth();  //ancho imagen
-        int inHeight =source.getHeight();  //alto imagen
+        int inWidth =source.getWidth();  //image width
+        int inHeight =source.getHeight();  //image height
         int drawY = 0;
         int drawX = 0;
         int drawHeight = inHeight;
@@ -49,6 +52,7 @@ public class CropSquareTransformation implements Transformation {
         float heightRatio =
                 targetHeight != 0 ? targetHeight / (float) inHeight : targetWidth / (float) inWidth;
         float scaleX, scaleY;
+
         if (widthRatio > heightRatio) {
             int newSize = (int) Math.ceil(inHeight * (heightRatio / widthRatio));
             drawY = (inHeight - newSize) * anchor_y / 100;
@@ -69,8 +73,10 @@ public class CropSquareTransformation implements Transformation {
 //        if (shouldResize(onlyScaleDown, inWidth, inHeight, targetWidth, targetHeight)) {
         matrix.preScale(scaleX, scaleY);
 //        }
+
         Bitmap newResult =
                 Bitmap.createBitmap(source, drawX, drawY, drawWidth, drawHeight, matrix, true);
+
         if (newResult != source) {
             source.recycle();
             source = newResult;

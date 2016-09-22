@@ -14,11 +14,14 @@ import java.util.List;
 
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.items.AbstractSectionableItem;
-import eu.davidea.flexibleadapter.utils.DrawableUtils;
 import eu.davidea.viewholders.FlexibleViewHolder;
 
 /**
  * Created by Tagsonomy S.L. on 21/09/2016.
+<<<<<<< HEAD
+=======
+ * Holds a line view in the carousel. It is related to one carousel section.
+>>>>>>> develop
  */
 
 public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolder, SceneHeaderItem> {
@@ -27,9 +30,15 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
     public static final String SPACE = " ";
     public static final String EMPTY = "";
 
-    private int id;
     private List<CarouselItem> mergedItems;
 
+    private int id;
+
+    /**
+     * Constructor
+     * @param id the identifier of this row.
+     * @param header The header this row is related to.
+     */
     public CarouselItem(int id, SceneHeaderItem header) {
         super(header);
         this.id = id;
@@ -51,8 +60,6 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
     public void setId(int id) {
         this.id = id;
     }
-
-
 
     public boolean hasMergedItems() {
         return mergedItems != null;
@@ -110,41 +117,15 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
 
     @Override
     public void bindViewHolder(final FlexibleAdapter adapter, final ViewHolder holder, int position, List payloads) {
-       /* Context context = holder.itemTextView.getContext();
-
-        //Item Id
-        holder.itemTextView.setText(toString());
-
-
-
-        //Blink after moving the item
-        for (Object payload : payloads) {
-            if (payload.equals("blink")) {
-                holder.itemView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        holder.itemView.setPressed(true);
-                    }
-                }, 100L);
-                holder.itemView.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        holder.itemView.setPressed(false);
-                    }
-                }, 800L);
-            }
-        } */
 
     }
 
     @Override
     public String toString() {
-        return HASH + id;
+        return Integer.toString(id);
     }
 
     static class ViewHolder extends FlexibleViewHolder {
-
-
 
         /**
          * Default constructor.

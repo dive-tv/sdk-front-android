@@ -12,7 +12,7 @@ public class AutoHeightViewPager extends ViewPager {
     private int mCurrentPagePosition = 0;
 
     /**
-     * Instantiates a new Auto height view pager.
+     * Instantiates a new auto height view pager.
      *
      * @param context the context
      * @param attrs   the attrs
@@ -22,7 +22,7 @@ public class AutoHeightViewPager extends ViewPager {
     }
 
     /**
-     * Instantiates a new Auto height view pager.
+     * Instantiates a new auto height view pager.
      *
      * @param context the context
      */
@@ -45,6 +45,10 @@ public class AutoHeightViewPager extends ViewPager {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
+    /**
+     * TODO:  what does it do?
+     * @param position
+     */
     public void reMeasureCurrentPage(int position) {
         mCurrentPagePosition = position;
         requestLayout();

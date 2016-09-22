@@ -16,7 +16,7 @@ public class Module extends RecyclerView.ViewHolder {
     }
 
     /**
-     * Type of Module (from enum)
+     * Type of Module
      */
     public String type;
 
@@ -29,8 +29,8 @@ public class Module extends RecyclerView.ViewHolder {
     }
 
     /**
-     * Get Module type
-     * @return type
+     * Gets the module type
+     * @return type the type of the module
      */
     public String getType() {
         return type;

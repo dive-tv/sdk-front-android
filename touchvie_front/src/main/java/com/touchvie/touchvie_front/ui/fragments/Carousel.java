@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.data.Scene;
+import com.touchvie.touchvie_front.data.Scene;
 import com.touchvie.touchvie_front.ui.views.CarouselItem;
 import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
@@ -22,7 +22,6 @@ import java.util.List;
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
-import eu.davidea.flexibleadapter.items.IFlexible;
 
 
 public class Carousel extends Fragment implements CarouselCardListener {
@@ -35,9 +34,9 @@ public class Carousel extends Fragment implements CarouselCardListener {
     private CarouselListener mListener;
 
     private RecyclerView carouselView=null;
-    List<AbstractFlexibleItem>  carouselItems = null;
+    private List<AbstractFlexibleItem>  carouselItems = null;
 
-    FlexibleAdapter<AbstractFlexibleItem> mAdapter =null;
+    private FlexibleAdapter<AbstractFlexibleItem> mAdapter =null;
 
     /**
      * Empty public constructor
@@ -80,18 +79,7 @@ public class Carousel extends Fragment implements CarouselCardListener {
 
     }
 
-    private  List<AbstractFlexibleItem> getTestCarouselItems(){
 
-        ArrayList<AbstractFlexibleItem> items= new ArrayList<>();
-        for (int i=0; i<4; i++){
-            SceneHeaderItem sceneHeader= new SceneHeaderItem(i, " SCENE ");
-
-            for (int j = 0; j < 7; j++) {
-                items.add(new CarouselItem(j + 1, sceneHeader));
-            }
-        }
-        return items;
-    }
 
     @Override
     public void onAttach(Context context) {
@@ -153,6 +141,23 @@ public class Carousel extends Fragment implements CarouselCardListener {
      * activity.
      */
     public interface CarouselListener {
+    }
+
+    /**
+     * TODO: for testing pusposes only
+     */
+
+    private  List<AbstractFlexibleItem> getTestCarouselItems(){
+
+        ArrayList<AbstractFlexibleItem> items= new ArrayList<>();
+        for (int i=0; i<4; i++){
+            SceneHeaderItem sceneHeader= new SceneHeaderItem(i, " SCENE ");
+
+            for (int j = 0; j < 7; j++) {
+                items.add(new CarouselItem(j + 1, sceneHeader));
+            }
+        }
+        return items;
     }
 
 }

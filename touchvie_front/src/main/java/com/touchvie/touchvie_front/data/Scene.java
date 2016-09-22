@@ -1,4 +1,4 @@
-package com.touchvie.touchvie_front.ui.data;
+package com.touchvie.touchvie_front.data;
 
 import com.touchvie.touchvie_client.data.CarouselCard;
 
