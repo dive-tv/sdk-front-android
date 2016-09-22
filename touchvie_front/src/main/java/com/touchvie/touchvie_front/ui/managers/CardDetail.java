@@ -1,4 +1,4 @@
-package com.touchvie.touchvie_front.ui;
+package com.touchvie.touchvie_front.ui.managers;
 
 
 import android.content.Context;
@@ -168,7 +168,8 @@ public class CardDetail implements CardDetailListener {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel(Parcel parcel, int i) {
 
     }
+
 }

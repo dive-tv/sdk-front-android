@@ -3,7 +3,7 @@ package com.touchvie.touchvie_front.builders;
 import org.json.JSONObject;
 
 /**
- * 
+ * Class to build a card detail with a configuration json.
  */
 public class CardDetailJson extends BaseCardDetailBuilder<CardDetailJson> {
 

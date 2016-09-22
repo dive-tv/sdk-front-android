@@ -19,17 +19,21 @@ import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
 import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
 
-/**
- * The type Cards song belongs to adapter.
- */
+
 public class RelatedMoviesAdapter extends BaseAdapter {
 
     private final Movies[] movies;
     private final Picasso mPicasso;
     private final CardDetailListener mListener;
-    Context context;
-    LayoutInflater mInflater;
+    private Context context;
+    private LayoutInflater mInflater;
 
+    /**
+     * Constructor.
+     * @param context
+     * @param movies
+     * @param mListener
+     */
     public RelatedMoviesAdapter(Context context, Movies[] movies, CardDetailListener mListener) {
         this.context = context;
         this.movies = movies;
