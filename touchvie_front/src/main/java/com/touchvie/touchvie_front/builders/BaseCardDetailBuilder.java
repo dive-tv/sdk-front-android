@@ -88,7 +88,9 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         buildDefault = false;
         context = ctx;
-        requestCard(cardID, manager, container);
+        this.mManager = manager;
+        this.mLayout = container;
+        requestCard(cardID);
 
     }
 
@@ -107,7 +109,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         context = ctx;
         this.mManager = manager;
         this.mLayout = container;
-        requestCard(cardID, manager, container);
+        requestCard(cardID);
 
     }
 
@@ -148,7 +150,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         //Compose all the modules with the data.
 
-        CardDetail cardDetail = new CardDetail(context, data, idSection, "main", mManager, mLayout);
+        new CardDetail(context, data, idSection, "main", mManager, mLayout);
 
 /*
         for (String id : idSection.keySet()) {
@@ -169,12 +171,10 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
     /**
      * CallBack of data received
      *
-     * @param data      Carddata
-     * @param manager   fragment manager.
-     * @param container LinearLayout where will show cardDetail.
+     * @param data  The card data received.
      */
     @Override
-    public void onCardReceived(CardData data, FragmentManager manager, LinearLayout container) {
+    public void onCardReceived(CardData data) {
 
         this.data = data;
         composeCardDetail();
@@ -197,11 +197,9 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * FOR TESTING PURPOSES
      *
      * @param cardId    Card identifier.
-     * @param manager   fragment manager.
-     * @param container LinearLayout where will show cardDetail.
      */
 
-    private void requestCard(String cardId, FragmentManager manager, LinearLayout container) {
+    private void requestCard(String cardId) {
         String jsonString = null;
         try {
             Resources res = context.getResources();
@@ -221,7 +219,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         if (cardData == null) {
             cardData = new CardData();
         }
-        onCardReceived(cardData, manager, container);
+        onCardReceived(cardData);
     }
 
     /**

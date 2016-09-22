@@ -11,7 +11,7 @@ import java.util.HashMap;
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
  */
-public class DataPresentation implements CarouselCardListener{
+public class SceneManager implements CarouselCardListener{
 
     private HashMap<String, Scene> scenes;
     private String currentScene=null;
@@ -19,7 +19,7 @@ public class DataPresentation implements CarouselCardListener{
     private ArrayList<CarouselCard> orphanedCards;
 
 
-    public DataPresentation(){
+    public SceneManager(){
         scenes=new HashMap<>();
     }
 
