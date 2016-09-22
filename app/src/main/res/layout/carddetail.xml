@@ -3,6 +3,7 @@
     android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
     android:id="@+id/carddetail"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
 </LinearLayout>
