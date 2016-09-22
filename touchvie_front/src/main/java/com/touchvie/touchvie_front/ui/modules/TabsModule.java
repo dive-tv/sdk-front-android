@@ -35,7 +35,6 @@ public class TabsModule extends Module {
         mTabLayout = (TabLayout) v.findViewById(R.id.module_tabs_tablayout);
         sectionList = new ArrayList<>();
         sectionNames = new ArrayList<>();
-        System.out.println("KKKKK TabsModule builder");
     }
 
     private AutoHeightViewPager getViewPager() {
@@ -55,14 +54,10 @@ public class TabsModule extends Module {
     }
 
     public void configure(Context context, final TabsModule relatedMoviesVH, final Target[] target, final CardDetailListener mListener) {
-        System.out.println("KKKKK TabsModule configure");
         if (relatedMoviesVH.getViewPager().getAdapter() == null) {
             if (target != null && target.length > 0) {
                 sectionList = new ArrayList<>();
                 sectionNames = new ArrayList<>();
-
-                System.out.println("KKKKK TabsModule currentItem " + relatedMoviesVH.getViewPager().getCurrentItem());
-                //relatedMoviesVH.getViewPager().reMeasureCurrentPage(relatedMoviesVH.getViewPager().getCurrentItem());
 
                 for (Target aTarget : target) {
                     sectionList.add(mListener.requestSectionForTab(aTarget.getSectionId()));
@@ -80,7 +75,6 @@ public class TabsModule extends Module {
                         @Override
                         public void onPageSelected(int position) {
                             pageSelected = position;
-                            System.out.println("KKKKKKK onPageSelected " + pageSelected);
                             relatedMoviesVH.getViewPager().reMeasureCurrentPage(pageSelected);
                         }
 
@@ -97,9 +91,6 @@ public class TabsModule extends Module {
                     relatedMoviesVH.getTabLayout().setupWithViewPager(relatedMoviesVH.getViewPager());
                 }
             }
-        }
-        else{
-            System.out.println("KKKKKKKKKKK no nulo");
         }
     }
 }

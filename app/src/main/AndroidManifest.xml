@@ -8,12 +8,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.touchvie.sdk_front.ui.activities.CardDetailDive"
-            android:label="@string/app_name">
+            android:name="com.touchvie.sdk_front.ui.activities.Splash"
+            android:label="@string/activity_splash_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.touchvie.sdk_front.ui.activities.CardDetailDive"
+            android:label="@string/activity_card_detail_name">
         </activity>
     </application>
 

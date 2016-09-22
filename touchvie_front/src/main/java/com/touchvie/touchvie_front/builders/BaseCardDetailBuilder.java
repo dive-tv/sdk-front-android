@@ -251,7 +251,5 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
                 idSection.put((dataConfig.getSections()[i]).getTitle(), dataConfig.getSections()[i]);
             }
         }
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder requestDataConfig " + idSection.size());
-
     }
 }
