@@ -35,3 +35,14 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.0'
 
 }
+
+android.libraryVariants.all { variant ->
+    task("generate${variant.name.capitalize()}JavaDoc", type: Javadoc) {
+        description "Generates Javadoc for $variant.name."
+        destinationDir = file("../docs/" + android.defaultConfig.versionName)
+        source = variant.javaCompile.source
+        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+        failOnError false
+    }
+}
