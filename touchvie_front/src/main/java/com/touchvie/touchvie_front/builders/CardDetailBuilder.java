@@ -1,7 +1,7 @@
 package com.touchvie.touchvie_front.builders;
 
 /**
- * 
+ * Class to build a card detail without a configuration json.
  */
 public class CardDetailBuilder extends BaseCardDetailBuilder<CardDetailBuilder> {
 

@@ -12,7 +12,7 @@ import com.touchvie.backend.DataConfig;
 import com.touchvie.touchvie_client.listeners.CardDataListener;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
-import com.touchvie.touchvie_front.ui.CardDetail;
+import com.touchvie.touchvie_front.ui.managers.CardDetail;
 import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
@@ -29,6 +29,10 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
     private FragmentManager mManager;
     private LinearLayout mLayout;
 
+    /**
+     * Method to get the object of a class derived from BaseCardDetailBuilder.
+     * @return
+     */
     protected abstract T getThis();
 
     /**

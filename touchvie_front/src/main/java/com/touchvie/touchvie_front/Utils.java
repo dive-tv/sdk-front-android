@@ -21,7 +21,11 @@ public class Utils {
     }
 
 
-
+    /**
+     * Gets the string of an error code.
+     * @param errorCode The code of an error.
+     * @return
+     */
     public static String getError( ErrorCode errorCode){
 
         return errorCode.getError();

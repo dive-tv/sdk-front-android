@@ -16,7 +16,7 @@ import com.touchvie.touchvie_front.R;
 public class LinearListLayout extends LinearLayout {
 
     private Adapter list;
-    private OnClickListener mListener;
+    private OnClickListener listener;
 
     /**
      * Instantiates a new Linear list layout.
@@ -51,7 +51,6 @@ public class LinearListLayout extends LinearLayout {
 
     /**
      * Sets list.
-     *
      * @param list          the list
      * @param withSeparator the with separator
      */
@@ -89,11 +88,10 @@ public class LinearListLayout extends LinearLayout {
     }
 
     /**
-     * Sets listener.
-     *
-     * @param mListener the m listener
+     * Sets listener to manage each row click.
+     * @param listener the m listener
      */
-    public void setmListener(OnClickListener mListener) {
-        this.mListener = mListener;
+    public void setlistener(OnClickListener listener) {
+        this.listener = listener;
     }
 }

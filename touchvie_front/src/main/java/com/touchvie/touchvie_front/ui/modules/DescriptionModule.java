@@ -30,6 +30,10 @@ public class DescriptionModule extends Module {
         mSource = (TextView) v.findViewById(R.id.module_description_source);
     }
 
+    /**
+     * Gets the module title
+     * @return
+     */
     public TextView getTitle() {
         return mTitle;
     }

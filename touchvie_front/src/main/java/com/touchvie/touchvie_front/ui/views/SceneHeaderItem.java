@@ -17,39 +17,68 @@ import eu.davidea.viewholders.FlexibleViewHolder;
 
 /**
  * Created by Tagsonomy S.L. on 20/09/2016.
+ * Holds a section header in the carousel.
  */
 
 public class SceneHeaderItem extends AbstractHeaderItem<SceneHeaderItem.HeaderViewHolder> {
 
-private int order;//Custom order for sorting purpose
-private String title;
+    /**
+     * Custom order for sorting purpose
+     */
+    private int order;
+    /**
+     * The header title.
+     */
+    private String title;
 
-public SceneHeaderItem(int order, String title) {
+    /**
+     * Constructor
+     * @param order Custom order for sorting purpose.
+     * @param title
+     */
+    public SceneHeaderItem(int order, String title) {
         this.order = order;
         this.title = title;
         setEnabled(false);
-        }
+    }
 
 @Override
 public boolean equals(Object o) {
         return this == o;
         }
 
-public int getOrder() {
+    /**
+     * Gets the order of this header
+     * @return
+     */
+    public int getOrder() {
         return order;
         }
 
-public void setOrder(int order) {
+    /**
+     * Sets the order of this section header
+     * @param order
+     */
+    public void setOrder(int order) {
         this.order = order;
         }
 
-public String getTitle() {
+    /**
+     * Gets the title of this section header.
+     * @return
+     */
+    public String getTitle() {
         return title;
         }
 
-public void setTitle(String title) {
+    /**
+     * Sets the title of this section header
+     * @param title The title to be set.
+     */
+    public void setTitle(String title) {
         this.title = title;
         }
+
 
 @Override
 public int getLayoutRes() {
@@ -62,12 +91,12 @@ public HeaderViewHolder createViewHolder(FlexibleAdapter adapter, LayoutInflater
         }
 
 @Override
-@SuppressWarnings("unchecked")
 public void bindViewHolder(FlexibleAdapter adapter, HeaderViewHolder holder, int position, List payloads) {
 
         String title = this.title + " (" + adapter.getSectionItems(this).size() + ")";
         holder.title.setText(title);
 }
+
 
 
 static class HeaderViewHolder extends FlexibleViewHolder {
@@ -82,10 +111,6 @@ static class HeaderViewHolder extends FlexibleViewHolder {
     }
 }
 
-    @Override
-    public String toString() {
-        return "StaggeredHeaderItem[order=" + order + ", title=" + title + "]";
-    }
 
 
 }

@@ -48,7 +48,6 @@ public class RecyclerListLayout extends LinearLayout {
 
     /**
      * Sets list.
-     *
      * @param adapter       the recycleradapter
      * @param withSeparator choose whether print a separator or not
      */

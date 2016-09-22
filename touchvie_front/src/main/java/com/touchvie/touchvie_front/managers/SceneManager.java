@@ -1,8 +1,8 @@
-package com.touchvie.touchvie_front.layers;
+package com.touchvie.touchvie_front.managers;
 
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
-import com.touchvie.touchvie_front.ui.data.Scene;
+import com.touchvie.touchvie_front.data.Scene;
 
 import java.util.ArrayList;
 import java.util.HashMap;

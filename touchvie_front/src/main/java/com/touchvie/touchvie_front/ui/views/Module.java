@@ -16,12 +16,12 @@ public class Module extends RecyclerView.ViewHolder {
     }
 
     /**
-     * Type of Module (from enum)
+     * Type of module
      */
     public String type;
 
     /**
-     * Set Module type
+     * Sets the module type
      * @param modType type of the Module
      */
     public void setType(String modType) {
@@ -29,8 +29,8 @@ public class Module extends RecyclerView.ViewHolder {
     }
 
     /**
-     * Get Module type
-     * @return type
+     * Gets the module type
+     * @return type the type of the module
      */
     public String getType() {
         return type;
