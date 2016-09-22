@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.view.Window;
 import android.widget.LinearLayout;
 
+import com.touchvie.sdk_front.ui.utils.Utils;
 import com.touchvie.sdkfront.R;
 import com.touchvie.touchvie_front.ui.fragments.Carousel;
 
 public class DiveCarousel extends FragmentActivity implements Carousel.CarouselListener {
 
+    /**
+     * The fragment manager of this activity.
+     */
     private FragmentManager mManager = null;
-    LinearLayout mContainer=null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,10 @@ public class DiveCarousel extends FragmentActivity implements Carousel.CarouselL
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.carousel);
-        mContainer = (LinearLayout) findViewById(R.id.carousel);
         mManager = getSupportFragmentManager();
+
+
         Carousel carousel = new Carousel();
-        mManager.beginTransaction().replace(this.mContainer.getId(), carousel).addToBackStack("CAROUSEL").commit();
+        mManager.beginTransaction().replace(R.id.carousel, carousel).addToBackStack(Utils.CAROUSEL_FLAG).commit();
     }
 }

@@ -14,5 +14,5 @@ public interface CardDataListener {
      * Interface to be reported when the data of a card has been received.
      * @param data
      */
-    void onCardReceived(CardData data, FragmentManager manager, LinearLayout llay);
+    void onCardReceived(CardData data);
 }
