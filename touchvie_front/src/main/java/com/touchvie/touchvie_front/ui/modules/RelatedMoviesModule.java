@@ -48,7 +48,6 @@ public class RelatedMoviesModule extends Module {
     public void configure(Context context, RelatedMoviesModule relatedMoviesVH, CardData cardData, CardDetailListener mListener) {
         if (cardData != null && cardData.getRelated_movies() != null) {
             RelatedMovies relatedMovies = cardData.getRelated_movies();
-            System.out.println("KKKKKKKKKKKKKK RelatedMoviesModule " + relatedMovies.getTitle());
             //Title
             if (relatedMovies.getTitle() != null && relatedMovies.getTitle().length() > 0) {
                 relatedMoviesVH.getTitle().setText(relatedMovies.getTitle());

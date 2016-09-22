@@ -107,7 +107,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         context = ctx;
         this.mManager = manager;
         this.mLayout = container;
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder buildAll");
         requestCard(cardID, manager, container);
 
     }
@@ -137,7 +136,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * Create the Card Detail
      */
     protected void composeCardDetail() {
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder composeCardDetail ");
 
         requestDataConfig();
 
@@ -223,7 +221,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         if (cardData == null) {
             cardData = new CardData();
         }
-        System.out.println("KKKKKKKKKK BaseCardDetailBuilder request " + cardData.getCard_id());
         onCardReceived(cardData, manager, container);
     }
 

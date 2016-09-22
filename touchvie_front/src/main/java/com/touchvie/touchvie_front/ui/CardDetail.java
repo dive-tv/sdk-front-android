@@ -50,7 +50,6 @@ public class CardDetail implements CardDetailListener {
      * @param container : Linear layout
      */
     public CardDetail(Context context, CardData data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
-        System.out.println("KKKKKKKKKK CardDetail new carddetail ");
         this.mFragmentManager = manager;
         this.context = context;
         this.container = container;
@@ -58,7 +57,6 @@ public class CardDetail implements CardDetailListener {
         instance = this;
 
         for (String id : idSection.keySet()) {
-            System.out.println("KKKKKKKKKK BaseCardDetailBuilder idSction for " + id);
             ConfigSection section = idSection.get(id);
             for (ConfigModule module : section.getConfigModules()) {
                 if (true /*ModuleValidator.validate(data, module )*/) {

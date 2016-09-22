@@ -33,7 +33,6 @@ public class NavigationModule extends Module {
     }
 
     public void configure(Context context, NavigationModule relatedMoviesVH, final Target[] target, final CardDetailListener mListener) {
-        System.out.println("KKKKKKKKKKKKKK NavigationModule ");
         if (target != null && target.length > 0) {
             //Button text
             if (target[0].getText() != null && target[0].getText().length() > 0) {

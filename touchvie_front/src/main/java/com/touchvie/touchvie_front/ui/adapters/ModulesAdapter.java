@@ -32,7 +32,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.cardData = cardData;
         this.configModules = configModules;
         this.mListener = mListener;
-        System.out.println("KKKKKKKKKKKKKK ModulesAdapter");
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -44,14 +43,12 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     //Returns the view type of the item at position for the purposes of view recycling.
     @Override
     public int getItemViewType(int position) {
-        System.out.println("KKKKKKKKKKKKKK ModulesAdapter getItemViewType " + configModules[position].getType());
         switch (configModules[position].getType()) {
             case "header":
                 return 0;
             case "description":
                 return 1;
             case "relatedMovies":
-                System.out.println("KKKKKKKKKK return 2");
                 return 2;
             case "navigation":
                 return 3;
@@ -72,7 +69,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        System.out.println("KKKKKKKKKKKKKK ModulesAdapter onCreateViewHolder " + viewType);
 
         switch (viewType) {
             case 0: //Header Module
@@ -113,8 +109,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      */
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        System.out.println("KKKKKKKKKKKKKK ModulesAdapter onBindViewHolder " + position + " " + viewHolder.getItemViewType());
-
         if (viewHolder instanceof ImageModule) {
             ImageModule imageVH = (ImageModule) viewHolder;
             imageVH.configure(imageVH, position);
@@ -134,35 +128,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         } else if (viewHolder instanceof TabsModule) {
             TabsModule tabsVH = (TabsModule) viewHolder;
             tabsVH.configure(context, tabsVH, configModules[position].getTargets(), mListener);
-
         }
-/*
-        switch (viewHolder.getItemViewType()) {
-            case 0:
-                ImageModule imageVH = (ImageModule) viewHolder;
-                imageVH.configure(imageVH, position);
-                break;
-            case 1: //Description module
-                DescriptionModule descriptionVH = (DescriptionModule) viewHolder;
-                descriptionVH.configure(descriptionVH, cardData);
-                break;
-            case 2: //Related Movies module
-                RelatedMoviesModule relatedMoviesVH = (RelatedMoviesModule) viewHolder;
-                relatedMoviesVH.configure(context, relatedMoviesVH, cardData, mListener);
-                break;
-            case 3: //Navigation module
-                NavigationModule navigationVH = (NavigationModule) viewHolder;
-                navigationVH.configure(context, navigationVH, configModules[position].getTargets(), mListener);
-                break;
-            case 4: //Tabs module
-                TabsModule tabsVH = (TabsModule) viewHolder;
-                tabsVH.configure(context, tabsVH, configModules[position].getTargets(), mListener);
-                break;
-            default:
-                DescriptionModule defaultVH = (DescriptionModule) viewHolder;
-                defaultVH.configure(defaultVH, cardData);
-                break;
-        }
-*/
     }
 }

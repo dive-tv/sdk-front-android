@@ -8,7 +8,7 @@
           "type": "description"
         },
         {
-          "type": "relatedMovies"
+          "type": "description"
         },
         {
           "type": "navigation",
@@ -31,6 +31,9 @@
               "text": "THIRD TAB"
             }
           ]
+        },
+        {
+          "type": "description"
         }
       ]
     },

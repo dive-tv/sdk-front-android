@@ -77,12 +77,7 @@ public class RecyclerListLayout extends LinearLayout {
                 }
             } else {
                 for (int position = 0; position < adapter.getItemCount(); position++) {
-                    System.out.println("KKKKKKKKK adapter.getItemCount() " + adapter.getItemCount());
-                    System.out.println("KKKKKKKKK position " + position);
-                    int viewType = adapter.getItemViewType(position);
-                    System.out.println("KKKKKKKKK adapter.getItemViewType(position) " + viewType);
-                    RecyclerView.ViewHolder holder = adapter.onCreateViewHolder(this, 2);
-                    System.out.println("KKKKKKKKKK holder.getitem " + holder.getItemViewType());
+                    RecyclerView.ViewHolder holder = adapter.onCreateViewHolder(this, adapter.getItemViewType(position));
                     adapter.onBindViewHolder(holder, position);
                     this.addView(holder.itemView);
                 }

@@ -24,6 +24,7 @@ public class TabsModule extends Module {
     private TabLayout mTabLayout;
     private ArrayList<Section> sectionList;
     private ArrayList<String> sectionNames;
+    private int pageSelected = 0;
 
     /**
      * Default constructor
@@ -34,9 +35,10 @@ public class TabsModule extends Module {
         mTabLayout = (TabLayout) v.findViewById(R.id.module_tabs_tablayout);
         sectionList = new ArrayList<>();
         sectionNames = new ArrayList<>();
+        System.out.println("KKKKK TabsModule builder");
     }
 
-    public AutoHeightViewPager getViewPager() {
+    private AutoHeightViewPager getViewPager() {
         return mViewPager;
     }
 
@@ -44,7 +46,7 @@ public class TabsModule extends Module {
         this.mViewPager = mViewPager;
     }
 
-    public TabLayout getTabLayout() {
+    private TabLayout getTabLayout() {
         return mTabLayout;
     }
 
@@ -53,41 +55,51 @@ public class TabsModule extends Module {
     }
 
     public void configure(Context context, final TabsModule relatedMoviesVH, final Target[] target, final CardDetailListener mListener) {
-        System.out.println("KKKKKKKKKKKKKK TabsModule ");
-        if (target != null && target.length > 0) {
-            sectionList = new ArrayList<>();
-            sectionNames = new ArrayList<>();
-            for (int i = 0; i < target.length; i++) {
-                sectionList.add(mListener.requestSectionForTab(target[i].getSectionId()));
-                sectionNames.add(mListener.requestSectionTitleForTab(target[i].getSectionId()));
-            }
-            if (sectionList.size() > 0) {
-                TabsModuleAdapter tabsModuleAdapter = new TabsModuleAdapter(mListener.requestFragmentManager(), sectionList, sectionNames);
-                relatedMoviesVH.getViewPager().setAdapter(tabsModuleAdapter);
-                relatedMoviesVH.getViewPager().addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-                    @Override
-                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        System.out.println("KKKKK TabsModule configure");
+        if (relatedMoviesVH.getViewPager().getAdapter() == null) {
+            if (target != null && target.length > 0) {
+                sectionList = new ArrayList<>();
+                sectionNames = new ArrayList<>();
 
-                    }
+                System.out.println("KKKKK TabsModule currentItem " + relatedMoviesVH.getViewPager().getCurrentItem());
+                //relatedMoviesVH.getViewPager().reMeasureCurrentPage(relatedMoviesVH.getViewPager().getCurrentItem());
 
-                    @Override
-                    public void onPageSelected(int position) {
-                        relatedMoviesVH.getViewPager().reMeasureCurrentPage(relatedMoviesVH.getViewPager().getCurrentItem());
-                    }
-
-                    @Override
-                    public void onPageScrollStateChanged(int state) {
-
-                    }
-                });
-
-                for (int i = 0; i < tabsModuleAdapter.getCount(); i++) {
-                    relatedMoviesVH.getTabLayout().addTab(relatedMoviesVH.getTabLayout().newTab().setText(tabsModuleAdapter.getPageTitle(i)));
+                for (Target aTarget : target) {
+                    sectionList.add(mListener.requestSectionForTab(aTarget.getSectionId()));
+                    sectionNames.add(mListener.requestSectionTitleForTab(aTarget.getSectionId()));
                 }
+                if (sectionList.size() > 0) {
+                    TabsModuleAdapter tabsModuleAdapter = new TabsModuleAdapter(mListener.requestFragmentManager(), sectionList, sectionNames);
+                    relatedMoviesVH.getViewPager().setAdapter(tabsModuleAdapter);
+                    relatedMoviesVH.getViewPager().addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                        @Override
+                        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-//                relatedMoviesVH.getViewPager().addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(relatedMoviesVH.getTabLayout()));
-                relatedMoviesVH.getTabLayout().setupWithViewPager(relatedMoviesVH.getViewPager());
+                        }
+
+                        @Override
+                        public void onPageSelected(int position) {
+                            pageSelected = position;
+                            System.out.println("KKKKKKK onPageSelected " + pageSelected);
+                            relatedMoviesVH.getViewPager().reMeasureCurrentPage(pageSelected);
+                        }
+
+                        @Override
+                        public void onPageScrollStateChanged(int state) {
+
+                        }
+                    });
+
+                    for (int i = 0; i < tabsModuleAdapter.getCount(); i++) {
+                        relatedMoviesVH.getTabLayout().addTab(relatedMoviesVH.getTabLayout().newTab().setText(tabsModuleAdapter.getPageTitle(i)));
+                    }
+
+                    relatedMoviesVH.getTabLayout().setupWithViewPager(relatedMoviesVH.getViewPager());
+                }
             }
+        }
+        else{
+            System.out.println("KKKKKKKKKKK no nulo");
         }
     }
 }

@@ -33,6 +33,7 @@ public class AutoHeightViewPager extends ViewPager {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         try {
+            System.out.println("KKKKKKK onMeasure " + mCurrentPagePosition);
             View child = getChildAt(mCurrentPagePosition);
             if (child != null) {
                 child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
@@ -46,6 +47,7 @@ public class AutoHeightViewPager extends ViewPager {
     }
 
     public void reMeasureCurrentPage(int position) {
+        System.out.println("KKKKKK reMeasureCurrentPage " + position);
         mCurrentPagePosition = position;
         requestLayout();
     }

@@ -139,11 +139,8 @@ public class Section extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
         modulesAdapter = new ModulesAdapter(getContext(), cardData, configSection.getConfigModules(), mListener);
-        System.out.println("KKKKKKKKKKKKKK Section onCreateView");
-        sectionType=SectionType.recycler_view;
         switch (sectionType) {
             case recycler_view:
-                System.out.println("KKKKKKKKKKKKKK Section recycler");
                 view = inflater.inflate(R.layout.section_base_recycler, container, false);
                 RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
                 mLayoutManager = new LinearLayoutManager(getContext());
@@ -151,7 +148,6 @@ public class Section extends Fragment {
                 recyclerView.setAdapter(modulesAdapter);
                 break;
             case linear_layout:
-                System.out.println("KKKKKKKKKKKKKK Section linear");
                 view = inflater.inflate(R.layout.section_base_linear, container, false);
                 RecyclerListLayout recyclerListLayout = (RecyclerListLayout) view.findViewById(R.id.recycler_list_layout);
                 recyclerListLayout.setList(modulesAdapter, false);
