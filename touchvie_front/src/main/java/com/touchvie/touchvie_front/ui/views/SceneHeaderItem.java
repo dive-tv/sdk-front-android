@@ -9,8 +9,7 @@ import com.touchvie.touchvie_front.R;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 
 import eu.davidea.flexibleadapter.items.AbstractHeaderItem;
