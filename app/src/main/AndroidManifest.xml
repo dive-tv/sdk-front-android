@@ -7,7 +7,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.Carousel"></activity>
+        <activity
+            android:name="com.touchvie.sdk_front.ui.activities.Splash"
+            android:label="@string/activity_splash_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.touchvie.sdk_front.ui.activities.DiveCarousel"
+            android:label="@string/activity_carousel_name">
+        </activity>
+        <activity
+            android:name="com.touchvie.sdk_front.ui.activities.CardDetailDive"
+            android:label="@string/activity_card_detail_name">
+        </activity>
     </application>
 
 </manifest>

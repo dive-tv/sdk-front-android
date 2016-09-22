@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">sdkFront</string>
+
+    <!-- Splash -->
+    <string name="activity_splash_name">Splash</string>
+    <string name="splash_goto_carousel">Carousel</string>
+    <string name="splash_goto_card_detail">Card Detail</string>
+
+    <!-- CardDetail -->
+    <string name="activity_card_detail_name">CardDetail</string>
+    <string name="activity_carousel_name">Carousel</string>
+
 </resources>

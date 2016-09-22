@@ -1,0 +1,28 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Dimens for testing -->
+    <dimen name="stroke">1dp</dimen>
+
+    <!-- Module Generic -->
+    <dimen name="module_padding">20dp</dimen>
+    <dimen name="module_margin">20dp</dimen>
+    <dimen name="module_title">13sp</dimen>
+
+    <!-- Module Description -->
+    <dimen name="module_description_body">15sp</dimen>
+    <dimen name="module_description_source">11sp</dimen>
+
+    <!-- Module Related Movies -->
+    <dimen name="module_related_movies_row_photo_width">110dp</dimen>
+    <dimen name="module_related_movies_row_photo_height">160dp</dimen>
+    <dimen name="module_related_movies_row_title">15sp</dimen>
+    <dimen name="module_related_movies_row_subtitle">13sp</dimen>
+
+    <!-- Module Navigation -->
+    <dimen name="module_navigation_height">100dp</dimen>
+    <dimen name="module_navigation_text_size">20sp</dimen>
+
+</resources>
