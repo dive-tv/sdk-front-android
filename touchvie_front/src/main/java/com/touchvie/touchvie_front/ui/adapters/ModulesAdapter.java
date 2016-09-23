@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
@@ -24,7 +24,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private final Context context;
     private final CardDetailListener mListener;
-    private CardData cardData;
+    private Card cardData;
     private final ConfigModule[] configModules;
 
     /**
@@ -34,7 +34,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      * @param configModules
      * @param mListener
      */
-    public ModulesAdapter(Context context, CardData cardData, ConfigModule[] configModules, CardDetailListener mListener) {
+    public ModulesAdapter(Context context, Card cardData, ConfigModule[] configModules, CardDetailListener mListener) {
         this.context = context;
         this.cardData = cardData;
         this.configModules = configModules;

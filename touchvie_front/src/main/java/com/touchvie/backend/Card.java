@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
-public class CardData implements Serializable {
+public class Card implements Serializable {
     String card_id;
     String locale;
     String title;

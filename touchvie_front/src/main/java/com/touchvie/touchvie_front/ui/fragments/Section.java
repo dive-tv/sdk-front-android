@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigSection;
 import com.touchvie.touchvie_front.ui.adapters.ModulesAdapter;
@@ -51,7 +51,7 @@ public class Section extends Fragment {
     /**
      * CardData object, with all the data of the card
      */
-    private CardData cardData;
+    private Card cardData;
 
     /**
      * Module configuration file
@@ -109,7 +109,7 @@ public class Section extends Fragment {
      *
      * @return A new instance of fragment Home.
      */
-    public static Section newInstance(CardData data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener) {
+    public static Section newInstance(Card data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener) {
         Section fragment = new Section();
         Bundle extras = new Bundle();
         extras.putSerializable(Utils.CARD_DATA, data);
@@ -128,7 +128,7 @@ public class Section extends Fragment {
 
         Bundle extras = getArguments();
         if (extras != null) {
-            cardData = (CardData) extras.getSerializable(Utils.CARD_DATA);
+            cardData = (Card) extras.getSerializable(Utils.CARD_DATA);
             configSection = (ConfigSection) extras.getSerializable(Utils.CONFIG_SECTION);
             sectionType = (SectionType) extras.getSerializable(Utils.SECTION_TYPE);
             mListener = (CardDetailListener) extras.getParcelable(Utils.CARD_DETAIL_LISTENER);

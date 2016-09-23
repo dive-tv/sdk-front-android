@@ -6,7 +6,7 @@ import android.os.Parcel;
 import android.support.v4.app.FragmentManager;
 import android.widget.LinearLayout;
 
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.builders.BaseCardDetailBuilder;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.builders.ConfigSection;
@@ -37,7 +37,7 @@ public class CardDetail implements CardDetailListener {
     private final FragmentManager mFragmentManager;
     private final LinearLayout container;
     private String mainSection;
-    private CardData data;
+    private Card data;
 
     /**
      * Default constructor
@@ -49,7 +49,7 @@ public class CardDetail implements CardDetailListener {
      * @param manager   :   fragment manager
      * @param container : Linear layout
      */
-    public CardDetail(Context context, CardData data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
+    public CardDetail(Context context, Card data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
         this.mFragmentManager = manager;
         this.context = context;
         this.container = container;
