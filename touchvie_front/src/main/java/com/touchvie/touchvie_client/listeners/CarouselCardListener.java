@@ -9,7 +9,7 @@ public interface CarouselCardListener {
 
     void onCardReceived(CarouselCard card);
 
-    void onSectionEndReceived(String sectionId);
+    void onSectionEndReceived(Integer sectionId);
 
-    void onSectionStartReceived(String sectionId);
+    void onSectionStartReceived(Integer sectionId);
 }

@@ -13,8 +13,8 @@ import java.util.HashMap;
  */
 public class SceneManager implements CarouselCardListener{
 
-    private HashMap<String, Scene> scenes;
-    private String currentScene=null;
+    private HashMap<Integer, Scene> scenes;
+    private Integer currentScene=null;
 
     private ArrayList<CarouselCard> orphanedCards;
 
@@ -50,7 +50,7 @@ public class SceneManager implements CarouselCardListener{
      * @param sectionId The id of the section received.
      */
     @Override
-    public void onSectionEndReceived(String sectionId) {
+    public void onSectionEndReceived(Integer sectionId) {
 
         currentScene=null;
         if(orphanedCards !=null){
@@ -73,7 +73,7 @@ public class SceneManager implements CarouselCardListener{
      */
 
     @Override
-    public void onSectionStartReceived(String sectionId) {
+    public void onSectionStartReceived(Integer sectionId) {
 
         currentScene=sectionId;
         scenes.put(sectionId, new Scene());
