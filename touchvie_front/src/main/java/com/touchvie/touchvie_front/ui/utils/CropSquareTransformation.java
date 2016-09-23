@@ -27,13 +27,16 @@ public class CropSquareTransformation implements Transformation {
     }
 
     /**
+<<<<<<< HEAD
+     * Override tranform method to set the image anchors
+=======
      * Override transform method to set the image anchors
+>>>>>>> develop
      * @param source: bitmap
      * @return
      */
     @Override
     public Bitmap transform(Bitmap source) {
-
         int inWidth =source.getWidth();  //image width
         int inHeight =source.getHeight();  //image height
         int drawY = 0;

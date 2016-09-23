@@ -4,6 +4,7 @@ package com.touchvie.touchvie_front.ui.adapters;
  * Adapter to present a search movie list to do synchronization.
  */
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -19,7 +20,6 @@ public class TabsModuleAdapter extends FragmentStatePagerAdapter {
 
     private final ArrayList<Section> sections;
     private final ArrayList<String> sectionNames;
-
 
     public TabsModuleAdapter(FragmentManager fm, ArrayList<Section> sections, ArrayList<String> sectionNames) {
         super(fm);

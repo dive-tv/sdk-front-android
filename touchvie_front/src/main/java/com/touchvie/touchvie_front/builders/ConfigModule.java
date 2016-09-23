@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class ConfigModule implements Serializable{
 
+
     /**
      * The type of the module to be built from this configuration.
      */
@@ -48,5 +49,4 @@ public class ConfigModule implements Serializable{
     public void setTargets(Target[] targets) {
         this.targets = targets;
     }
-
 }

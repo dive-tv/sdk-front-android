@@ -51,6 +51,7 @@ public class LinearListLayout extends LinearLayout {
 
     /**
      * Sets list.
+     *
      * @param list          the list
      * @param withSeparator the with separator
      */

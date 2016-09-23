@@ -1,17 +1,17 @@
 package com.touchvie.touchvie_front.builders;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  */
 public class ConfigSection implements Serializable {
 
-
     /**
      * List of the configurations for the modules in this Section
      */
-    protected ConfigModule[] modules;
+    protected ArrayList<ConfigModule> modules = new ArrayList<>();
 
     /**
      * The title of this section
@@ -30,11 +30,51 @@ public class ConfigSection implements Serializable {
     }
 
     /**
+     * Add new Module to the Section
+     *
+     * @param moduleType type of the module
+     * @return
+     */
+    public void addModule(String moduleType) {
+        ConfigModule newModule = new ConfigModule();
+        newModule.setType(moduleType);
+        modules.add(newModule);
+    }
+
+    /**
+     * Add a new Navigation Module to another Section
+     *
+     * @param target Target Section
+     */
+    public void addNavigation(Target target) {
+        ConfigModule newModule = new ConfigModule();
+        newModule.setType("navigation");
+        Target[] targetArray = new Target[1];
+        targetArray[0] = target;
+        newModule.setTargets(targetArray);
+        modules.add(newModule);
+    }
+
+    /**
+     * Add a new Navigation Module to another Section
+     *
+     * @param targets Array of Target Sections
+     */
+    public void addTabs(Target[] targets) {
+        ConfigModule newModule = new ConfigModule();
+        newModule.setType("tabs");
+        Target[] targetArray = new Target[targets.length];
+        System.arraycopy(targets, 0, targetArray, 0, targetArray.length);
+        newModule.setTargets(targetArray);
+        modules.add(newModule);
+    }
+
+    /**
      * Sets the config of the modules for the section to be built from this configuration.
      * @param modules
      */
 
-    public void setModules(ConfigModule[] modules) {
+    public void setModules(ArrayList<ConfigModule> modules) {
         this.modules = modules;
     }
 
@@ -43,7 +83,7 @@ public class ConfigSection implements Serializable {
      * @return
      */
     public ConfigModule[] getConfigModules() {
-        return modules;
+        return modules.toArray(new ConfigModule[modules.size()]);
     }
 
     /**

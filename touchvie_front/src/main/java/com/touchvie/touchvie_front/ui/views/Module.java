@@ -16,12 +16,12 @@ public class Module extends RecyclerView.ViewHolder {
     }
 
     /**
-     * Type of module
+     * Type of Module
      */
     public String type;
 
     /**
-     * Sets the module type
+     * Set Module type
      * @param modType type of the Module
      */
     public void setType(String modType) {

@@ -184,7 +184,8 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         composeCardDetail();
     }
 
-    protected T addSection(String sectionId, ConfigSection section, boolean isMain) {
+    protected T addSection(String sectionId, ConfigSection section) {
+        idSection.put(sectionId, section);
         return getThis();
     }
 

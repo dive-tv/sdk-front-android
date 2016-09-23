@@ -16,9 +16,8 @@ public class CardDetailBuilder extends BaseCardDetailBuilder<CardDetailBuilder> 
      * Makes parent addSection method public.
      * @return
      */
-    public CardDetailBuilder addSection(String sectionId, ConfigSection section, boolean isMain){
-
-        return super.addSection(sectionId, section, isMain);
+    public CardDetailBuilder addSection(String sectionId, ConfigSection section){
+        return super.addSection(sectionId, section);
     }
 
     @Override

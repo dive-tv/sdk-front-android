@@ -9,7 +9,6 @@ import android.view.View;
  * Created by Tagsonomy S.L. on 26/01/2016.
  */
 public class AutoHeightViewPager extends ViewPager {
-
     private int mCurrentPagePosition = 0;
 
     /**
