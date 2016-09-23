@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.LinearLayout;
 
 import com.google.gson.GsonBuilder;
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.Card;
 import com.touchvie.backend.DataConfig;
 import com.touchvie.touchvie_client.listeners.CardDataListener;
 import com.touchvie.touchvie_front.R;
@@ -51,7 +51,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
     /**
      * Data received from the server.
      */
-    protected CardData data;
+    protected Card data;
 
 
     /**
@@ -124,7 +124,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * @param cardId The card identifier.
      * @return
      */
-    protected CardData getCardData(String cardId) {
+    protected Card getCardData(String cardId) {
         return null;
     }
 
@@ -178,7 +178,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * @param data  The card data received.
      */
     @Override
-    public void onCardReceived(CardData data) {
+    public void onCardReceived(Card data) {
 
         this.data = data;
         composeCardDetail();
@@ -220,9 +220,9 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         } catch (Exception e) {
             //jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
         }
-        CardData cardData = new GsonBuilder().create().fromJson(jsonString, CardData.class);
+        Card cardData = new GsonBuilder().create().fromJson(jsonString, Card.class);
         if (cardData == null) {
-            cardData = new CardData();
+            cardData = new Card();
         }
         onCardReceived(cardData);
     }

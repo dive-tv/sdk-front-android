@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.Card;
 import com.touchvie.backend.RelatedMovies;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.adapters.RelatedMoviesAdapter;
@@ -45,7 +45,7 @@ public class RelatedMoviesModule extends Module {
         this.mList = mList;
     }
 
-    public void configure(Context context, RelatedMoviesModule relatedMoviesVH, CardData cardData, CardDetailListener mListener) {
+    public void configure(Context context, RelatedMoviesModule relatedMoviesVH, Card cardData, CardDetailListener mListener) {
         if (cardData != null && cardData.getRelated_movies() != null) {
             RelatedMovies relatedMovies = cardData.getRelated_movies();
             //Title

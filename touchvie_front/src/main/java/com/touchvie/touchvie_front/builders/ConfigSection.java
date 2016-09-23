@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class ConfigSection implements Serializable {
 
+
     /**
      * List of the configurations for the modules in this Section
      */
@@ -30,7 +31,17 @@ public class ConfigSection implements Serializable {
     }
 
     /**
-     * Add new Module to the Section
+     * Sets the config of the modules for the section to be built from this configuration.
+     * @param modules
+     */
+
+    public void setModules(ArrayList<ConfigModule> modules) {
+        this.modules = modules;
+    }
+
+
+    /**
+     * Adds a new module to the section
      *
      * @param moduleType type of the module
      * @return
@@ -69,14 +80,6 @@ public class ConfigSection implements Serializable {
         modules.add(newModule);
     }
 
-    /**
-     * Sets the config of the modules for the section to be built from this configuration.
-     * @param modules
-     */
-
-    public void setModules(ArrayList<ConfigModule> modules) {
-        this.modules = modules;
-    }
 
     /**
      * Gets all the configurations for the modules of this section.

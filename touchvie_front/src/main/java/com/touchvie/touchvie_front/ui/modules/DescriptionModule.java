@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.Card;
 import com.touchvie.backend.Description;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.Module;
@@ -66,7 +66,7 @@ public class DescriptionModule extends Module {
         this.mSource = mSource;
     }
 
-    public void configure(DescriptionModule descriptionVH, CardData cardData) {
+    public void configure(DescriptionModule descriptionVH, Card cardData) {
         if (cardData != null && cardData.getDescription() != null) {
             Description description = cardData.getDescription();
             //Title

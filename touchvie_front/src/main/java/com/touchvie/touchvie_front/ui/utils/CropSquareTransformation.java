@@ -27,11 +27,7 @@ public class CropSquareTransformation implements Transformation {
     }
 
     /**
-<<<<<<< HEAD
-     * Override tranform method to set the image anchors
-=======
      * Override transform method to set the image anchors
->>>>>>> develop
      * @param source: bitmap
      * @return
      */

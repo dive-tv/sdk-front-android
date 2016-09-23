@@ -16,6 +16,7 @@ import com.touchvie.sdkfront.R;
  * Created by Tagsonomy S.L. on 22/09/2016.
  */
 public class Splash extends FragmentActivity {
+
     private static Splash instance=null;
     private Button mCarouselBtn;
     private Button mCardDetailBtn;

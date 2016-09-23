@@ -80,6 +80,7 @@ public class SceneHeaderItem extends AbstractHeaderItem<SceneHeaderItem.HeaderVi
     }
 
 
+
     @Override
     public int getLayoutRes() {
         return R.layout.scene_header;
@@ -92,12 +93,9 @@ public class SceneHeaderItem extends AbstractHeaderItem<SceneHeaderItem.HeaderVi
 
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, HeaderViewHolder holder, int position, List payloads) {
-
         String title = this.title + " (" + adapter.getSectionItems(this).size() + ")";
         holder.title.setText(title);
     }
-
-
 
     static class HeaderViewHolder extends FlexibleViewHolder {
 
@@ -106,11 +104,9 @@ public class SceneHeaderItem extends AbstractHeaderItem<SceneHeaderItem.HeaderVi
 
         public HeaderViewHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter, true);//True for sticky
-            title=(TextView)view.findViewById(R.id.title);
+            title = (TextView) view.findViewById(R.id.title);
 
         }
+
     }
-
-
-
 }
