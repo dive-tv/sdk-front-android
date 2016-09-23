@@ -21,7 +21,6 @@ public class CardDetailDive extends FragmentActivity {
 
     private static CardDetailDive instance=null;
     private FragmentManager mManager = null;
-
     private LinearLayout mContainer=null;
 
 

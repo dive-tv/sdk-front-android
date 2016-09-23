@@ -34,7 +34,9 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      * @param configModules
      * @param mListener
      */
+
     public ModulesAdapter(Context context, Card cardData, ConfigModule[] configModules, CardDetailListener mListener) {
+
         this.context = context;
         this.cardData = cardData;
         this.configModules = configModules;

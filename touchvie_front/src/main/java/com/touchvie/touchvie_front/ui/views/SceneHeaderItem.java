@@ -42,10 +42,10 @@ public class SceneHeaderItem extends AbstractHeaderItem<SceneHeaderItem.HeaderVi
         setEnabled(false);
     }
 
-@Override
-public boolean equals(Object o) {
+    @Override
+    public boolean equals(Object o) {
         return this == o;
-        }
+    }
 
     /**
      * Gets the order of this header
@@ -53,7 +53,7 @@ public boolean equals(Object o) {
      */
     public int getOrder() {
         return order;
-        }
+    }
 
     /**
      * Sets the order of this section header
@@ -61,7 +61,7 @@ public boolean equals(Object o) {
      */
     public void setOrder(int order) {
         this.order = order;
-        }
+    }
 
     /**
      * Gets the title of this section header.
@@ -69,7 +69,7 @@ public boolean equals(Object o) {
      */
     public String getTitle() {
         return title;
-        }
+    }
 
     /**
      * Sets the title of this section header
@@ -77,40 +77,36 @@ public boolean equals(Object o) {
      */
     public void setTitle(String title) {
         this.title = title;
-        }
+    }
 
 
-@Override
-public int getLayoutRes() {
+
+    @Override
+    public int getLayoutRes() {
         return R.layout.scene_header;
-        }
+    }
 
-@Override
-public HeaderViewHolder createViewHolder(FlexibleAdapter adapter, LayoutInflater inflater, ViewGroup parent) {
+    @Override
+    public HeaderViewHolder createViewHolder(FlexibleAdapter adapter, LayoutInflater inflater, ViewGroup parent) {
         return new HeaderViewHolder(inflater.inflate(getLayoutRes(), parent, false), adapter);
-        }
+    }
 
-@Override
-public void bindViewHolder(FlexibleAdapter adapter, HeaderViewHolder holder, int position, List payloads) {
-
+    @Override
+    public void bindViewHolder(FlexibleAdapter adapter, HeaderViewHolder holder, int position, List payloads) {
         String title = this.title + " (" + adapter.getSectionItems(this).size() + ")";
         holder.title.setText(title);
-}
+    }
+
+    static class HeaderViewHolder extends FlexibleViewHolder {
+
+        TextView title;
 
 
+        public HeaderViewHolder(View view, FlexibleAdapter adapter) {
+            super(view, adapter, true);//True for sticky
+            title = (TextView) view.findViewById(R.id.title);
 
-static class HeaderViewHolder extends FlexibleViewHolder {
-
-   TextView title;
-
-
-    public HeaderViewHolder(View view, FlexibleAdapter adapter) {
-        super(view, adapter, true);//True for sticky
-        title=(TextView)view.findViewById(R.id.title);
+        }
 
     }
-}
-
-
-
 }

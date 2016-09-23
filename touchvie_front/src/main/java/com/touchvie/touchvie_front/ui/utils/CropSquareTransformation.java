@@ -33,7 +33,6 @@ public class CropSquareTransformation implements Transformation {
      */
     @Override
     public Bitmap transform(Bitmap source) {
-
         int inWidth =source.getWidth();  //image width
         int inHeight =source.getHeight();  //image height
         int drawY = 0;

@@ -19,7 +19,9 @@ import eu.davidea.viewholders.FlexibleViewHolder;
 
 public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolder, SceneHeaderItem> {
 
+
     private int id;
+
 
     /**
      * Constructor

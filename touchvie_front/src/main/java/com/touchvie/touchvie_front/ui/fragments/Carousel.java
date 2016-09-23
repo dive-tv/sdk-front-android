@@ -160,4 +160,6 @@ public class Carousel extends Fragment implements CarouselCardListener {
         return items;
     }
 
+
 }
+
