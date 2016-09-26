@@ -93,7 +93,7 @@ public class SceneHeaderItem extends AbstractHeaderItem<SceneHeaderItem.HeaderVi
 
     @Override
     public void bindViewHolder(FlexibleAdapter adapter, HeaderViewHolder holder, int position, List payloads) {
-        String title = this.title + " (" + adapter.getSectionItems(this).size() + ")";
+        String title = this.title + " (" + this.order + ")";
         holder.title.setText(title);
     }
 

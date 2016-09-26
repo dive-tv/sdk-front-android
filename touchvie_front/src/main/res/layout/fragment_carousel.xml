@@ -1,13 +1,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/carousel_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-        <include layout="@layout/sticky_header_layout"/>
+        android:layout_height="match_parent" />
 
+    <include layout="@layout/sticky_header_layout" />
 
+    <!-- FastScroller Layout must be at the end of ViewHierarchy
+           in order to be displayed at the top of every views -->
+    <include layout="@layout/fast_scroller" />
 </FrameLayout>

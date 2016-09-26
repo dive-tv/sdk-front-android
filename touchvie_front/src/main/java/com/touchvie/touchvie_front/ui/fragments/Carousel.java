@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -9,34 +10,38 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.touchvie.touchvie_client.data.CarouselCard;
-import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.Scene;
+import com.touchvie.touchvie_front.ui.adapters.CarouselExampleAdapter;
+import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.ui.views.CarouselItem;
+import com.touchvie.touchvie_front.ui.views.ProgressItem;
 import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import eu.davidea.fastscroller.FastScroller;
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 
 
-public class Carousel extends Fragment implements CarouselCardListener {
+public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener, FlexibleAdapter.EndlessScrollListener {
 
 
-    private HashMap<Integer, Scene> receivedScenes= null;
-    private HashMap<Integer, Scene> visibleScenes=null;
-    private Integer subsceneIndex=0;
+    private HashMap<Integer, Scene> receivedScenes = null;
+    private HashMap<Integer, Scene> visibleScenes = null;
+    private Integer subsceneIndex = 0;
 
     private CarouselListener mListener;
 
-    private RecyclerView carouselView=null;
-    private List<AbstractFlexibleItem>  carouselItems = null;
+    private RecyclerView carouselView = null;
+    private List<AbstractFlexibleItem> carouselItems = null;
 
-    private FlexibleAdapter<AbstractFlexibleItem> mAdapter =null;
+    private CarouselExampleAdapter mAdapter = null;
+    private Carousel instance;
 
     /**
      * Empty public constructor
@@ -48,6 +53,7 @@ public class Carousel extends Fragment implements CarouselCardListener {
     /**
      * Use this factory method to create a new instance of
      * this fragment
+     *
      * @return A new instance of fragment Carousel.
      */
     public static Carousel newInstance() {
@@ -57,6 +63,7 @@ public class Carousel extends Fragment implements CarouselCardListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        instance = this;
         super.onCreate(savedInstanceState);
     }
 
@@ -65,20 +72,40 @@ public class Carousel extends Fragment implements CarouselCardListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
-        receivedScenes= new HashMap<>();
-        visibleScenes= new HashMap<>();
-        carouselItems=getTestCarouselItems();//For testing purposes only
-        mAdapter = new FlexibleAdapter<>(carouselItems);
-        mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
-                .enableStickyHeaders();
+        receivedScenes = new HashMap<>();
+        visibleScenes = new HashMap<>();
+        carouselItems = getTestCarouselItems();//For testing purposes only
+        mAdapter = new CarouselExampleAdapter(carouselItems);
 
-        carouselView=(RecyclerView) view.findViewById(R.id.carousel_view);
+        mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
+                .setAutoScrollOnExpand(true)
+                .setHandleDragEnabled(true)
+                //.setAnimateToLimit(Integer.MAX_VALUE)//Use the default value
+                .setNotifyMoveOfFilteredItems(true)//When true, filtering on big list is very slow, not in this case!
+                .setNotifyChangeOfUnfilteredItems(true)//We have highlighted text while filtering, so let's enable this feature to be consistent with the active filter
+                .setAnimationOnReverseScrolling(true);
+
+        FastScroller fastScroller = (FastScroller) view.findViewById(R.id.fast_scroller);
+
+        carouselView = (RecyclerView) view.findViewById(R.id.carousel_view);
         carouselView.setLayoutManager(new SmoothScrollLinearLayoutManager(getActivity()));
         carouselView.setAdapter(mAdapter);
+        carouselView.setHasFixedSize(false);
+
+        //Add FastScroll to the RecyclerView, after the Adapter has been attached the RecyclerView!!!
+        mAdapter.setFastScroller(fastScroller, Color.BLUE, instance);
+
+        //EndlessScrollListener - OnLoadMore (v5.0.0)
+        mAdapter.setEndlessScrollListener(instance, new ProgressItem());
+        mAdapter.setEndlessScrollThreshold(1);//Default=1
+
+        if(!mAdapter.isFastScrollerEnabled()){
+            mAdapter.toggleFastScroller();
+        }
+
         return view;
 
     }
-
 
 
     @Override
@@ -100,6 +127,7 @@ public class Carousel extends Fragment implements CarouselCardListener {
 
     /**
      * Receives a card of the carousel to be shown.
+     *
      * @param sceneIndex
      * @param carouselCard
      */
@@ -116,23 +144,37 @@ public class Carousel extends Fragment implements CarouselCardListener {
     @Override
     public void onShowScene(Integer sceneIndex, Scene scene) {
 
-        if(!receivedScenes.containsKey(sceneIndex)){
+        if (!receivedScenes.containsKey(sceneIndex)) {
             receivedScenes.put(sceneIndex, scene);
         }
     }
 
-    protected void addSubscene(Scene scene){
+    protected void addSubscene(Scene scene) {
 
 
     }
 
-    protected void showSubscene(int index){
+    protected void showSubscene(int index) {
 
     }
 
-    protected  void showMoreContent(){
+    protected void showMoreContent() {
 
     }
+
+    @Override
+    public void onFastScrollerStateChange(boolean scrolling) {
+/*
+        System.out.println("KKKKKK scrolling " + scrolling);
+        mAdapter.toggleFastScroller();
+*/
+    }
+
+    @Override
+    public void onLoadMore() {
+
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this
@@ -147,11 +189,11 @@ public class Carousel extends Fragment implements CarouselCardListener {
      * TODO: for testing pusposes only
      */
 
-    private  List<AbstractFlexibleItem> getTestCarouselItems(){
+    private List<AbstractFlexibleItem> getTestCarouselItems() {
 
-        ArrayList<AbstractFlexibleItem> items= new ArrayList<>();
-        for (int i=0; i<4; i++){
-            SceneHeaderItem sceneHeader= new SceneHeaderItem(i, " SCENE ");
+        ArrayList<AbstractFlexibleItem> items = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            SceneHeaderItem sceneHeader = new SceneHeaderItem(i, " SCENE ");
 
             for (int j = 0; j < 7; j++) {
                 items.add(new CarouselItem(j + 1, sceneHeader));
