@@ -15,7 +15,6 @@ import com.touchvie.touchvie_front.data.Scene;
 import com.touchvie.touchvie_front.ui.adapters.CarouselExampleAdapter;
 import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.ui.views.CarouselItem;
-import com.touchvie.touchvie_front.ui.views.ProgressItem;
 import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
 import java.util.ArrayList;
@@ -23,12 +22,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import eu.davidea.fastscroller.FastScroller;
-import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 
+import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
-public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener, FlexibleAdapter.EndlessScrollListener {
+
+public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
 
 
     private HashMap<Integer, Scene> receivedScenes = null;
@@ -80,6 +80,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
                 .setAutoScrollOnExpand(true)
                 .setHandleDragEnabled(true)
+                .enableStickyHeaders()
                 //.setAnimateToLimit(Integer.MAX_VALUE)//Use the default value
                 .setNotifyMoveOfFilteredItems(true)//When true, filtering on big list is very slow, not in this case!
                 .setNotifyChangeOfUnfilteredItems(true)//We have highlighted text while filtering, so let's enable this feature to be consistent with the active filter
@@ -90,19 +91,35 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         carouselView = (RecyclerView) view.findViewById(R.id.carousel_view);
         carouselView.setLayoutManager(new SmoothScrollLinearLayoutManager(getActivity()));
         carouselView.setAdapter(mAdapter);
-        carouselView.setHasFixedSize(false);
 
         //Add FastScroll to the RecyclerView, after the Adapter has been attached the RecyclerView!!!
-        mAdapter.setFastScroller(fastScroller, Color.BLUE, instance);
+        mAdapter.setFastScroller(fastScroller, Color.GREEN, instance);
 
-        //EndlessScrollListener - OnLoadMore (v5.0.0)
-        mAdapter.setEndlessScrollListener(instance, new ProgressItem());
-        mAdapter.setEndlessScrollThreshold(1);//Default=1
 
-        if(!mAdapter.isFastScrollerEnabled()){
-            mAdapter.toggleFastScroller();
-        }
+        carouselView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == SCROLL_STATE_IDLE && !mAdapter.getFastScroller().isFocused()) {
+                    if (mAdapter.isFastScrollerEnabled()) {
+                        mAdapter.toggleFastScroller();
+//                        mAdapter.getFastScroller().setVisibility(View.INVISIBLE);
+                    }
+                } else {
+                    if (!mAdapter.isFastScrollerEnabled()) {
+//                        mAdapter.getFastScroller().setVisibility(View.VISIBLE);
+                        mAdapter.toggleFastScroller();
+                    }
+                }
+            }
 
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
+        System.out.println("KKKKKK oncreateview");
         return view;
 
     }
@@ -164,15 +181,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
     @Override
     public void onFastScrollerStateChange(boolean scrolling) {
-/*
         System.out.println("KKKKKK scrolling " + scrolling);
-        mAdapter.toggleFastScroller();
-*/
-    }
-
-    @Override
-    public void onLoadMore() {
-
     }
 
 
