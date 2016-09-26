@@ -1,8 +1,11 @@
 package com.touchvie.touchvie_front.ui.views;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.touchvie.touchvie_front.R;
 
@@ -21,16 +24,19 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
 
 
     private int id;
+    private String text;
 
 
     /**
      * Constructor
-     * @param id the identifier of this row.
+     *
+     * @param id     the identifier of this row.
      * @param header The header this row is related to.
      */
-    public CarouselItem(int id, SceneHeaderItem header) {
+    public CarouselItem(int id, SceneHeaderItem header, String text) {
         super(header);
         this.id = id;
+        this.text = text;
     }
 
     @Override
@@ -53,7 +59,7 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
 
     @Override
     public int getLayoutRes() {
-        return R.layout.carousel_item;
+        return R.layout.carousel_item_generic;
     }
 
     @Override
@@ -63,7 +69,9 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
 
     @Override
     public void bindViewHolder(final FlexibleAdapter adapter, final ViewHolder holder, int position, List payloads) {
-
+        Context context = holder.itemView.getContext();
+        //holder.mCarouselCardImage;
+        holder.mCarouselCardText.setText(this.text);
     }
 
     @Override
@@ -72,6 +80,8 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
     }
 
     static class ViewHolder extends FlexibleViewHolder {
+        public ImageView mCarouselCardImage;
+        public TextView mCarouselCardText;
 
         /**
          * Default constructor.
@@ -81,6 +91,8 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
          */
         public ViewHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
+            this.mCarouselCardImage = (ImageView) view.findViewById(R.id.carousel_item_generic_image);
+            this.mCarouselCardText = (TextView) view.findViewById(R.id.carousel_item_generic_text);
 
         }
 

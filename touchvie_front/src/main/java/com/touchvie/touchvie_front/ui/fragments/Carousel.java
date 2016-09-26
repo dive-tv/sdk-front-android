@@ -201,11 +201,12 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
     private List<AbstractFlexibleItem> getTestCarouselItems() {
 
         ArrayList<AbstractFlexibleItem> items = new ArrayList<>();
+
         for (int i = 0; i < 4; i++) {
             SceneHeaderItem sceneHeader = new SceneHeaderItem(i, " SCENE ");
 
             for (int j = 0; j < 7; j++) {
-                items.add(new CarouselItem(j + 1, sceneHeader));
+                items.add(new CarouselItem(j + 1, sceneHeader, "Test card: " + j));
             }
         }
         return items;
