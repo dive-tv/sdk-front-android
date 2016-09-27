@@ -7,20 +7,15 @@ import java.io.Serializable;
  */
 public class Card implements Serializable {
     String card_id;
-    String locale;
     String title;
     String subtitle;
-    int type;
+    String type;
     String image;
     String source;
     int anchor_x;
     int anchor_y;
-    Description description;
     Boolean is_exact;
     String url;
-    Boolean is_user_locale;
-    RelatedMovies related_movies;
-
 
     public String getCard_id() {
         return card_id;
@@ -28,14 +23,6 @@ public class Card implements Serializable {
 
     public void setCard_id(String card_id) {
         this.card_id = card_id;
-    }
-
-    public String getLocale() {
-        return locale;
-    }
-
-    public void setLocale(String locale) {
-        this.locale = locale;
     }
 
     public String getTitle() {
@@ -54,11 +41,11 @@ public class Card implements Serializable {
         this.subtitle = subtitle;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -94,14 +81,6 @@ public class Card implements Serializable {
         this.anchor_y = anchor_y;
     }
 
-    public Description getDescription() {
-        return description;
-    }
-
-    public void setDescription(Description description) {
-        this.description = description;
-    }
-
     public Boolean getIs_exact() {
         return is_exact;
     }
@@ -118,19 +97,4 @@ public class Card implements Serializable {
         this.url = url;
     }
 
-    public Boolean getIs_user_locale() {
-        return is_user_locale;
-    }
-
-    public void setIs_user_locale(Boolean is_user_locale) {
-        this.is_user_locale = is_user_locale;
-    }
-
-    public RelatedMovies getRelated_movies() {
-        return related_movies;
-    }
-
-    public void setRelated_movies(RelatedMovies related_movies) {
-        this.related_movies = related_movies;
-    }
 }

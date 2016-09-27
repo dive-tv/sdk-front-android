@@ -7,7 +7,24 @@
 					"children":[]
 				},
 				{
-					"type":"Vehicule" ,
+					"type":"vehicule" ,
+					"children":[]
+				},
+				{
+					"type":"look" ,
+					"children":[]
+				}
+			]
+		},
+		{
+			"type":"character" ,
+			"children":[
+				{
+					"type":"vehicule" ,
+					"children":[]
+				},
+				{
+					"type":"look" ,
 					"children":[]
 				}
 			]
@@ -17,18 +34,69 @@
 			"children":[]
 		},
 		{
-			"type":"character" ,
+			"type":"reference" ,
+			"children":[]
+		},
+        {
+			"type":"fashion" ,
+			"children":[]
+		},
+        {
+			"type":"deco" ,
+			"children":[]
+		},
+        {
+			"type":"sports" ,
+			"children":[]
+		},
+        {
+			"type":"beauty" ,
+			"children":[]
+		},
+        {
+			"type":"song" ,
 			"children":[
-					"type":"Vehicule" ,
+                {
+                    "type":"bso" ,
+                    "children":[]
+                }
+            ]
+		},
+		{
+			"type":"vehicule" ,
+			"children":[
+				{
+					"type":"vehicule" ,
 					"children":[]
+				}
+			]
+		},
+		{
+			"type":"weapon" ,
+			"children":[
+				{
+					"type":"weapon" ,
+					"children":[]
+				}
 			]
 		},
 		{
 			"type":"unreal place" ,
 			"children":[
-				"type":"real place" ,
-				"children":[]
+				{
+					"type":"real place" ,
+					"children":[]
+				}
+			]
+		},
+		{
+			"type":"real place" ,
+			"children":[
+				{
+					"type":"unreal place" ,
+					"children":[]
+				}
 			]
 		}
-	}
+	]
 }
