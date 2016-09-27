@@ -9,23 +9,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.touchvie.backend.Card;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.Scene;
 import com.touchvie.touchvie_front.ui.adapters.CarouselExampleAdapter;
 import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
-import com.touchvie.touchvie_front.ui.views.CarouselItem;
+import com.touchvie.touchvie_front.ui.views.CarouselItemCuriosity;
+import com.touchvie.touchvie_front.ui.views.CarouselItemGeneric;
 import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import eu.davidea.fastscroller.FastScroller;
 import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
-
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 
 public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
@@ -81,7 +82,6 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
                 .setAutoScrollOnExpand(true)
                 .setHandleDragEnabled(true)
                 .enableStickyHeaders()
-                //.setAnimateToLimit(Integer.MAX_VALUE)//Use the default value
                 .setNotifyMoveOfFilteredItems(true)//When true, filtering on big list is very slow, not in this case!
                 .setNotifyChangeOfUnfilteredItems(true)//We have highlighted text while filtering, so let's enable this feature to be consistent with the active filter
                 .setAnimationOnReverseScrolling(true);
@@ -95,29 +95,6 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         //Add FastScroll to the RecyclerView, after the Adapter has been attached the RecyclerView!!!
         mAdapter.setFastScroller(fastScroller, Color.GREEN, instance);
 
-
-        carouselView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == SCROLL_STATE_IDLE && !mAdapter.getFastScroller().isFocused()) {
-                    if (mAdapter.isFastScrollerEnabled()) {
-                        mAdapter.toggleFastScroller();
-//                        mAdapter.getFastScroller().setVisibility(View.INVISIBLE);
-                    }
-                } else {
-                    if (!mAdapter.isFastScrollerEnabled()) {
-//                        mAdapter.getFastScroller().setVisibility(View.VISIBLE);
-                        mAdapter.toggleFastScroller();
-                    }
-                }
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
 
         System.out.println("KKKKKK oncreateview");
         return view;
@@ -206,10 +183,52 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
             SceneHeaderItem sceneHeader = new SceneHeaderItem(i, " SCENE ");
 
             for (int j = 0; j < 7; j++) {
-                items.add(new CarouselItem(j + 1, sceneHeader, "Test card: " + j));
+
+                items.add(generateRandomCarouselCard(sceneHeader, j));
             }
         }
         return items;
+    }
+
+    private AbstractFlexibleItem generateRandomCarouselCard(SceneHeaderItem sceneHeader, int j) {
+        Card data = new Card();
+        Random r = new Random();
+        int rnd = r.nextInt(8);
+        switch (rnd) {
+            case 0:
+                data.setTitle("Ferrari");
+                data.setImage("http://i.imgur.com/7L1egba.jpg");
+                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+            case 1:
+                data.setTitle("Mansión");
+                data.setImage("http://i.imgur.com/vttzfn4.jpg");
+                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+            case 2:
+                data.setTitle("Suiza");
+                data.setImage("http://i.imgur.com/iliue4l.jpg");
+                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+            case 3:
+                data.setTitle("Los 80");
+                data.setImage("http://i.imgur.com/EOSf9EC.jpg");
+                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+            case 4:
+                data.setTitle("Nueva York");
+                data.setImage("http://i.imgur.com/7xlFXFY.gif");
+                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+            case 5:
+                data.setTitle("¿Sabías qué...?");
+                data.setImage("http://i.imgur.com/sVJbVDv.jpg");
+                return new CarouselItemCuriosity(j + 1, sceneHeader, data);
+            case 6:
+                data.setTitle("Brad");
+                data.setImage("http://i.imgur.com/1LQggOl.jpg");
+                return new CarouselItemCuriosity(j + 1, sceneHeader, data);
+            case 7:
+                data.setTitle("Helicóptero");
+                data.setImage("http://i.imgur.com/vq92crr.jpg");
+                return new CarouselItemCuriosity(j + 1, sceneHeader, data);
+        }
+        return null;
     }
 
 

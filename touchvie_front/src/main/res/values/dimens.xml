@@ -25,4 +25,8 @@
     <dimen name="module_navigation_height">100dp</dimen>
     <dimen name="module_navigation_text_size">20sp</dimen>
 
+    <!-- Carousel cards -->
+    <dimen name="carousel_cards_height">250dp</dimen>
+    <dimen name="carousel_cards_text_height">20dp</dimen>
+
 </resources>
