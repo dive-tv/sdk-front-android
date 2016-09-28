@@ -8,7 +8,6 @@ import com.google.gson.GsonBuilder;
 import com.touchvie.backend.Card;
 import com.touchvie.backend.Relation;
 import com.touchvie.touchvie_client.data.CarouselCard;
-import com.touchvie.touchvie_client.listeners.CardDataListener;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.R;
 
@@ -24,7 +23,8 @@ public class ClientSimulator  {
 
     private CarouselCardListener listener=null;
 
-    private int index=0;
+    private int sectionIndex =0;
+    private int lastCardIndex=0;
 
     private ArrayList<CarouselCard> cards= new ArrayList<>();
 
@@ -38,16 +38,31 @@ public class ClientSimulator  {
 
     public void loadOneMoreCard(){
 
-        CarouselCard card= new CarouselCard(); //TODO: get one carousel card from json.
+
+        CarouselCard card= cards.get(lastCardIndex);
+        lastCardIndex=+1;
+        if(lastCardIndex>=cards.size()){
+            lastCardIndex=0;
+        }
         listener.onCardReceived(card);
 
     }
 
     public void loadOneMoreScene(){
 
-        listener.onSectionEndReceived(index);
-        index+=1;
-        listener.onSectionStartReceived(index);
+        listener.onSectionEndReceived(sectionIndex);
+        preloadScene();
+        sectionIndex +=1;
+        listener.onSectionStartReceived(sectionIndex);
+    }
+
+    public void preloadScene(){
+
+        listener.onSectionPreload(sectionIndex);
+    }
+
+    public void pushCards(){
+        listener.onDrawCards(null);
     }
 
     private void loadTestCards(Context context){

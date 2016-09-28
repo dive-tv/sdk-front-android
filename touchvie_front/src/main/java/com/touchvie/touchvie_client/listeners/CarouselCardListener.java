@@ -12,4 +12,8 @@ public interface CarouselCardListener {
     void onSectionEndReceived(Integer sectionId);
 
     void onSectionStartReceived(Integer sectionId);
+
+    void onSectionPreload(Integer sectionId);
+
+    void onDrawCards(String[] cardIds);
 }

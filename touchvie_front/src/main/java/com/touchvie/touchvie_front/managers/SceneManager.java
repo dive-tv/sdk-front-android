@@ -15,8 +15,15 @@ public class SceneManager implements CarouselCardListener{
 
     private HashMap<Integer, Scene> scenes;
     private Integer currentScene=null;
+    private Integer sectionToPreload=null;
 
     private ArrayList<CarouselCard> orphanedCards;
+
+    //***************** for testing purposes ************************************//
+
+    private int preloadSectionCardIndex=0;
+
+    //***********************************************************************
 
 
     public SceneManager(){
@@ -67,6 +74,37 @@ public class SceneManager implements CarouselCardListener{
 
     }
 
+    @Override
+    public void onSectionPreload(Integer sectionId) {
+        sectionToPreload=sectionId;
+        preloadSectionCardIndex=0;
+        //TODO: apply logic.
+    }
+
+    @Override
+    public void onDrawCards(String[] cardIds) {
+        //TODO: in test mode we just draw a card each time the user calls this method.
+        if(scenes==null ){
+            return;
+        }
+        Scene scene= scenes.get(sectionToPreload);
+        if(scene==null  ){
+            return;
+        }
+        ArrayList<CarouselCard> cards= scene.getCarouselCards();
+        if(cards==null || cards.size()<=preloadSectionCardIndex){
+            return;
+        }
+
+        CarouselCard drawCard = cards.get(preloadSectionCardIndex);
+
+        System.out.println("Draw card!");
+        //TODO: send card to carousel.
+        //TODO: it is not the same the card and the rows in carousel. From the card Id we must get all the rows that belong to a card to be drawn.
+        preloadSectionCardIndex+=1;
+
+    }
+
     /**
      * Listener to be reported about a section start.
      * @param sectionId The id of the section to be received.
@@ -78,6 +116,5 @@ public class SceneManager implements CarouselCardListener{
         currentScene=sectionId;
         scenes.put(sectionId, new Scene());
     }
-
 
 }

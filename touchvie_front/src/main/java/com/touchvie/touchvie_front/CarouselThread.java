@@ -7,6 +7,7 @@ import android.os.Message;
 
 import com.touchvie.touchvie_front.managers.SceneManager;
 import com.touchvie.touchvie_front.simulators.ClientSimulator;
+import com.touchvie.touchvie_front.ui.listeners.TestListener;
 
 /**
  * Created by Tagsonomy S.L. on 23/09/2016.
@@ -19,6 +20,15 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
     private Handler callback;
 
     private Context context;
+
+    private TestListener listener=null;
+
+    public final static int MSG_GET_CARD=100;
+    public final static int MSG_NEW_SCENE=101;
+    public final static int MSG_PUSH_CARD=102;
+
+    private ClientSimulator simulator=null;
+
 
     /**
      * Constructor
@@ -44,9 +54,10 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
      *
      * @param context         the context
      */
-    public void init(Context context) {
+    public void init(Context context, TestListener listener) {
 
-    this.context=context;
+        this.context=context;
+        this.listener=listener;
     }
 
 
@@ -57,9 +68,10 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
     @Override
     protected void onLooperPrepared() {
         handler = new Handler(getLooper(), this);
-
+        listener.setHandler(handler);
+        listener=null;
         SceneManager sceneManager= new SceneManager();
-        ClientSimulator simulator= new ClientSimulator(sceneManager, context);
+        this.simulator= new ClientSimulator(sceneManager, context);
     }
 
     /**
@@ -74,6 +86,17 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
 
         switch (msg.what) {
 
+            case MSG_GET_CARD:
+                simulator.loadOneMoreCard();
+                break;
+            case MSG_NEW_SCENE:
+                simulator.loadOneMoreScene();
+                break;
+            case MSG_PUSH_CARD:
+                simulator.pushCards();
+                break;
+            default:
+                break;
         }
         return false;
     }
