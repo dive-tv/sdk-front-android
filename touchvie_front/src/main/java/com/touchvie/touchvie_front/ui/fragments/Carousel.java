@@ -1,33 +1,27 @@
 package com.touchvie.touchvie_front.ui.fragments;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.touchvie.backend.Card;
 import com.touchvie.backend.Relation;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.Scene;
-import com.touchvie.touchvie_front.ui.adapters.CarouselExampleAdapter;
+import com.touchvie.touchvie_front.ui.adapters.CarouselAdapter;
 import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
-import com.touchvie.touchvie_front.ui.views.CarouselItemCuriosity;
-import com.touchvie.touchvie_front.ui.views.CarouselItemGeneric;
 import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 import eu.davidea.fastscroller.FastScroller;
-import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
-import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
 
 
 public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
@@ -39,11 +33,13 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
     private CarouselListener mListener;
 
-    private RecyclerView carouselView = null;
-    private List<AbstractFlexibleItem> carouselItems = null;
+    private ListView carouselView = null;
+    private ArrayList<CarouselCard> carouselItems = null;
 
-    private CarouselExampleAdapter mAdapter = null;
+    private CarouselAdapter mAdapter = null;
     private Carousel instance;
+
+    Random rand = new Random();
 
     /**
      * Empty public constructor
@@ -77,25 +73,11 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         receivedScenes = new HashMap<>();
         visibleScenes = new HashMap<>();
         carouselItems = getTestCarouselItems();//For testing purposes only
-        mAdapter = new CarouselExampleAdapter(carouselItems);
 
-        mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
-                .setAutoScrollOnExpand(true)
-                .setHandleDragEnabled(true)
-                .enableStickyHeaders()
-                .setNotifyMoveOfFilteredItems(true)//When true, filtering on big list is very slow, not in this case!
-                .setNotifyChangeOfUnfilteredItems(true)//We have highlighted text while filtering, so let's enable this feature to be consistent with the active filter
-                .setAnimationOnReverseScrolling(true);
+        mAdapter = new CarouselAdapter(getContext(), carouselItems);
 
-        FastScroller fastScroller = (FastScroller) view.findViewById(R.id.fast_scroller);
-
-        carouselView = (RecyclerView) view.findViewById(R.id.carousel_view);
-        carouselView.setLayoutManager(new SmoothScrollLinearLayoutManager(getActivity()));
+        carouselView = (ListView) view.findViewById(R.id.carousel_view);
         carouselView.setAdapter(mAdapter);
-
-        //Add FastScroll to the RecyclerView, after the Adapter has been attached the RecyclerView!!!
-        mAdapter.setFastScroller(fastScroller, Color.GREEN, instance);
-
 
         System.out.println("KKKKKK oncreateview");
         return view;
@@ -176,36 +158,35 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
      * TODO: for testing pusposes only
      */
 
-    private List<AbstractFlexibleItem> getTestCarouselItems() {
+    private ArrayList<CarouselCard> getTestCarouselItems() {
 
-        ArrayList<AbstractFlexibleItem> items = new ArrayList<>();
+        ArrayList<CarouselCard> items = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
             SceneHeaderItem sceneHeader = new SceneHeaderItem(i, " SCENE ");
 
             for (int j = 0; j < 7; j++) {
 
-                items.add(generateRandomCarouselCard(sceneHeader, j));
+                items.add(generateRandomCarouselCard());
             }
         }
         return items;
     }
 
-    private AbstractFlexibleItem generateRandomCarouselCard(SceneHeaderItem sceneHeader, int j) {
-        Card data = new Card();
+    private CarouselCard generateRandomCarouselCard() {
         CarouselCard temp = new CarouselCard();
-        Random r = new Random();
-        int rnd = r.nextInt(8);
+        Card data = new Card();
+        int rnd = rand.nextInt(13);
+        System.out.println("KKKKKKKKK rnd " + rnd);
         switch (rnd) {
             case 0:
                 data.setTitle("Ferrari");
                 data.setImage("http://i.imgur.com/7L1egba.jpg");
-                temp.setData(data);
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 1:
                 data.setTitle("Mansión");
                 data.setImage("http://i.imgur.com/vttzfn4.jpg");
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 2:
                 data.setTitle("Jordan Belfort");
                 data.setImage("http://i.imgur.com/MQ1SWyh.jpg");
@@ -221,7 +202,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
                 rels[0] = rel1;
                 rels[1] = rel2;
                 temp.setChildren(rels);
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 3:
                 data.setTitle("Donnie Azoff");
                 data.setImage("http://i.imgur.com/HWAxhwP.png");
@@ -232,7 +213,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
                 Relation[] rels4 = new Relation[1];
                 rels4[0] = rel10;
                 temp.setChildren(rels4);
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 4:
                 data.setTitle("Yate");
                 data.setImage("http://i.imgur.com/ZEjJ2T6.jpg");
@@ -243,7 +224,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
                 Relation[] rels5 = new Relation[1];
                 rels5[0] = rel9;
                 temp.setChildren(rels5);
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 5:
                 data.setTitle("Wall Street");
                 data.setImage("http://i.imgur.com/TsqenDf.jpg");
@@ -259,23 +240,23 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
                 rels3[0] = rel7;
                 rels3[1] = rel8;
                 temp.setChildren(rels3);
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 6:
                 data.setTitle("Curiosity card test");
                 data.setImage("http://i.imgur.com/vq92crr.jpg");
-                return new CarouselItemCuriosity(j + 1, sceneHeader, data);
+                break;
             case 7:
                 data.setTitle("¿Sabías qué...?");
                 data.setImage("http://i.imgur.com/sVJbVDv.jpg");
-                return new CarouselItemCuriosity(j + 1, sceneHeader, data);
+                break;
             case 8:
                 data.setTitle("Nueva York");
                 data.setImage("http://i.imgur.com/7xlFXFY.gif");
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 9:
                 data.setTitle("Los 80");
                 data.setImage("http://i.imgur.com/EOSf9EC.jpg");
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 10:
                 data.setTitle("Mark Hanna");
                 data.setImage("http://i.imgur.com/wJYjSyO.jpg");
@@ -291,17 +272,20 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
                 rels2[0] = rel3;
                 rels2[1] = rel4;
                 temp.setChildren(rels2);
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 11:
                 data.setTitle("Brad");
                 data.setImage("http://i.imgur.com/1LQggOl.jpg");
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
             case 12:
                 data.setTitle("Helicóptero");
                 data.setImage("http://i.imgur.com/vq92crr.jpg");
-                return new CarouselItemGeneric(j + 1, sceneHeader, data);
+                break;
         }
-        return null;
+
+        temp.setData(data);
+
+        return temp;
     }
 }
 

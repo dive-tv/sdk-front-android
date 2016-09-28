@@ -83,7 +83,7 @@ public class CarouselItemGeneric extends AbstractSectionableItem<CarouselItemGen
         if (position != RecyclerView.NO_POSITION) {
             currentPosition = holder.getAdapterPosition();
 
-            holder.mCarouselCardBase.addView(this.cardData.getView());
+//            holder.mCarouselCardBase.addView(this.cardData.getView());
         }
     }
 
