@@ -166,18 +166,17 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
             SceneHeaderItem sceneHeader = new SceneHeaderItem(i, " SCENE ");
 
             for (int j = 0; j < 7; j++) {
-
-                items.add(generateRandomCarouselCard());
+                items.add(generateRandomCarouselCard(i));
             }
         }
         return items;
     }
 
-    private CarouselCard generateRandomCarouselCard() {
+    private CarouselCard generateRandomCarouselCard(int sceneNumber) {
         CarouselCard temp = new CarouselCard();
         Card data = new Card();
         int rnd = rand.nextInt(13);
-        System.out.println("KKKKKKKKK rnd " + rnd);
+        System.out.println("KKKKKKKKK sceneNumber " + sceneNumber);
         switch (rnd) {
             case 0:
                 data.setTitle("Ferrari");
@@ -284,7 +283,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         }
 
         temp.setData(data);
-
+        temp.setSceneNumber(sceneNumber);
         return temp;
     }
 }

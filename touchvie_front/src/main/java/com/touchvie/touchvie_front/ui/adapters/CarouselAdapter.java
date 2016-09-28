@@ -5,21 +5,19 @@ package com.touchvie.touchvie_front.ui.adapters;
  */
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Movies;
+import com.touchvie.backend.Card;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
-import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
 
 import java.util.ArrayList;
 
@@ -29,9 +27,11 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer {
     private final ArrayList<CarouselCard> carouselItems;
     private Context context;
     private LayoutInflater mInflater;
+    String[] sections;
 
     /**
      * Constructor.
+     *
      * @param context
      * @param carouselItems
      */
@@ -40,6 +40,11 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer {
         this.mInflater = LayoutInflater.from(context);
         this.carouselItems = carouselItems;
 
+        sections = new String[carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1];
+        for (int i = 0; i < (carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1); i++) {
+            System.out.println("KKKKKKKKK sections " + i + " - " + String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNumber() - i + 1));
+            sections[i] = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNumber() - i + 1);
+        }
     }
 
     /**
@@ -89,23 +94,66 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        convertView = new CarouselRowGenericAdapter().getView(context, convertView, carouselItems.get(position));
+        CarouselRowGenericViewHolder holder;
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.carousel_item_generic, null);
+            holder = new CarouselRowGenericViewHolder();
+            holder.row = (CardView) convertView.findViewById(R.id.carousel_item_generic_base);
+            holder.photo = (ImageView) convertView.findViewById(R.id.carousel_item_generic_base_img);
+            holder.title = (TextView) convertView.findViewById(R.id.carousel_item_generic_base_txt);
+            convertView.setTag(holder);
+        } else {
+            holder = (CarouselRowGenericViewHolder) convertView.getTag();
+        }
+
+        Card card = carouselItems.get(position).getData();
+        if (card.getImage() != null && card.getImage().length() > 0) {
+            Picasso
+                    .with(context)
+                    .load(card.getImage())
+                    .into(holder.photo);
+            holder.photo.setVisibility(View.VISIBLE);
+        } else {
+            holder.photo.setVisibility(View.GONE);
+        }
+
+        //title
+        if (card.getTitle() != null && card.getTitle().length() > 0) {
+            holder.title.setText(card.getTitle());
+        } else {
+            holder.title.setText("");
+        }
 
         return convertView;
     }
 
+    private class CarouselRowGenericViewHolder {
+        CardView row;
+        ImageView photo;
+        TextView title;
+    }
+
+
     @Override
     public Object[] getSections() {
-        return new Object[0];
+        return sections;
     }
 
     @Override
     public int getPositionForSection(int sectionIndex) {
+        for (int i = 0; i < carouselItems.size(); i++) {
+            if (sectionIndex == carouselItems.get(i).getSceneNumber()) {
+                System.out.println("KKKKK getPositionForSection: " + i);
+                return i;
+            }
+        }
         return 0;
     }
 
     @Override
     public int getSectionForPosition(int position) {
-        return 0;
+        System.out.println("KKKKK getSectionForPosition: " + position + " - " + carouselItems.get(position).getSceneNumber());
+        return carouselItems.get(position).getSceneNumber();
     }
 }

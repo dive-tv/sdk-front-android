@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/carousel_item_generic_base_img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/carousel_cards_height"
         android:scaleType="centerCrop" />
 
     <TextView
