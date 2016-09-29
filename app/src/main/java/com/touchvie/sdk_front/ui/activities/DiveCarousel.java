@@ -12,10 +12,12 @@ import android.widget.Button;
 import com.touchvie.sdk_front.ui.utils.Utils;
 import com.touchvie.sdkfront.R;
 import com.touchvie.touchvie_front.CarouselThread;
+import com.touchvie.touchvie_front.data.CarouselCellData;
 import com.touchvie.touchvie_front.ui.fragments.Carousel;
+import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 import com.touchvie.touchvie_front.ui.listeners.TestListener;
 
-public class DiveCarousel extends FragmentActivity implements Carousel.CarouselListener , Handler.Callback, TestListener {
+public class DiveCarousel extends FragmentActivity implements CarouselListener, Handler.Callback, TestListener {
 
     /**
      * The fragment manager of this activity.
@@ -103,4 +105,8 @@ public class DiveCarousel extends FragmentActivity implements Carousel.CarouselL
     }
 
 
+    @Override
+    public void onRowsToDraw(CarouselCellData data) {
+
+    }
 }

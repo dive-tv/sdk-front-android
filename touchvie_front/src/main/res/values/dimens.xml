@@ -28,7 +28,7 @@
     <!-- Carousel header -->
     <dimen name="carousel_section_header_height">20dp</dimen>
 
-    <!-- Carousel card -->
+    <!-- Carousel rel_cards -->
     <dimen name="carousel_cards_height">250dp</dimen>
     <dimen name="carousel_cards_text_height">20dp</dimen>
 
