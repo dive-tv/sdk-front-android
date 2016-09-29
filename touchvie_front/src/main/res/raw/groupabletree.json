@@ -7,7 +7,7 @@
 					"children":[]
 				},
 				{
-					"type":"vehicule" ,
+					"type":"vehicle" ,
 					"children":[]
 				},
 				{
@@ -20,7 +20,7 @@
 			"type":"character" ,
 			"children":[
 				{
-					"type":"vehicule" ,
+					"type":"vehicle" ,
 					"children":[]
 				},
 				{
@@ -63,10 +63,10 @@
             ]
 		},
 		{
-			"type":"vehicule" ,
+			"type":"vehicle" ,
 			"children":[
 				{
-					"type":"vehicule" ,
+					"type":"vehicle" ,
 					"children":[]
 				}
 			]

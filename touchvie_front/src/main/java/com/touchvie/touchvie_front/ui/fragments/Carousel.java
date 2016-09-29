@@ -166,6 +166,31 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         }
     }
 
+    @Override
+    public void onCardsForPreloadReceived(CarouselCard[] cards) {
+
+    }
+
+    @Override
+    public void onSectionEndReceived(String sectionId, Double end) {
+
+    }
+
+    @Override
+    public void onSectionStartReceived(String sectionId, Double start) {
+
+    }
+
+    @Override
+    public void onCardsForPaintReceived(String[] cardIds) {
+
+    }
+
+    @Override
+    public void onCarouselSceneChanged(int sceneId) {
+
+    }
+
     protected void addSubscene(Scene scene) {
 
 

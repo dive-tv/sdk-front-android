@@ -1,0 +1,88 @@
+{
+	"card_id": "e2240dde-1e76-11e6-97ac-0684985cbbe3",
+	"locale": "es_ES",
+	"title": "Christian Dior Pink Lizard Lady Dior Tote Bag",
+	"subtitle": "Bolso de Asa Corta Mujer",
+	"type": 6,
+	"image": "e2240dde-1e76-11e6-97ac-0684985cbbe3/e2240dde-1e76-11e6-97ac-0684985cbbe3_0.jpg",
+	"source": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=59515256",
+	"anchor_x": 50,
+	"anchor_y": 50,
+	"data": {
+		"containers": [{
+			"type_data": "description",
+			"container_data": [{
+				"source": "",
+				"text": "Christian Dior Pink Lizard Lady Dior Tote Bag"
+			}],
+			"type": "text",
+			"title": "Descripción"
+		}]
+	},
+	"is_exact": true,
+	"url": "https://pre-card-web.touchvie.com/9A3ri2mXigLmYJLcYFHRFi",
+	"is_user_locale": true,
+	"user_info": {
+		"conversation_nr": 0,
+		"unread_conversation_nr": 0,
+		"is_liked": false,
+		"collection_nr": 0,
+		"related_movies": [{
+			"type": 1,
+			"image": "bd4f26ba-0c2a-3a16-bb7b-79aa066abf44/bd4f26ba-0c2a-3a16-bb7b-79aa066abf44_0_es_ES.jpg",
+			"anchor_x": 50,
+			"anchor_y": 50,
+			"title": "Sexo en Nueva York 2",
+			"subtitle": "Michael Patrick King",
+			"touchvie_ready": true,
+			"mean_score": 2.4,
+			"year": 2010,
+			"user_movie": {
+				"conversation_nr": 2,
+				"unread_conversation_nr": 0,
+				"status": "WATCHED",
+				"recommend_nr": 0,
+				"opinion": null,
+				"is_private": false
+			},
+			"summary": null,
+			"movie_id": "bd4f26ba-0c2a-3a16-bb7b-79aa066abf44"
+		}]
+	},
+	"product_info": [{
+		"title": "L.Credi Bolso de mano pink fuchsia",
+		"category": "fashion",
+		"image": "http://i2.ztat.net/large/LC/15/1H/05/CJ/11/LC151H05C-J11@10.jpg",
+		"merchant": "Zalando",
+		"url": "http://ad.zanox.com/ppc/?31847844C602651241&ULP=[[l-credi-bolso-de-mano-pink-fuchsia-lc151h05c-j11.html]]",
+		"price": "69.95 EUR",
+		"price_numeric": 69.95,
+		"currency": "EUR",
+		"matching": 0,
+		"product_id": "3#b13817c98766b411b2118cb9776a1694"
+	},
+	{
+		"title": "Abro Bolso de mano pink",
+		"category": "fashion",
+		"image": "http://i1.ztat.net/large/AB/25/1H/02/RJ/11/AB251H02R-J11@8.jpg",
+		"merchant": "Zalando",
+		"url": "http://ad.zanox.com/ppc/?31847844C602651241&ULP=[[abro-bolso-de-mano-pink-ab251h02r-j11.html]]",
+		"price": "179.95 EUR",
+		"price_numeric": 179.95,
+		"currency": "EUR",
+		"matching": 0,
+		"product_id": "3#e1cecbe09dd6a433c0f1f109016c63cd"
+	},
+	{
+		"title": "ALBERTA FERRETTI Bolso de mano mujer",
+		"category": "fashion",
+		"image": "http://cdn.yoox.biz/45/45298114DH_12_F.JPG",
+		"merchant": "Yoox",
+		"url": "http://ad.zanox.com/ppc/?32136073C878223219&ULP=[[45298114/item?tp=7748&utm_source=zanox_es&utm_medium=affiliazione&utm_campaign=affiliazione_es&dept=women]]",
+		"price": "788.00 EUR",
+		"price_numeric": 788,
+		"currency": "EUR",
+		"matching": 0,
+		"product_id": "8#275abd7260d3c9ce67c30fe74ca67402"
+	}]
+}
