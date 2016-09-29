@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.Card;
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.Relation;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
@@ -185,7 +186,7 @@ public class ClientSimulator  {
         } catch (Exception e) {
             return;
         }
-        Card [] cardDatas = new GsonBuilder().create().fromJson(jsonString, Card[].class);
+        CardData [] cardDatas = new GsonBuilder().create().fromJson(jsonString, CardData[].class);
         cardsPerScene=cardDatas.length;
 
         String relationString = null;
@@ -206,7 +207,7 @@ public class ClientSimulator  {
         if(cardDatas !=null){
             int id=0;
             for (int i=0; i<10; i++) {
-                for (Card data : cardDatas) {
+                for (CardData data : cardDatas) {
                     CarouselCard carouselCard = new CarouselCard();
                     carouselCard.setCardId(id);
                     carouselCard.setSceneId(sectionIndex);
