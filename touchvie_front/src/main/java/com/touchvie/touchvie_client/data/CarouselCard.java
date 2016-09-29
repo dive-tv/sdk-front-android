@@ -26,6 +26,11 @@ public class CarouselCard {
     private Relation[] children;
 
     /**
+     * The number of scene this card is in
+     */
+    private int sceneNumber;
+
+    /**
      * Gets the data of this card.
      * @return
      */
@@ -79,4 +84,11 @@ public class CarouselCard {
 
     /********************************************************************************/
 
+    public int getSceneNumber() {
+        return sceneNumber;
+    }
+
+    public void setSceneNumber(int sceneNumber) {
+        this.sceneNumber = sceneNumber;
+    }
 }

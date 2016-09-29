@@ -1,9 +1,13 @@
 package com.touchvie.touchvie_front.ui.views;
 
+import android.content.Context;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 
 import java.util.List;
@@ -17,26 +21,36 @@ import eu.davidea.viewholders.FlexibleViewHolder;
  * Holds a line view in the carousel. It is related to one carousel section.
  */
 
-public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolder, SceneHeaderItem> {
+public class CarouselItemGeneric extends AbstractSectionableItem<CarouselItemGeneric.ViewHolder, SceneHeaderItem> {
 
 
     private int id;
+    private Card cardData;
 
+    private int currentPosition = 0;
 
     /**
      * Constructor
-     * @param id the identifier of this row.
-     * @param header The header this row is related to.
+     *
+     * @param id       the identifier of this row.
+     * @param header   The header this row is related to.
+     * @param cardData the data of this card
      */
-    public CarouselItem(int id, SceneHeaderItem header) {
+    public CarouselItemGeneric(int id, SceneHeaderItem header, Card cardData) {
         super(header);
         this.id = id;
+        this.cardData = cardData;
     }
+
+    public int getCurrentPosition() {
+        return currentPosition;
+    }
+
 
     @Override
     public boolean equals(Object inObject) {
-        if (inObject instanceof CarouselItem) {
-            CarouselItem inItem = (CarouselItem) inObject;
+        if (inObject instanceof CarouselItemGeneric) {
+            CarouselItemGeneric inItem = (CarouselItemGeneric) inObject;
             return this.id == inItem.id;
         }
         return false;
@@ -53,7 +67,7 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
 
     @Override
     public int getLayoutRes() {
-        return R.layout.carousel_item;
+        return R.layout.carousel_item_generic;
     }
 
     @Override
@@ -63,7 +77,14 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
 
     @Override
     public void bindViewHolder(final FlexibleAdapter adapter, final ViewHolder holder, int position, List payloads) {
+        Context context = holder.itemView.getContext();
+        // - get element from your dataset at this position
+        // - replace the contents of the view with that element
+        if (position != RecyclerView.NO_POSITION) {
+            currentPosition = holder.getAdapterPosition();
 
+//            holder.mCarouselCardBase.addView(this.cardData.getView());
+        }
     }
 
     @Override
@@ -72,6 +93,7 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
     }
 
     static class ViewHolder extends FlexibleViewHolder {
+        public CardView mCarouselCardBase;
 
         /**
          * Default constructor.
@@ -81,9 +103,8 @@ public class CarouselItem extends AbstractSectionableItem<CarouselItem.ViewHolde
          */
         public ViewHolder(View view, FlexibleAdapter adapter) {
             super(view, adapter);
-
+            this.mCarouselCardBase = (CardView) view.findViewById(R.id.carousel_item_generic_base);
         }
-
     }
 
 }

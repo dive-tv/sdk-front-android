@@ -192,7 +192,7 @@ public class ClientSimulator  {
         try {
             Resources res = context.getResources();
             InputStream in_s;
-            in_s = res.openRawResource(R.raw.cards);
+            in_s = res.openRawResource(R.raw.relations);
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
             relationString = new String(b);
