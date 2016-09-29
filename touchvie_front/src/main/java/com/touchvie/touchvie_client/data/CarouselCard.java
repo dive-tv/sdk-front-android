@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_client.data;
 
 import com.touchvie.backend.Card;
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.Relation;
 
 /**
@@ -11,7 +12,7 @@ public class CarouselCard {
     /**
      * The card data received from the server.
      */
-    private Card data;
+    private CardData data;
 
     /**
      * The cards that are related to this card.
@@ -27,7 +28,7 @@ public class CarouselCard {
      * Gets the data of this card.
      * @return
      */
-    public Card getData() {
+    public CardData getData() {
         return data;
     }
 
@@ -35,7 +36,7 @@ public class CarouselCard {
      * Sets this card's data.
      * @param data The data to be set.
      */
-    public void setData(Card data) {
+    public void setData(CardData data) {
         this.data = data;
     }
 

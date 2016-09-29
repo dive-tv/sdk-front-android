@@ -6,9 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.touchvie.backend.Card;
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.Relation;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
@@ -200,7 +200,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
     private CarouselCard generateRandomCarouselCard(int sceneNumber) {
         CarouselCard temp = new CarouselCard();
-        Card data = new Card();
+        CardData data = new CardData();
         int rnd = rand.nextInt(13);
         System.out.println("KKKKKKKKK sceneNumber " + sceneNumber);
         switch (rnd) {

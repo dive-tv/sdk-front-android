@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
+import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 
@@ -109,7 +110,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
             holder = (CarouselRowGenericViewHolder) convertView.getTag();
         }
 
-        Card card = carouselItems.get(position).getData();
+        CardData card = carouselItems.get(position).getData();
         if (card.getImage() != null && card.getImage().length() > 0) {
             Picasso
                     .with(context)
