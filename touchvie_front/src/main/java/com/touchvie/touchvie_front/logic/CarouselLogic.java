@@ -6,11 +6,11 @@ import android.content.res.Resources;
 import com.google.gson.GsonBuilder;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.data.CarouselCell;
+import com.touchvie.touchvie_front.data.CarouselCellData;
 import com.touchvie.touchvie_front.data.GroupableTree;
 
 import java.io.InputStream;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Created by Tagsonomy S.L. on 27/09/2016.
@@ -26,7 +26,7 @@ public class CarouselLogic {
     public void processData(CarouselCard[] cards){
         CarouselCard lastCard = null;
         CarouselCard newCard = null;
-        CarouselCell cells[] = null;
+        ArrayList<CarouselCellData> cells = new ArrayList<>();
 
         for (CarouselCard card:cards){
             newCard = card;

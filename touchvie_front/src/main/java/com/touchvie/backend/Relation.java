@@ -12,9 +12,9 @@ public class Relation {
     private int type;
 
     /**
-     * The cards related to the card that owns the relation.
+     * The card related to the card that owns the relation.
      */
-    private Card cards;
+    private Card card;
 
     /**
      * Gets the type of the relation.
@@ -36,12 +36,12 @@ public class Relation {
      *
      * @return
      */
-    public Card getCards() {
-        return cards;
+    public Card getCard() {
+        return card;
     }
 
-    public void setCards(Card cards) {
-        this.cards = cards;
+    public void setCard(Card card) {
+        this.card = card;
     }
 
 

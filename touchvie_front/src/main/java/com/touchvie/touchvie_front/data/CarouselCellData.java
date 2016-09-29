@@ -6,7 +6,7 @@ import com.touchvie.touchvie_client.data.CarouselCard;
  * Created by Tagsonomy S.L. on 28/09/2016.
  */
 
-public class CarouselCell {
+public class CarouselCellData {
     CarouselCard cards[];
     int sceneNumer;
 }

@@ -68,7 +68,7 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
         handler = new Handler(getLooper(), this);
         listener.setHandler(handler);
         listener=null;
-        SceneManager sceneManager= new SceneManager();
+        SceneManager sceneManager= new SceneManager(context);
         this.simulator= new ClientSimulator(sceneManager, context);
     }
 

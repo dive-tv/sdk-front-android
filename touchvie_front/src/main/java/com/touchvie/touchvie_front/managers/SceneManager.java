@@ -1,8 +1,10 @@
 package com.touchvie.touchvie_front.managers;
 
+import android.content.Context;
+
+import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
-import com.touchvie.touchvie_front.data.Scene;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,29 +13,34 @@ import java.util.HashMap;
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
  */
-public class SceneManager implements CarouselCardListener{
+public class SceneManager implements CarouselCardListener {
 
-    private HashMap<Integer, ArrayList<CarouselCard>> scenes;
-    private Integer currentScene=null;
-    private Integer sectionToPreload=null;
-
+    private HashMap<Integer, ArrayList<String>> scenes;
+    private HashMap<String, CarouselCard> cards;
+    private Integer currentScene = null;
+    private Integer sectionToPreload = null;
+    private Picasso mPicasso = null;
     private ArrayList<CarouselCard> orphanedCards;
+    private Context context;
 
     //***************** for testing purposes ************************************//
 
-    private int preloadSectionCardIndex=0;
+    private int preloadSectionCardIndex = 0;
 
     //***********************************************************************
 
 
-    public SceneManager(){
-        scenes=new HashMap<>();
+    public SceneManager(Context context) {
+        this.context = context;
+        this.mPicasso = Picasso.with(context);
+        scenes = new HashMap<>();
+        cards = new HashMap<>();
     }
-
 
 
     /**
      * Listener to be reported about a section end.
+     *
      * @param sectionId The id of the section received.
      */
     @Override
@@ -43,30 +50,39 @@ public class SceneManager implements CarouselCardListener{
     }
 
 
-
     @Override
-    public void onCardsForPreloadReceived(ArrayList<CarouselCard> cards) {
+    public void onCardsForPreloadReceived(ArrayList<CarouselCard> cardsToPreload) {
 
-        if(cards==null || cards.size()<=0){
+        if (cardsToPreload == null || cardsToPreload.size() <= 0) {
             return;
         }
 
-        for(CarouselCard card: cards){
-            ArrayList<CarouselCard> sceneCards=scenes.get(card.getSceneId());
-            if(sceneCards ==null){
-                sceneCards= new ArrayList<>();
+        for (CarouselCard card : cardsToPreload) {
+            ArrayList<String> sceneCards = scenes.get(card.getSceneId());
+            if (sceneCards == null) {
+                sceneCards = new ArrayList<>();
                 scenes.put(card.getSceneId(), sceneCards);
             }
-            sceneCards.add(card);
+            sceneCards.add(card.getCardId());
+            cards.put(card.getCardId(), card);
+            mPicasso.load(card.getData().getImage()).fetch();
+            if (card.getChildren()!=null && card.getChildren().length>0){
+                int maxRel = (card.getChildren().length>=2?2:card.getChildren().length);
+                for (int i=0;i<maxRel;i++){
+                    mPicasso.load(card.getChildren()[i].getCard().getImage()).fetch();
+                }
+            }
         }
     }
 
     @Override
     public void onCardsForPaintReceived(ArrayList<String> cardIds) {
+
     }
 
     /**
      * Listener to be reported about a section start.
+     *
      * @param sectionId The id of the section to be received.
      */
 

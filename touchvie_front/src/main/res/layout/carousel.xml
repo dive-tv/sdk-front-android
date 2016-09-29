@@ -18,7 +18,7 @@
 
 
     <Button
-        android:text="Push cards"
+        android:text="Push card"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/btn_push"
