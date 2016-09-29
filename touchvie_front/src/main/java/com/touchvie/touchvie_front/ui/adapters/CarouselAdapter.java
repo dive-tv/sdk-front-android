@@ -15,7 +15,6 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
@@ -45,7 +44,6 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
 
         sections = new String[carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1];
         for (int i = 0; i < (carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1); i++) {
-            System.out.println("KKKKKKKKK sections " + i + " - " + String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNumber() - i + 1));
             sections[i] = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNumber() - i + 1);
         }
     }
@@ -169,7 +167,6 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
     public int getPositionForSection(int sectionIndex) {
         for (int i = 0; i < carouselItems.size(); i++) {
             if (sectionIndex == carouselItems.get(i).getSceneNumber()) {
-                System.out.println("KKKKK getPositionForSection: " + i);
                 return i;
             }
         }
@@ -178,7 +175,6 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
 
     @Override
     public int getSectionForPosition(int position) {
-        System.out.println("KKKKK getSectionForPosition: " + position + " - " + carouselItems.get(position).getSceneNumber());
         return carouselItems.get(position).getSceneNumber();
     }
 
