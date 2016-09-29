@@ -1,0 +1,69 @@
+[
+  {
+    "rel_type": 1,
+    "hidden_nr": 0,
+    "rel_cards":
+    [
+      {
+        "card_id": "b3a46e90-8c78-11e5-b7c2-0684985cbbe3",
+        "title": "Camiseta Mujer",
+        "subtitle": null,
+        "type": 6,
+        "image": "b3a46e90-8c78-11e5-b7c2-0684985cbbe3/b3a46e90-8c78-11e5-b7c2-0684985cbbe3_0.jpg",
+        "source": "http://cdn.yoox.biz/37/37718026XQ_12_F.JPG",
+        "anchor_x": 50,
+        "anchor_y": 36,
+        "is_exact": false,
+        "url": "https://web.touchvie.com/nRL9e4Kq7DBHxoDoce5rxZ"
+      },
+      {
+        "card_id": "ee73d21f-8c78-11e5-b7c2-0684985cbbe3",
+        "title": "Pulsera Mujer",
+        "subtitle": null,
+        "type": 6,
+        "image": "ee73d21f-8c78-11e5-b7c2-0684985cbbe3/ee73d21f-8c78-11e5-b7c2-0684985cbbe3_0.jpg",
+        "source": "http://i2.ztat.net/large/TO/85/1F/04/AF/11/TO851F04A-F11@3.jpg",
+        "anchor_x": 50,
+        "anchor_y": 61,
+        "is_exact": false,
+        "url": "https://web.touchvie.com/jy7yNGMnVubiJikCMxBHSk"
+      },
+      {
+        "card_id": "5fcec1f5-820d-11e5-b7c2-0684985cbbe3",
+        "title": "Camiseta Mujer",
+        "subtitle": null,
+        "type": 6,
+        "image": "5fcec1f5-820d-11e5-b7c2-0684985cbbe3/5fcec1f5-820d-11e5-b7c2-0684985cbbe3_0.jpg",
+        "source": "ASO_es",
+        "anchor_x": 58,
+        "anchor_y": 36,
+        "is_exact": false,
+        "url": "https://web.touchvie.com/5ZMtKyRWkq2iYsCqwg8e4K"
+      },
+      {
+        "card_id": "afa0cd43-8c78-11e5-b7c2-0684985cbbe3",
+        "title": "Pantalones pitillo Mujer",
+        "subtitle": null,
+        "type": 6,
+        "image": "afa0cd43-8c78-11e5-b7c2-0684985cbbe3/afa0cd43-8c78-11e5-b7c2-0684985cbbe3_0.jpg",
+        "source": "http://cdn.yoox.biz/36/36434881XL_12_F.JPG",
+        "anchor_x": 51,
+        "anchor_y": 16,
+        "is_exact": false,
+        "url": "https://web.touchvie.com/SbCiJa7NdmnjJ8E5TSc9GZ"
+      },
+      {
+        "card_id": "efd9b01a-8c78-11e5-b7c2-0684985cbbe3",
+        "title": "Pulsera Mujer",
+        "subtitle": null,
+        "type": 6,
+        "image": "efd9b01a-8c78-11e5-b7c2-0684985cbbe3/efd9b01a-8c78-11e5-b7c2-0684985cbbe3_0.jpg",
+        "source": "http://images.asos-media.com/inv/media/3/9/7/8/5228793/black/image1xxl.jpg",
+        "anchor_x": 48,
+        "anchor_y": 76,
+        "is_exact": false,
+        "url": "https://web.touchvie.com/hWCQrD9Fcam5YghPb2HTgk"
+      }
+    ]
+  }
+]

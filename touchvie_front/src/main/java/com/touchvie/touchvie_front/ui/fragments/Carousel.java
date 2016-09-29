@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.fragments;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,7 +23,13 @@ import java.util.HashMap;
 import java.util.Random;
 
 import eu.davidea.fastscroller.FastScroller;
+import eu.davidea.flexibleadapter.FlexibleAdapter;
+import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
+import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
+import eu.davidea.flexibleadapter.utils.Utils;
+
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
+
 
 
 public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
@@ -79,8 +86,6 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
         carouselView = (StickyListHeadersListView) view.findViewById(R.id.carousel_view);
         carouselView.setAdapter(mAdapter);
-
-        System.out.println("KKKKKK oncreateview");
         return view;
 
     }
@@ -167,7 +172,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
     @Override
     public void onFastScrollerStateChange(boolean scrolling) {
-        System.out.println("KKKKKK scrolling " + scrolling);
+
     }
 
 
@@ -202,7 +207,6 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         CarouselCard temp = new CarouselCard();
         CardData data = new CardData();
         int rnd = rand.nextInt(13);
-        System.out.println("KKKKKKKKK sceneNumber " + sceneNumber);
         switch (rnd) {
             case 0:
                 data.setTitle("Ferrari");

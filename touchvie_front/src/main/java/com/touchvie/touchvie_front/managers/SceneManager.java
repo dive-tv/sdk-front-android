@@ -13,58 +13,56 @@ import java.util.HashMap;
  */
 public class SceneManager implements CarouselCardListener{
 
-    private HashMap<String, Scene> scenes;
-    private String currentScene=null;
+    private HashMap<Integer, ArrayList<CarouselCard>> scenes;
+    private Integer currentScene=null;
+    private Integer sectionToPreload=null;
 
     private ArrayList<CarouselCard> orphanedCards;
+
+    //***************** for testing purposes ************************************//
+
+    private int preloadSectionCardIndex=0;
+
+    //***********************************************************************
 
 
     public SceneManager(){
         scenes=new HashMap<>();
     }
 
-    /**
-     * Listener to receive each card from the client.
-     * @param card Card received.
-     */
-    @Override
-    public void onCardReceived(CarouselCard card) {
 
-        if(currentScene==null){
-            if(orphanedCards==null){
-                orphanedCards= new ArrayList<>();
-                orphanedCards.add(card);
-            }
-        }else{
-            Scene scene= scenes.get(currentScene);
-            if(scene==null){
-                scene= new Scene();
-                scenes.put(currentScene,scene );
-            }
-            scene.addCarouselCard(card);
-        }
-    }
 
     /**
      * Listener to be reported about a section end.
      * @param sectionId The id of the section received.
      */
     @Override
-    public void onSectionEndReceived(String sectionId) {
+    public void onSectionEndReceived(Integer sectionId) {
 
-        currentScene=null;
-        if(orphanedCards !=null){
-            Scene scene= scenes.get(sectionId);
-            if(scene !=null){
-                scene.addCarouselCards(orphanedCards);
-            }else{
-                scene=new Scene();
-                scene.addCarouselCards(orphanedCards);
-                scenes.put(sectionId, scene);
-            }
-            orphanedCards.clear();
+
+    }
+
+
+
+    @Override
+    public void onCardsForPreloadReceived(ArrayList<CarouselCard> cards) {
+
+        if(cards==null || cards.size()<=0){
+            return;
         }
 
+        for(CarouselCard card: cards){
+            ArrayList<CarouselCard> sceneCards=scenes.get(card.getSceneId());
+            if(sceneCards ==null){
+                sceneCards= new ArrayList<>();
+                scenes.put(card.getSceneId(), sceneCards);
+            }
+            sceneCards.add(card);
+        }
+    }
+
+    @Override
+    public void onCardsForPaintReceived(ArrayList<String> cardIds) {
     }
 
     /**
@@ -73,11 +71,9 @@ public class SceneManager implements CarouselCardListener{
      */
 
     @Override
-    public void onSectionStartReceived(String sectionId) {
+    public void onSectionStartReceived(Integer sectionId) {
 
-        currentScene=sectionId;
-        scenes.put(sectionId, new Scene());
+
     }
-
 
 }

@@ -10,7 +10,7 @@ public class Card implements Serializable {
     String locale;
     String title;
     String subtitle;
-    int type;
+    String type;
     String image;
     String source;
     int anchor_x;
@@ -54,11 +54,11 @@ public class Card implements Serializable {
         this.subtitle = subtitle;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
