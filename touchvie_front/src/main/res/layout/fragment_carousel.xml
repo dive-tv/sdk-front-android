@@ -2,14 +2,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView
         android:id="@+id/carousel_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:background="@android:color/white"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="5dp"
+        android:fastScrollAlwaysVisible="true"
+        android:fastScrollEnabled="true" />
 
-    <include layout="@layout/sticky_header_layout" />
-
-    <!-- FastScroller Layout must be at the end of ViewHierarchy
-           in order to be displayed at the top of every views -->
-    <include layout="@layout/fast_scroller" />
 </FrameLayout>

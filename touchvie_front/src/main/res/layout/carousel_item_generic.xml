@@ -1,32 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/carousel_item_generic_base"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:padding="10dp"
+    android:layout_height="@dimen/carousel_cards_height"
     android:gravity="center"
-    android:orientation="vertical">
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp">
 
-    <android.support.v7.widget.CardView
+    <ImageView
+        android:id="@+id/carousel_item_generic_base_img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        card_view:cardCornerRadius="20dp">
+        android:layout_height="@dimen/carousel_cards_height"
+        android:scaleType="centerCrop" />
 
-        <ImageView
-            android:id="@+id/carousel_item_generic_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/black" />
-
-        <TextView
-            android:id="@+id/carousel_item_generic_text"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_gravity="bottom"
-            android:background="@android:color/white"
-            android:gravity="center"
-            android:textColor="@android:color/black" />
-
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+    <TextView
+        android:id="@+id/carousel_item_generic_base_txt"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_gravity="bottom"
+        android:background="@color/cardview_dark_background"
+        android:gravity="center"
+        android:textColor="@android:color/white" />
+</android.support.v7.widget.CardView>

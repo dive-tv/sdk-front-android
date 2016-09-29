@@ -1,31 +1,28 @@
 package com.touchvie.touchvie_front.ui.fragments;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.touchvie.backend.Card;
+import com.touchvie.backend.Relation;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.Scene;
-import com.touchvie.touchvie_front.ui.adapters.CarouselExampleAdapter;
+import com.touchvie.touchvie_front.ui.adapters.CarouselAdapter;
 import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
-import com.touchvie.touchvie_front.ui.views.CarouselItem;
 import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Random;
 
 import eu.davidea.fastscroller.FastScroller;
-import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
-import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
-
-import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 
 public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
@@ -37,11 +34,13 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
     private CarouselListener mListener;
 
-    private RecyclerView carouselView = null;
-    private List<AbstractFlexibleItem> carouselItems = null;
+    private StickyListHeadersListView carouselView = null;
+    private ArrayList<CarouselCard> carouselItems = null;
 
-    private CarouselExampleAdapter mAdapter = null;
+    private CarouselAdapter mAdapter = null;
     private Carousel instance;
+
+    Random rand = new Random();
 
     /**
      * Empty public constructor
@@ -75,49 +74,11 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         receivedScenes = new HashMap<>();
         visibleScenes = new HashMap<>();
         carouselItems = getTestCarouselItems();//For testing purposes only
-        mAdapter = new CarouselExampleAdapter(carouselItems);
 
-        mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
-                .setAutoScrollOnExpand(true)
-                .setHandleDragEnabled(true)
-                .enableStickyHeaders()
-                //.setAnimateToLimit(Integer.MAX_VALUE)//Use the default value
-                .setNotifyMoveOfFilteredItems(true)//When true, filtering on big list is very slow, not in this case!
-                .setNotifyChangeOfUnfilteredItems(true)//We have highlighted text while filtering, so let's enable this feature to be consistent with the active filter
-                .setAnimationOnReverseScrolling(true);
+        mAdapter = new CarouselAdapter(getContext(), carouselItems);
 
-        FastScroller fastScroller = (FastScroller) view.findViewById(R.id.fast_scroller);
-
-        carouselView = (RecyclerView) view.findViewById(R.id.carousel_view);
-        carouselView.setLayoutManager(new SmoothScrollLinearLayoutManager(getActivity()));
+        carouselView = (StickyListHeadersListView) view.findViewById(R.id.carousel_view);
         carouselView.setAdapter(mAdapter);
-
-        //Add FastScroll to the RecyclerView, after the Adapter has been attached the RecyclerView!!!
-        mAdapter.setFastScroller(fastScroller, Color.GREEN, instance);
-
-
-        carouselView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == SCROLL_STATE_IDLE && !mAdapter.getFastScroller().isFocused()) {
-                    if (mAdapter.isFastScrollerEnabled()) {
-                        mAdapter.toggleFastScroller();
-//                        mAdapter.getFastScroller().setVisibility(View.INVISIBLE);
-                    }
-                } else {
-                    if (!mAdapter.isFastScrollerEnabled()) {
-//                        mAdapter.getFastScroller().setVisibility(View.VISIBLE);
-                        mAdapter.toggleFastScroller();
-                    }
-                }
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
 
         System.out.println("KKKKKK oncreateview");
         return view;
@@ -223,20 +184,133 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
      * TODO: for testing pusposes only
      */
 
-    private List<AbstractFlexibleItem> getTestCarouselItems() {
+    private ArrayList<CarouselCard> getTestCarouselItems() {
 
-        ArrayList<AbstractFlexibleItem> items = new ArrayList<>();
+        ArrayList<CarouselCard> items = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
             SceneHeaderItem sceneHeader = new SceneHeaderItem(i, " SCENE ");
 
             for (int j = 0; j < 7; j++) {
-                items.add(new CarouselItem(j + 1, sceneHeader, "Test card: " + j));
+                items.add(generateRandomCarouselCard(i));
             }
         }
         return items;
     }
 
+    private CarouselCard generateRandomCarouselCard(int sceneNumber) {
+        CarouselCard temp = new CarouselCard();
+        Card data = new Card();
+        int rnd = rand.nextInt(13);
+        System.out.println("KKKKKKKKK sceneNumber " + sceneNumber);
+        switch (rnd) {
+            case 0:
+                data.setTitle("Ferrari");
+                data.setImage("http://i.imgur.com/7L1egba.jpg");
+                break;
+            case 1:
+                data.setTitle("Mansión");
+                data.setImage("http://i.imgur.com/vttzfn4.jpg");
+                break;
+            case 2:
+                data.setTitle("Jordan Belfort");
+                data.setImage("http://i.imgur.com/MQ1SWyh.jpg");
+                Relation rel1 = new Relation();
+                Card relCard1 = new Card();
+                relCard1.setTitle("Traje Armani");
+                relCard1.setImage("http://i.imgur.com/kNjXkKy.jpg");
+                Relation rel2 = new Relation();
+                Card relCard2 = new Card();
+                relCard2.setTitle("Zapatos");
+                relCard2.setImage("http://i.imgur.com/4W8uL80.jpg");
+                Relation[] rels = new Relation[2];
+                rels[0] = rel1;
+                rels[1] = rel2;
+                temp.setChildren(rels);
+                break;
+            case 3:
+                data.setTitle("Donnie Azoff");
+                data.setImage("http://i.imgur.com/HWAxhwP.png");
+                Relation rel10 = new Relation();
+                Card relCard10 = new Card();
+                relCard10.setTitle("Camisa");
+                relCard10.setImage("http://i.imgur.com/9yN9vse.jpg");
+                Relation[] rels4 = new Relation[1];
+                rels4[0] = rel10;
+                temp.setChildren(rels4);
+                break;
+            case 4:
+                data.setTitle("Yate");
+                data.setImage("http://i.imgur.com/ZEjJ2T6.jpg");
+                Relation rel9 = new Relation();
+                Card relCard9 = new Card();
+                relCard9.setTitle("Puerto");
+                relCard9.setImage("http://i.imgur.com/mRhNiUd.jpg");
+                Relation[] rels5 = new Relation[1];
+                rels5[0] = rel9;
+                temp.setChildren(rels5);
+                break;
+            case 5:
+                data.setTitle("Wall Street");
+                data.setImage("http://i.imgur.com/TsqenDf.jpg");
+                Relation rel7 = new Relation();
+                Card relCard7 = new Card();
+                relCard7.setTitle("Bolsa de NY");
+                relCard7.setImage("http://i.imgur.com/agM641t.jpg");
+                Relation rel8 = new Relation();
+                Card relCard8 = new Card();
+                relCard8.setTitle("Acciones a centavo");
+                relCard8.setImage("http://i.imgur.com/LIWqjvB.jpg");
+                Relation[] rels3 = new Relation[2];
+                rels3[0] = rel7;
+                rels3[1] = rel8;
+                temp.setChildren(rels3);
+                break;
+            case 6:
+                data.setTitle("Curiosity card test");
+                data.setImage("http://i.imgur.com/vq92crr.jpg");
+                break;
+            case 7:
+                data.setTitle("¿Sabías qué...?");
+                data.setImage("http://i.imgur.com/sVJbVDv.jpg");
+                break;
+            case 8:
+                data.setTitle("Nueva York");
+                data.setImage("http://i.imgur.com/7xlFXFY.gif");
+                break;
+            case 9:
+                data.setTitle("Los 80");
+                data.setImage("http://i.imgur.com/EOSf9EC.jpg");
+                break;
+            case 10:
+                data.setTitle("Mark Hanna");
+                data.setImage("http://i.imgur.com/wJYjSyO.jpg");
+                Relation rel3 = new Relation();
+                Card relCard3 = new Card();
+                relCard3.setTitle("Traje");
+                relCard3.setImage("http://i.imgur.com/RdllUq3.jpg");
+                Relation rel4 = new Relation();
+                Card relCard4 = new Card();
+                relCard4.setTitle("Zapatos");
+                relCard4.setImage("http://i.imgur.com/rms7VaC.jpg");
+                Relation[] rels2 = new Relation[4];
+                rels2[0] = rel3;
+                rels2[1] = rel4;
+                temp.setChildren(rels2);
+                break;
+            case 11:
+                data.setTitle("Brad");
+                data.setImage("http://i.imgur.com/1LQggOl.jpg");
+                break;
+            case 12:
+                data.setTitle("Helicóptero");
+                data.setImage("http://i.imgur.com/vq92crr.jpg");
+                break;
+        }
 
+        temp.setData(data);
+        temp.setSceneNumber(sceneNumber);
+        return temp;
+    }
 }
 
