@@ -19,31 +19,34 @@ import java.util.ArrayList;
 public class CarouselLogic {
     private Context context;
     private GroupableTree groupableTree;
+
     public CarouselLogic(Context context) {
         this.context = context;
     }
 
-    public void processData(CarouselCard[] cards){
+    public void processData(CarouselCard[] cards) {
         CarouselCard lastCard = null;
         CarouselCard newCard = null;
         ArrayList<CarouselCellData> cells = new ArrayList<>();
 
-        for (CarouselCard card:cards){
+        for (CarouselCard card : cards) {
             newCard = card;
-            if (newCard!=null && lastCard!=null && checkGroupableTree(newCard, lastCard)){
+            if (newCard != null && lastCard != null && checkGroupableTree(newCard, lastCard)) {
 
             }
             lastCard = newCard;
         }
     }
 
-    private boolean checkGroupableTree(CarouselCard Card, CarouselCard last){
+    private boolean checkGroupableTree(CarouselCard Card, CarouselCard last) {
 
 
         return false;
-    };
+    }
 
-    private void loadGroupable(){
+    ;
+
+    private void loadGroupable() {
         String jsonString = null;
         try {
             Resources res = context.getResources();
