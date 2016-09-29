@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
         <include layout="@layout/sticky_header_layout"/>
+        <include layout="@layout/fast_scroller"/>
 
 
 </FrameLayout>

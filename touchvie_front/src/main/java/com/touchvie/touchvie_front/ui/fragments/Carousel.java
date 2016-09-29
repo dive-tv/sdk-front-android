@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.fragments;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
@@ -19,12 +20,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import eu.davidea.fastscroller.FastScroller;
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
 import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
+import eu.davidea.flexibleadapter.utils.Utils;
 
 
-public class Carousel extends Fragment implements CarouselCardListener {
+public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
 
 
     private HashMap<Integer, Scene> receivedScenes= null;
@@ -69,12 +72,19 @@ public class Carousel extends Fragment implements CarouselCardListener {
         visibleScenes= new HashMap<>();
         carouselItems=getTestCarouselItems();//For testing purposes only
         mAdapter = new FlexibleAdapter<>(carouselItems);
+
+
+
         mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
                 .enableStickyHeaders();
 
         carouselView=(RecyclerView) view.findViewById(R.id.carousel_view);
         carouselView.setLayoutManager(new SmoothScrollLinearLayoutManager(getActivity()));
         carouselView.setAdapter(mAdapter);
+        int accentAttr = eu.davidea.flexibleadapter.utils.Utils.hasLollipop() ? android.R.attr.colorAccent : R.attr.colorAccent;
+        TypedArray androidAttr = getContext().getTheme().obtainStyledAttributes(new int[] { accentAttr });
+        mAdapter.setFastScroller((FastScroller)view.findViewById(R.id.fast_scroller), androidAttr.getColor(0, 0xFF009688), this);
+        mAdapter.toggleFastScroller();
         return view;
 
     }
@@ -131,6 +141,11 @@ public class Carousel extends Fragment implements CarouselCardListener {
     }
 
     protected  void showMoreContent(){
+
+    }
+
+    @Override
+    public void onFastScrollerStateChange(boolean scrolling) {
 
     }
 

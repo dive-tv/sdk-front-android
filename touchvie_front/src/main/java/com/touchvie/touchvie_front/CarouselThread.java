@@ -23,8 +23,6 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
 
     private TestListener listener=null;
 
-    public final static int MSG_GET_CARD=100;
-    public final static int MSG_NEW_SCENE=101;
     public final static int MSG_PUSH_CARD=102;
 
     private ClientSimulator simulator=null;
@@ -86,12 +84,6 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
 
         switch (msg.what) {
 
-            case MSG_GET_CARD:
-                simulator.loadOneMoreCard();
-                break;
-            case MSG_NEW_SCENE:
-                simulator.loadOneMoreScene();
-                break;
             case MSG_PUSH_CARD:
                 simulator.pushCards();
                 break;

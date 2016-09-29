@@ -8,6 +8,13 @@ import com.touchvie.backend.Relation;
  */
 public class CarouselCard {
 
+    /************For testing purposes only ***********************/
+
+    private String cardId;
+    private int sceneId;
+
+     /*************************************************************/
+
     /**
      * The card data received from the server.
      */
@@ -49,5 +56,27 @@ public class CarouselCard {
     public void setChildren(Relation[] children) {
         this.children = children;
     }
+
+
+    /*************************For testing purposes only ********************************/
+
+    public String getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(int cardId) {
+
+        this.cardId = Integer.toString(cardId);;
+    }
+
+    public int getSceneId() {
+        return sceneId;
+    }
+
+    public void setSceneId(int sceneId) {
+        this.sceneId = sceneId;
+    }
+
+    /********************************************************************************/
 
 }

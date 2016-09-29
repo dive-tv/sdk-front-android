@@ -16,23 +16,6 @@
 
     </FrameLayout>
 
-    <Button
-        android:text="One scene more"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/btn_new_scene"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-     />
-
-    <Button
-        android:text="More cards"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/btn_more_cards"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
- />
 
     <Button
         android:text="Push cards"
