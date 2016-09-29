@@ -2,14 +2,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
+    <se.emilsjolander.stickylistheaders.StickyListHeadersListView
         android:id="@+id/carousel_view"
         android:layout_width="match_parent"
+        android:background="@android:color/white"
         android:layout_height="match_parent"
         android:divider="@null"
         android:dividerHeight="5dp"
         android:fastScrollAlwaysVisible="true"
-        android:fastScrollEnabled="true"
-        android:scrollbarStyle="outsideInset" />
+        android:fastScrollEnabled="true" />
 
 </FrameLayout>

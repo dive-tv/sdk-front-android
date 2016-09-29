@@ -21,8 +21,10 @@ import com.touchvie.touchvie_front.R;
 
 import java.util.ArrayList;
 
+import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
-public class CarouselAdapter extends BaseAdapter implements SectionIndexer {
+
+public class CarouselAdapter extends BaseAdapter implements SectionIndexer, StickyListHeadersAdapter {
 
     private final ArrayList<CarouselCard> carouselItems;
     private Context context;
@@ -97,7 +99,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer {
         CarouselRowGenericViewHolder holder;
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.carousel_item_generic, null);
+            convertView = mInflater.inflate(R.layout.carousel_item_generic, null);
             holder = new CarouselRowGenericViewHolder();
             holder.row = (CardView) convertView.findViewById(R.id.carousel_item_generic_base);
             holder.photo = (ImageView) convertView.findViewById(R.id.carousel_item_generic_base_img);
@@ -128,6 +130,28 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer {
         return convertView;
     }
 
+    @Override
+    public View getHeaderView(int position, View convertView, ViewGroup parent) {
+        HeaderViewHolder holder;
+        if (convertView == null) {
+            holder = new HeaderViewHolder();
+            convertView = mInflater.inflate(R.layout.carousel_header, parent, false);
+            holder.headerText = (TextView) convertView.findViewById(R.id.carousel_header_text);
+            convertView.setTag(holder);
+        } else {
+            holder = (HeaderViewHolder) convertView.getTag();
+        }
+        //set header text as first char in name
+        String headerTxt = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNumber() - carouselItems.get(position).getSceneNumber() + 1);
+        holder.headerText.setText(headerTxt);
+        return convertView;
+    }
+
+    @Override
+    public long getHeaderId(int position) {
+        return carouselItems.get(position).getSceneNumber();
+    }
+
     private class CarouselRowGenericViewHolder {
         CardView row;
         ImageView photo;
@@ -155,5 +179,10 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer {
     public int getSectionForPosition(int position) {
         System.out.println("KKKKK getSectionForPosition: " + position + " - " + carouselItems.get(position).getSceneNumber());
         return carouselItems.get(position).getSceneNumber();
+    }
+
+
+    private class HeaderViewHolder {
+        private TextView headerText;
     }
 }

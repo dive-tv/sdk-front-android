@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 import eu.davidea.fastscroller.FastScroller;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 
 public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
@@ -33,7 +34,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
     private CarouselListener mListener;
 
-    private ListView carouselView = null;
+    private StickyListHeadersListView carouselView = null;
     private ArrayList<CarouselCard> carouselItems = null;
 
     private CarouselAdapter mAdapter = null;
@@ -76,7 +77,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
         mAdapter = new CarouselAdapter(getContext(), carouselItems);
 
-        carouselView = (ListView) view.findViewById(R.id.carousel_view);
+        carouselView = (StickyListHeadersListView) view.findViewById(R.id.carousel_view);
         carouselView.setAdapter(mAdapter);
 
         System.out.println("KKKKKK oncreateview");
