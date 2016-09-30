@@ -35,7 +35,7 @@ public class Carousel extends Fragment implements CarouselListener {
     private CarouselListener mListener;
 
     private StickyListHeadersListView carouselView = null;
-    private ArrayList<CarouselCard> carouselItems = null;
+    private ArrayList<CarouselCellData> carouselItems = null;
 
     private CarouselAdapter mAdapter = null;
     private Carousel instance;
@@ -75,7 +75,7 @@ public class Carousel extends Fragment implements CarouselListener {
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
         receivedScenes = new HashMap<>();
         visibleScenes = new HashMap<>();
-        carouselItems = getTestCarouselItems();//For testing purposes only
+        carouselItems = new ArrayList<>();
 
         mAdapter = new CarouselAdapter(getContext(), carouselItems);
 
@@ -250,8 +250,8 @@ public class Carousel extends Fragment implements CarouselListener {
     }
 
     @Override
-    public void onRowsToDraw(CarouselCellData data) {
-
+    public void onRowsToDraw(ArrayList<CarouselCellData> carouselCellDatas) {
+        carouselItems.addAll(carouselCellDatas);
     }
 }
 

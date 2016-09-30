@@ -2,6 +2,8 @@ package com.touchvie.touchvie_front.ui.listeners;
 
 import com.touchvie.touchvie_front.data.CarouselCellData;
 
+import java.util.ArrayList;
+
 /**
  * Created by Tagsonomy S.L. on 14/09/2016.
  */
@@ -10,7 +12,7 @@ public interface CarouselListener {
     /**
      * Interface to be reported when the data of a card has been received.
      *
-     * @param data
+     * @param carouselCellDatas array of carousel cell datas to use in the list
      */
-    void onRowsToDraw(CarouselCellData data);
+    void onRowsToDraw(ArrayList<CarouselCellData> carouselCellDatas);
 }

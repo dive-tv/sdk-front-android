@@ -17,6 +17,8 @@ import com.touchvie.touchvie_front.ui.fragments.Carousel;
 import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 import com.touchvie.touchvie_front.ui.listeners.TestListener;
 
+import java.util.ArrayList;
+
 public class DiveCarousel extends FragmentActivity implements CarouselListener, Handler.Callback, TestListener {
 
     /**
@@ -106,7 +108,7 @@ public class DiveCarousel extends FragmentActivity implements CarouselListener, 
 
 
     @Override
-    public void onRowsToDraw(CarouselCellData data) {
+    public void onRowsToDraw(ArrayList<CarouselCellData> carouselCellDatas) {
 
     }
 }

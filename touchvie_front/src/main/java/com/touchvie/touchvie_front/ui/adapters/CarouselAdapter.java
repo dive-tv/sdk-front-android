@@ -16,10 +16,10 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.CardData;
-import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.data.CarouselCellData;
 import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
 public class CarouselAdapter extends BaseAdapter implements SectionIndexer, StickyListHeadersAdapter {
 
-    private final ArrayList<CarouselCard> carouselItems;
+    private final ArrayList<CarouselCellData> carouselItems;
     private Context context;
     private LayoutInflater mInflater;
     String[] sections;
@@ -41,15 +41,15 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
      * @param context
      * @param carouselItems
      */
-    public CarouselAdapter(Context context, ArrayList<CarouselCard> carouselItems) {
+    public CarouselAdapter(Context context, ArrayList<CarouselCellData> carouselItems) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.carouselItems = carouselItems;
         this.mPicasso = Picasso.with(context);
 
-        sections = new String[carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1];
-        for (int i = 0; i < (carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1); i++) {
-            sections[i] = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNumber() - i + 1);
+        sections = new String[carouselItems.get(carouselItems.size() - 1).getSceneNr() + 1];
+        for (int i = 0; i < (carouselItems.get(carouselItems.size() - 1).getSceneNr() + 1); i++) {
+            sections[i] = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNr() - i + 1);
         }
     }
 
@@ -113,7 +113,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
             holder = (CarouselRowGenericViewHolder) convertView.getTag();
         }
 
-        final CardData card = carouselItems.get(position).getData();
+        final CardData card = carouselItems.get(position).getCards().get(0).getData();
         if (card.getImage() != null && card.getImage().length() > 0) {
             holder.photo.post(new Runnable() {
                 @Override
@@ -151,14 +151,14 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
             holder = (HeaderViewHolder) convertView.getTag();
         }
         //set header text as first char in name
-        String headerTxt = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNumber() - carouselItems.get(position).getSceneNumber() + 1);
+        String headerTxt = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNr() - carouselItems.get(position).getSceneNr() + 1);
         holder.headerText.setText(headerTxt);
         return convertView;
     }
 
     @Override
     public long getHeaderId(int position) {
-        return carouselItems.get(position).getSceneNumber();
+        return carouselItems.get(position).getSceneNr();
     }
 
     private class CarouselRowGenericViewHolder {
@@ -176,7 +176,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
     @Override
     public int getPositionForSection(int sectionIndex) {
         for (int i = 0; i < carouselItems.size(); i++) {
-            if (sectionIndex == carouselItems.get(i).getSceneNumber()) {
+            if (sectionIndex == carouselItems.get(i).getSceneNr()) {
                 return i;
             }
         }
@@ -185,7 +185,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
 
     @Override
     public int getSectionForPosition(int position) {
-        return carouselItems.get(position).getSceneNumber();
+        return carouselItems.get(position).getSceneNr();
     }
 
 
