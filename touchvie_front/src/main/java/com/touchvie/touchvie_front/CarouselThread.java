@@ -7,6 +7,7 @@ import android.os.Message;
 
 import com.touchvie.touchvie_front.managers.SceneManager;
 import com.touchvie.touchvie_front.simulators.ClientSimulator;
+import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 import com.touchvie.touchvie_front.ui.listeners.TestListener;
 
 /**
@@ -21,7 +22,7 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
 
     private Context context;
 
-    private TestListener listener=null;
+    private CarouselListener listener=null;
 
     public final static int MSG_PUSH_CARD=102;
 
@@ -52,7 +53,7 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
      *
      * @param context         the context
      */
-    public void init(Context context, TestListener listener) {
+    public void init(Context context, CarouselListener listener) {
 
         this.context=context;
         this.listener=listener;
@@ -68,7 +69,7 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
         handler = new Handler(getLooper(), this);
         listener.setHandler(handler);
         listener=null;
-        SceneManager sceneManager= new SceneManager(context);
+        SceneManager sceneManager= new SceneManager(context,listener);
         this.simulator= new ClientSimulator(sceneManager, context);
     }
 

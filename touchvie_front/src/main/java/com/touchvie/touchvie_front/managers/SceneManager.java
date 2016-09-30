@@ -7,6 +7,7 @@ import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.logic.CarouselLogic;
 import com.touchvie.touchvie_front.ui.fragments.Carousel;
+import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +27,8 @@ public class SceneManager implements CarouselCardListener {
     private ArrayList<CarouselCard> cardsToPush;
     private Context context;
     private CarouselLogic carouselLogic;
+    private CarouselListener carouselListener;
+
 
     //***************** for testing purposes ************************************//
 
@@ -34,8 +37,9 @@ public class SceneManager implements CarouselCardListener {
     //***********************************************************************
 
 
-    public SceneManager(Context context) {
+    public SceneManager(Context context, CarouselListener carousel) {
         this.context = context;
+        this.carouselListener = carousel;
         this.mPicasso = Picasso.with(context);
         carouselLogic = new CarouselLogic(context);
         scenes = new HashMap<>();
@@ -87,7 +91,7 @@ public class SceneManager implements CarouselCardListener {
         for (String ids: cardIds ) {
             cardsToPush.add(cards.get(ids));
         }
-        carouselLogic.processData(cardsToPush);
+        carouselListener.onRowsToDraw(carouselLogic.processData(cardsToPush));
     }
 
     /**

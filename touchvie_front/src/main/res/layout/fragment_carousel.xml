@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,5 +11,13 @@
         android:dividerHeight="5dp"
         android:fastScrollAlwaysVisible="true"
         android:fastScrollEnabled="true" />
-
-</FrameLayout>
+    <Button
+        android:text="Push rel_cards"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/btn_push"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        />
+</RelativeLayout>

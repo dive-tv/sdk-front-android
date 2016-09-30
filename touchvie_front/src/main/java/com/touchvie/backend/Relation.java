@@ -14,7 +14,7 @@ public class Relation {
     /**
      * The rel_cards related to the rel_cards that owns the relation.
      */
-    private Card[] rel_cards;
+    private CardData[] rel_cards;
 
     /**
      * Gets the type of the relation.
@@ -36,11 +36,11 @@ public class Relation {
      *
      * @return
      */
-    public Card[] getRel_cards() {
+    public CardData[] getRel_cards() {
         return rel_cards;
     }
 
-    public void setRel_cards(Card[] rel_cards) {
+    public void setRel_cards(CardData[] rel_cards) {
         this.rel_cards = rel_cards;
     }
 
