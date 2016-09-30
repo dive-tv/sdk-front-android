@@ -5,6 +5,8 @@ import android.content.Context;
 import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
+import com.touchvie.touchvie_front.logic.CarouselLogic;
+import com.touchvie.touchvie_front.ui.fragments.Carousel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +23,9 @@ public class SceneManager implements CarouselCardListener {
     private Integer sectionToPreload = null;
     private Picasso mPicasso = null;
     private ArrayList<CarouselCard> orphanedCards;
+    private ArrayList<CarouselCard> cardsToPush;
     private Context context;
+    private CarouselLogic carouselLogic;
 
     //***************** for testing purposes ************************************//
 
@@ -33,8 +37,10 @@ public class SceneManager implements CarouselCardListener {
     public SceneManager(Context context) {
         this.context = context;
         this.mPicasso = Picasso.with(context);
+        carouselLogic = new CarouselLogic(context);
         scenes = new HashMap<>();
         cards = new HashMap<>();
+
     }
 
 
@@ -78,7 +84,10 @@ public class SceneManager implements CarouselCardListener {
 
     @Override
     public void onCardsForPaintReceived(ArrayList<String> cardIds) {
-
+        for (String ids: cardIds ) {
+            cardsToPush.add(cards.get(ids));
+        }
+        carouselLogic.processData(cardsToPush);
     }
 
     /**
