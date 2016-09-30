@@ -1,7 +1,6 @@
 package com.touchvie.touchvie_front.data;
 
-import com.touchvie.backend.Card;
-import com.touchvie.touchvie_client.data.CarouselCard;
+import com.touchvie.backend.CardData;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,14 +10,14 @@ import java.util.ArrayList;
  */
 public class CarouselCellData implements Serializable {
 
-    ArrayList<CarouselCard> cards;
+    ArrayList<CardData> cards;
     int sceneNr;
 
-    public ArrayList<CarouselCard> getCards() {
+    public ArrayList<CardData> getCards() {
         return cards;
     }
 
-    public void setCards(ArrayList<CarouselCard> cards) {
+    public void setCards(ArrayList<CardData> cards) {
         this.cards = cards;
     }
 

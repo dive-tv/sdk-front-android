@@ -5,6 +5,7 @@ import android.content.res.Resources;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.Streams;
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.TypeOfCard;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
@@ -32,24 +33,58 @@ public class CarouselLogic {
         loadGroupable();
     }
 
-    public void processData(ArrayList<CarouselCard> cards) {
+    public ArrayList<CarouselCellData> processData(ArrayList<CarouselCard> cards) {
         CarouselCard lastCard = null;
         CarouselCard newCard = null;
+        CarouselCellData tempCell = null;
         ArrayList<CarouselCellData> cells = new ArrayList<>();
+        ArrayList<CardData> cellCards= new ArrayList<>();
+        int rel=0;
 
         for (CarouselCard card : cards) {
             newCard = card;
+            if (lastCard==null) {
+                cellCards.add(card.getData());
+                tempCell.setCards(cellCards);
+                tempCell.setSceneNr(card.getSceneNumber());
+                cells.add(tempCell);
+                cellCards.clear();
+                continue;
+            }
             if (newCard != null && lastCard != null && checkGroupableTree(newCard, lastCard)) {
+                cellCards.add(newCard.getData());
+                if (newCard.getChildren()!=null) {
+                    outerloop:
+                    for (int i = 0; i < newCard.getChildren().length; i++) {
+                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length; j++) {
+                            cellCards.add(newCard.getChildren()[i].getRel_cards()[j]);
+                            rel++;
+                            if (rel == 2)
+                                break outerloop;
+                        }
+                    }
+                    tempCell.setCards(cellCards);
+                    tempCell.setSceneNr(card.getSceneNumber());
+                    cells.add(tempCell);
+                    cellCards.clear();
+                    continue;
+                }
+            } else {
+                tempCell.setSceneNr(lastCard.getSceneNumber());
+                cells.add(tempCell);
+                cellCards.clear();
+                cellCards.add(newCard.getData());
 
             }
             lastCard = newCard;
         }
-        //Carousel.onRowsToDraw(cells);
+        return cells;
     }
 
-    private boolean checkGroupableTree(CarouselCard Card, CarouselCard last) {
-
-
+    private boolean checkGroupableTree(CarouselCard card, CarouselCard last) {
+        if (tree.get(last.getData().getType())!=null && tree.get(last.getData().getType()).get(card.getData().getType())!=null){
+            return true;
+        }
         return false;
     }
 

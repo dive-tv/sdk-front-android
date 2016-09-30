@@ -1,5 +1,7 @@
 package com.touchvie.touchvie_front.ui.listeners;
 
+import android.os.Handler;
+
 import com.touchvie.touchvie_front.data.CarouselCellData;
 
 import java.util.ArrayList;
@@ -15,4 +17,6 @@ public interface CarouselListener {
      * @param carouselCellDatas array of carousel cell datas to use in the list
      */
     void onRowsToDraw(ArrayList<CarouselCellData> carouselCellDatas);
+
+    void setHandler(Handler handler);
 }

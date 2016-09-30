@@ -17,13 +17,5 @@
     </FrameLayout>
 
 
-    <Button
-        android:text="Push rel_cards"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/btn_push"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        />
+
 </RelativeLayout>

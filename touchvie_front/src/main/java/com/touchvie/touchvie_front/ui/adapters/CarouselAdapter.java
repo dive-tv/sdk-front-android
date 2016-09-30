@@ -47,9 +47,11 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
         this.carouselItems = carouselItems;
         this.mPicasso = Picasso.with(context);
 
-        sections = new String[carouselItems.get(carouselItems.size() - 1).getSceneNr() + 1];
-        for (int i = 0; i < (carouselItems.get(carouselItems.size() - 1).getSceneNr() + 1); i++) {
-            sections[i] = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNr() - i + 1);
+        if (carouselItems.size() > 0) {
+            sections = new String[carouselItems.get(carouselItems.size() - 1).getSceneNr() + 1];
+            for (int i = 0; i < (carouselItems.get(carouselItems.size() - 1).getSceneNr() + 1); i++) {
+                sections[i] = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNr() - i + 1);
+            }
         }
     }
 
@@ -113,7 +115,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
             holder = (CarouselRowGenericViewHolder) convertView.getTag();
         }
 
-        final CardData card = carouselItems.get(position).getCards().get(0).getData();
+        final CardData card = carouselItems.get(position).getCards().get(0);
         if (card.getImage() != null && card.getImage().length() > 0) {
             holder.photo.post(new Runnable() {
                 @Override

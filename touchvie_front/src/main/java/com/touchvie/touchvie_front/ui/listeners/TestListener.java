@@ -8,5 +8,5 @@ import android.os.Handler;
 
 public interface TestListener {
 
-    void setHandler(Handler handler);
+
 }
