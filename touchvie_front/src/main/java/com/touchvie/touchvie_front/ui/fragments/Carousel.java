@@ -7,15 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.backend.CardData;
 import com.touchvie.backend.Relation;
 import com.touchvie.touchvie_client.data.CarouselCard;
-import com.touchvie.touchvie_front.data.CarouselCellData;
-import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.data.CarouselCellData;
 import com.touchvie.touchvie_front.data.Scene;
 import com.touchvie.touchvie_front.ui.adapters.CarouselAdapter;
+import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +41,7 @@ public class Carousel extends Fragment implements CarouselListener {
     private Carousel instance;
 
     Random rand = new Random();
+    private Picasso mPicasso;
 
     /**
      * Empty public constructor
@@ -63,6 +65,7 @@ public class Carousel extends Fragment implements CarouselListener {
     public void onCreate(Bundle savedInstanceState) {
         instance = this;
         super.onCreate(savedInstanceState);
+        mPicasso = Picasso.with(getContext());
     }
 
     @Override
@@ -138,15 +141,15 @@ public class Carousel extends Fragment implements CarouselListener {
         switch (rnd) {
             case 0:
                 data.setTitle("Ferrari");
-                data.setImage("http://i.imgur.com/7L1egba.jpg");
+                data.setImage("dde6b9f4-03a2-38a9-95b7-2ae7d8a0e1ed/dde6b9f4-03a2-38a9-95b7-2ae7d8a0e1ed_1_es_ES.jpg");
                 break;
             case 1:
                 data.setTitle("Mansión");
-                data.setImage("http://i.imgur.com/vttzfn4.jpg");
+                data.setImage("bd4f26ba-0c2a-3a16-bb7b-79aa066abf44/bd4f26ba-0c2a-3a16-bb7b-79aa066abf44_0_es_ES.jpg");
                 break;
             case 2:
                 data.setTitle("Jordan Belfort");
-                data.setImage("http://i.imgur.com/MQ1SWyh.jpg");
+                data.setImage("84727ecb-9936-3fb6-8b42-ef08ef98b6c9/84727ecb-9936-3fb6-8b42-ef08ef98b6c9_0_es_ES.jpg");
                 Relation rel1 = new Relation();
                 Card relCard1 = new Card();
                 relCard1.setTitle("Traje Armani");
@@ -162,7 +165,7 @@ public class Carousel extends Fragment implements CarouselListener {
                 break;
             case 3:
                 data.setTitle("Donnie Azoff");
-                data.setImage("http://i.imgur.com/HWAxhwP.png");
+                data.setImage("1a608a46-72b7-3e3d-ada5-07067da934f0/1a608a46-72b7-3e3d-ada5-07067da934f0_2_es_ES.jpg");
                 Relation rel10 = new Relation();
                 Card relCard10 = new Card();
                 relCard10.setTitle("Camisa");
@@ -173,7 +176,7 @@ public class Carousel extends Fragment implements CarouselListener {
                 break;
             case 4:
                 data.setTitle("Yate");
-                data.setImage("http://i.imgur.com/ZEjJ2T6.jpg");
+                data.setImage("b3785a5b-cf5e-3b2d-b90e-e8e11386e576/b3785a5b-cf5e-3b2d-b90e-e8e11386e576_2_es_ES.jpg");
                 Relation rel9 = new Relation();
                 Card relCard9 = new Card();
                 relCard9.setTitle("Puerto");
@@ -184,7 +187,7 @@ public class Carousel extends Fragment implements CarouselListener {
                 break;
             case 5:
                 data.setTitle("Wall Street");
-                data.setImage("http://i.imgur.com/TsqenDf.jpg");
+                data.setImage("8c988131-bb76-3683-be50-d2766cc26f36/8c988131-bb76-3683-be50-d2766cc26f36_0_es_ES.jpg");
                 Relation rel7 = new Relation();
                 Card relCard7 = new Card();
                 relCard7.setTitle("Bolsa de NY");
@@ -200,23 +203,23 @@ public class Carousel extends Fragment implements CarouselListener {
                 break;
             case 6:
                 data.setTitle("Curiosity card test");
-                data.setImage("http://i.imgur.com/vq92crr.jpg");
+                data.setImage("1438446c-5560-333c-b9c1-25c135c2ffce/1438446c-5560-333c-b9c1-25c135c2ffce_0_es_ES.jpg");
                 break;
             case 7:
                 data.setTitle("¿Sabías qué...?");
-                data.setImage("http://i.imgur.com/sVJbVDv.jpg");
+                data.setImage("dc70e291-ec2a-3211-9930-f8c520cf5431/dc70e291-ec2a-3211-9930-f8c520cf5431_2_es_ES.jpg");
                 break;
             case 8:
                 data.setTitle("Nueva York");
-                data.setImage("http://i.imgur.com/7xlFXFY.gif");
+                data.setImage("317d5626-d32e-3dda-a6bf-dd309f60bdb7/317d5626-d32e-3dda-a6bf-dd309f60bdb7_0_es_ES.jpg");
                 break;
             case 9:
                 data.setTitle("Los 80");
-                data.setImage("http://i.imgur.com/EOSf9EC.jpg");
+                data.setImage("8ac7678c-92ac-3a3a-8619-5d4838ab99d8/8ac7678c-92ac-3a3a-8619-5d4838ab99d8_2_es_ES.jpg");
                 break;
             case 10:
                 data.setTitle("Mark Hanna");
-                data.setImage("http://i.imgur.com/wJYjSyO.jpg");
+                data.setImage("8002b798-acd0-3a39-ae9e-1f61e6faae27/8002b798-acd0-3a39-ae9e-1f61e6faae27_0_es_ES.jpg");
                 Relation rel3 = new Relation();
                 Card relCard3 = new Card();
                 relCard3.setTitle("Traje");
@@ -232,14 +235,15 @@ public class Carousel extends Fragment implements CarouselListener {
                 break;
             case 11:
                 data.setTitle("Brad");
-                data.setImage("http://i.imgur.com/1LQggOl.jpg");
+                data.setImage("9c5a5b35-34ca-3535-b075-409b9205b705/9c5a5b35-34ca-3535-b075-409b9205b705_0_es_ES.jpg");
                 break;
             case 12:
                 data.setTitle("Helicóptero");
-                data.setImage("http://i.imgur.com/vq92crr.jpg");
+                data.setImage("20dda288-5b81-3107-a877-d94dccd5dfc5/20dda288-5b81-3107-a877-d94dccd5dfc5_0_es_ES.jpg");
                 break;
         }
 
+        mPicasso.load(data.getImage()).fetch();
         temp.setData(data);
         temp.setSceneNumber(sceneNumber);
         return temp;

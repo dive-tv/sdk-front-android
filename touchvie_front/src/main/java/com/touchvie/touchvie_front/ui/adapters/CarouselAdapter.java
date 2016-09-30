@@ -17,7 +17,10 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_client.data.CarouselCard;
+import com.touchvie.touchvie_client.data.ImageSize;
+import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
 
 import java.util.ArrayList;
 
@@ -30,6 +33,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
     private Context context;
     private LayoutInflater mInflater;
     String[] sections;
+    private Picasso mPicasso;
 
     /**
      * Constructor.
@@ -41,6 +45,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.carouselItems = carouselItems;
+        this.mPicasso = Picasso.with(context);
 
         sections = new String[carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1];
         for (int i = 0; i < (carouselItems.get(carouselItems.size() - 1).getSceneNumber() + 1); i++) {
@@ -95,7 +100,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        CarouselRowGenericViewHolder holder;
+        final CarouselRowGenericViewHolder holder;
 
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.carousel_item_generic, null);
@@ -108,13 +113,18 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
             holder = (CarouselRowGenericViewHolder) convertView.getTag();
         }
 
-        CardData card = carouselItems.get(position).getData();
+        final CardData card = carouselItems.get(position).getData();
         if (card.getImage() != null && card.getImage().length() > 0) {
-            Picasso
-                    .with(context)
-                    .load(card.getImage())
-                    .into(holder.photo);
-            holder.photo.setVisibility(View.VISIBLE);
+            holder.photo.post(new Runnable() {
+                @Override
+                public void run() {
+                    mPicasso
+                            .load(ClientManager.getInstance().getImageUrl(card.getImage(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi))
+                            .transform(new CropSquareTransformation(holder.photo.getMeasuredWidth(), holder.photo.getMeasuredHeight(), 50, 50))
+                            .into(holder.photo);
+                    holder.photo.setVisibility(View.VISIBLE);
+                }
+            });
         } else {
             holder.photo.setVisibility(View.GONE);
         }
