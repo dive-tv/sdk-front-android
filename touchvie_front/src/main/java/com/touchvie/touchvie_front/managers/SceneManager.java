@@ -24,7 +24,6 @@ public class SceneManager implements CarouselCardListener {
     private Integer sectionToPreload = null;
     private Picasso mPicasso = null;
     private ArrayList<CarouselCard> orphanedCards;
-    private ArrayList<CarouselCard> cardsToPush;
     private Context context;
     private CarouselLogic carouselLogic;
     private CarouselListener carouselListener;
@@ -88,6 +87,11 @@ public class SceneManager implements CarouselCardListener {
 
     @Override
     public void onCardsForPaintReceived(ArrayList<String> cardIds) {
+        System.out.println("KKKKKKKKKKKKKKKKKK  onCardsForPaintReceived");
+        if (cardIds==null ||cardIds.size()<=0)
+            return;
+        ArrayList<CarouselCard> cardsToPush = new ArrayList<>();
+
         for (String ids: cardIds ) {
             cardsToPush.add(cards.get(ids));
         }

@@ -36,22 +36,27 @@ public class CarouselLogic {
     public ArrayList<CarouselCellData> processData(ArrayList<CarouselCard> cards) {
         CarouselCard lastCard = null;
         CarouselCard newCard = null;
-        CarouselCellData tempCell = null;
         ArrayList<CarouselCellData> cells = new ArrayList<>();
-        ArrayList<CardData> cellCards= new ArrayList<>();
+        boolean newCellBool = false;
         int rel=0;
 
         for (CarouselCard card : cards) {
+            if (newCellBool){
+                ArrayList<CardData> cellCards= new ArrayList<>();
+                CarouselCellData newCell = new CarouselCellData();
+            }
+
             newCard = card;
             if (lastCard==null) {
                 cellCards.add(card.getData());
-                tempCell.setCards(cellCards);
-                tempCell.setSceneNr(card.getSceneNumber());
-                cells.add(tempCell);
-                cellCards.clear();
+//                tempCell.setCards(cellCards);
+//                tempCell.setSceneNr(card.getSceneNumber());
+//                cells.add(tempCell);
+//                cellCards.clear();
+                lastCard = newCard;
                 continue;
             }
-            if (newCard != null && lastCard != null && checkGroupableTree(newCard, lastCard)) {
+            if (checkGroupableTree(newCard, lastCard)) {
                 cellCards.add(newCard.getData());
                 if (newCard.getChildren()!=null) {
                     outerloop:
@@ -63,21 +68,27 @@ public class CarouselLogic {
                                 break outerloop;
                         }
                     }
-                    tempCell.setCards(cellCards);
-                    tempCell.setSceneNr(card.getSceneNumber());
-                    cells.add(tempCell);
+                    newCell.setCards(cellCards);
+                    newCell.setSceneNr(card.getSceneNumber());
+                    cells.add(newCell);
                     cellCards.clear();
                     continue;
                 }
             } else {
-                tempCell.setSceneNr(lastCard.getSceneNumber());
-                cells.add(tempCell);
-                cellCards.clear();
-                cellCards.add(newCard.getData());
+                newCell.setCards(cellCards);
+                newCell.setSceneNr(lastCard.getSceneNumber());
+                cells.add(newCell);
+//                cellCards.clear();
+//                newCell.getCards().clear();
+
+
+//                cellCards.add(newCard.getData());
 
             }
             lastCard = newCard;
         }
+        System.out.println("KKKKKKKKKKKKKKKKKK   cellCards:size: " + cellCards.size());
+        System.out.println("KKKKKKKKKKKKKKKKKK   cells:size: " + cells.size());
         return cells;
     }
 

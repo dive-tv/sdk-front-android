@@ -54,7 +54,7 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
      * @param context         the context
      */
     public void init(Context context, CarouselListener listener) {
-
+        System.out.println("KKKKKKKKKKKKKKKKKKKKKKKK   Carousethreat init");
         this.context=context;
         this.listener=listener;
     }

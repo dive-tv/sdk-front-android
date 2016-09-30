@@ -101,7 +101,7 @@ public class ClientSimulator  {
             cardsToPush.add(card.getCardId());
             lastCardPushedIndex++;
         }
-
+        System.out.println("KKKKKKKKKKKKKKKKKKKKKKK    pushCards");
         listener.onCardsForPaintReceived(cardsToPush);
         return ;
 
