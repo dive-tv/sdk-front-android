@@ -6,6 +6,7 @@ import java.util.Random;
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
 public class Utils {
+    public final static int PUSH=1;
 
     private static final String NO_MAIN_ERROR ="No main section defined";
 

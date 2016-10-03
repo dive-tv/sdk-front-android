@@ -37,53 +37,69 @@ public class CarouselLogic {
         CarouselCard lastCard = null;
         CarouselCard newCard = null;
         ArrayList<CarouselCellData> cells = new ArrayList<>();
-        boolean newCellBool = false;
+        ArrayList<CardData> cellCards = null;
+        CarouselCellData newCell = null;
+        boolean setNewCell=true;
         int rel=0;
 
         for (CarouselCard card : cards) {
-            if (newCellBool){
-                ArrayList<CardData> cellCards= new ArrayList<>();
-                CarouselCellData newCell = new CarouselCellData();
+            if (setNewCell){
+                newCell = new CarouselCellData();
+                cellCards= new ArrayList<>();
             }
 
             newCard = card;
             if (lastCard==null) {
-                cellCards.add(card.getData());
-//                tempCell.setCards(cellCards);
-//                tempCell.setSceneNr(card.getSceneNumber());
-//                cells.add(tempCell);
-//                cellCards.clear();
+                CardData temp;
+                temp = card.getData();
+                cellCards.add(temp);
                 lastCard = newCard;
+                setNewCell=false;
                 continue;
             }
             if (checkGroupableTree(newCard, lastCard)) {
-                cellCards.add(newCard.getData());
+                CardData temp;
+                temp = newCard.getData();
+                cellCards.add(temp);
                 if (newCard.getChildren()!=null) {
                     outerloop:
                     for (int i = 0; i < newCard.getChildren().length; i++) {
                         for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length; j++) {
-                            cellCards.add(newCard.getChildren()[i].getRel_cards()[j]);
+                            CardData temp2;
+                            temp2 = newCard.getChildren()[i].getRel_cards()[j];
+                            cellCards.add(temp2);
                             rel++;
                             if (rel == 2)
                                 break outerloop;
                         }
                     }
-                    newCell.setCards(cellCards);
+                    ArrayList<CardData> tempNewCell;
+                    tempNewCell = cellCards;
+                    newCell.setCards(tempNewCell);
                     newCell.setSceneNr(card.getSceneNumber());
+                    cellCards = null;
                     cells.add(newCell);
-                    cellCards.clear();
+//                    cellCards.clear();
+                    setNewCell = true;
                     continue;
+                } else {
+                    if (cellCards.size()<2)
+                        setNewCell = false;
+                    else
+                        setNewCell=true;
                 }
             } else {
-                newCell.setCards(cellCards);
+                ArrayList<CardData> temp;
+                temp = cellCards;
+                newCell.setCards(temp);
                 newCell.setSceneNr(lastCard.getSceneNumber());
                 cells.add(newCell);
-//                cellCards.clear();
-//                newCell.getCards().clear();
-
-
-//                cellCards.add(newCard.getData());
-
+                newCell = new CarouselCellData();
+                cellCards= new ArrayList<>();
+                CardData temp2;
+                temp2 = newCard.getData();
+                cellCards.add(temp2);
+                setNewCell=false;
             }
             lastCard = newCard;
         }

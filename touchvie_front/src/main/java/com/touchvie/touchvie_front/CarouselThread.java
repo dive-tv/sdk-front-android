@@ -54,7 +54,6 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
      * @param context         the context
      */
     public void init(Context context, CarouselListener listener) {
-        System.out.println("KKKKKKKKKKKKKKKKKKKKKKKK   Carousethreat init");
         this.context=context;
         this.listener=listener;
     }
@@ -69,7 +68,7 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
         handler = new Handler(getLooper(), this);
         listener.setHandler(handler);
         listener=null;
-        SceneManager sceneManager= new SceneManager(context,listener);
+        SceneManager sceneManager= new SceneManager(context,callback);
         this.simulator= new ClientSimulator(sceneManager, context);
     }
 

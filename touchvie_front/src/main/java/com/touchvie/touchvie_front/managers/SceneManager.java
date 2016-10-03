@@ -1,10 +1,12 @@
 package com.touchvie.touchvie_front.managers;
 
 import android.content.Context;
+import android.os.Handler;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
+import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.logic.CarouselLogic;
 import com.touchvie.touchvie_front.ui.fragments.Carousel;
 import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
@@ -18,6 +20,7 @@ import java.util.HashMap;
  */
 public class SceneManager implements CarouselCardListener {
 
+    private final Handler handler;
     private HashMap<Integer, ArrayList<String>> scenes;
     private HashMap<String, CarouselCard> cards;
     private Integer currentScene = null;
@@ -36,9 +39,10 @@ public class SceneManager implements CarouselCardListener {
     //***********************************************************************
 
 
-    public SceneManager(Context context, CarouselListener carousel) {
+    public SceneManager(Context context, Handler handler) {
         this.context = context;
-        this.carouselListener = carousel;
+        this.handler = handler;
+//        this.carouselListener = carousel;
         this.mPicasso = Picasso.with(context);
         carouselLogic = new CarouselLogic(context);
         scenes = new HashMap<>();
@@ -87,7 +91,6 @@ public class SceneManager implements CarouselCardListener {
 
     @Override
     public void onCardsForPaintReceived(ArrayList<String> cardIds) {
-        System.out.println("KKKKKKKKKKKKKKKKKK  onCardsForPaintReceived");
         if (cardIds==null ||cardIds.size()<=0)
             return;
         ArrayList<CarouselCard> cardsToPush = new ArrayList<>();
@@ -95,7 +98,9 @@ public class SceneManager implements CarouselCardListener {
         for (String ids: cardIds ) {
             cardsToPush.add(cards.get(ids));
         }
-        carouselListener.onRowsToDraw(carouselLogic.processData(cardsToPush));
+        System.out.println("KKKKKKKKKKKK  onCardsForPaintReceived");
+        handler.sendMessage(handler.obtainMessage(Utils.PUSH,carouselLogic.processData(cardsToPush)));
+//        carouselListener.onRowsToDraw(carouselLogic.processData(cardsToPush));
     }
 
     /**

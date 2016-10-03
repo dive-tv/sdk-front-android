@@ -122,7 +122,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
                 public void run() {
                     mPicasso
                             .load(ClientManager.getInstance().getImageUrl(card.getImage(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi))
-                            .transform(new CropSquareTransformation(holder.photo.getMeasuredWidth(), holder.photo.getMeasuredHeight(), 50, 50))
+//                            .transform(new CropSquareTransformation(holder.photo.getMeasuredWidth(), holder.photo.getMeasuredHeight(), 50, 50))
                             .into(holder.photo);
                     holder.photo.setVisibility(View.VISIBLE);
                 }

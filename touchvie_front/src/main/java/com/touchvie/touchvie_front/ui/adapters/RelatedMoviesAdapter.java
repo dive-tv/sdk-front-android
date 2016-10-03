@@ -105,7 +105,7 @@ public class RelatedMoviesAdapter extends BaseAdapter {
         if (relatedMovie.getImage() != null && relatedMovie.getImage().length() > 0) {
             mPicasso
                     .load(relatedMovie.getImage())
-                    .transform(new CropSquareTransformation((int)context.getResources().getDimension(R.dimen.module_related_movies_row_photo_width), (int)context.getResources().getDimension(R.dimen.module_related_movies_row_photo_height),relatedMovie.getAnchor_x(),relatedMovie.getAnchor_y()))
+//                    .transform(new CropSquareTransformation((int)context.getResources().getDimension(R.dimen.module_related_movies_row_photo_width), (int)context.getResources().getDimension(R.dimen.module_related_movies_row_photo_height),relatedMovie.getAnchor_x(),relatedMovie.getAnchor_y()))
                     .into(holder.photo);
             holder.photo.setVisibility(View.VISIBLE);
         } else {
