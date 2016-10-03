@@ -99,8 +99,6 @@ public class CarouselLogic {
             }
             lastCard = newCard;
         }
-        System.out.println("KKKKKKKKKKKKKKKKKK   cellCards:size: " + cellCards.size());
-        System.out.println("KKKKKKKKKKKKKKKKKK   cells:size: " + cells.size());
         return cells;
     }
 

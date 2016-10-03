@@ -4,12 +4,14 @@ import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.touchvie.backend.CardData;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.ui.views.CarouselView;
+import com.touchvie.touchvie_front.ui.views.CarouselViewCuriosity;
+import com.touchvie.touchvie_front.ui.views.CarouselViewGeneric;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -47,32 +49,43 @@ public class CarouselCell implements Serializable {
 
 
     public LinearLayout getView(Context context) {
+        views.clear();
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.baseView = inflater.inflate(R.layout.carousel_item_linear_container, null);
         this.layout = (LinearLayout) baseView.findViewById(R.id.carousel_item_linear_container);
 
         if (getCards() != null && getCards().size() > 0) {
-            if (getCards().get(0).getType().equals(Utils.cardType.curiosity.toString())) {
-                CarouselView carouselView = new CarouselView(context, getCards().get(0));
-                views.add(carouselView);
+            for (int i = 0; i < getCards().size(); i++) {
+                if (getCards().get(i).getType().equals("curiosity")) {
+                    CarouselViewCuriosity temp = new CarouselViewCuriosity(context, getCards().get(i));
+                    views.add(temp);
+                } else {
+                    CarouselViewGeneric temp = new CarouselViewGeneric(context, getCards().get(i));
+                    views.add(temp);
+                }
             }
         }
 
         if (views != null && views.size() > 0) {
-            if (layout.getParent() != null) {
-                ((CardView) this.layout.getParent()).removeAllViews();
-            }
-
             for (int i = 0; i < views.size(); i++) {
-                this.layout.addView(views.get(i).getLayout());
+                if ((ViewGroup) views.get(i).getLayout().getParent() != null) {
+                    ((ViewGroup) views.get(i).getLayout().getParent()).removeAllViews();
+                }
+                views.get(i).getLayout().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
+
+                layout.addView(views.get(i).getLayout());
             }
 
             layout.requestLayout();
             layout.invalidate();
         }
 
+        if (layout.getParent() != null) {
+            ((CardView) layout.getParent()).removeAllViews();
+        }
 
         return layout;
+
     }
 }

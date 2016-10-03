@@ -29,47 +29,12 @@ public class CarouselView {
         createLayout();
     }
 
-    private void createLayout() {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View baseView = inflater.inflate(R.layout.carousel_item_generic, null);
-        FrameLayout mView = (FrameLayout) baseView.findViewById(R.id.carousel_item_generic_base);
-        final ImageView mImageView = (ImageView) baseView.findViewById(R.id.carousel_item_generic_base_img);
-        TextView mTextView = (TextView) baseView.findViewById(R.id.carousel_item_generic_base_txt);
-
-        if (card.getImage() != null) {
-            System.out.println("KKKKKKKKK cardImage: " + card.getImage());
-            mImageView.setVisibility(View.VISIBLE);
-            mImageView.post(new Runnable() {
-                @Override
-                public void run() {
-                    if (card.getImage() != null) {
-                        Picasso.with(context)
-                                .load(ClientManager.getInstance().getImageUrl(card.getImage(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi)) //DisplayMetrics.DENSITY_HIGH = @2x
-                                .priority(Picasso.Priority.HIGH)
-                                .noFade()
-                                .into(mImageView);
-                    }
-                }
-            });
-        } else {
-            mImageView.setVisibility(View.GONE);
-        }
-
-        if (card.getTitle() != null && card.getTitle().length() > 0) {
-            System.out.println("KKKKKKKKK getTitle: " + card.getTitle());
-            mTextView.setText(card.getTitle());
-        } else {
-            mTextView.setText("");
-        }
-
-        mView.setVisibility(View.VISIBLE);
-        mView.requestLayout();
-        mView.invalidate();
-        layout = mView;
-    }
+    protected void createLayout() {}
 
     public FrameLayout getLayout() {
         return layout;
     }
+
+
 
 }

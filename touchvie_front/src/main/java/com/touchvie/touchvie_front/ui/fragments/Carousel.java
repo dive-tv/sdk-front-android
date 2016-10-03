@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-
 import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_front.CarouselThread;
 import com.touchvie.touchvie_front.R;
@@ -154,7 +153,6 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
 
     @Override
     public void onRowsToDraw(ArrayList<CarouselCell> carouselCells) {
-        System.out.println("KKKKKKKKK onRowtoDraw " + carouselCells.size());
         carouselItems.addAll(0, carouselCells);
         mAdapter.notifyDataSetChanged();
     }
@@ -168,10 +166,8 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
      */
     @Override
     public boolean handleMessage(Message msg) {
-        System.out.println("KKKKKKKKKKKKKK   Carousel push message what: " + msg.what);
         switch (msg.what) {
             case Utils.PUSH:
-                System.out.println("KKKKKKKKKKKKKKKKKKK   handler: " + ((ArrayList<CarouselCell>) msg.obj).size());
                 onRowsToDraw((ArrayList<CarouselCell>) msg.obj);
                 break;
         }

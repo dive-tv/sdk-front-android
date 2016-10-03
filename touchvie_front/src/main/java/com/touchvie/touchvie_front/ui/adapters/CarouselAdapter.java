@@ -108,32 +108,9 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
             holder = (CarouselRowGenericViewHolder) convertView.getTag();
         }
 
-        final CarouselCell card = carouselItems.get(position);
+        CarouselCell card = carouselItems.get(position);
 
-        for (int i = 0; i < card.getCards().size(); i++) {
-            holder.row.addView(card.getView(context));
-        }
-        /*if (card.getImage() != null && card.getImage().length() > 0) {
-            holder.photo.post(new Runnable() {
-                @Override
-                public void run() {
-                    mPicasso
-                            .load(ClientManager.getInstance().getImageUrl(card.getImage(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi))
-//                            .transform(new CropSquareTransformation(holder.photo.getMeasuredWidth(), holder.photo.getMeasuredHeight(), 50, 50))
-                            .into(holder.photo);
-                    holder.photo.setVisibility(View.VISIBLE);
-                }
-            });
-        } else {
-            holder.photo.setVisibility(View.GONE);
-        }
-
-        //title
-        if (card.getTitle() != null && card.getTitle().length() > 0) {
-            holder.title.setText(card.getTitle());
-        } else {
-            holder.title.setText("");
-        }*/
+        holder.row.addView(card.getView(context));
 
         return convertView;
     }
