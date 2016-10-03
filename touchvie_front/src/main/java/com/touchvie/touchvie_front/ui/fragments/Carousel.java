@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.backend.CardData;
@@ -36,6 +37,7 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
      * The thread to perform all the work to get one carousel row.
      */
     private CarouselThread mCarouselThread = null;
+
 
     /**
      * The handler to receive all the messages addressed to the UI thread from the carousel thread.
@@ -108,7 +110,9 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
         receivedScenes = new HashMap<>();
         visibleScenes = new HashMap<>();
+
         carouselItems = new ArrayList<>();
+
 
         mAdapter = new CarouselAdapter(getContext(), carouselItems);
 
@@ -151,12 +155,14 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
 
     }
 
+
     @Override
     public void onRowsToDraw(ArrayList<CarouselCellData> carouselCellDatas) {
         System.out.println("KKKKKKKKK onRowtoDraw " + carouselCellDatas.size());
         carouselItems.addAll(carouselCellDatas);
         mAdapter.notifyDataSetChanged();
     }
+
 
     /**
      * Handles all the messages addressed to the UI thread.
@@ -182,6 +188,7 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
      *
      * @param handler The handler to be stored.
      */
+
     @Override
     public void setHandler(Handler handler) {
         carouselHandler = handler;
