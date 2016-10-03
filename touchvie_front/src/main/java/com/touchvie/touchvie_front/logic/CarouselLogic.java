@@ -5,6 +5,7 @@ import android.content.res.Resources;
 
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.CardData;
+import com.touchvie.backend.TypeOfCard;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.CarouselCell;
@@ -21,8 +22,8 @@ import java.util.HashMap;
 public class CarouselLogic {
     private Context context;
     private GroupableTree groupableTree;
-    private HashMap<String,HashMap<String,String>> tree;
-    private HashMap<String,String> tree1;
+    private HashMap<String, HashMap<String, String>> tree;
+    private HashMap<String, String> tree1;
 
     public CarouselLogic(Context context) {
         this.context = context;
@@ -35,32 +36,32 @@ public class CarouselLogic {
         ArrayList<CarouselCell> cells = new ArrayList<>();
         ArrayList<CardData> cellCards = null;
         CarouselCell newCell = null;
-        boolean setNewCell=true;
-        int rel=0;
+        boolean setNewCell = true;
+        int rel = 0;
 
         for (CarouselCard card : cards) {
-            if (setNewCell){
+            if (setNewCell) {
                 newCell = new CarouselCell();
-                cellCards= new ArrayList<>();
+                cellCards = new ArrayList<>();
             }
 
             newCard = card;
-            if (lastCard==null) {
+            if (lastCard == null) {
                 CardData temp;
                 temp = card.getData();
                 cellCards.add(temp);
                 lastCard = newCard;
-                setNewCell=false;
+                setNewCell = false;
                 continue;
             }
             if (checkGroupableTree(newCard, lastCard)) {
                 CardData temp;
                 temp = newCard.getData();
                 cellCards.add(temp);
-                if (newCard.getChildren()!=null) {
+                if (newCard.getChildren() != null) {
                     outerloop:
-                    for (int i = 0; i < newCard.getChildren().length-1; i++) {
-                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length-1; j++) {
+                    for (int i = 0; i < newCard.getChildren().length - 1; i++) {
+                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length - 1; j++) {
                             CardData temp2;
                             temp2 = newCard.getChildren()[i].getRel_cards()[j];
                             cellCards.add(temp2);
@@ -79,10 +80,10 @@ public class CarouselLogic {
                     setNewCell = true;
                     continue;
                 } else {
-                    if (cellCards.size()<2)
+                    if (cellCards.size() < 2)
                         setNewCell = false;
                     else
-                        setNewCell=true;
+                        setNewCell = true;
                 }
             } else {
                 ArrayList<CardData> temp;
@@ -91,14 +92,14 @@ public class CarouselLogic {
                 newCell.setSceneNr(lastCard.getSceneNumber());
                 cells.add(newCell);
                 newCell = new CarouselCell();
-                cellCards= new ArrayList<>();
+                cellCards = new ArrayList<>();
                 CardData temp2;
                 temp2 = newCard.getData();
                 cellCards.add(temp2);
-                if (newCard.getChildren()!=null) {
+                if (newCard.getChildren() != null) {
                     outerloop:
-                    for (int i = 0; i < newCard.getChildren().length-1; i++) {
-                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length-1; j++) {
+                    for (int i = 0; i < newCard.getChildren().length - 1; i++) {
+                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length - 1; j++) {
                             CardData temp3;
                             temp3 = newCard.getChildren()[i].getRel_cards()[j];
                             cellCards.add(temp3);
@@ -116,10 +117,10 @@ public class CarouselLogic {
                     setNewCell = true;
                     continue;
                 } else {
-                    if (cellCards.size()<2)
+                    if (cellCards.size() < 2)
                         setNewCell = false;
                     else
-                        setNewCell=true;
+                        setNewCell = true;
                 }
             }
             lastCard = newCard;
@@ -128,7 +129,7 @@ public class CarouselLogic {
     }
 
     private boolean checkGroupableTree(CarouselCard card, CarouselCard last) {
-        if (tree.get(last.getData().getType())!=null && tree.get(last.getData().getType()).get(card.getData().getType())!=null){
+        if (tree.get(last.getData().getType()) != null && tree.get(last.getData().getType()).get(card.getData().getType()) != null) {
             return true;
         }
         return false;
@@ -146,6 +147,7 @@ public class CarouselLogic {
             in_s.read(b);
             jsonString = new String(b);
         } catch (Exception e) {
+            return;
             //jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
         }
         groupableTree = new GsonBuilder().create().fromJson(jsonString, GroupableTree.class);
@@ -155,13 +157,15 @@ public class CarouselLogic {
 
         tree = new HashMap<>();
         tree1 = new HashMap<>();
-        if (groupableTree.getChildren() != null ) {
-            if (groupableTree.getChildren().getChildren()!=null){
-                tree1.put(groupableTree.getChildren().getTypeOfCard().toString(), groupableTree.getChildren().getChildren().toString());
-            } else {
-                tree1.put(groupableTree.getChildren().getTypeOfCard().toString(), null);
+        for (int i = 0; i < groupableTree.getTrees().length; i++) {
+            if (groupableTree.getTrees()[i].getChildren() != null && groupableTree.getTrees()[i].getChildren().length >0 ) {
+                if (groupableTree.getTrees()[i].getChildren()[0].getChildren() != null && groupableTree.getTrees()[i].getChildren()[0].getChildren().length>0) {
+                    tree1.put(groupableTree.getTrees()[i].getChildren()[0].getTypeOfCard().toString(), groupableTree.getTrees()[i].getChildren()[0].getChildren()[0].getTypeOfCard().toString());
+                } else {
+                    tree1.put(groupableTree.getTrees()[i].getChildren()[0].getTypeOfCard().toString(), null);
+                }
+                tree.put(groupableTree.getTrees()[i].getTypeOfCard().toString(), tree1);
             }
-            tree.put(groupableTree.getTypeOfCard().toString(),tree1);
         }
 
 
