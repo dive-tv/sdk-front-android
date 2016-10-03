@@ -63,8 +63,8 @@ public class CarouselLogic {
                 cellCards.add(temp);
                 if (newCard.getChildren()!=null) {
                     outerloop:
-                    for (int i = 0; i < newCard.getChildren().length; i++) {
-                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length; j++) {
+                    for (int i = 0; i < newCard.getChildren().length-1; i++) {
+                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length-1; j++) {
                             CardData temp2;
                             temp2 = newCard.getChildren()[i].getRel_cards()[j];
                             cellCards.add(temp2);
@@ -99,12 +99,35 @@ public class CarouselLogic {
                 CardData temp2;
                 temp2 = newCard.getData();
                 cellCards.add(temp2);
-                setNewCell=false;
+                if (newCard.getChildren()!=null) {
+                    outerloop:
+                    for (int i = 0; i < newCard.getChildren().length-1; i++) {
+                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length-1; j++) {
+                            CardData temp3;
+                            temp3 = newCard.getChildren()[i].getRel_cards()[j];
+                            cellCards.add(temp3);
+                            rel++;
+                            if (rel == 2)
+                                break outerloop;
+                        }
+                    }
+                    ArrayList<CardData> tempNewCell;
+                    tempNewCell = cellCards;
+                    newCell.setCards(tempNewCell);
+                    newCell.setSceneNr(card.getSceneNumber());
+                    cellCards = null;
+                    cells.add(newCell);
+                    setNewCell = true;
+                    continue;
+                } else {
+                    if (cellCards.size()<2)
+                        setNewCell = false;
+                    else
+                        setNewCell=true;
+                }
             }
             lastCard = newCard;
         }
-        System.out.println("KKKKKKKKKKKKKKKKKK   cellCards:size: " + cellCards.size());
-        System.out.println("KKKKKKKKKKKKKKKKKK   cells:size: " + cells.size());
         return cells;
     }
 
