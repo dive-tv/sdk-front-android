@@ -1,13 +1,11 @@
 package com.touchvie.touchvie_front.ui.fragments;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.touchvie.backend.Card;
 import com.touchvie.backend.Relation;
@@ -16,23 +14,17 @@ import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.Scene;
 import com.touchvie.touchvie_front.ui.adapters.CarouselAdapter;
 import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
-import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import eu.davidea.fastscroller.FastScroller;
-import eu.davidea.flexibleadapter.FlexibleAdapter;
-import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
-import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
-import eu.davidea.flexibleadapter.utils.Utils;
 
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 
 
-public class Carousel extends Fragment implements CarouselCardListener, FastScroller.OnScrollStateChangeListener {
+public class Carousel extends Fragment implements CarouselCardListener {
 
 
     private HashMap<Integer, Scene> receivedScenes = null;
@@ -80,7 +72,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
         receivedScenes = new HashMap<>();
         visibleScenes = new HashMap<>();
-        carouselItems = getTestCarouselItems();//For testing purposes only
+       // carouselItems = getTestCarouselItems();//For testing purposes only
 
         mAdapter = new CarouselAdapter(getContext(), carouselItems);
 
@@ -145,10 +137,6 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
 
     }
 
-    @Override
-    public void onFastScrollerStateChange(boolean scrolling) {
-
-    }
 
 
     /**
@@ -164,7 +152,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
      * TODO: for testing pusposes only
      */
 
-    private ArrayList<CarouselCard> getTestCarouselItems() {
+  /*  private ArrayList<CarouselCard> getTestCarouselItems() {
 
         ArrayList<CarouselCard> items = new ArrayList<>();
 
@@ -176,7 +164,7 @@ public class Carousel extends Fragment implements CarouselCardListener, FastScro
             }
         }
         return items;
-    }
+    }*/
 
     private CarouselCard generateRandomCarouselCard(int sceneNumber) {
         CarouselCard temp = new CarouselCard();

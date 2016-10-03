@@ -31,10 +31,10 @@ dependencies {
 
     compile 'com.android.support:support-v4:24.2.1'
     //Using JCenter
-    compile 'eu.davidea:flexible-adapter:5.0.0-b8'
+    //compile 'eu.davidea:flexible-adapter:5.0.0-b8'
 
     //Using MavenSnapshots repository for continuous updates from my development
-    compile 'eu.davidea:flexible-adapter:5.0.0-SNAPSHOT'
+//    compile 'eu.davidea:flexible-adapter:5.0.0-SNAPSHOT'
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.picasso:picasso:2.5.0'
 
