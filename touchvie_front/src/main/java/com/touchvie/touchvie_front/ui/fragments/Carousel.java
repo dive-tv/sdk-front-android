@@ -11,14 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
-import com.touchvie.backend.CardData;
-import com.touchvie.backend.Relation;
-import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.CarouselThread;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
-import com.touchvie.touchvie_front.data.CarouselCellData;
+import com.touchvie.touchvie_front.data.CarouselCell;
 import com.touchvie.touchvie_front.data.Scene;
 import com.touchvie.touchvie_front.ui.adapters.CarouselAdapter;
 import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
@@ -49,7 +45,7 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
     private CarouselListener mListener;
 
     private StickyListHeadersListView carouselView = null;
-    private ArrayList<CarouselCellData> carouselItems = null;
+    private ArrayList<CarouselCell> carouselItems = null;
 
     private CarouselAdapter mAdapter = null;
     private Carousel instance;
@@ -152,9 +148,9 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
     }
 
     @Override
-    public void onRowsToDraw(ArrayList<CarouselCellData> carouselCellDatas) {
-        System.out.println("KKKKKKKKK onRowtoDraw " + carouselCellDatas.size());
-        carouselItems.addAll(carouselCellDatas);
+    public void onRowsToDraw(ArrayList<CarouselCell> carouselCells) {
+        System.out.println("KKKKKKKKK onRowtoDraw " + carouselCells.size());
+        carouselItems.addAll(0, carouselCells);
         mAdapter.notifyDataSetChanged();
     }
 
@@ -167,10 +163,10 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
     @Override
     public boolean handleMessage(Message msg) {
         System.out.println("KKKKKKKKKKKKKK   Carousel push message what: " + msg.what);
-        switch (msg.what){
+        switch (msg.what) {
             case Utils.PUSH:
-                System.out.println("KKKKKKKKKKKKKKKKKKK   handler: " + ((ArrayList<CarouselCellData>) msg.obj).size());
-                onRowsToDraw((ArrayList<CarouselCellData>) msg.obj);
+                System.out.println("KKKKKKKKKKKKKKKKKKK   handler: " + ((ArrayList<CarouselCell>) msg.obj).size());
+                onRowsToDraw((ArrayList<CarouselCell>) msg.obj);
                 break;
         }
         return false;

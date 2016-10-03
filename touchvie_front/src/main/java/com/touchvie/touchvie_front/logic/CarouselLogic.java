@@ -4,19 +4,15 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.google.gson.GsonBuilder;
-import com.google.gson.internal.Streams;
 import com.touchvie.backend.CardData;
-import com.touchvie.backend.TypeOfCard;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.data.CarouselCellData;
+import com.touchvie.touchvie_front.data.CarouselCell;
 import com.touchvie.touchvie_front.data.GroupableTree;
-import com.touchvie.touchvie_front.ui.fragments.Carousel;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.StringTokenizer;
 
 /**
  * Created by Tagsonomy S.L. on 27/09/2016.
@@ -33,18 +29,18 @@ public class CarouselLogic {
         loadGroupable();
     }
 
-    public ArrayList<CarouselCellData> processData(ArrayList<CarouselCard> cards) {
+    public ArrayList<CarouselCell> processData(ArrayList<CarouselCard> cards) {
         CarouselCard lastCard = null;
         CarouselCard newCard = null;
-        ArrayList<CarouselCellData> cells = new ArrayList<>();
+        ArrayList<CarouselCell> cells = new ArrayList<>();
         ArrayList<CardData> cellCards = null;
-        CarouselCellData newCell = null;
+        CarouselCell newCell = null;
         boolean setNewCell=true;
         int rel=0;
 
         for (CarouselCard card : cards) {
             if (setNewCell){
-                newCell = new CarouselCellData();
+                newCell = new CarouselCell();
                 cellCards= new ArrayList<>();
             }
 
@@ -94,7 +90,7 @@ public class CarouselLogic {
                 newCell.setCards(temp);
                 newCell.setSceneNr(lastCard.getSceneNumber());
                 cells.add(newCell);
-                newCell = new CarouselCellData();
+                newCell = new CarouselCell();
                 cellCards= new ArrayList<>();
                 CardData temp2;
                 temp2 = newCard.getData();
