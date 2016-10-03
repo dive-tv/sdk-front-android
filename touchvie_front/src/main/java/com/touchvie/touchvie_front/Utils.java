@@ -10,6 +10,10 @@ public class Utils {
 
     private static final String NO_MAIN_ERROR ="No main section defined";
 
+    public enum cardType {
+        curiosity, fashion, song, vehicle, reference, real_place, deco, sports, beauty
+    }
+
     public enum ErrorCode {
         no_main_error(NO_MAIN_ERROR);
 

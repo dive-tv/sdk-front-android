@@ -98,7 +98,6 @@ public class SceneManager implements CarouselCardListener {
         for (String ids: cardIds ) {
             cardsToPush.add(cards.get(ids));
         }
-        System.out.println("KKKKKKKKKKKK  onCardsForPaintReceived");
         handler.sendMessage(handler.obtainMessage(Utils.PUSH,carouselLogic.processData(cardsToPush)));
 //        carouselListener.onRowsToDraw(carouselLogic.processData(cardsToPush));
     }

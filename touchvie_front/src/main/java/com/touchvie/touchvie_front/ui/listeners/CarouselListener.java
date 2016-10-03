@@ -2,7 +2,7 @@ package com.touchvie.touchvie_front.ui.listeners;
 
 import android.os.Handler;
 
-import com.touchvie.touchvie_front.data.CarouselCellData;
+import com.touchvie.touchvie_front.data.CarouselCell;
 
 import java.util.ArrayList;
 
@@ -14,9 +14,9 @@ public interface CarouselListener {
     /**
      * Interface to be reported when the data of a card has been received.
      *
-     * @param carouselCellDatas array of carousel cell datas to use in the list
+     * @param carouselCells array of carousel cell datas to use in the list
      */
-    void onRowsToDraw(ArrayList<CarouselCellData> carouselCellDatas);
+    void onRowsToDraw(ArrayList<CarouselCell> carouselCells);
 
     void setHandler(Handler handler);
 }

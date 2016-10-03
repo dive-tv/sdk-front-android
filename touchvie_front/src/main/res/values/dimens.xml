@@ -32,4 +32,7 @@
     <dimen name="carousel_cards_height">250dp</dimen>
     <dimen name="carousel_cards_text_height">20dp</dimen>
 
+    <!-- Carousel Card Curiosity -->
+    <dimen name="carousel_card_curiosity_text_size">20sp</dimen>
+
 </resources>

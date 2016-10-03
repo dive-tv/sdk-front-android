@@ -10,17 +10,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.CardData;
-import com.touchvie.touchvie_client.data.ImageSize;
-import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.data.CarouselCellData;
-import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
+import com.touchvie.touchvie_front.data.CarouselCell;
 
 import java.util.ArrayList;
 
@@ -29,7 +24,7 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
 public class CarouselAdapter extends BaseAdapter implements SectionIndexer, StickyListHeadersAdapter {
 
-    private final ArrayList<CarouselCellData> carouselItems;
+    private final ArrayList<CarouselCell> carouselItems;
     private Context context;
     private LayoutInflater mInflater;
     String[] sections;
@@ -41,7 +36,7 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
      * @param context
      * @param carouselItems
      */
-    public CarouselAdapter(Context context, ArrayList<CarouselCellData> carouselItems) {
+    public CarouselAdapter(Context context, ArrayList<CarouselCell> carouselItems) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.carouselItems = carouselItems;
@@ -105,38 +100,17 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
         final CarouselRowGenericViewHolder holder;
 
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.carousel_item_generic, null);
+            convertView = mInflater.inflate(R.layout.carousel_item, null);
             holder = new CarouselRowGenericViewHolder();
-            holder.row = (CardView) convertView.findViewById(R.id.carousel_item_generic_base);
-            holder.photo = (ImageView) convertView.findViewById(R.id.carousel_item_generic_base_img);
-            holder.title = (TextView) convertView.findViewById(R.id.carousel_item_generic_base_txt);
+            holder.row = (CardView) convertView.findViewById(R.id.carousel_item_container);
             convertView.setTag(holder);
         } else {
             holder = (CarouselRowGenericViewHolder) convertView.getTag();
         }
 
-        final CardData card = carouselItems.get(position).getCards().get(0);
-        if (card.getImage() != null && card.getImage().length() > 0) {
-            holder.photo.post(new Runnable() {
-                @Override
-                public void run() {
-                    mPicasso
-                            .load(ClientManager.getInstance().getImageUrl(card.getImage(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi))
-//                            .transform(new CropSquareTransformation(holder.photo.getMeasuredWidth(), holder.photo.getMeasuredHeight(), 50, 50))
-                            .into(holder.photo);
-                    holder.photo.setVisibility(View.VISIBLE);
-                }
-            });
-        } else {
-            holder.photo.setVisibility(View.GONE);
-        }
+        CarouselCell card = carouselItems.get(position);
 
-        //title
-        if (card.getTitle() != null && card.getTitle().length() > 0) {
-            holder.title.setText(card.getTitle());
-        } else {
-            holder.title.setText("");
-        }
+        holder.row.addView(card.getView(context));
 
         return convertView;
     }
@@ -165,8 +139,6 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
 
     private class CarouselRowGenericViewHolder {
         CardView row;
-        ImageView photo;
-        TextView title;
     }
 
 
@@ -194,4 +166,5 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
     private class HeaderViewHolder {
         private TextView headerText;
     }
+
 }
