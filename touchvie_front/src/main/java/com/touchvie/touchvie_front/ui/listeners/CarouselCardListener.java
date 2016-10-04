@@ -13,18 +13,39 @@ public interface CarouselCardListener {
      * @param sceneIndex The scene where this card belongs to (//TODO: index from 1 to x or starting from 0????)
      * @param carouselCard The carousel card to be added to the carousel.
      */
-    void onShowCarouselCard(Integer sceneIndex, CarouselCard carouselCard );
+    public void onShowCarouselCard(Integer sceneIndex, CarouselCard carouselCard );
 
     /**
      * Interface to be reported when there is data that can be preloaded.
      * @param imageUrls Image urls to be preloaded.
      */
-    void onPreloadCarouselCard(String[] imageUrls);
+    public void onPreloadCarouselCard(String[] imageUrls);
 
     /**
      * Interface to receive all the information about one scene.
      * @param sceneIndex
      * @param scene
      */
-    void onShowScene(Integer sceneIndex, Scene scene);
+    public void onShowScene(Integer sceneIndex, Scene scene);
+
+    /**
+     * Interface to be reported when a new array of cards must pe preload
+     * @param cards: Array of CarouselCards
+     */
+    public void onCardsForPreloadReceived(CarouselCard[] cards);
+
+    /**
+     *
+     * @param sectionId
+     * @param end
+     */
+
+    public void onSectionEndReceived(String sectionId, Double end);
+
+    public void onSectionStartReceived(String sectionId, Double start);
+
+    public void onCardsForPaintReceived(String[] cardIds);
+
+    public void onCarouselSceneChanged(int sceneId);
+
 }

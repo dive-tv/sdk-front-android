@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_client.data;
 
 import com.touchvie.backend.Card;
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.Relation;
 
 /**
@@ -8,10 +9,17 @@ import com.touchvie.backend.Relation;
  */
 public class CarouselCard {
 
+    /************For testing purposes only ***********************/
+
+    private String cardId;
+    private int sceneId;
+
+     /*************************************************************/
+
     /**
      * The card data received from the server.
      */
-    private Card data;
+    private CardData data;
 
     /**
      * The cards that are related to this card.
@@ -19,10 +27,15 @@ public class CarouselCard {
     private Relation[] children;
 
     /**
+     * The number of scene this card is in
+     */
+    private int sceneNumber;
+
+    /**
      * Gets the data of this card.
      * @return
      */
-    public Card getData() {
+    public CardData getData() {
         return data;
     }
 
@@ -30,7 +43,7 @@ public class CarouselCard {
      * Sets this card's data.
      * @param data The data to be set.
      */
-    public void setData(Card data) {
+    public void setData(CardData data) {
         this.data = data;
     }
 
@@ -50,4 +63,33 @@ public class CarouselCard {
         this.children = children;
     }
 
+
+    /*************************For testing purposes only ********************************/
+
+    public String getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(int cardId) {
+
+        this.cardId = Integer.toString(cardId);;
+    }
+
+    public int getSceneId() {
+        return sceneId;
+    }
+
+    public void setSceneId(int sceneId) {
+        this.sceneId = sceneId;
+    }
+
+    /********************************************************************************/
+
+    public int getSceneNumber() {
+        return sceneNumber;
+    }
+
+    public void setSceneNumber(int sceneNumber) {
+        this.sceneNumber = sceneNumber;
+    }
 }

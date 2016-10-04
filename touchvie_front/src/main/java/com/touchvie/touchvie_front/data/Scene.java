@@ -41,6 +41,9 @@ public class Scene {
      * @param carouselCard The card to be added.
      */
     public void addCarouselCard(CarouselCard carouselCard){
+        if(this.carouselCards ==null){
+            this.carouselCards= new ArrayList<>();
+        }
         this.carouselCards.add(carouselCard);
     }
 

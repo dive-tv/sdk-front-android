@@ -46,8 +46,8 @@ public class CardDetailDive extends FragmentActivity {
         getWindow().setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 
         mManager = getSupportFragmentManager();
-        CardDetailJson cardDetail = new CardDetailJson();
-        cardDetail.buildAll("1",mManager, mContainer, getApplicationContext());
+        CardDetailJson cardDetail = new CardDetailJson(getApplicationContext());
+        cardDetail.loadDataConfig(null).buildAll("1",mManager, mContainer);
 
     }
 

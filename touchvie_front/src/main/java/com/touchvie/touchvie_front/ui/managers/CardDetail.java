@@ -131,13 +131,13 @@ public class CardDetail implements CardDetailListener {
 
     @Override
     public void goToNewCard(String cardId) {
-        BaseCardDetailBuilder cardDetail = new BaseCardDetailBuilder() {
+        BaseCardDetailBuilder cardDetail = new BaseCardDetailBuilder(context) {
             @Override
             protected BaseCardDetailBuilder getThis() {
                 return null;
             }
         };
-        cardDetail.buildAll(cardId, mFragmentManager, container, context);
+        cardDetail.buildAll(cardId, mFragmentManager, container);
 
     }
 

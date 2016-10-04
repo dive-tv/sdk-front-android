@@ -1,16 +1,15 @@
 package com.touchvie.sdk_front.ui.activities;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
 import android.view.Window;
-import android.widget.LinearLayout;
 
 import com.touchvie.sdk_front.ui.utils.Utils;
 import com.touchvie.sdkfront.R;
 import com.touchvie.touchvie_front.ui.fragments.Carousel;
 
-public class DiveCarousel extends FragmentActivity implements Carousel.CarouselListener {
+public class DiveCarousel extends FragmentActivity {
 
     /**
      * The fragment manager of this activity.
@@ -18,6 +17,11 @@ public class DiveCarousel extends FragmentActivity implements Carousel.CarouselL
     private FragmentManager mManager = null;
 
 
+    /**
+     * Activity creation
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
