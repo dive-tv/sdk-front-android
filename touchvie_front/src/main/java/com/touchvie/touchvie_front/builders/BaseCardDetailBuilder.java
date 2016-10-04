@@ -71,12 +71,14 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      */
     protected ModuleValidator validator = null;
 
-    private Context context = null;
+    protected Context context = null;
 
     /**
      * Default constructor
      */
-    public BaseCardDetailBuilder() {
+    public BaseCardDetailBuilder(Context ctx) {
+
+        context = ctx;
     }
 
     /**
@@ -85,13 +87,11 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * @param cardID    the card identifier.
      * @param manager   fragment manager.
      * @param container LinearLayout where will show cardDetail.
-     * @param ctx       the application context.
      * @return
      */
-    public void build(String cardID, FragmentManager manager, LinearLayout container, Context ctx) {
+    public void build(String cardID, FragmentManager manager, LinearLayout container) {
 
         buildDefault = false;
-        context = ctx;
         this.mManager = manager;
         this.mLayout = container;
         requestCard(cardID);
@@ -104,13 +104,11 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * @param cardID    the card identifier.
      * @param manager   fragment manager.
      * @param container LinearLayout where will show cardDetail.
-     * @param ctx       the application context.
      * @return
      */
-    public void buildAll(String cardID, FragmentManager manager, LinearLayout container, Context ctx) {
+    public void buildAll(String cardID, FragmentManager manager, LinearLayout container) {
 
         buildDefault = true;
-        context = ctx;
         this.mManager = manager;
         this.mLayout = container;
         requestCard(cardID);
@@ -143,8 +141,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      */
     protected void composeCardDetail() {
 
-        requestDataConfig();
-
         //First off all get the main section from the dictionary.
         ConfigSection main = idSection.get(mainSectionKey);
         if (main == null) {
@@ -158,7 +154,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
 /*
         for (String id : idSection.keySet()) {
-            System.out.println("KKKKKKKKKK BaseCardDetailBuilder idSction for " + id);
+
             ConfigSection section = idSection.get(id);
             for (ConfigModule module : section.getConfigModules()) {
                 if (true */
@@ -227,32 +223,5 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         onCardReceived(cardData);
     }
 
-    /**
-     * FOR TESTING PURPOSES
-     */
 
-    private void requestDataConfig() {
-        String jsonString = null;
-        try {
-            Resources res = context.getResources();
-            InputStream in_s = res.openRawResource(R.raw.dataconfig);
-
-            byte[] b = new byte[in_s.available()];
-            in_s.read(b);
-            jsonString = new String(b);
-        } catch (Exception e) {
-            //jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
-        }
-        DataConfig dataConfig = new GsonBuilder().create().fromJson(jsonString, DataConfig.class);
-        if (dataConfig == null) {
-            dataConfig = new DataConfig();
-        }
-
-        idSection = new HashMap<>();
-        if (dataConfig.getSections() != null && dataConfig.getSections().length > 0) {
-            for (int i = 0; i < dataConfig.getSections().length; i++) {
-                idSection.put((dataConfig.getSections()[i]).getTitle(), dataConfig.getSections()[i]);
-            }
-        }
-    }
 }

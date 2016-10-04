@@ -2,41 +2,67 @@ package com.touchvie.touchvie_front.ui.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.touchvie.touchvie_client.data.CarouselCard;
-import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
+import com.squareup.picasso.Picasso;
+import com.touchvie.touchvie_front.CarouselThread;
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.Utils;
+import com.touchvie.touchvie_front.data.CarouselCell;
 import com.touchvie.touchvie_front.data.Scene;
-import com.touchvie.touchvie_front.ui.views.CarouselItem;
-import com.touchvie.touchvie_front.ui.views.SceneHeaderItem;
+import com.touchvie.touchvie_front.ui.adapters.CarouselAdapter;
+import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Random;
 
-import eu.davidea.flexibleadapter.FlexibleAdapter;
-import eu.davidea.flexibleadapter.common.SmoothScrollLinearLayoutManager;
-import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
+import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 
-public class Carousel extends Fragment implements CarouselCardListener {
+public class Carousel extends Fragment implements Handler.Callback, CarouselListener {
+
+    /**
+     * The thread to perform all the work to get one carousel row.
+     */
+    private CarouselThread mCarouselThread = null;
 
 
-    private HashMap<Integer, Scene> receivedScenes= null;
-    private HashMap<Integer, Scene> visibleScenes=null;
-    private Integer subsceneIndex=0;
+    /**
+     * The handler to receive all the messages addressed to the UI thread from the carousel thread.
+     */
+    private Handler mHandler = null;
+
+    private HashMap<Integer, Scene> receivedScenes = null;
+    private HashMap<Integer, Scene> visibleScenes = null;
+    private Integer subsceneIndex = 0;
 
     private CarouselListener mListener;
 
-    private RecyclerView carouselView=null;
-    private List<AbstractFlexibleItem>  carouselItems = null;
+    private StickyListHeadersListView carouselView = null;
+    private ArrayList<CarouselCell> carouselItems = null;
 
-    private FlexibleAdapter<AbstractFlexibleItem> mAdapter =null;
+    private CarouselAdapter mAdapter = null;
+    private Carousel instance;
+
+
+    /**
+     * Reference to the handler that receives all the messages addressed to the carousel thread.
+     */
+    private Handler carouselHandler = null;
+
+    /**
+     * Button to command the simulator to push a bunch of cards.
+     */
+    private Button mPushButton = null;
+    Random rand = new Random();
+    private Picasso mPicasso;
 
     /**
      * Empty public constructor
@@ -48,6 +74,7 @@ public class Carousel extends Fragment implements CarouselCardListener {
     /**
      * Use this factory method to create a new instance of
      * this fragment
+     *
      * @return A new instance of fragment Carousel.
      */
     public static Carousel newInstance() {
@@ -57,7 +84,18 @@ public class Carousel extends Fragment implements CarouselCardListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        instance = this;
         super.onCreate(savedInstanceState);
+        mPicasso = Picasso.with(getContext());
+        mHandler = new Handler(this);
+
+        mCarouselThread = new CarouselThread("CarouselThread", Thread.MAX_PRIORITY);
+        mCarouselThread.setCallback(mHandler);
+
+        mCarouselThread.init(getContext(), this);
+        mCarouselThread.start();
+
+
     }
 
     @Override
@@ -65,31 +103,32 @@ public class Carousel extends Fragment implements CarouselCardListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_carousel, container, false);
-        receivedScenes= new HashMap<>();
-        visibleScenes= new HashMap<>();
-        carouselItems=getTestCarouselItems();//For testing purposes only
-        mAdapter = new FlexibleAdapter<>(carouselItems);
-        mAdapter.setDisplayHeadersAtStartUp(true)//Show Headers at startUp!
-                .enableStickyHeaders();
+        receivedScenes = new HashMap<>();
+        visibleScenes = new HashMap<>();
 
-        carouselView=(RecyclerView) view.findViewById(R.id.carousel_view);
-        carouselView.setLayoutManager(new SmoothScrollLinearLayoutManager(getActivity()));
+        carouselItems = new ArrayList<>();
+
+
+        mAdapter = new CarouselAdapter(getContext(), carouselItems);
+
+        carouselView = (StickyListHeadersListView) view.findViewById(R.id.carousel_view);
         carouselView.setAdapter(mAdapter);
+
+        mPushButton = (Button) view.findViewById(R.id.btn_push);
+        mPushButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                carouselHandler.sendEmptyMessage(CarouselThread.MSG_PUSH_CARD);
+            }
+        });
         return view;
 
     }
 
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof CarouselListener) {
-            mListener = (CarouselListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement CarouselListener");
-        }
     }
 
     @Override
@@ -98,68 +137,60 @@ public class Carousel extends Fragment implements CarouselCardListener {
         mListener = null;
     }
 
+    protected void addSubscene(Scene scene) {
+
+
+    }
+
+    protected void showSubscene(int index) {
+
+    }
+
+    protected void showMoreContent() {
+
+    }
+
+
+    @Override
+    public void onRowsToDraw(ArrayList<CarouselCell> carouselCells) {
+        carouselItems.addAll(0, carouselCells);
+        mAdapter.notifyDataSetChanged();
+    }
+
+
     /**
-     * Receives a card of the carousel to be shown.
-     * @param sceneIndex
-     * @param carouselCard
+     * Handles all the messages addressed to the UI thread.
+     *
+     * @param msg The message addresed.
+     * @return
      */
     @Override
-    public void onShowCarouselCard(Integer sceneIndex, CarouselCard carouselCard) {
-
-    }
-
-    @Override
-    public void onPreloadCarouselCard(String[] imageUrls) {
-
-    }
-
-    @Override
-    public void onShowScene(Integer sceneIndex, Scene scene) {
-
-        if(!receivedScenes.containsKey(sceneIndex)){
-            receivedScenes.put(sceneIndex, scene);
+    public boolean handleMessage(Message msg) {
+        switch (msg.what) {
+            case Utils.PUSH:
+                onRowsToDraw((ArrayList<CarouselCell>) msg.obj);
+                break;
         }
+        return false;
     }
 
-    protected void addSubscene(Scene scene){
-
-
-    }
-
-    protected void showSubscene(int index){
-
-    }
-
-    protected  void showMoreContent(){
-
-    }
 
     /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     */
-    public interface CarouselListener {
-    }
-
-    /**
-     * TODO: for testing pusposes only
+     * Callback that receives  a handler and stores it as the carousel one.
+     *
+     * @param handler The handler to be stored.
      */
 
-    private  List<AbstractFlexibleItem> getTestCarouselItems(){
-
-        ArrayList<AbstractFlexibleItem> items= new ArrayList<>();
-        for (int i=0; i<4; i++){
-            SceneHeaderItem sceneHeader= new SceneHeaderItem(i, " SCENE ");
-
-            for (int j = 0; j < 7; j++) {
-                items.add(new CarouselItem(j + 1, sceneHeader));
+    @Override
+    public void setHandler(Handler handler) {
+        carouselHandler = handler;
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mPushButton.setVisibility(View.VISIBLE);
             }
-        }
-        return items;
+        });
     }
-
 
 }
 

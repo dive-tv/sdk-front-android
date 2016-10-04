@@ -1,0 +1,53 @@
+{
+	"card_id": "dfdf97f8-1e76-11e6-97ac-0684985cbbe3",
+	"locale": "es_ES",
+	"title": "Nombre en clave",
+	"subtitle": null,
+	"type": 10,
+	"image": null,
+	"source": null,
+	"anchor_x": 50,
+	"anchor_y": 50,
+	"data": {
+		"containers": [{
+			"type_data": "curiosity",
+			"container_data": [{
+				"source": "Touchvie",
+				"text": "La película fue entregada a los cines bajo el nombre en clave 'Heart of the Desert' (Corazón del Desierto)."
+			}],
+			"type": "text",
+			"title": "Curiosidad"
+		}]
+	},
+	"is_exact": false,
+	"url": "https://pre-card-web.touchvie.com/mSexQri7KZzjTrSYwCZRqh",
+	"is_user_locale": true,
+	"user_info": {
+		"conversation_nr": 0,
+		"unread_conversation_nr": 0,
+		"is_liked": false,
+		"collection_nr": 0,
+		"related_movies": [{
+			"type": 1,
+			"image": "bd4f26ba-0c2a-3a16-bb7b-79aa066abf44/bd4f26ba-0c2a-3a16-bb7b-79aa066abf44_0_es_ES.jpg",
+			"anchor_x": 50,
+			"anchor_y": 50,
+			"title": "Sexo en Nueva York 2",
+			"subtitle": "Michael Patrick King",
+			"touchvie_ready": true,
+			"mean_score": 2.4,
+			"year": 2010,
+			"user_movie": {
+				"conversation_nr": 2,
+				"unread_conversation_nr": 0,
+				"status": "WATCHED",
+				"recommend_nr": 0,
+				"opinion": null,
+				"is_private": false
+			},
+			"summary": null,
+			"movie_id": "bd4f26ba-0c2a-3a16-bb7b-79aa066abf44"
+		}]
+	},
+	"product_info": []
+}

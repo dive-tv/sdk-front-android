@@ -1,0 +1,36 @@
+[
+  {
+    "rel_type": 1,
+    "rel_cards": [
+      {
+        "card_id": "b3a46e90-8c78-11e5-b7c2-0684985cbbe3",
+        "title": "Camiseta Mujer",
+        "subtitle": null,
+        "type": 6,
+        "image": "b3a46e90-8c78-11e5-b7c2-0684985cbbe3/b3a46e90-8c78-11e5-b7c2-0684985cbbe3_0.jpg",
+        "source": "http://cdn.yoox.biz/37/37718026XQ_12_F.JPG",
+        "anchor_x": 50,
+        "anchor_y": 36,
+        "is_exact": false,
+        "url": "https://web.touchvie.com/nRL9e4Kq7DBHxoDoce5rxZ"
+      }
+    ]
+  },
+  {
+    "rel_type": 5,
+    "rel_cards": [
+      {
+        "card_id": "ee73d21f-8c78-11e5-b7c2-0684985cbbe3",
+        "title": "Pulsera Mujer",
+        "subtitle": null,
+        "type": 6,
+        "image": "ee73d21f-8c78-11e5-b7c2-0684985cbbe3/ee73d21f-8c78-11e5-b7c2-0684985cbbe3_0.jpg",
+        "source": "http://i2.ztat.net/large/TO/85/1F/04/AF/11/TO851F04A-F11@3.jpg",
+        "anchor_x": 50,
+        "anchor_y": 61,
+        "is_exact": false,
+        "url": "https://web.touchvie.com/jy7yNGMnVubiJikCMxBHSk"
+      }
+    ]
+  }
+]
