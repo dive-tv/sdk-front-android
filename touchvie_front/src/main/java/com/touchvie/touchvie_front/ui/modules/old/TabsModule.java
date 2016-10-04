@@ -1,4 +1,4 @@
-package com.touchvie.touchvie_front.ui.modules;
+package com.touchvie.touchvie_front.ui.modules.old;
 
 import android.content.Context;
 import android.support.design.widget.TabLayout;

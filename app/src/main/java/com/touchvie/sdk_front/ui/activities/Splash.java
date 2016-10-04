@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.touchvie.sdkfront.R;
+import com.touchvie.touchvie_front.ui.utils.Utils;
 
 
 /**
@@ -42,6 +43,7 @@ public class Splash extends FragmentActivity {
         mCarouselBtn = (Button) findViewById(R.id.splash_btn_carousel);
         mCardDetailBtn = (Button) findViewById(R.id.splash_btn_card_detail);
 
+        
         mCarouselBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

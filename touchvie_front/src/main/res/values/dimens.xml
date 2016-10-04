@@ -7,7 +7,6 @@
     <dimen name="stroke">1dp</dimen>
 
     <!-- Module Generic -->
-    <dimen name="module_padding">20dp</dimen>
     <dimen name="module_margin">20dp</dimen>
     <dimen name="module_title">13sp</dimen>
 
@@ -34,5 +33,9 @@
 
     <!-- Carousel Card Curiosity -->
     <dimen name="carousel_card_curiosity_text_size">20sp</dimen>
+
+    <!-- New Modules -->
+
+    <dimen name="module_padding">15dp</dimen>
 
 </resources>

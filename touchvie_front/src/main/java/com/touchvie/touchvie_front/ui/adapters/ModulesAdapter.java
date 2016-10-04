@@ -9,12 +9,12 @@ import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
-import com.touchvie.touchvie_front.ui.modules.DescriptionModule;
-import com.touchvie.touchvie_front.ui.modules.ImageModule;
-import com.touchvie.touchvie_front.ui.modules.NavigationModule;
-import com.touchvie.touchvie_front.ui.modules.RelatedMoviesModule;
-import com.touchvie.touchvie_front.ui.modules.TabsModule;
-import com.touchvie.touchvie_front.ui.modules.TitleModule;
+import com.touchvie.touchvie_front.ui.modules.old.DescriptionModule;
+import com.touchvie.touchvie_front.ui.modules.old.ImageModule;
+import com.touchvie.touchvie_front.ui.modules.old.NavigationModule;
+import com.touchvie.touchvie_front.ui.modules.old.RelatedMoviesModule;
+import com.touchvie.touchvie_front.ui.modules.old.TabsModule;
+import com.touchvie.touchvie_front.ui.modules.old.TitleModule;
 
 
 /**
