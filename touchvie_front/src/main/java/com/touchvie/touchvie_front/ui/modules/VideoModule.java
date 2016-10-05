@@ -11,7 +11,7 @@ import com.touchvie.touchvie_front.ui.views.Module;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class VideoModule extends Module {
+public abstract class VideoModule extends Module {
     /**
      * Default constructor
      */
@@ -19,8 +19,4 @@ public class VideoModule extends Module {
         super();
     }
 
-    @Override
-    public RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group) {
-        return null;
-    }
 }
