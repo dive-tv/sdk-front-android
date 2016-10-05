@@ -1,7 +1,10 @@
 package com.touchvie.touchvie_front.ui.modules;
 
-import android.view.View;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 
+import com.touchvie.touchvie_front.ui.modules.viewholders.AwardsHolder;
 import com.touchvie.touchvie_front.ui.views.Module;
 
 /**
@@ -9,12 +12,18 @@ import com.touchvie.touchvie_front.ui.views.Module;
  */
 
 public class AwardsModule extends Module {
-    /**
-     * Default constructor
-     *
-     * @param view
-     */
-    public AwardsModule(View view) {
-        super(view);
+
+    public AwardsModule(){
+        super();
+
+    }
+
+
+    @Override
+    public RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group) {
+
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(this.layout, group, false);
+        AwardsHolder holder= new AwardsHolder(viewGroup);
+        return holder;
     }
 }

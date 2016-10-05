@@ -10,10 +10,10 @@ public class Overview extends TextModule {
 
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Overview(View view) {
-        super(view);
+    public Overview() {
+        super();
     }
+
+
 }

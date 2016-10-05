@@ -9,10 +9,8 @@ import android.view.View;
 public class StoresModule extends MusicModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public StoresModule(View view) {
-        super(view);
+    public StoresModule() {
+        super();
     }
 }

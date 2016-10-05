@@ -9,12 +9,14 @@ import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
+import com.touchvie.touchvie_front.ui.modules.TextModule;
 import com.touchvie.touchvie_front.ui.modules.old.DescriptionModule;
 import com.touchvie.touchvie_front.ui.modules.old.ImageModule;
 import com.touchvie.touchvie_front.ui.modules.old.NavigationModule;
 import com.touchvie.touchvie_front.ui.modules.old.RelatedMoviesModule;
 import com.touchvie.touchvie_front.ui.modules.old.TabsModule;
 import com.touchvie.touchvie_front.ui.modules.old.TitleModule;
+import com.touchvie.touchvie_front.ui.modules.viewholders.ModuleHolder;
 
 
 /**
@@ -80,7 +82,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
 
         switch (viewType) {
-            case 0: //Header Module
+           /* case 0: //Header Module
                 ViewGroup vImageModule = (ViewGroup) inflater.inflate(R.layout.module_image, viewGroup, false);
                 viewHolder = new ImageModule(vImageModule);
                 break;
@@ -104,6 +106,11 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ViewGroup vDefaultModule = (ViewGroup) inflater.inflate(R.layout.module_title, viewGroup, false);
                 viewHolder = new TitleModule(vDefaultModule);
                 break;
+                */
+            default:
+                TextModule textModule=new TextModule();
+                viewHolder=textModule.getViewHolder(inflater, viewGroup);
+                break;
         }
         return viewHolder;
     }
@@ -118,7 +125,12 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      */
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        if (viewHolder instanceof ImageModule) {
+
+        if(viewHolder instanceof ModuleHolder){
+            ((ModuleHolder)viewHolder).configure( cardData);
+        }
+
+      /*  if (viewHolder instanceof ImageModule) {
             ImageModule imageVH = (ImageModule) viewHolder;
             imageVH.configure(imageVH, position);
 
@@ -138,5 +150,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             TabsModule tabsVH = (TabsModule) viewHolder;
             tabsVH.configure(context, tabsVH, configModules[position].getTargets(), mListener);
         }
+        */
     }
 }

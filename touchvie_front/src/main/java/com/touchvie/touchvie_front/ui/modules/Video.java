@@ -9,10 +9,8 @@ import android.view.View;
 public class Video extends VideoModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Video(View view) {
-        super(view);
+    public Video() {
+        super();
     }
 }

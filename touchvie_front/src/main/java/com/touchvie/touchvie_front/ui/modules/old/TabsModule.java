@@ -3,6 +3,7 @@ package com.touchvie.touchvie_front.ui.modules.old;
 import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.touchvie.touchvie_front.R;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
-public class TabsModule extends Module {
+public class TabsModule extends RecyclerView.ViewHolder {
 
     private AutoHeightViewPager mViewPager;
     private TabLayout mTabLayout;

@@ -1,5 +1,6 @@
 package com.touchvie.touchvie_front.ui.modules.old;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -12,7 +13,7 @@ import com.touchvie.touchvie_front.ui.views.Module;
 /**
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
-public class DescriptionModule extends Module {
+public class DescriptionModule extends RecyclerView.ViewHolder {
 
     private TextView mTitle;
     private TextView mBody;

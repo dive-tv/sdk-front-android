@@ -7,7 +7,7 @@
     >
 
     <TextView
-        android:id="@+id/txtv_overview_title"
+        android:id="@+id/txtv_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/module_title_margin"
@@ -17,37 +17,37 @@
         style="@style/CardModuleTitle"
         />
 
-    <com.tagsonomy.touchvie.ui.view.ExpandableTextView
+    <com.touchvie.touchvie_front.ui.views.ExpandableTextView
         android:id="@+id/xtxtv_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/overview_text_mbottom"
+        android:layout_marginBottom="@dimen/text_text_mbottom"
         style="@style/Text"
 
-         />
+        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/overview_link_mbottom"
-        style="@style/TextLink"/>
+        android:layout_marginBottom="@dimen/text_link_mbottom"
+        style="@style/TextLink"
+        android:id="@+id/txtv_text_link"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_more"
+        android:id="@+id/imgv_text_more"/>
 
     <FrameLayout
-        android:id="@+id/flay_overview_line"
+        android:id="@+id/flay_text_line"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="@dimen/line_mbottom"
         android:background="@color/paleGrey"
         android:visibility="visible"
-       />
+        />
 
     <include layout="@layout/source_footer"/>
 
-    <TextView
-        android:id="@+id/txtv_disclaimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        style="@style/Disclaimer"
-        android:layout_marginBottom="@dimen/disclaimer_mbottom"/>
 </LinearLayout>

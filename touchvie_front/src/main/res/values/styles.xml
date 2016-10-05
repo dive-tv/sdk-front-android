@@ -220,5 +220,10 @@
         <item name="android:textColor">@color/paleGrey2</item>
     </style>
 
+    <style name="Icon">
+        <item name="android:layout_width">@dimen/icon_width</item>
+        <item name="android:layout_height">@dimen/icon_height</item>
+    </style>
+
 
 </resources>

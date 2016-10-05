@@ -9,10 +9,8 @@ import android.view.View;
 public class Information extends TwoColsModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Information(View view) {
-        super(view);
+    public Information() {
+        super();
     }
 }

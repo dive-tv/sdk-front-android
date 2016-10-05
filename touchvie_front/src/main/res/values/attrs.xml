@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ExpandableTextView">
+        <attr name="trimLength" format="integer" />
+        <attr name="expandable" format="boolean" />
+    </declare-styleable>
+
+</resources>

@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.old;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,7 +16,7 @@ import com.touchvie.touchvie_front.ui.views.Module;
 /**
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
-public class RelatedMoviesModule extends Module {
+public class RelatedMoviesModule extends RecyclerView.ViewHolder {
 
     private TextView mTitle;
     private LinearListLayout mList;

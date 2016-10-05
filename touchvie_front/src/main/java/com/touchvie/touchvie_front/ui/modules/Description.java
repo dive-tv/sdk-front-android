@@ -9,10 +9,8 @@ import android.view.View;
 public class Description extends TextModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Description(View view) {
-        super(view);
+    public Description() {
+        super();
     }
 }

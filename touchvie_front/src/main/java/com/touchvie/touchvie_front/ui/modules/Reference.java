@@ -9,10 +9,8 @@ import android.view.View;
 public class Reference extends TextModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Reference(View view) {
-        super(view);
+    public Reference() {
+        super();
     }
 }

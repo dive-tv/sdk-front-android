@@ -9,10 +9,8 @@ import android.view.View;
 public class Rating extends TwoColsModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Rating(View view) {
-        super(view);
+    public Rating() {
+        super();
     }
 }

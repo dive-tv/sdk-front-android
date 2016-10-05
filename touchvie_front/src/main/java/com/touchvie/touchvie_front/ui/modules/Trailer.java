@@ -9,10 +9,8 @@ import android.view.View;
 public class Trailer extends VideoModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Trailer(View view) {
-        super(view);
+    public Trailer( ) {
+        super();
     }
 }

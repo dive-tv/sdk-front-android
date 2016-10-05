@@ -9,10 +9,8 @@ import android.view.View;
 public class Quote extends TextModule {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public Quote(View view) {
-        super(view);
+    public Quote() {
+        super();
     }
 }

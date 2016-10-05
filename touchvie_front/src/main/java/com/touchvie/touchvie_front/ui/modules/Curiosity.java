@@ -13,7 +13,7 @@ public class Curiosity extends TextModule {
      *
      * @param view
      */
-    public Curiosity(View view) {
-        super(view);
+    public Curiosity() {
+        super();
     }
 }

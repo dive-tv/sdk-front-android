@@ -1,6 +1,9 @@
 package com.touchvie.touchvie_front.ui.modules;
 
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.touchvie.touchvie_front.ui.views.Module;
 
@@ -11,10 +14,13 @@ import com.touchvie.touchvie_front.ui.views.Module;
 public class VideoModule extends Module {
     /**
      * Default constructor
-     *
-     * @param view
      */
-    public VideoModule(View view) {
-        super(view);
+    public VideoModule() {
+        super();
+    }
+
+    @Override
+    public RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group) {
+        return null;
     }
 }
