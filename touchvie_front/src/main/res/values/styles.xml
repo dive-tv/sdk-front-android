@@ -8,4 +8,217 @@
         <item name="android:fastScrollTextColor">@color/apptheme_color</item>
     </style>
 
+    <style name="CardMovieTitle">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="CardMovieTitleCarousel">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="CardMovieYear">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="CardMovieYearCarousel">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="CardTitle">
+        <item name="android:textSize">21dp</item>
+        <item name="android:textColor">@color/darkGrey2</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="CardTitleWhite">
+        <item name="android:textSize">21dp</item>
+        <item name="android:textColor">@color/paleGrey2</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="NavigationPageTitle">
+        <item name="android:textSize">17dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="NavigationTextLinkInactive">
+        <item name="android:textSize">17dp</item>
+        <item name="android:textColor">@color/seafoamBlue</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="NavigationTextLink">
+        <item name="android:textSize">17dp</item>
+        <item name="android:textColor">@color/seafoamBlue</item>
+    </style>
+
+    <style name="CardSubtitle">
+        <item name="android:textSize">17dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="CardMovieSubtitle">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/paleGrey2</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="MinicardTitleLink">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/seafoamBlue</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="CardMovieSubtitleLink">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/seafoamBlue</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="MinicardTitle">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="TextList">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/darkGrey</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="MinicardTitleLight">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/paleGrey2</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="TextSearch">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="TextWhite">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/paleGrey2</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="TextGrey">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/darkGrey</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="MinicardTextCuriosity">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">#171717</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="TextLink">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/seafoamBlue</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="CardSongAutor">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="CardSourceLink">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/seafoamBlue</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="CardModuleTitle">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="ListSubtitleLink">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/seafoamBlue</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+
+    <style name="CardSource">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/darkGrey</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="CardMovieGenre">
+        <item name="android:textSize">13dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+    </style>
+
+    <style name="ButtonText">
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/darkGrey2</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="MinicardSubtitleShop">
+        <item name="android:textSize">11dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">5dp</item>
+    </style>
+
+    <style name="Disclaimer">
+        <item name="android:textSize">9dp</item>
+        <item name="android:textColor">@color/warmGrey</item>
+        <item name="android:lineSpacingExtra">4dp</item>
+    </style>
+
+    <style name="Module">
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingLeft">@dimen/module_padding</item>
+        <item name="android:paddingRight">@dimen/module_padding</item>
+    </style>
+
+    <style name="ModuleButton">
+        <item name="android:background">@color/offYellow</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:textColor">@color/darkGrey2</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="Poster">
+        <item name="android:layout_width">@dimen/poster_width</item>
+        <item name="android:layout_height">@dimen/poster_height</item>
+    </style>
+
+    <style name="CardMovieTime">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/paleGrey2</item>
+    </style>
+
+
 </resources>

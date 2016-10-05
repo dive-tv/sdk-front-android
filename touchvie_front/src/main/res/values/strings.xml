@@ -2,5 +2,10 @@
     <string name="app_name">Touchvie_front</string>
 
     <string name="synopsis">sinopsis</string>
+    <string name="biography">biografía</string>
+    <string name="ellipsis">. . .</string>
+    <string name="awards">premios</string>
+    <string name="buy">comprar</string>
+    <string name="dive_in">dive in</string>
 
 </resources>

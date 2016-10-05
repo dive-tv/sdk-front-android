@@ -37,5 +37,39 @@
     <!-- New Modules -->
 
     <dimen name="module_padding">15dp</dimen>
+    <dimen name="module_title_margin">17dp</dimen>
+
+    <dimen name="text_13">13dp</dimen>
+    <dimen name="text_15">15dp</dimen>
+    <dimen name="line_mbottom">15dp</dimen>
+    <dimen name="disclaimer_mbottom">21dp</dimen>
+
+    <!-- Overview -->
+    <dimen name="overview_text_mbottom">14dp</dimen>
+    <dimen name="overview_link_mbottom">24dp</dimen>
+
+
+    <!-- Biography -->
+    <dimen name="bio_text_mbottom">20dp</dimen>
+    <dimen name="bio_dots_mbottom">28dp</dimen>
+
+
+    <!-- Movie Header-->
+    <dimen name="mheader_image_mbottom">26dp</dimen>
+
+    <!-- Movie Header Small-->
+    <dimen name="mheaders_padding_rl">15dp</dimen>
+    <dimen name="mheaders_padding_tb">20dp</dimen>
+
+
+    <!-- Generic -->
+    <dimen name="poster_width">120dp</dimen>
+    <dimen name="poster_height">175dp</dimen>
+
+
+
+
+
+
 
 </resources>

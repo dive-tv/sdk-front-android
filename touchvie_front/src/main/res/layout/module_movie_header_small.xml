@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/mheaders_padding_tb"
+    android:paddingBottom="@dimen/mheaders_padding_tb"
+    android:paddingLeft="@dimen/mheaders_padding_rl"
+    android:paddingRight="@dimen/mheaders_padding_rl"
+    android:background="@color/black"
+    >
+
+    <ImageView
+        style="@style/Poster"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+       >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtv_title"
+            style="@style/CardMovieTitleCarousel"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtv_year"
+            style="@style/CardMovieYearCarousel"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtv_director"
+            style="@style/MinicardTitleLink"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvtv_genres"
+            style="@style/CardMovieGenre"/>
+
+    </LinearLayout>
+
+</LinearLayout>
