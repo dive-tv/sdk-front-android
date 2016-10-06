@@ -63,7 +63,7 @@ public class CardDetailJson extends BaseCardDetailBuilder<CardDetailJson> {
         String jsonString = null;
         try {
             Resources res = context.getResources();
-            InputStream in_s = res.openRawResource(R.raw.dataconfig);
+            InputStream in_s = res.openRawResource(R.raw.dataconfig2);
 
             byte[] b = new byte[in_s.available()];
             in_s.read(b);

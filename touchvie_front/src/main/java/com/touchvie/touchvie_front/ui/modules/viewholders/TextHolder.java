@@ -32,7 +32,7 @@ public class TextHolder extends ModuleHolder {
         more = (ImageView) view.findViewById(R.id.imgv_text_more);
         source=(TextView)view.findViewById(R.id.txtv_footer_source);
         sourceLink =(TextView)view.findViewById(R.id.txtv_footer_link);
-        sourceImage = (ImageView) view.findViewById(R.id.imgv_source_img);
+        sourceImage = (ImageView) view.findViewById(R.id.imgv_footer_img);
         disclaimer =(TextView)view.findViewById(R.id.txtv_footer_disclaimer);
     }
 

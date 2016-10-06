@@ -1,0 +1,35 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "Description"
+        },
+        {
+          "type": "Description"
+        },
+        {
+          "type": "com.touchvie.dive.ui.modules.CustomText"
+        }
+      ]
+    },
+    {
+      "title": "second",
+      "modules": [
+        {
+          "type": "RelatedMoviesModule"
+        }
+      ]
+    },
+    {
+      "title": "third",
+      "modules": [
+        {
+          "type": "Description"
+        }
+      ]
+    }
+  ]
+}
