@@ -5,17 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
-import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
-import com.touchvie.touchvie_front.ui.modules.TextModule;
-import com.touchvie.touchvie_front.ui.modules.old.DescriptionModule;
-import com.touchvie.touchvie_front.ui.modules.old.ImageModule;
-import com.touchvie.touchvie_front.ui.modules.old.NavigationModule;
-import com.touchvie.touchvie_front.ui.modules.old.RelatedMoviesModule;
-import com.touchvie.touchvie_front.ui.modules.old.TabsModule;
-import com.touchvie.touchvie_front.ui.modules.old.TitleModule;
 import com.touchvie.touchvie_front.ui.modules.viewholders.ModuleHolder;
 import com.touchvie.touchvie_front.ui.views.Module;
 
@@ -34,6 +27,8 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     HashMap<String, Integer> classIndex= new HashMap<>();
     HashMap<Integer, String> indexClass= new HashMap<>();
 
+    private Picasso mPicasso = null;
+
     private final String defaultModulePackage="com.touchvie.touchvie_front.ui.modules.";
 
     /**
@@ -50,6 +45,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.cardData = cardData;
         this.configModules = configModules;
         this.mListener = mListener;
+        this.mPicasso=Picasso.with(context);
         getDifferentModulesNumber();
     }
 
@@ -64,20 +60,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemViewType(int position) {
 
-        /*switch (configModules[position].getType()) {
-            case "header":
-                return 0;
-            case "description":
-                return 1;
-            case "relatedMovies":
-                return 2;
-            case "navigation":
-                return 3;
-            case "tabs":
-                return 4;
-        }
-        return 0;
-        */
         String key=configModules[position].getType();
         return (classIndex.containsKey(key)?classIndex.get(key):0);
     }
@@ -109,64 +91,25 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKK A");
         if(indexClass.size()==0){
             return null;
         }
-        System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKK B"+indexClass.get(viewType));
-
         String moduleName=indexClass.get(viewType);
         if(!moduleName.contains(".")){
             moduleName=defaultModulePackage+moduleName;
         }
         try {
             viewHolder=((Module)(Class.forName(moduleName).newInstance())).getViewHolder(inflater, viewGroup);
-            System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKK C");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKK D");
+            e.printStackTrace(); //TODO: return empty viewholder
             return null;
         } catch (InstantiationException e) {
-            e.printStackTrace();
-            System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKK E");
+            e.printStackTrace(); //TODO: return empty viewholder
             return null;
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKK F");
+            e.printStackTrace(); //TODO: return empty viewholder
             return null;
         }
-
-        /*switch (viewType) {
-            case 0: //Header Module
-                ViewGroup vImageModule = (ViewGroup) inflater.inflate(R.layout.module_image, viewGroup, false);
-                viewHolder = new ImageModule(vImageModule);
-                break;
-            case 1: //Description Module
-                ViewGroup vDescriptionModule = (ViewGroup) inflater.inflate(R.layout.module_description, viewGroup, false);
-                viewHolder = new DescriptionModule(vDescriptionModule);
-                break;
-            case 2: //Related Movies Module
-                ViewGroup vRelatedMoviesModule = (ViewGroup) inflater.inflate(R.layout.module_related_movies, viewGroup, false);
-                viewHolder = new RelatedMoviesModule(vRelatedMoviesModule);
-                break;
-            case 3: //Navigation Module
-                ViewGroup vNavigationModule = (ViewGroup) inflater.inflate(R.layout.module_navigation, viewGroup, false);
-                viewHolder = new NavigationModule(vNavigationModule);
-                break;
-            case 4: //Tabs Module
-                ViewGroup vTabsModule = (ViewGroup) inflater.inflate(R.layout.module_tabs, viewGroup, false);
-                viewHolder = new TabsModule(vTabsModule);
-                break;
-            default: //HeaderModule for test
-                ViewGroup vDefaultModule = (ViewGroup) inflater.inflate(R.layout.module_title, viewGroup, false);
-                viewHolder = new TitleModule(vDefaultModule);
-                break;
-
-            default:
-                TextModule textModule=new TextModule();
-                viewHolder=textModule.getViewHolder(inflater, viewGroup);
-                break;
-        } */
         return viewHolder;
     }
 
@@ -182,7 +125,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
         if(viewHolder instanceof ModuleHolder){
-            ((ModuleHolder)viewHolder).configure( cardData);
+            ((ModuleHolder)viewHolder).configure( cardData, mPicasso);
         }
 
       /*  if (viewHolder instanceof ImageModule) {

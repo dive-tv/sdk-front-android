@@ -205,15 +205,17 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         try {
             Resources res = context.getResources();
             InputStream in_s;
-            if ("1".equals(cardId)) {
+            /*if ("1".equals(cardId)) {
                 in_s = res.openRawResource(R.raw.gastronomy);
             } else {
                 in_s = res.openRawResource(R.raw.vehicle);
-            }
+            }*/
+            in_s = res.openRawResource(R.raw.carddetail);
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
             jsonString = new String(b);
         } catch (Exception e) {
+            return;
             //jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
         }
         Card cardData = new GsonBuilder().create().fromJson(jsonString, Card.class);

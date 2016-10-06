@@ -47,7 +47,7 @@ public class RelatedMoviesModule extends RecyclerView.ViewHolder {
     }
 
     public void configure(Context context, RelatedMoviesModule relatedMoviesVH, Card cardData, CardDetailListener mListener) {
-        if (cardData != null && cardData.getRelated_movies() != null) {
+       /* if (cardData != null && cardData.getRelated_movies() != null) {
             RelatedMovies relatedMovies = cardData.getRelated_movies();
             //Title
             if (relatedMovies.getTitle() != null && relatedMovies.getTitle().length() > 0) {
@@ -60,6 +60,6 @@ public class RelatedMoviesModule extends RecyclerView.ViewHolder {
                 RelatedMoviesAdapter relatedMoviesAdapter = new RelatedMoviesAdapter(context, relatedMovies.getMovies(), mListener);
                 relatedMoviesVH.getList().setList(relatedMoviesAdapter, true);
             }
-        }
+        } */
     }
 }

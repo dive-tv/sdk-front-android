@@ -5,7 +5,6 @@ import android.content.res.Resources;
 
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.CardData;
-import com.touchvie.backend.TypeOfCard;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.CarouselCell;
@@ -61,9 +60,9 @@ public class CarouselLogic {
                 if (newCard.getChildren() != null) {
                     outerloop:
                     for (int i = 0; i < newCard.getChildren().length - 1; i++) {
-                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length - 1; j++) {
+                        for (int j = 0; i < newCard.getChildren()[i].getRelated().length - 1; j++) {
                             CardData temp2;
-                            temp2 = newCard.getChildren()[i].getRel_cards()[j];
+                            temp2 = newCard.getChildren()[i].getRelated()[j];
                             cellCards.add(temp2);
                             rel++;
                             if (rel == 2)
@@ -99,9 +98,9 @@ public class CarouselLogic {
                 if (newCard.getChildren() != null) {
                     outerloop:
                     for (int i = 0; i < newCard.getChildren().length - 1; i++) {
-                        for (int j = 0; i < newCard.getChildren()[i].getRel_cards().length - 1; j++) {
+                        for (int j = 0; i < newCard.getChildren()[i].getRelated().length - 1; j++) {
                             CardData temp3;
-                            temp3 = newCard.getChildren()[i].getRel_cards()[j];
+                            temp3 = newCard.getChildren()[i].getRelated()[j];
                             cellCards.add(temp3);
                             rel++;
                             if (rel == 2)

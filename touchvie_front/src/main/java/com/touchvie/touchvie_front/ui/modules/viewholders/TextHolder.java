@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.ExpandableTextView;
@@ -36,7 +37,7 @@ public class TextHolder extends ModuleHolder {
         disclaimer =(TextView)view.findViewById(R.id.txtv_footer_disclaimer);
     }
 
-    public void configure(Card cardData){
+    public void configure(Card cardData, Picasso picasso){
 
     }
 }

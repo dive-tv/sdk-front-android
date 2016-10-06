@@ -9,18 +9,18 @@ public class Relation {
     /**
      * The type of relation.
      */
-    private int type;
+    private String type;
 
     /**
-     * The rel_cards related to the rel_cards that owns the relation.
+     * The related related to the related that owns the relation.
      */
-    private CardData[] rel_cards;
+    private CardData[] related;
 
     /**
      * Gets the type of the relation.
      * @return
      */
-    public int getType() {
+    public String getType() {
         return type;
     }
 
@@ -28,7 +28,7 @@ public class Relation {
      * Sets the type of the relation.
      * @param type The type to be set.
      */
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -36,12 +36,12 @@ public class Relation {
      *
      * @return
      */
-    public CardData[] getRel_cards() {
-        return rel_cards;
+    public CardData[] getRelated() {
+        return related;
     }
 
-    public void setRel_cards(CardData[] rel_cards) {
-        this.rel_cards = rel_cards;
+    public void setRelated(CardData[] related) {
+        this.related = related;
     }
 
 

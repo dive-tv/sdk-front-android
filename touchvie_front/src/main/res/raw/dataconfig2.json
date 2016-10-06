@@ -5,13 +5,13 @@
       "main": true,
       "modules": [
         {
-          "type": "Description"
+          "type": "Header"
         },
         {
           "type": "Description"
         },
         {
-          "type": "com.touchvie.dive.ui.modules.CustomText"
+          "type": "Description"
         }
       ]
     },

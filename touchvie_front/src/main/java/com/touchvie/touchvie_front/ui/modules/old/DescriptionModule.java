@@ -68,7 +68,7 @@ public class DescriptionModule extends RecyclerView.ViewHolder {
     }
 
     public void configure(DescriptionModule descriptionVH, Card cardData) {
-        if (cardData != null && cardData.getDescription() != null) {
+      /*  if (cardData != null && cardData.getDescription() != null) {
             Description description = cardData.getDescription();
             //Title
             if (description.getTitle() != null && description.getTitle().length() > 0) {
@@ -91,6 +91,6 @@ public class DescriptionModule extends RecyclerView.ViewHolder {
             } else {
                 descriptionVH.getSource().setVisibility(View.GONE);
             }
-        }
+        }*/
     }
 }

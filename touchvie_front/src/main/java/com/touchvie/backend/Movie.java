@@ -1,11 +1,10 @@
 package com.touchvie.backend;
 
-import java.io.Serializable;
-
 /**
- * Created by Tagsonomy S.L. on 16/09/2016.
+ * Created by Tagsonomy S.L. on 06/10/2016.
  */
-public class Card implements Serializable {
+
+public class Movie {
 
     String card_id;
     String type;
@@ -13,11 +12,8 @@ public class Card implements Serializable {
     String title;
     String subtitle;
     Image image;
-    Container [] containers;
-    RelationGroup relations;
-    User user;
 
-    public String getCarId() {
+    public String getCardId() {
         return card_id;
     }
 
@@ -64,31 +60,5 @@ public class Card implements Serializable {
     public void setImage(Image image) {
         this.image = image;
     }
-
-    public Container[] getContainers() {
-        return containers;
-    }
-
-    public void setContainers(Container[] containers) {
-        this.containers = containers;
-    }
-
-    public RelationGroup getRelations() {
-        return relations;
-    }
-
-    public void setRelations(RelationGroup relations) {
-        this.relations = relations;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
 
 }

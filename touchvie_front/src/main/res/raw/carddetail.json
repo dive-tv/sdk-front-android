@@ -1,0 +1,106 @@
+{
+  "card_id": "39f8b960-2eea-11e6-97ac-0684985cbbe3",
+  "type": "character",
+  "locale": "en_US",
+  "title": "Rick Deckard",
+  "subtitle": "Actor",
+  "image": {
+    "thumb": "https://card.touchvie.com/39f8b960-2eea-11e6-97ac-0684985cbbe/39f8b960-2eea-11e6-97ac-0684985cbbe_thumb.jpg",
+    "full": "https://card.touchvie.com/e2240dde-1e76-11e6-97ac-0684985cbbe3/e2240dde-1e76-11e6-97ac-0684985cbbe3_0.jpg",
+    "anchor_x": 50,
+    "anchor_y": 50,
+    "source": {
+      "name": "TMDB",
+      "url": "https://www.tmdb.com/character/245354534",
+      "disclaimer": "TMDB All rights reserved",
+      "image": "http://static.touchvie.com/sources/tmdb.jpg"
+    }
+  },
+  "info": [
+    {
+      "type": "text",
+      "content_type": "description",
+      "data": {
+        "text": "Rick Deckard is the protagonist of Ridley Scott's seminal science-fiction film",
+        "source": {
+          "name": "TMDB",
+          "url": "http://tmdb.com/character/123456",
+          "disclaimer": "TMDB All rights reserved",
+          "image": "http://static.touchvie.com/sources/tmbd.jpg"
+        }
+      }
+    }
+  ],
+  "relations": {
+    "off_movie": [
+      {
+        "type": "referenced_by",
+        "related": [
+          {
+            "card_id": "52bbe851-b1d5-3cec-a3cc-541f57fc062d",
+            "type": "trivia",
+            "locale": "en_US",
+            "title": "Did you know..?",
+            "subtitle": null,
+            "image": null
+          }
+        ]
+      }
+    ],
+    "on_movie": [
+      {
+        "movie": {
+          "card_id": "39f8b960-2eea-11e6-97ac-0684985cbbe3",
+          "type": "movie",
+          "locale": "en_US",
+          "title": "Blade Runner",
+          "subtitle": "Ridley Scott",
+          "image": {
+            "thumb": "https://card.touchvie.com/39f8b960-2eea-11e6-97ac-0684985cbbe/39f8b960-2eea-11e6-97ac-0684985cbbe_thumb.jpg",
+            "full": "https://card.touchvie.com/39f8b960-2eea-11e6-97ac-0684985cbbe/39f8b960-2eea-11e6-97ac-0684985cbbe_full.jpg",
+            "anchor_x": 50,
+            "anchor_y": 50,
+            "source": {
+              "name": "TMDB",
+              "url": "https://www.tmdb.com/actor/245354534",
+              "disclaimer": "TMDB All rights reserved",
+              "image": "http://static.touchvie.com/sources/tmdb.jpg"
+            }
+          }
+        },
+        "rel_types": [
+          {
+            "type": "played_by",
+            "related": [
+              {
+                "card_id": "39f8b960-2eea-11e6-97ac-0684985cbbe3",
+                "type": "person",
+                "locale": "en_US",
+                "title": "Harison Ford",
+                "subtitle": null,
+                "image": {
+                  "thumb": "https://card.touchvie.com/39f8b960-2eea-11e6-97ac-0684985cbbe/39f8b960-2eea-11e6-97ac-0684985cbbe_thumb.jpg",
+                  "full": "https://card.touchvie.com/39f8b960-2eea-11e6-97ac-0684985cbbe/39f8b960-2eea-11e6-97ac-0684985cbbe_full.jpg",
+                  "anchor_x": 50,
+                  "anchor_y": 50,
+                  "source": {
+                    "name": "TMDB",
+                    "url": "https://www.tmdb.com/actor/245354534",
+                    "disclaimer": "TMDB All rights reserved",
+                    "image": "http://static.touchvie.com/sources/tmdb.jpg"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "products": [
+
+  ],
+  "user": {
+    "is_liked": true
+  }
+}

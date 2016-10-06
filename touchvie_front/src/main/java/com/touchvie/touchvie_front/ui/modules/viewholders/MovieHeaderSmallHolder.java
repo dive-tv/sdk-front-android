@@ -2,6 +2,7 @@ package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.view.View;
 
+import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 
 /**
@@ -19,7 +20,7 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(Card cardData) {
+    public void configure(Card cardData, Picasso picasso) {
 
     }
 }
