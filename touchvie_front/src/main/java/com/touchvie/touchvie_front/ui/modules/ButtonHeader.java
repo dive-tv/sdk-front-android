@@ -11,11 +11,11 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.HeaderButtonHolder;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class ShopHeader extends Header {
+public class ButtonHeader extends Header {
     /**
      * Default constructor
      */
-    public ShopHeader() {
+    public ButtonHeader() {
         super();
         setLayout(R.layout.module_header_button);
     }

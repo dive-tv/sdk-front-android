@@ -4,22 +4,20 @@ import android.os.Bundle;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.touchvie.sdkfront.R;
-import com.touchvie.touchvie_front.builders.BaseCardDetailBuilder;
 import com.touchvie.touchvie_front.builders.CardDetailJson;
 
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
  */
-public class CardDetailDive extends FragmentActivity {
+public class CardDetail extends FragmentActivity {
 
-    private static CardDetailDive instance=null;
+    private static CardDetail instance=null;
     private FragmentManager mManager = null;
     private LinearLayout mContainer=null;
 
@@ -28,7 +26,7 @@ public class CardDetailDive extends FragmentActivity {
      * Returns the instance of the last CardDetailDive activity created.
      * @return CardDetailDive instance
      */
-    public static CardDetailDive getInstance(){return instance;}
+    public static CardDetail getInstance(){return instance;}
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

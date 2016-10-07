@@ -1,5 +1,6 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
+import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +11,7 @@ import com.touchvie.backend.Card;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
+import com.touchvie.touchvie_front.ui.utils.Utils;
 
 
 /**
@@ -33,21 +34,22 @@ public class HeaderHolder  extends ModuleHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso) {
+    public void configure(Card cardData, Picasso picasso, Context context) {
 
             if(cardData.getTitle() !=null){
                 title.setText(cardData.getTitle());
+                title.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
             }else{
                 title.setVisibility(View.GONE);
             }
             if(cardData.getSubtitle() !=null){
                 subtitle.setText(cardData.getSubtitle());
+                title.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
             }else{
                 subtitle.setVisibility(View.GONE);
             }
 
             if(cardData.getImage() !=null && cardData.getImage().getFull() !=null){
-                System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK A "+ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH));
                 picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                         .into(image);
             }else{

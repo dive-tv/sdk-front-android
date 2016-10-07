@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.touchvie.sdkfront.R;
-import com.touchvie.touchvie_front.ui.utils.Utils;
 
 
 /**
@@ -47,7 +46,7 @@ public class Splash extends FragmentActivity {
         mCarouselBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cardDetail = new Intent(Splash.this, DiveCarousel.class);
+                Intent cardDetail = new Intent(Splash.this, TestCarousel.class);
                 startActivity(cardDetail);
             }
         });
@@ -55,7 +54,7 @@ public class Splash extends FragmentActivity {
         mCardDetailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cardDetail = new Intent(Splash.this, CardDetailDive.class);
+                Intent cardDetail = new Intent(Splash.this, CardDetail.class);
                 startActivity(cardDetail);
             }
         });

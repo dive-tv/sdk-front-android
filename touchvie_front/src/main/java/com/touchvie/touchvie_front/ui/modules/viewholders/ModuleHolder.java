@@ -1,5 +1,6 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -20,5 +21,5 @@ public abstract class ModuleHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    public abstract void configure(Card cardData, Picasso picasso);
+    public abstract void configure(Card cardData, Picasso picasso, Context context);
 }

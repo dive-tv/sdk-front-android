@@ -125,7 +125,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
         if(viewHolder instanceof ModuleHolder){
-            ((ModuleHolder)viewHolder).configure( cardData, mPicasso);
+            ((ModuleHolder)viewHolder).configure( cardData, mPicasso, context);
         }
 
       /*  if (viewHolder instanceof ImageModule) {

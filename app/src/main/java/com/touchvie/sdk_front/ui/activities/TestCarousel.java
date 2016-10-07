@@ -9,7 +9,7 @@ import com.touchvie.sdk_front.ui.utils.Utils;
 import com.touchvie.sdkfront.R;
 import com.touchvie.touchvie_front.ui.fragments.Carousel;
 
-public class DiveCarousel extends FragmentActivity {
+public class TestCarousel extends FragmentActivity {
 
     /**
      * The fragment manager of this activity.

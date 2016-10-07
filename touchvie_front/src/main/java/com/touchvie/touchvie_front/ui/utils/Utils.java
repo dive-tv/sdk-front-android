@@ -122,6 +122,9 @@ public class Utils {
                 case LATO_ITALIC:
                     is=context.getResources().openRawResource(R.raw.lato_italic);
                     break;
+                case LATO_SEMIBOLD:
+                    is=context.getResources().openRawResource(R.raw.lato_semibold);
+                    break;
             }
 
             byte[] buffer = new byte[4096];
@@ -145,21 +148,27 @@ public class Utils {
     public static enum TypeFaces {
 
         /**
-         * Lato bold type faces.
+         * Lato bold type face.
          */
         LATO_BOLD,
         /**
-         * Lato light type faces.
+         * Lato light type face.
          */
         LATO_LIGHT,
         /**
-         * Lato regular type faces.
+         * Lato regular type face.
          */
         LATO_REGULAR,
         /**
-         * Lato italic type faces.
+         * Lato italic type face.
          */
-        LATO_ITALIC
+        LATO_ITALIC,
+
+        /**
+         * Lato italic type face.
+         */
+        LATO_SEMIBOLD,
+
 
     }
 

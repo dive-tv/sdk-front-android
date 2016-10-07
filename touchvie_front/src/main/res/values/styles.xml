@@ -197,8 +197,12 @@
 
     <style name="Module">
         <item name="android:background">@color/white</item>
-        <item name="android:paddingLeft">@dimen/module_padding</item>
+        <item name="android:padding">@dimen/module_padding</item>
+    </style>
+
+    <style name="ModuleHeader">
         <item name="android:paddingRight">@dimen/module_padding</item>
+        <item name="android:paddingLeft">@dimen/module_padding</item>
     </style>
 
     <style name="ModuleButton">

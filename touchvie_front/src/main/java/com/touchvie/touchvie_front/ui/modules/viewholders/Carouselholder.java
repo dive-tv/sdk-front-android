@@ -1,6 +1,6 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
-import android.support.v7.widget.RecyclerView;
+import android.content.Context;
 import android.view.View;
 
 import com.squareup.picasso.Picasso;
@@ -17,7 +17,7 @@ public class CarouselHolder  extends ModuleHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso) {
+    public void configure(Card cardData, Picasso picasso, Context context) {
 
     }
 }

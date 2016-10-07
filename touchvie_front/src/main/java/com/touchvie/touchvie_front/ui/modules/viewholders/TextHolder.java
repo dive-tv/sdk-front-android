@@ -1,5 +1,6 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -37,7 +38,7 @@ public class TextHolder extends ModuleHolder {
         disclaimer =(TextView)view.findViewById(R.id.txtv_footer_disclaimer);
     }
 
-    public void configure(Card cardData, Picasso picasso){
+    public void configure(Card cardData, Picasso picasso, Context context){
 
     }
 }
