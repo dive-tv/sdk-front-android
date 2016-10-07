@@ -16,63 +16,54 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/mheader_height"
         style="@style/ModuleHeader"
+        android:paddingTop="@dimen/mheader_title_mtop"
+        android:orientation="vertical"
         >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/mheader_title_mtop"
-            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtv_mheader_title"
-                style="@style/CardMovieTitle"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:text="shfjhgsnfghnsghfnshghdhfjmsdgfnsghdfnghsdnfgbnsdsfsfsdfsdfdsfdsdfg"
-                />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtv_mheader_director"
-                style="@style/MinicardTitleLink"
-                android:layout_marginBottom="@dimen/mheader_director_mbottom"
-                android:text="mshdgfnsdbnfsdbvdfg"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtv_mheader_genres"
-                style="@style/CardMovieGenre"/>
-
-        </LinearLayout>
+            android:id="@+id/txtv_mheader_title"
+            style="@style/CardMovieTitle"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="shfjhgsnfghnsghfnshghdhfjmsdgfnsghdfnghsdnfgbnsdsfsfsdfsdfdsfdsdfg"
+                />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtv_mheader_director"
+                    style="@style/MinicardTitleLink"
+                    android:layout_marginBottom="@dimen/mheader_director_mbottom"
+                    android:text="mshdgfnsdbnfsdbvdfg"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtv_mheader_genres"
+                    style="@style/CardMovieGenre"
+                    android:text="drama"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_marginBottom="@dimen/mheader_clock_mbottom"
+                    android:id="@+id/lay_mheader_time"
                     >
                     <ImageView
                         android:layout_width="wrap_content"
@@ -83,8 +74,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/CardMovieTime"
-                        android:gravity="center_vertical"/>
+                        android:gravity="center_vertical"
+                        android:id="@+id/txtv_mheader_time"/>
                 </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -97,11 +95,13 @@
 
                     <ImageView
                         style="@style/Poster"
+                        android:id="@+id/imgv_mheader_poster"
                         />
                     <TextView
                         style="@style/ModuleButton"
                         android:text="@string/dive_in"
                         android:textAllCaps="true"
+                        android:id="@+id/txtv_mheader_divein"
                         />
 
                 </LinearLayout>

@@ -1,10 +1,13 @@
 package com.touchvie.sdk_front.ui.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.touchvie.backend.TypeOfCard;
+import com.touchvie.sdk_front.ui.utils.Utils;
 import com.touchvie.sdkfront.R;
 
 public class CardDetailSelector extends Activity {
@@ -44,7 +47,10 @@ public class CardDetailSelector extends Activity {
         mMovie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent cardDetail = new Intent(CardDetailSelector.this, CardDetail.class);
+                Bundle args = new Bundle();
+                args.putSerializable(Utils.CARD_TYPE, TypeOfCard.MOVIE);
+                startActivity(cardDetail);
             }
         });
 

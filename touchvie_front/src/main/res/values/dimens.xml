@@ -57,6 +57,7 @@
     <!-- Movie Header-->
     <dimen name="mheader_image_mbottom">26dp</dimen>
     <dimen name="mheader_image_height">350dp</dimen>
+    <dimen name="mheader_height">376dp</dimen>
     <dimen name="mheader_clock_mright">9dp</dimen>
     <dimen name="mheader_clock_mbottom">28dp</dimen>
     <dimen name="mheader_title_mbottom">11dp</dimen>

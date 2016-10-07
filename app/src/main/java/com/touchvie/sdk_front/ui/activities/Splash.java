@@ -54,7 +54,7 @@ public class Splash extends FragmentActivity {
         mCardDetailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cardDetail = new Intent(Splash.this, CardDetail.class);
+                Intent cardDetail = new Intent(Splash.this, CardDetailSelector.class);
                 startActivity(cardDetail);
             }
         });

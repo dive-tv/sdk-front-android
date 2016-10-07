@@ -1,0 +1,35 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "Header"
+        },
+        {
+          "type": "ButtonHeader"
+        },
+        {
+          "type": "Description"
+        }
+      ]
+    },
+    {
+      "title": "second",
+      "modules": [
+        {
+          "type": "RelatedMoviesModule"
+        }
+      ]
+    },
+    {
+      "title": "third",
+      "modules": [
+        {
+          "type": "Description"
+        }
+      ]
+    }
+  ]
+}

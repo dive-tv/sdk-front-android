@@ -42,12 +42,13 @@ public class CardDetailJson extends BaseCardDetailBuilder<CardDetailJson> {
         }else{
             DataConfig config = new GsonBuilder().create().fromJson(dataConfig.toString(), DataConfig.class); //TODO: test!!!
             if (config == null) {
-               return null;
-            }
-            idSection = new HashMap<>();
-            if (config.getSections() != null && config.getSections().length > 0) {
-                for (int i = 0; i < config.getSections().length; i++) {
-                    idSection.put((config.getSections()[i]).getTitle(), config.getSections()[i]);
+                requestDataConfig();
+            }else {
+                idSection = new HashMap<>();
+                if (config.getSections() != null && config.getSections().length > 0) {
+                    for (int i = 0; i < config.getSections().length; i++) {
+                        idSection.put((config.getSections()[i]).getTitle(), config.getSections()[i]);
+                    }
                 }
             }
         }
