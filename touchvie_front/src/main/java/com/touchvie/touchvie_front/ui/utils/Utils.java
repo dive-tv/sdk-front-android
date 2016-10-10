@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Tagsonomy S.L. on 15/09/2016.
@@ -169,6 +170,22 @@ public class Utils {
          */
         LATO_SEMIBOLD,
 
+
+    }
+
+    public static String getTime(long time, Context context){
+
+        if(time >=60000){
+            return String.format("%02d"+context.getString(R.string.hours_short)+" %02d"+context.getResources().getString(R.string.minutes_short),
+                    TimeUnit.SECONDS.toHours(time),
+                    TimeUnit.SECONDS.toMinutes(time) -
+                            TimeUnit.HOURS.toMinutes(TimeUnit.SECONDS.toHours(time)));
+        }else{
+            return String.format("%02d "+context.getResources().getString(R.string.minutes),
+                    TimeUnit.SECONDS.toHours(time),
+                    TimeUnit.SECONDS.toMinutes(time) -
+                            TimeUnit.HOURS.toMinutes(TimeUnit.SECONDS.toHours(time)));
+        }
 
     }
 

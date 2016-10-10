@@ -23,7 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/text_text_mbottom"
         style="@style/Text"
-
         />
 
     <TextView
@@ -38,15 +37,6 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icon_more"
         android:id="@+id/imgv_text_more"/>
-
-    <FrameLayout
-        android:id="@+id/flay_text_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="@dimen/line_mbottom"
-        android:background="@color/paleGrey"
-        android:visibility="visible"
-        />
 
     <include layout="@layout/source_footer"/>
 

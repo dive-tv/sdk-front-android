@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
+import com.touchvie.backend.CatalogData;
+import com.touchvie.backend.Container;
+import com.touchvie.backend.TypeOfContainer;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
@@ -22,6 +25,7 @@ public class MovieHeaderHolder extends ModuleHolder {
 
     protected ImageView mBackground;
     protected TextView mTitle;
+    protected TextView mYear;
     protected TextView mDirector;
     protected TextView mGenres;
     protected LinearLayout mTimeLay;
@@ -39,6 +43,7 @@ public class MovieHeaderHolder extends ModuleHolder {
         super(itemView);
         mBackground =(ImageView)itemView.findViewById(R.id.imgv_mheader_background);
         mTitle =(TextView)itemView.findViewById(R.id.txtv_mheader_title);
+        mYear=(TextView)itemView.findViewById(R.id.txtv_mheader_year);
         mDirector =(TextView)itemView.findViewById(R.id.txtv_mheader_director);
         mGenres =(TextView)itemView.findViewById(R.id.txtv_mheader_genres);
         mTimeLay =(LinearLayout) itemView.findViewById(R.id.lay_mheader_time);
@@ -53,17 +58,70 @@ public class MovieHeaderHolder extends ModuleHolder {
 
         if(cardData.getImage() !=null){
             picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
-                    .into(mBackground);
+                    .into(mPoster);
+
+        }else{
+           mPoster.setVisibility(View.GONE);
         }
         if(cardData.getTitle() !=null){
             mTitle.setText(cardData.getTitle());
             mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         }
 
-        if(cardData.getSubtitle() !=null){
+        if(cardData.getContainers()!=null){
 
+            for(Container container : cardData.getContainers()){
+                if(TypeOfContainer.CATALOG.getName().equals(container.getType())){
+                    if(container.getData()!=null){
+                        if(((CatalogData)container.getData()).getDirector() !=null){
+                            mDirector.setText(((CatalogData)container.getData()).getDirector());
+                            mDirector.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
+                        }
+
+                        if(((CatalogData)container.getData()).getRuntime() !=null){
+                            mTimeLay.setVisibility(View.VISIBLE);
+                           mTime.setText(Utils.getTime(((CatalogData)container.getData()).getRuntime(), context));
+                            mTime.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
+                        }else{
+                            mTimeLay.setVisibility(View.GONE);
+                        }
+
+                        if(((CatalogData)container.getData()).getSync() !=null && ((CatalogData)container.getData()).getSync().isInteractive()==true){
+                            mButton.setVisibility(View.VISIBLE);
+                        }else{
+                            mButton.setVisibility(View.GONE);
+                        }
+
+                        if(((CatalogData)container.getData()).getBackgroundImage() !=null){
+                            picasso.load(ClientManager.getInstance().getImageUrl(((CatalogData)container.getData()).getBackgroundImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+                                    .into(mBackground);
+                        }
+
+                        if(((CatalogData)container.getData()).getGenres() !=null){
+                            StringBuilder sb = new StringBuilder();
+                            boolean first=true;
+                            for(String genre: ((CatalogData)container.getData()).getGenres()){
+                                if(!first){
+                                    sb.append(",");
+                                }
+                                sb.append(genre);
+                            }
+                            mGenres.setText(sb.toString());
+                            mGenres.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
+                        }
+
+                        if(((CatalogData)container.getData()).getYear() !=null){
+                            mYear.setText(((CatalogData)container.getData()).getYear());
+                            mYear.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_LIGHT));
+                        }
+
+                    }
+                }else{
+                    mTimeLay.setVisibility(View.GONE);
+                    mButton.setVisibility(View.GONE);
+                }
+            }
         }
-
 
     }
 }

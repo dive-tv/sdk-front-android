@@ -14,7 +14,7 @@ import java.util.zip.Inflater;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class TextModule extends Module {
+public  abstract class TextModule extends Module {
 
     /**
      * Default constructor
@@ -22,14 +22,6 @@ public class TextModule extends Module {
     public TextModule() {
         super();
         setLayout(R.layout.module_text);
-    }
-
-    @Override
-    public RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group) {
-
-        ViewGroup viewGroup = (ViewGroup) inflater.inflate(this.layout, group, false);
-        TextHolder holder= new TextHolder(viewGroup);
-        return holder;
     }
 
 

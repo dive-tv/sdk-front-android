@@ -61,13 +61,15 @@
     <dimen name="mheader_clock_mright">9dp</dimen>
     <dimen name="mheader_clock_mbottom">28dp</dimen>
     <dimen name="mheader_title_mbottom">11dp</dimen>
-    <dimen name="mheader_title_mtop">88dp</dimen>
+    <dimen name="mheader_title_mtop">68dp</dimen>
     <dimen name="mheader_director_mbottom">23dp</dimen>
 
 
     <!-- Movie Header Small-->
     <dimen name="mheaders_padding_rl">15dp</dimen>
     <dimen name="mheaders_padding_tb">20dp</dimen>
+    <dimen name="mheaders_title_mbottom">14dp</dimen>
+    <dimen name="mheaders_director_mbottom">29dp</dimen>
 
 
     <!-- Generic -->

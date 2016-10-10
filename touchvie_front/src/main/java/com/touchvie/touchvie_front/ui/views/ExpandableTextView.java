@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.ui.listeners.ExpandableListener;
 
 /**
  * User: Bazlur Rahman Rokon
@@ -26,6 +27,8 @@ public class ExpandableTextView extends TextView {
     private boolean trim = true;
     private int trimLength;
     private boolean isExpandable=true;
+    private boolean isClickable=true;
+    private ExpandableListener listener;
 
     /**
      * Instantiates a new Expandable text view.
@@ -58,14 +61,31 @@ public class ExpandableTextView extends TextView {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isExpandable){
+                if(!isExpandable || !isClickable){
                     return;
                 }
                 trim = !trim;
                 setText();
                 requestFocusFromTouch();
+                listener.onActionDone(trim);
             }
         });
+    }
+
+    public void changeStatus(){
+
+        trim = !trim;
+        setText();
+        requestFocusFromTouch();
+        listener.onActionDone(trim);
+
+    }
+    public void setExpandableListener(ExpandableListener listener){
+        this.listener=listener;
+    }
+
+    public void setIsClickable(boolean clickable){
+        this.isClickable=clickable;
     }
 
     public void setExpandable(boolean expandable){

@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.ui.modules.viewholders.MovieHeaderHolder;
+import com.touchvie.touchvie_front.ui.modules.viewholders.MovieHeaderSmallHolder;
 import com.touchvie.touchvie_front.ui.views.Module;
 
 /**
@@ -17,10 +20,13 @@ public class MovieHeaderSmall extends Module {
      */
     public MovieHeaderSmall() {
         super();
+        setLayout(R.layout.module_movie_header_small);
     }
 
     @Override
     public RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group) {
-        return null;
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(this.layout, group, false);
+        MovieHeaderSmallHolder holder= new MovieHeaderSmallHolder(viewGroup);
+        return holder;
     }
 }

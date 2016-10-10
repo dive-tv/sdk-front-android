@@ -11,8 +11,18 @@
           "type": "ButtonHeader"
         },
         {
+          "type": "MovieHeader"
+        },
+        {
+          "type": "MovieHeaderSmall"
+        },
+        {
           "type": "Description"
+        },
+        {
+          "type": "OverviewNavigation"
         }
+
       ]
     },
     {

@@ -7,5 +7,11 @@
     <string name="awards">premios</string>
     <string name="buy">comprar</string>
     <string name="dive_in">dive in</string>
+    <string name="hours_short">h</string>
+    <string name="minutes_short">m</string>
+    <string name="minutes">minutos</string>
+    <string name="source">Fuente:</string>
+
+
 
 </resources>

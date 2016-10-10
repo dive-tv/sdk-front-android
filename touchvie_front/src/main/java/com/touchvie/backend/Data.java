@@ -6,22 +6,4 @@ package com.touchvie.backend;
 
 public class Data {
 
-    String text;
-    Source source;
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Source getSource() {
-        return source;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
 }

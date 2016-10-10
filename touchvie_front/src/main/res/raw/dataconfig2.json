@@ -11,6 +11,9 @@
           "type": "ButtonHeader"
         },
         {
+          "type": "MovieHeader"
+        },
+        {
           "type": "Description"
         }
       ]

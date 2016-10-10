@@ -2,7 +2,9 @@ package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -14,7 +16,7 @@ import com.touchvie.touchvie_front.ui.views.ExpandableTextView;
  * Created by Tagsonomy S.L. on 05/10/2016.
  */
 
-public class TextHolder extends ModuleHolder {
+public abstract class TextHolder extends ModuleHolder {
 
     protected TextView title;
     protected ExpandableTextView text;
@@ -24,6 +26,8 @@ public class TextHolder extends ModuleHolder {
     protected TextView sourceLink;
     protected ImageView sourceImage;
     protected TextView disclaimer;
+    protected RelativeLayout sourceLay;
+    protected FrameLayout separator;
 
 
     public TextHolder(View view) {
@@ -36,9 +40,10 @@ public class TextHolder extends ModuleHolder {
         sourceLink =(TextView)view.findViewById(R.id.txtv_footer_link);
         sourceImage = (ImageView) view.findViewById(R.id.imgv_footer_img);
         disclaimer =(TextView)view.findViewById(R.id.txtv_footer_disclaimer);
+        sourceLay=(RelativeLayout)view.findViewById(R.id.rel_source_footer);
+        separator=(FrameLayout)view.findViewById(R.id.flay_text_line);
     }
 
-    public void configure(Card cardData, Picasso picasso, Context context){
 
-    }
+
 }
