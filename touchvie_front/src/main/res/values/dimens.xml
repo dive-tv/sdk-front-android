@@ -86,5 +86,9 @@
     <dimen name="sgallery_source_heigth">50dp</dimen>
     <dimen name="fimage_source_padding">35dp</dimen>
 
+    <!-- Info List-->
+    <dimen name="ilist_title_mbottom">17dp</dimen>
+    <dimen name="ilist_item_height">50dp</dimen>
+
 
 </resources>

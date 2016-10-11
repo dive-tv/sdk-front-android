@@ -15,7 +15,6 @@ public class AwardsModule extends Module {
 
     public AwardsModule(){
         super();
-
     }
 
 
