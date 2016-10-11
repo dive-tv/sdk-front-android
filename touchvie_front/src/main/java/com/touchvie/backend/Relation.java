@@ -1,10 +1,12 @@
 package com.touchvie.backend;
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 23/09/2016.
  */
 
-public class Relation {
+public class Relation implements Serializable {
 
     /**
      * The type of relation.

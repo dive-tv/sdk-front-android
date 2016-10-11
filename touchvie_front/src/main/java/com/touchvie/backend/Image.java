@@ -1,11 +1,13 @@
 package com.touchvie.backend;
 
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 06/10/2016.
  */
 
-public class Image {
+public class Image implements Serializable{
 
     String thumb;
     String full;

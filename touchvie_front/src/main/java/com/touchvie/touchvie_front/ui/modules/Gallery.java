@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.viewholders.GalleryHolder;
 import com.touchvie.touchvie_front.ui.views.Module;
 
@@ -18,6 +19,7 @@ public class Gallery extends Module {
      */
     public Gallery() {
         super();
+        setLayout(R.layout.module_gallery);
     }
 
     @Override

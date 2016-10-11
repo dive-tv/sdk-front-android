@@ -11,7 +11,11 @@
     <string name="minutes_short">m</string>
     <string name="minutes">minutos</string>
     <string name="source">Fuente:</string>
+    <string name="gallery">Galería</string>
+    <string name="see_all">Ver todas &#62;</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

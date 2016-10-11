@@ -1,10 +1,12 @@
 package com.touchvie.backend;
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 06/10/2016.
  */
 
-public class User {
+public class User implements Serializable {
 
     boolean is_liked;
 

@@ -9,7 +9,8 @@ public enum TypeOfContainer {
     CATALOG("catalog"),
     DESCRIPTION("description"),
     BIOGRAPHY("biography"),
-    OVERVIEW("overview");
+    OVERVIEW("overview"),
+    GALLERY("gallery");
 
     private final String name;
 

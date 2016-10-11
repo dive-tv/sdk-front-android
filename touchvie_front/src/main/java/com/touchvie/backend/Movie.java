@@ -1,10 +1,12 @@
 package com.touchvie.backend;
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 06/10/2016.
  */
 
-public class Movie {
+public class Movie implements Serializable {
 
     String card_id;
     String type;

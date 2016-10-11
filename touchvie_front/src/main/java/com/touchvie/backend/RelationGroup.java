@@ -1,10 +1,12 @@
 package com.touchvie.backend;
 
+import java.io.Serializable;
+
 /**
  * Created by Tagsonomy S.L. on 06/10/2016.
  */
 
-public class RelationGroup {
+public class RelationGroup implements Serializable {
 
     Relation [] off_movie ;
 

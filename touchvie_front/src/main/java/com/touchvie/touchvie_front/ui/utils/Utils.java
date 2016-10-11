@@ -22,7 +22,13 @@ public class Utils {
     public static final String CONFIG_SECTION = "CONFIG_MODULES";
     public static final String SECTION_TYPE = "SECTION_TYPE";
     public static final String CARD_DETAIL_LISTENER = "CARD_DETAIL_LISTENER";
+    public static final String FULLSCREEN_FRAGMENT="FULLSCREEN_FRAGMENT";
+    public static final String POSITION="POSITION";
+    public static final String IMAGES="IMAGES";
 
+    /*****************************************************************/
+    public static final String SWIPE_GALLERY ="SWIPE_GALLERY";
+    /*****************************************************************/
     private static Typeface latoBold = null;
     private static Typeface latoLight = null;
     private static Typeface latoRegular = null;

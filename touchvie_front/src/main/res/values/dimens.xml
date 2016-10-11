@@ -82,12 +82,9 @@
     <!-- Header-->
     <dimen name="header_image_mtop">16dp</dimen>
 
-
-
-
-
-
-
+    <!-- Swipe Gallery-->
+    <dimen name="sgallery_source_heigth">50dp</dimen>
+    <dimen name="fimage_source_padding">35dp</dimen>
 
 
 </resources>
