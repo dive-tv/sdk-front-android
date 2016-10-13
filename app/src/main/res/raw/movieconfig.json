@@ -23,6 +23,30 @@
           "type": "OverviewNavigation"
         },
         {
+          "type": "Filmography"
+        },
+        {
+          "type": "InterpretedBy"
+        },
+        {
+          "type": "Seasons"
+        },
+        {
+          "type": "Cast"
+        },
+        {
+          "type": "Vehicles"
+        },
+        {
+          "type": "Curiosities"
+        },
+        {
+          "type": "Shop"
+        },
+        {
+          "type": "Soundtrack"
+        },
+        {
           "type": "Gallery"
         }
 

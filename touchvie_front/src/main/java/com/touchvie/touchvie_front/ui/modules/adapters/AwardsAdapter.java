@@ -1,4 +1,4 @@
-package com.touchvie.touchvie_front.ui.adapters;
+package com.touchvie.touchvie_front.ui.modules.adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;

@@ -2,24 +2,25 @@ package com.touchvie.touchvie_front.ui.modules;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
+
+import com.touchvie.touchvie_front.ui.modules.viewholders.CuriositiesHolder;
 
 /**
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class Curiosity extends TextModule {
+public class Curiosities extends CarouselModule {
 
-    /**
-     * Default constructor
-     */
-    public Curiosity() {
+    public Curiosities(){
         super();
     }
 
     @Override
     public RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group) {
-        return null;
+
+        ViewGroup viewGroup = (ViewGroup) inflater.inflate(this.layout, group, false);
+        CuriositiesHolder holder= new CuriositiesHolder(viewGroup);
+        return holder;
     }
 }
