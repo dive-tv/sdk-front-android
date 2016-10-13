@@ -6,7 +6,7 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.modules.adapters.FilmographyAdapter;
+import com.touchvie.touchvie_front.ui.modules.adapters.ItemsShownAdapter;
 
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
@@ -32,7 +32,7 @@ public class CastHolder extends CarouselHolder {
             }
         });
 
-        FilmographyAdapter adapter= new FilmographyAdapter();
+        ItemsShownAdapter adapter= new ItemsShownAdapter();
         mList.setAdapter(adapter);
 
     }
