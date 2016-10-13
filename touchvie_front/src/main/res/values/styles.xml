@@ -199,6 +199,13 @@
         <item name="android:background">@color/white</item>
         <item name="android:padding">@dimen/module_padding</item>
     </style>
+    <style name="NoSidePaddingModule">
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingTop">@dimen/module_padding</item>
+        <item name="android:paddingBottom">@dimen/module_padding</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+    </style>
 
     <style name="ModuleHeader">
         <item name="android:paddingRight">@dimen/module_padding</item>

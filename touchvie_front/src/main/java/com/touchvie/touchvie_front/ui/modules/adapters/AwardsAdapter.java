@@ -149,7 +149,7 @@ public class AwardsAdapter extends BaseAdapter {
     /**
      * The type Basic info holder.
      */
-    class BasicInfoHolder {
+    class AwardsItemHolder {
 
         TextView title;
 

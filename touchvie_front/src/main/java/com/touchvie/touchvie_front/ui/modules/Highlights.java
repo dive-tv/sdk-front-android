@@ -4,17 +4,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.modules.viewholders.AwardsHolder;
-import com.touchvie.touchvie_front.ui.views.Module;
+import com.touchvie.touchvie_front.ui.modules.viewholders.VehiclesHolder;
 
 /**
- * Created by Tagsonomy S.L. on 04/10/2016.
+ * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class AwardsModule extends ListModule {
+public class Highlights  extends CarouselModule {
 
-    public AwardsModule(){
+    public Highlights(){
         super();
     }
 
@@ -22,7 +20,8 @@ public class AwardsModule extends ListModule {
     public RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group) {
 
         ViewGroup viewGroup = (ViewGroup) inflater.inflate(this.layout, group, false);
-        AwardsHolder holder= new AwardsHolder(viewGroup);
+        VehiclesHolder holder= new VehiclesHolder(viewGroup);
         return holder;
     }
 }
+

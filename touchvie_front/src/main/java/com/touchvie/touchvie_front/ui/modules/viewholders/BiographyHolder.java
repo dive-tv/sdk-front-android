@@ -11,6 +11,7 @@ import com.touchvie.backend.TextData;
 import com.touchvie.backend.TypeOfContainer;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
+import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.listeners.ExpandableListener;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
@@ -28,6 +29,10 @@ public class BiographyHolder extends TextHolder implements ExpandableListener {
 
     @Override
     public void configure(Card cardData, Picasso picasso, Context context) {
+
+        title.setText(context.getResources().getString(R.string.biography));
+        title.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
+
         if(cardData.getContainers() !=null){
             for(Container container : cardData.getContainers()) {
                 if (TypeOfContainer.BIOGRAPHY.getName().equals(container.getType())) {

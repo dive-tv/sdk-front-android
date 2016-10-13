@@ -79,6 +79,9 @@
     <dimen name="icon_width">24dp</dimen>
     <dimen name="icon_height">24dp</dimen>
 
+    <dimen name="title_padbottom">10dp</dimen>
+    <dimen name="seeall_padbottom">10dp</dimen>
+
     <!-- Header-->
     <dimen name="header_image_mtop">16dp</dimen>
 

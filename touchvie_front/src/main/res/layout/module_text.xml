@@ -6,16 +6,7 @@
     style="@style/Module"
     >
 
-    <TextView
-        android:id="@+id/txtv_text_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/module_title_margin"
-        android:layout_marginTop="@dimen/module_title_margin"
-        android:text="@string/synopsis"
-        android:textAllCaps="true"
-        style="@style/CardModuleTitle"
-        />
+    <include layout="@layout/title"/>
 
     <com.touchvie.touchvie_front.ui.views.ExpandableTextView
         android:id="@+id/xtxtv_body"

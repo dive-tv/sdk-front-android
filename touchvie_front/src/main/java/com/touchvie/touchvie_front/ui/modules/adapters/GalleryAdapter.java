@@ -2,7 +2,6 @@ package com.touchvie.touchvie_front.ui.modules.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +19,6 @@ import com.touchvie.touchvie_front.ui.utils.Utils;
 import com.touchvie.touchvie_front.ui.views.SquareGridViewItem;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Tagsonomy S.L. on 10/10/2016.
@@ -95,15 +93,15 @@ public class GalleryAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        GalleryViewHolder holder;
+        GalleryItemHolder holder;
 
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.square_grid_row, null);
-            holder = new GalleryViewHolder();
+            holder = new GalleryItemHolder();
             holder.image = (SquareGridViewItem) convertView.findViewById(R.id.item_image);
             convertView.setTag(holder);
         } else {
-            holder = (GalleryViewHolder) convertView.getTag();
+            holder = (GalleryItemHolder) convertView.getTag();
         }
 
         Image image = rowItems.get(position);
@@ -119,7 +117,7 @@ public class GalleryAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private class GalleryViewHolder {
+    private class GalleryItemHolder {
         SquareGridViewItem image;
     }
 

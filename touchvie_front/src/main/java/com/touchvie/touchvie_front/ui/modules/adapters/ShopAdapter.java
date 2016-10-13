@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 /**
@@ -23,6 +24,15 @@ public class ShopAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         return 0;
+    }
+
+    public static class ShopItemHolder extends RecyclerView.ViewHolder {
+
+
+        public ShopItemHolder(View v) {
+            super(v);
+
+        }
     }
 }
 

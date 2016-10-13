@@ -12,9 +12,9 @@ import com.touchvie.touchvie_front.ui.modules.adapters.ItemsShownAdapter;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class VehiclesHolder extends CarouselHolder {
+public abstract class ItemShownHolder extends CarouselHolder {
 
-    public VehiclesHolder(View itemView) {
+    public ItemShownHolder(View itemView) {
         super(itemView);
     }
 
@@ -32,8 +32,8 @@ public class VehiclesHolder extends CarouselHolder {
             }
         });
 
-        ItemsShownAdapter adapter= new ItemsShownAdapter();
-        mList.setAdapter(adapter);
+
 
     }
+
 }

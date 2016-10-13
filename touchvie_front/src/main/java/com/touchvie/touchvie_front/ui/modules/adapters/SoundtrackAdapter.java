@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 /**
@@ -22,5 +23,14 @@ public class SoundtrackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public int getItemCount() {
         return 0;
+    }
+
+    public static class SoundtrackItemHolder extends RecyclerView.ViewHolder {
+
+
+        public SoundtrackItemHolder(View v) {
+            super(v);
+
+        }
     }
 }

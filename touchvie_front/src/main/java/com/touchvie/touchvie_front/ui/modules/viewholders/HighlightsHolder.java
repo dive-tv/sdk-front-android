@@ -12,9 +12,9 @@ import com.touchvie.touchvie_front.ui.modules.adapters.ItemsShownAdapter;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class VehiclesHolder extends CarouselHolder {
+public class HighlightsHolder   extends CarouselHolder {
 
-    public VehiclesHolder(View itemView) {
+    public HighlightsHolder(View itemView) {
         super(itemView);
     }
 
@@ -22,9 +22,9 @@ public class VehiclesHolder extends CarouselHolder {
     public void configure(Card cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
-        mTitle.setText(context.getResources().getString(R.string.vehicles_shown));
+        mTitle.setText(context.getResources().getString(R.string.highlights));
 
-        mSeeAll.setText(context.getResources().getString(R.string.see_all_vehicles));
+        mSeeAll.setText(context.getResources().getString(R.string.see_all_highlights));
         mSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.adapters;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 /**
@@ -22,5 +23,14 @@ public class SeasonsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemCount() {
         return 0;
+    }
+
+    public static class SeasonsItemHolder extends RecyclerView.ViewHolder {
+
+
+        public SeasonsItemHolder(View v) {
+            super(v);
+
+        }
     }
 }

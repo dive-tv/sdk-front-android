@@ -20,6 +20,9 @@
           "type": "Description"
         },
         {
+          "type": "Biography"
+        },
+        {
           "type": "OverviewNavigation"
         },
         {
@@ -45,6 +48,9 @@
         },
         {
           "type": "Soundtrack"
+        },
+        {
+          "type": "FullCuriosity"
         },
         {
           "type": "Gallery"

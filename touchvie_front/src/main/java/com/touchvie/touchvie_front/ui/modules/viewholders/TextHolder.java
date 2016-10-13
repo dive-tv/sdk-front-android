@@ -32,7 +32,7 @@ public abstract class TextHolder extends ModuleHolder {
 
     public TextHolder(View view) {
         super(view);
-        title=(TextView)view.findViewById(R.id.txtv_text_title);
+        title=(TextView)view.findViewById(R.id.txtv_title);
         text=(ExpandableTextView)view.findViewById(R.id.xtxtv_body);
         link =(TextView)view.findViewById(R.id.txtv_text_link);
         more = (ImageView) view.findViewById(R.id.imgv_text_more);
