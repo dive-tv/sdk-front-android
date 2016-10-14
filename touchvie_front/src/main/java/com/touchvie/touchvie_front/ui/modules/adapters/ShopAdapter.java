@@ -3,6 +3,9 @@ package com.touchvie.touchvie_front.ui.modules.adapters;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
@@ -28,11 +31,16 @@ public class ShopAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static class ShopItemHolder extends RecyclerView.ViewHolder {
 
+        private ImageView image;
+        private TextView price;
+        private ImageView showNow;
+        private TextView shop;
 
         public ShopItemHolder(View v) {
             super(v);
 
         }
     }
+
 }
 

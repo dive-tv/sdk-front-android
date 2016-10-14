@@ -10,7 +10,7 @@ import com.touchvie.backend.Card;
  * Created by Tagsonomy S.L. on 05/10/2016.
  */
 
-public class AwardsHolder extends ListHolder {
+public class AwardsHolder extends VerticalListHolder {
 
     /**
      * Default constructor

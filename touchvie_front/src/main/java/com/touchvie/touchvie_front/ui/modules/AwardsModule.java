@@ -4,15 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.viewholders.AwardsHolder;
-import com.touchvie.touchvie_front.ui.views.Module;
 
 /**
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class AwardsModule extends ListModule {
+public class AwardsModule extends VerticalListModule {
 
     public AwardsModule(){
         super();

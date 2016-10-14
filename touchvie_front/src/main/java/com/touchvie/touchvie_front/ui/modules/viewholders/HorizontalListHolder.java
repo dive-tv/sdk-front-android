@@ -14,13 +14,13 @@ import com.touchvie.touchvie_front.ui.utils.Utils;
  * Created by Tagsonomy S.L. on 05/10/2016.
  */
 
-public abstract class CarouselHolder  extends ModuleHolder {
+public abstract class HorizontalListHolder extends ModuleHolder {
 
     protected TextView mTitle;
     protected TextView mSeeAll;
     protected RecyclerView mList;
 
-    public CarouselHolder(View itemView) {
+    public HorizontalListHolder(View itemView) {
         super(itemView);
         mTitle=(TextView)itemView.findViewById(R.id.txtv_seeall_title);
         mSeeAll=(TextView)itemView.findViewById(R.id.txtv_seeall_button);
@@ -33,6 +33,10 @@ public abstract class CarouselHolder  extends ModuleHolder {
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
         mSeeAll.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
 
+    }
+
+    protected void setAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter){
+        mList.setAdapter(adapter);
     }
 
 

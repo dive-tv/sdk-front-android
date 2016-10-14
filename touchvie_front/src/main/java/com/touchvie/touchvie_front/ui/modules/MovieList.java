@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.MovieListHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class MovieList extends ListModule {
+public class MovieList extends VerticalListModule {
 
     public MovieList(){
         super();

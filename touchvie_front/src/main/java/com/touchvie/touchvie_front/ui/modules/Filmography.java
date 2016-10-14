@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.FilmographyHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class Filmography extends CarouselModule {
+public class Filmography extends HorizontalListModule {
 
     public Filmography(){
         super();

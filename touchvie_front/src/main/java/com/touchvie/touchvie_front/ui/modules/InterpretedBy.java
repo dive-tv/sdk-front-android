@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.InterpretedByHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class InterpretedBy extends CarouselModule {
+public class InterpretedBy extends HorizontalListModule {
 
     public InterpretedBy(){
         super();

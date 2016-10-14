@@ -7,12 +7,15 @@ import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.adapters.CuriositiesAdapter;
+import com.touchvie.touchvie_front.ui.modules.data.TextRowData;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class CuriositiesHolder extends CarouselHolder {
+public class CuriositiesHolder extends HorizontalListHolder {
 
     public CuriositiesHolder(View itemView) {
         super(itemView);
@@ -32,7 +35,8 @@ public class CuriositiesHolder extends CarouselHolder {
             }
         });
 
-        CuriositiesAdapter adapter= new CuriositiesAdapter();
+        ArrayList<TextRowData> rows= new ArrayList<>();
+        CuriositiesAdapter adapter= new CuriositiesAdapter(rows);
         mList.setAdapter(adapter);
 
     }

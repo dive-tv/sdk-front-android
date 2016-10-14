@@ -7,12 +7,15 @@ import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.adapters.ShopAdapter;
+import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class ShopHolder extends CarouselHolder {
+public class ShopHolder extends HorizontalListHolder {
 
     public ShopHolder(View itemView) {
         super(itemView);
@@ -32,6 +35,7 @@ public class ShopHolder extends CarouselHolder {
             }
         });
 
+        ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get the needed data from card data. Decide whether the elements will be ImageRowData or a special data.
         ShopAdapter adapter= new ShopAdapter();
         mList.setAdapter(adapter);
 

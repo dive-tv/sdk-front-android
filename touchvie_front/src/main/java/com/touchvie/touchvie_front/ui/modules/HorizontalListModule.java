@@ -7,15 +7,15 @@ import com.touchvie.touchvie_front.ui.views.Module;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public abstract class CarouselModule extends Module {
+public abstract class HorizontalListModule extends Module {
 
     /**
      * Default constructor
      *
      */
-    public CarouselModule() {
+    public HorizontalListModule() {
         super();
-        setLayout(R.layout.module_carousel);
+        setLayout(R.layout.module_horizontal_list);
     }
 
 }

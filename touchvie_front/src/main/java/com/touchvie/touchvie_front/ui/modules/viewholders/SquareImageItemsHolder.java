@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.squareup.picasso.Picasso;
@@ -15,9 +16,12 @@ import java.util.ArrayList;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class VehiclesHolder extends SquareImageItemsHolder {
+public abstract class SquareImageItemsHolder extends HorizontalListHolder {
 
-    public VehiclesHolder(View itemView) {
+    protected SquareImageItemsAdapter adapter;
+    protected ArrayList<ImageRowData> data;
+
+    public SquareImageItemsHolder(View itemView) {
         super(itemView);
     }
 
@@ -25,18 +29,14 @@ public class VehiclesHolder extends SquareImageItemsHolder {
     public void configure(Card cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
-        mTitle.setText(context.getResources().getString(R.string.vehicles_shown));
-
-        mSeeAll.setText(context.getResources().getString(R.string.see_all_vehicles));
-        mSeeAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO: manage click.
-            }
-        });
-
-        ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
-        super.setData(rows);
-
+        data=new ArrayList<>();
+        adapter= new SquareImageItemsAdapter(data);
+        super.setAdapter(adapter);
     }
+
+    protected void setData(ArrayList<ImageRowData> data){
+        this.data.addAll(data);
+        adapter.notifyDataSetChanged();
+    }
+
 }

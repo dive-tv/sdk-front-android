@@ -6,13 +6,16 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.modules.adapters.ItemsShownAdapter;
+import com.touchvie.touchvie_front.ui.modules.adapters.SquareImageItemsAdapter;
+import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class HighlightsHolder   extends CarouselHolder {
+public class HighlightsHolder  extends SquareImageItemsHolder {
 
     public HighlightsHolder(View itemView) {
         super(itemView);
@@ -24,16 +27,9 @@ public class HighlightsHolder   extends CarouselHolder {
         super.configure(cardData, picasso, context);
         mTitle.setText(context.getResources().getString(R.string.highlights));
 
-        mSeeAll.setText(context.getResources().getString(R.string.see_all_highlights));
-        mSeeAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO: manage click.
-            }
-        });
+        mSeeAll.setVisibility(View.GONE);
 
-        ItemsShownAdapter adapter= new ItemsShownAdapter();
-        mList.setAdapter(adapter);
-
+        ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
+        super.setData(rows);
     }
 }

@@ -10,7 +10,7 @@ import com.touchvie.backend.Card;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public abstract class NoPaddingListHolder extends ListHolder {
+public abstract class NoPaddingListHolder extends VerticalListHolder {
 
     /**
      * Default constructor

@@ -3,6 +3,7 @@ package com.touchvie.touchvie_front.ui.modules.adapters;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,16 +12,17 @@ import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
 import java.util.ArrayList;
 
 /**
- * Created by Tagsonomy S.L. on 13/10/2016.
+ * Created by Tagsonomy S.L. on 14/10/2016.
  */
 
-public class CastAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RectangularImageItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<ImageRowData> rows;
+    private boolean imageTextSpace=false;
 
-    public CastAdapter(ArrayList<ImageRowData>rows){
+    public RectangularImageItemsAdapter(ArrayList<ImageRowData> rows){
+        super();
         this.rows=rows;
-
     }
 
     @Override
@@ -38,16 +40,28 @@ public class CastAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return 0;
     }
 
-    public static class CastItemHolder extends RecyclerView.ViewHolder {
+    public void setImageTextSpace(boolean space){
 
-        private ImageView image;
-        private TextView title;
-        private TextView subtitle;
+        this.imageTextSpace=space;
+    }
 
-        public CastItemHolder(View v) {
+    public static class RectangularImageItemsItemHolder extends RecyclerView.ViewHolder {
+
+        ImageView image;
+
+        TextView title;
+
+        TextView subtitle;
+
+        FrameLayout space;
+
+        public RectangularImageItemsItemHolder(View v) {
             super(v);
 
         }
     }
+
+
 }
+
 

@@ -11,7 +11,7 @@ import com.touchvie.touchvie_front.ui.modules.adapters.SongListAdapter;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class SongListHolder extends ListHolder {
+public class SongListHolder extends VerticalListHolder {
 
     /**
      * Default constructor

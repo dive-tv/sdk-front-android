@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.AppearsInHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class AppearsIn extends CarouselModule {
+public class AppearsIn extends HorizontalListModule {
 
     public AppearsIn(){
         super();

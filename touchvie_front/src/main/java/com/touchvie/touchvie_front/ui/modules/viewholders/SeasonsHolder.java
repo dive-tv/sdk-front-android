@@ -6,13 +6,15 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.modules.adapters.SeasonsAdapter;
+import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class SeasonsHolder extends CarouselHolder {
+public class SeasonsHolder extends RectangularImageItemsHolder {
 
     public SeasonsHolder(View itemView) {
         super(itemView);
@@ -32,8 +34,8 @@ public class SeasonsHolder extends CarouselHolder {
             }
         });
 
-        SeasonsAdapter adapter= new SeasonsAdapter();
-        mList.setAdapter(adapter);
+        ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
+        super.setData(rows);
 
     }
 }

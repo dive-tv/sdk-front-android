@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.PlacesShownHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class PlacesShown extends CarouselModule {
+public class PlacesShown extends HorizontalListModule {
 
         public PlacesShown(){
     super();

@@ -11,7 +11,7 @@ import com.touchvie.touchvie_front.ui.modules.adapters.CuriosityListAdapter;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class CuriosityListHolder extends ListHolder {
+public class CuriosityListHolder extends VerticalListHolder {
 
     /**
      * Default constructor

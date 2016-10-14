@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.SoundtrackHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class Soundtrack extends CarouselModule {
+public class Soundtrack extends HorizontalListModule {
 
     public Soundtrack(){
         super();

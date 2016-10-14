@@ -11,12 +11,12 @@ import com.touchvie.touchvie_front.ui.views.Module;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public abstract class ListModule extends Module {
+public abstract class VerticalListModule extends Module {
 
     /**
      * Default constructor
      */
-    public ListModule() {
+    public VerticalListModule() {
         super();
         setLayout(R.layout.module_list);
     }

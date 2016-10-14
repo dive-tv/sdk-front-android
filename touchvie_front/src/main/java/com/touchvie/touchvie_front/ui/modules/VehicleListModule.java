@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.VehicleListHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class VehicleListModule extends ListModule {
+public class VehicleListModule extends VerticalListModule {
 
     public VehicleListModule(){
         super();

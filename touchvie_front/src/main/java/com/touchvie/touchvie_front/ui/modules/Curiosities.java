@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.CuriositiesHolder;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class Curiosities extends CarouselModule {
+public class Curiosities extends HorizontalListModule {
 
     public Curiosities(){
         super();

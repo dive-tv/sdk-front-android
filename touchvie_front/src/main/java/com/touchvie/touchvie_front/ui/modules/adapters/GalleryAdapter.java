@@ -42,6 +42,7 @@ public class GalleryAdapter extends BaseAdapter {
      * @param context the context
      */
     public GalleryAdapter(Context context, ArrayList<Image> rowItems) {
+        super();
         this.context = context;
         this.rowItems = rowItems;
         this.mPicasso = Picasso.with(context);

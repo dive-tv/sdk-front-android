@@ -13,7 +13,7 @@ import com.touchvie.touchvie_front.ui.views.LinearListLayout;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public abstract class ListHolder extends ModuleHolder {
+public abstract class VerticalListHolder extends ModuleHolder {
 
     protected LinearLayout mContainer;
     protected LinearListLayout mList;
@@ -24,7 +24,7 @@ public abstract class ListHolder extends ModuleHolder {
      * @param itemView
      */
 
-    public ListHolder(View itemView) {
+    public VerticalListHolder(View itemView) {
 
         super(itemView);
 

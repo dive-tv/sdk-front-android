@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.ShopHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class Shop extends CarouselModule {
+public class Shop extends HorizontalListModule {
 
     public Shop(){
         super();

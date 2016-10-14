@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.SeasonsHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class Seasons extends CarouselModule {
+public class Seasons extends HorizontalListModule {
 
     public Seasons(){
         super();

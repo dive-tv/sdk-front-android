@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.CastHolder;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class Cast extends CarouselModule {
+public class Cast extends HorizontalListModule {
 
     /**
      * Default constructor

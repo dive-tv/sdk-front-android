@@ -20,8 +20,6 @@ public abstract class Module {
      */
     protected Integer layout;
 
-    RecyclerView.ViewHolder holder;
-
     /**
      * Default constructor
      */
@@ -54,9 +52,6 @@ public abstract class Module {
         this.layout = layout;
     }
 
-    public void getViewHolder(){
-
-    }
 
     public abstract RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group);
 }

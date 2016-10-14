@@ -10,7 +10,7 @@ import com.touchvie.touchvie_front.ui.modules.viewholders.CastListHolder;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class CastList extends ListModule {
+public class CastList extends VerticalListModule {
 
     public CastList(){
         super();
