@@ -6,28 +6,31 @@ import java.io.Serializable;
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
 public class Card implements Serializable {
+
     String card_id;
+    String type;
     String locale;
     String title;
     String subtitle;
-    String type;
-    String image;
-    String source;
-    int anchor_x;
-    int anchor_y;
-    Description description;
-    Boolean is_exact;
-    String url;
-    Boolean is_user_locale;
-    RelatedMovies related_movies;
+    Image image;
+    Container [] containers;
+    RelationGroup relations;
+    User user;
 
-
-    public String getCard_id() {
+    public String getCarId() {
         return card_id;
     }
 
-    public void setCard_id(String card_id) {
+    public void setCardId(String card_id) {
         this.card_id = card_id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getLocale() {
@@ -54,83 +57,38 @@ public class Card implements Serializable {
         this.subtitle = subtitle;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getImage() {
+    public Image getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Image image) {
         this.image = image;
     }
 
-    public String getSource() {
-        return source;
+    public Container[] getContainers() {
+        return containers;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setContainers(Container[] containers) {
+        this.containers = containers;
     }
 
-    public int getAnchor_x() {
-        return anchor_x;
+    public RelationGroup getRelations() {
+        return relations;
     }
 
-    public void setAnchor_x(int anchor_x) {
-        this.anchor_x = anchor_x;
+    public void setRelations(RelationGroup relations) {
+        this.relations = relations;
     }
 
-    public int getAnchor_y() {
-        return anchor_y;
+    public User getUser() {
+        return user;
     }
 
-    public void setAnchor_y(int anchor_y) {
-        this.anchor_y = anchor_y;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Description getDescription() {
-        return description;
-    }
 
-    public void setDescription(Description description) {
-        this.description = description;
-    }
 
-    public Boolean getIs_exact() {
-        return is_exact;
-    }
-
-    public void setIs_exact(Boolean is_exact) {
-        this.is_exact = is_exact;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Boolean getIs_user_locale() {
-        return is_user_locale;
-    }
-
-    public void setIs_user_locale(Boolean is_user_locale) {
-        this.is_user_locale = is_user_locale;
-    }
-
-    public RelatedMovies getRelated_movies() {
-        return related_movies;
-    }
-
-    public void setRelated_movies(RelatedMovies related_movies) {
-        this.related_movies = related_movies;
-    }
 }

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgv_mheader_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mheader_image_height"
+        android:layout_marginBottom="@dimen/mheader_image_mbottom"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        style="@style/ModuleHeader"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mheader_height"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/mheader_title_mtop">
+
+        <TextView
+            android:id="@+id/txtv_mheader_title"
+            style="@style/CardMovieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtv_mheader_year"
+            style="@style/CardMovieYearCarousel"
+            android:layout_marginBottom="@dimen/mheaders_title_mbottom"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:id="@+id/rel_mheader_poster"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="@dimen/poster_width"
+                android:layout_marginTop="@dimen/mheader_title_mbottom">
+
+                <LinearLayout
+                    android:id="@+id/lay_mheader_poster"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="@dimen/module_margin"
+                    android:layout_marginRight="@dimen/module_margin"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgv_mheader_poster"
+                        style="@style/Poster" />
+
+                    <TextView
+                        android:id="@+id/txtv_mheader_divein"
+                        style="@style/ModuleButton"
+                        android:text="@string/dive_in"
+                        android:textAllCaps="true" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lay_mheader_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_toLeftOf="@id/lay_mheader_poster"
+                    android:layout_toStartOf="@id/lay_mheader_poster"
+                    android:orientation="vertical"
+                    android:paddingRight="@dimen/module_margin">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtv_mheader_director"
+                        style="@style/MinicardTitleLink"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/mheader_director_mbottom"
+                         />
+
+                    <TextView
+                        android:id="@+id/txtv_mheader_genres"
+                        style="@style/CardMovieGenre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                         />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/lay_mheader_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/mheader_clock_mbottom"
+                        android:orientation="horizontal"
+                        android:layout_alignParentBottom="true"
+                        >
+
+                        <ImageView
+                            style="@style/Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ico_oclock"
+                            android:layout_marginRight="@dimen/mheader_clock_mright"/>
+
+                        <TextView
+                            android:id="@+id/txtv_mheader_time"
+                            style="@style/CardMovieTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

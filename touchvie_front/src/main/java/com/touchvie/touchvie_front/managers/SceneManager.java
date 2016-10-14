@@ -8,7 +8,6 @@ import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.logic.CarouselLogic;
-import com.touchvie.touchvie_front.ui.fragments.Carousel;
 import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 
 import java.util.ArrayList;
@@ -78,12 +77,12 @@ public class SceneManager implements CarouselCardListener {
             }
             sceneCards.add(card.getCardId());
             cards.put(card.getCardId(), card);
-            mPicasso.load(card.getData().getImage()).fetch();
+            mPicasso.load(card.getData().getImage().getFull()).fetch();
             if (card.getChildren()!=null && card.getChildren().length>0){
                 int maxRel = (card.getChildren().length>=2?2:card.getChildren().length);
                 for (int i=0;i<maxRel;i++){
-                    if (card.getChildren()[i]!=null && card.getChildren()[i].getRel_cards()!=null && card.getChildren()[i].getRel_cards()[0].getImage()!=null)
-                        mPicasso.load(card.getChildren()[i].getRel_cards()[0].getImage()).fetch();
+                    if (card.getChildren()[i]!=null && card.getChildren()[i].getRelated()!=null && card.getChildren()[i].getRelated()[0].getImage()!=null)
+                        mPicasso.load(card.getChildren()[i].getRelated()[0].getImage().getFull()).fetch();
                 }
             }
         }
