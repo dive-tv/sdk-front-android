@@ -1,16 +1,14 @@
-package com.touchvie.backend;
+package com.touchvie.backend.carddetail.containers;
 
-import com.touchvie.backend.carddetail.Data;
 import com.touchvie.backend.carddetail.Source;
 
 /**
- * Created by Tagsonomy S.L. on 10/10/2016.
+ * Created by Tagsonomy S.L. on 17/10/2016.
  */
 
-public class TextData extends Data {
-
-    String text;
-    Source source;
+public class Text extends ContainerData {
+    private String text;
+    private Source source;
 
     public String getText() {
         return text;
@@ -27,5 +25,4 @@ public class TextData extends Data {
     public void setSource(Source source) {
         this.source = source;
     }
-
 }

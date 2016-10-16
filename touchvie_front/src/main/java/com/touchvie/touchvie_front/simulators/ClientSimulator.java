@@ -6,9 +6,8 @@ import android.content.res.Resources;
 import android.os.Handler;
 
 import com.google.gson.GsonBuilder;
-import com.touchvie.backend.Card;
 import com.touchvie.backend.CardData;
-import com.touchvie.backend.Relation;
+import com.touchvie.backend.carddetail.Relation;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_client.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.R;

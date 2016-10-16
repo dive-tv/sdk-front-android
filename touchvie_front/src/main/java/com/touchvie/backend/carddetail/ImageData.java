@@ -1,21 +1,15 @@
-package com.touchvie.backend;
-
-
-import com.touchvie.backend.carddetail.Source;
-
-import java.io.Serializable;
+package com.touchvie.backend.carddetail;
 
 /**
- * Created by Tagsonomy S.L. on 06/10/2016.
+ * Created by Tagsonomy S.L. on 16/10/2016.
  */
 
-public class Image implements Serializable{
-
-    String thumb;
-    String full;
-    float anchor_x;
-    float anchor_y;
-    Source source;
+public class ImageData {
+    private String thumb;
+    private String full;
+    private int anchor_x;
+    private int anchor_Y;
+    private Source source;
 
     public String getThumb() {
         return thumb;
@@ -33,20 +27,20 @@ public class Image implements Serializable{
         this.full = full;
     }
 
-    public float getAnchorX() {
+    public int getAnchorX() {
         return anchor_x;
     }
 
-    public void setAnchorX(float anchor_x) {
+    public void setAnchorX(int anchor_x) {
         this.anchor_x = anchor_x;
     }
 
-    public float getAnchorY() {
-        return anchor_y;
+    public int getAnchorY() {
+        return anchor_Y;
     }
 
-    public void setAnchorY(float anchor_y) {
-        this.anchor_y = anchor_y;
+    public void setAnchorY(int anchor_Y) {
+        this.anchor_Y = anchor_Y;
     }
 
     public Source getSource() {

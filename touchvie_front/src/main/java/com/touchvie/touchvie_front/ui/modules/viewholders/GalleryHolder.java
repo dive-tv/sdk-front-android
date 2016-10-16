@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
-import com.touchvie.backend.Container;
+import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.Image;
 import com.touchvie.backend.TypeOfContainer;
 import com.touchvie.touchvie_front.R;

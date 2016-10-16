@@ -1,4 +1,6 @@
-package com.touchvie.backend;
+package com.touchvie.backend.carddetail;
+
+import com.touchvie.backend.carddetail.Data;
 
 import java.io.Serializable;
 
@@ -8,9 +10,9 @@ import java.io.Serializable;
 
 public class Container implements Serializable {
 
-    String type;
-    String content_type;
-    Data data;
+    private String type;
+    private String content_type;
+    private Data data;
 
     public String getType() {
         return type;

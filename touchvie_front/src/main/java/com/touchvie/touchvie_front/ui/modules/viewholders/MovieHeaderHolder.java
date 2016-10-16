@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.backend.CatalogData;
-import com.touchvie.backend.Container;
+import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.TypeOfContainer;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
