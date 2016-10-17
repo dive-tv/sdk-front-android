@@ -1,6 +1,7 @@
 package com.touchvie.touchvie_front.ui.views;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,29 +55,83 @@ public class LinearListLayout extends LinearLayout {
      * @param list          the list
      * @param withSeparator the with separator
      */
-    public void setList(Adapter list, boolean withSeparator) {
+    public void setList(Adapter list, boolean withSeparator, View customSeparator) {
         this.list = list;
         this.removeAllViews();
 
         //Popolute list
         if (this.list != null) {
             if (withSeparator) {
+                if(customSeparator !=null){
+                    for (int i = 0; i < this.list.getCount(); i++) {
+                        View item = list.getView(i, null, null);
+                        this.addView(item);
+                            if (i < this.list.getCount() - 1) {
+                            this.addView(customSeparator); //TODO: test this because we are adding the same separator for each element.
+                        }
+                    }
+                }else{
+                    for (int i = 0; i < this.list.getCount(); i++) {
+                        View item = list.getView(i, null, null);
+                        this.addView(item);
+                        if (i < this.list.getCount() - 1) {
+                            FrameLayout separator = new FrameLayout(getContext());
+                            FrameLayout.LayoutParams layoutparams;
+
+                            if (getOrientation() == LinearLayout.VERTICAL) {
+                                layoutparams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.stroke));
+                            } else {
+                                layoutparams = new FrameLayout.LayoutParams((int) getResources().getDimension(R.dimen.stroke), ViewGroup.LayoutParams.MATCH_PARENT);
+                            }
+                            separator.setLayoutParams(layoutparams);
+                            this.addView(separator);
+                        }
+                    }
+                }
+
+            } else {
                 for (int i = 0; i < this.list.getCount(); i++) {
                     View item = list.getView(i, null, null);
                     this.addView(item);
-                    if (i < this.list.getCount() - 1) {
-                        FrameLayout separator = new FrameLayout(getContext());
-                        FrameLayout.LayoutParams layoutparams;
+                }
+            }
+        }
 
-                        if (getOrientation() == LinearLayout.VERTICAL) {
-                            layoutparams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.stroke));
-                        } else {
-                            layoutparams = new FrameLayout.LayoutParams((int) getResources().getDimension(R.dimen.stroke), ViewGroup.LayoutParams.MATCH_PARENT);
+    }
+
+    public void notifyDataSetChanged(boolean withSeparator, View customSeparator ){
+        this.removeAllViews();
+
+        //Popolute list
+        if (this.list != null) {
+            if (withSeparator) {
+                if(customSeparator !=null){
+                    for (int i = 0; i < this.list.getCount(); i++) {
+                        View item = list.getView(i, null, null);
+                        this.addView(item);
+                        if (i < this.list.getCount() - 1) {
+                            this.addView(customSeparator); //TODO: test this because we are adding the same separator for each element.
                         }
-                        separator.setLayoutParams(layoutparams);
-                        this.addView(separator);
+                    }
+                }else{
+                    for (int i = 0; i < this.list.getCount(); i++) {
+                        View item = list.getView(i, null, null);
+                        this.addView(item);
+                        if (i < this.list.getCount() - 1) {
+                            FrameLayout separator = new FrameLayout(getContext());
+                            FrameLayout.LayoutParams layoutparams;
+
+                            if (getOrientation() == LinearLayout.VERTICAL) {
+                                layoutparams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) getResources().getDimension(R.dimen.stroke));
+                            } else {
+                                layoutparams = new FrameLayout.LayoutParams((int) getResources().getDimension(R.dimen.stroke), ViewGroup.LayoutParams.MATCH_PARENT);
+                            }
+                            separator.setLayoutParams(layoutparams);
+                            this.addView(separator);
+                        }
                     }
                 }
+
             } else {
                 for (int i = 0; i < this.list.getCount(); i++) {
                     View item = list.getView(i, null, null);

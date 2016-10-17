@@ -1,27 +1,24 @@
-package com.touchvie.touchvie_front.ui.modules.adapters;
+package com.touchvie.touchvie_front.ui.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
-import com.touchvie.touchvie_front.ui.modules.data.TextData;
 
 import java.util.ArrayList;
 
 /**
- * Created by Tagsonomy S.L. on 14/10/2016.
+ * Created by Tagsonomy S.L. on 17/10/2016.
  */
 
-public class RectangularImageItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class NoPaddingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<ImageRowData> rows;
-    private boolean imageTextSpace=false;
 
-    public RectangularImageItemsAdapter(ArrayList<ImageRowData> rows){
+    public NoPaddingListAdapter(ArrayList<ImageRowData> rows){
         super();
         this.rows=rows;
     }
@@ -33,6 +30,7 @@ public class RectangularImageItemsAdapter extends RecyclerView.Adapter<RecyclerV
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
     }
 
     @Override
@@ -40,12 +38,7 @@ public class RectangularImageItemsAdapter extends RecyclerView.Adapter<RecyclerV
         return 0;
     }
 
-    public void setImageTextSpace(boolean space){
-
-        this.imageTextSpace=space;
-    }
-
-    public static class RectangularImageItemsItemHolder extends RecyclerView.ViewHolder {
+    public static class NoPaddingListItemHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
 
@@ -53,15 +46,11 @@ public class RectangularImageItemsAdapter extends RecyclerView.Adapter<RecyclerV
 
         TextView subtitle;
 
-        FrameLayout space;
-
-        public RectangularImageItemsItemHolder(View v) {
+        public NoPaddingListItemHolder(View v) {
             super(v);
 
         }
     }
 
-
 }
-
 

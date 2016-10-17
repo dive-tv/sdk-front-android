@@ -9,12 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/wheat"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/fcuriosity_container_padbottom"
+        android:paddingTop="@dimen/fcuriosity_container_padtop"
+        android:paddingLeft="@dimen/fcuriosity_container_padside"
+        android:paddingRight="@dimen/fcuriosity_container_padside">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtv_fcuriosity_title"
-            style="@style/CardTitle"/>
+            style="@style/CardTitle"
+            android:layout_marginBottom="@dimen/fcuriosity_title_mbottom"/>
 
         <TextView
             android:layout_width="match_parent"

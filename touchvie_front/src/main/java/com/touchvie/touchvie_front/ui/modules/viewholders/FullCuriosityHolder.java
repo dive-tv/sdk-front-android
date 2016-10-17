@@ -38,6 +38,9 @@ public class FullCuriosityHolder extends ModuleHolder {
 
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         mText.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
+
+        //TODO: get data from carddata and insert into texts.
+
     }
 
 }
