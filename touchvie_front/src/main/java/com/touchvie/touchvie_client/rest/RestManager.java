@@ -5,16 +5,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.touchvie.dive.restmanager.datawrappers.NotifConfigData;
-import com.touchvie.dive.restmanager.listeners.AuthListener;
-import com.touchvie.dive.restmanager.listeners.ProfileListener;
-import com.touchvie.dive.restmanager.listeners.TvEventListener;
-import com.touchvie.dive.restmanager.restmanager.Auth;
-import com.touchvie.dive.restmanager.restmanager.Profile;
-import com.touchvie.dive.restmanager.restmanager.TvEvent;
-import com.touchvie.dive.restmanager.restmanager.interfaces.AuthManagerInterface;
-import com.touchvie.dive.restmanager.restmanager.interfaces.ProfileManagerInterface;
-import com.touchvie.dive.restmanager.restmanager.interfaces.TvEventManagerInterface;
+import com.touchvie.touchvie_client.rest.restmanager.Auth;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -23,12 +14,10 @@ import java.util.Locale;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class RestManager implements AuthManagerInterface, ProfileManagerInterface, TvEventManagerInterface {
+public class RestManager  {
     public static Context context = null;
 
     private Auth authManager;
-    private Profile profileManager;
-    private TvEvent tvEvent;
 
     private static volatile RestManager instance;
 
@@ -57,8 +46,6 @@ public class RestManager implements AuthManagerInterface, ProfileManagerInterfac
 
 
         authManager = new Auth(ctx);
-        profileManager = new Profile(ctx);
-        tvEvent = new TvEvent(ctx);
 
         mVProvider = VolleyProvider.getInstance(ctx);
         settings = context.getSharedPreferences(Utils.SHARED_PREFERENCES, Context.MODE_PRIVATE);
@@ -149,91 +136,5 @@ public class RestManager implements AuthManagerInterface, ProfileManagerInterfac
 
     }
 
-
-    //Implemented interface methods.
-    @Override
-    public boolean getDiveToken(String username, String password, String token, String refresh_token, boolean refresh, int currentTry, int maxTries, AuthListener listener) {
-        return authManager.getDiveToken(username, password, token, refresh_token, refresh, currentTry, maxTries, listener);
-    }
-
-    @Override
-    public boolean registerEmail(String email, String password, AuthListener listener) {
-        return authManager.registerEmail(email, password, listener);
-    }
-
-    @Override
-    public boolean registerFacebook(String token, AuthListener listener) {
-        return authManager.registerFacebook(token, listener);
-    }
-
-    @Override
-    public boolean setPassword(String password, AuthListener listener) {
-        return authManager.setPassword(password, listener);
-    }
-
-    @Override
-    public boolean changePassword(String newPassword, String oldPassword, AuthListener listener) {
-        return authManager.changePassword(newPassword, oldPassword, listener);
-    }
-
-    @Override
-    public boolean resetPassword(String email, AuthListener listener) {
-        return authManager.resetPassword(email, listener);
-    }
-
-    @Override
-    public boolean getCredentialsAWS(int currentTry, int maxTries, AuthListener listener) {
-        return authManager.getCredentialsAWS(currentTry, maxTries, listener);
-    }
-
-    @Override
-    public boolean checkDiveVersion(AuthListener listener) {
-        return authManager.checkDiveVersion(listener);
-    }
-
-    @Override
-    public boolean addDevice(String token, ProfileListener listener) {
-        return profileManager.addDevice(token,listener);
-    }
-
-    @Override
-    public boolean deleteDevice(String token, ProfileListener listener) {
-        return profileManager.deleteDevice(token, listener);
-    }
-
-    @Override
-    public boolean getProfile(ProfileListener listener) {
-        return profileManager.getProfile(listener);
-    }
-
-    @Override
-    public boolean changeEmail(String email, ProfileListener listener) {
-        return profileManager.changeEmail(email, listener);
-    }
-
-    @Override
-    public boolean profileNotificationsSettings(NotifConfigData notifConf, ProfileListener listener) {
-        return profileManager.profileNotificationsSettings(notifConf, listener);
-    }
-
-    @Override
-    public boolean getTvRegions(TvEventListener listener) {
-        return tvEvent.getTvRegions(listener);
-    }
-
-    @Override
-    public boolean updateRegions(String tvRegionSelect, TvEventListener listener) {
-        return tvEvent.updateRegions(tvRegionSelect, listener);
-    }
-
-    @Override
-    public boolean getTvChannels(TvEventListener listener) {
-        return tvEvent.getTvChannels(listener);
-    }
-
-    @Override
-    public boolean updateChannels(String tvChannelId, boolean isActive, TvEventListener listener) {
-        return tvEvent.updateChannels(tvChannelId, isActive, listener);
-    }
 }
 

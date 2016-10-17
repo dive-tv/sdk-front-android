@@ -1,11 +1,13 @@
 package com.touchvie.backend.carddetail;
 
 
+import com.touchvie.touchvie_client.rest.datawrappers.NetworkData;
+
 /**
  * Created by Tagsonomy S.L. on 16/10/2016.
  */
 
-public class CardDetail {
+public class CardDetail extends NetworkData {
     private String card_id;
     private String type;
     private String locale;

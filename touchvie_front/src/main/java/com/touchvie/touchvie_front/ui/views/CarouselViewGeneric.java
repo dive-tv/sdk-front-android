@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
@@ -19,7 +19,7 @@ import com.touchvie.touchvie_front.R;
 
 public class CarouselViewGeneric extends CarouselView {
 
-    public CarouselViewGeneric(Context context, CardData card) {
+    public CarouselViewGeneric(Context context, MiniCard card) {
         super(context, card);
     }
 

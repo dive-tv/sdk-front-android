@@ -1,17 +1,9 @@
 package com.touchvie.touchvie_front.ui.views;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-import com.touchvie.backend.CardData;
-import com.touchvie.touchvie_client.data.ImageSize;
-import com.touchvie.touchvie_client.manager.ClientManager;
-import com.touchvie.touchvie_front.R;
+import com.touchvie.backend.MiniCard;
 
 /**
  * Created by rodrigo.moral on 03/10/2016.
@@ -20,10 +12,10 @@ import com.touchvie.touchvie_front.R;
 public class CarouselView {
 
     Context context;
-    CardData card;
+    MiniCard card;
     FrameLayout layout;
 
-    public CarouselView(Context context, CardData card) {
+    public CarouselView(Context context, MiniCard card) {
         this.context = context;
         this.card = card;
         createLayout();

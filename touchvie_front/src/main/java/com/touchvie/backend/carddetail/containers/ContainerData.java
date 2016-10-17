@@ -4,6 +4,7 @@ package com.touchvie.backend.carddetail.containers;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.touchvie.backend.TypeOfContainer;
 import com.touchvie.backend.carddetail.ImageData;
 
 

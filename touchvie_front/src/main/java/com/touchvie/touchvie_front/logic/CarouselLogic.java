@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.google.gson.GsonBuilder;
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.CarouselCell;
@@ -33,7 +33,7 @@ public class CarouselLogic {
         CarouselCard lastCard = null;
         CarouselCard newCard = null;
         ArrayList<CarouselCell> cells = new ArrayList<>();
-        ArrayList<CardData> cellCards = null;
+        ArrayList<MiniCard> cellCards = null;
         CarouselCell newCell = null;
         boolean setNewCell = true;
         int rel = 0;
@@ -46,7 +46,7 @@ public class CarouselLogic {
 
             newCard = card;
             if (lastCard == null) {
-                CardData temp;
+                MiniCard temp;
                 temp = card.getData();
                 cellCards.add(temp);
                 lastCard = newCard;
@@ -54,14 +54,14 @@ public class CarouselLogic {
                 continue;
             }
             if (checkGroupableTree(newCard, lastCard)) {
-                CardData temp;
+                MiniCard temp;
                 temp = newCard.getData();
                 cellCards.add(temp);
                 if (newCard.getChildren() != null) {
                     outerloop:
                     for (int i = 0; i < newCard.getChildren().length - 1; i++) {
                         for (int j = 0; i < newCard.getChildren()[i].getRelated().length - 1; j++) {
-                            CardData temp2;
+                            MiniCard temp2;
                             temp2 = newCard.getChildren()[i].getRelated()[j];
                             cellCards.add(temp2);
                             rel++;
@@ -69,7 +69,7 @@ public class CarouselLogic {
                                 break outerloop;
                         }
                     }
-                    ArrayList<CardData> tempNewCell;
+                    ArrayList<MiniCard> tempNewCell;
                     tempNewCell = cellCards;
                     newCell.setCards(tempNewCell);
                     newCell.setSceneNr(card.getSceneNumber());
@@ -85,21 +85,21 @@ public class CarouselLogic {
                         setNewCell = true;
                 }
             } else {
-                ArrayList<CardData> temp;
+                ArrayList<MiniCard> temp;
                 temp = cellCards;
                 newCell.setCards(temp);
                 newCell.setSceneNr(lastCard.getSceneNumber());
                 cells.add(newCell);
                 newCell = new CarouselCell();
                 cellCards = new ArrayList<>();
-                CardData temp2;
+                MiniCard temp2;
                 temp2 = newCard.getData();
                 cellCards.add(temp2);
                 if (newCard.getChildren() != null) {
                     outerloop:
                     for (int i = 0; i < newCard.getChildren().length - 1; i++) {
                         for (int j = 0; i < newCard.getChildren()[i].getRelated().length - 1; j++) {
-                            CardData temp3;
+                            MiniCard temp3;
                             temp3 = newCard.getChildren()[i].getRelated()[j];
                             cellCards.add(temp3);
                             rel++;
@@ -107,7 +107,7 @@ public class CarouselLogic {
                                 break outerloop;
                         }
                     }
-                    ArrayList<CardData> tempNewCell;
+                    ArrayList<MiniCard> tempNewCell;
                     tempNewCell = cellCards;
                     newCell.setCards(tempNewCell);
                     newCell.setSceneNr(card.getSceneNumber());

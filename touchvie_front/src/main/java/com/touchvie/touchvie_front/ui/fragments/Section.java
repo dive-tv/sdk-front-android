@@ -49,7 +49,7 @@ public class Section extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
 
     /**
-     * CardData object, with all the data of the card
+     * MiniCard object, with all the data of the card
      */
     private Card cardData;
 

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_front.R;
 
 /**
@@ -15,7 +15,7 @@ import com.touchvie.touchvie_front.R;
 
 public class CarouselViewCuriosity extends CarouselView {
 
-    public CarouselViewCuriosity(Context context, CardData card) {
+    public CarouselViewCuriosity(Context context, MiniCard card) {
         super(context, card);
     }
 
