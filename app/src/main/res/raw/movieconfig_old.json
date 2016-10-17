@@ -1,0 +1,66 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "MovieHeader"
+        },
+        {
+          "type": "OverviewNavigation"
+        },
+        {
+          "type": "Cast"
+        },
+        {
+          "type": "Shop"
+        },
+        {
+          "type": "Curiosities"
+        },
+        {
+          "type": "PlacesShown"
+        },
+        {
+          "type": "Vehicles"
+        },
+        {
+          "type": "HighLights"
+        },
+        {
+          "type": "Recommended"
+        }
+
+      ]
+    },
+    {
+      "title": "fullcard",
+      "modules": [
+        {
+          "type": "Overview"
+        },
+        {
+          "type": "Trailer"
+        },
+        {
+          "type": "BasicData"
+        },
+        {
+          "type": "Gallery"
+        },
+        {
+          "type": "Awards"
+        }
+      ]
+    },
+    {
+      "title": "cast",
+      "modules": [
+        {
+          "type": "CastList"
+        }
+      ]
+    }
+  ]
+}

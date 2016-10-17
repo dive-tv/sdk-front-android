@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/module_padding">
+
+    <TextView
+        android:id="@+id/module_related_movies_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/module_padding"
+        android:textAllCaps="true"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="@dimen/module_title" />
+
+    <com.touchvie.touchvie_front.ui.views.LinearListLayout
+        android:id="@+id/module_related_movies_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+</LinearLayout>

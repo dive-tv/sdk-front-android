@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="apptheme_color">#DA4A38</color>
+    <color name="white">#ffffff</color>
+    <color name="darkGrey">#1c1d1d</color>
+    <color name="black">#262626</color>
+    <color name="darkGrey2">#313233</color>
+    <color name="warmGrey">#909090</color>
+    <color name="paleGrey">#e8eaee</color>
+    <color name="paleGrey2">#f4f6f9</color>
+    <color name="tealGreen">#279b8b</color>
+    <color name="seafoamBlue">#5dc4b6</color>
+    <color name="offYellow">#f7d73b</color>
+    <color name="wheat">#fae477</color>
+</resources>
