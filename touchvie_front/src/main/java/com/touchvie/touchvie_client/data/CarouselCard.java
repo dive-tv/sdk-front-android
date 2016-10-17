@@ -1,6 +1,6 @@
 package com.touchvie.touchvie_client.data;
 
-import com.touchvie.backend.MiniCard;
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.carddetail.Relation;
 
 /**
@@ -8,17 +8,19 @@ import com.touchvie.backend.carddetail.Relation;
  */
 public class CarouselCard {
 
-    /************For testing purposes only ***********************/
+    /************
+     * For testing purposes only
+     ***********************/
 
     private String cardId;
     private int sceneId;
 
-     /*************************************************************/
+    /*************************************************************/
 
     /**
      * The card data received from the server.
      */
-    private MiniCard data;
+    private CardData data;
 
     /**
      * The cards that are related to this card.
@@ -32,22 +34,25 @@ public class CarouselCard {
 
     /**
      * Gets the data of this card.
+     *
      * @return
      */
-    public MiniCard getData() {
+    public CardData getData() {
         return data;
     }
 
     /**
      * Sets this card's data.
+     *
      * @param data The data to be set.
      */
-    public void setData(MiniCard data) {
+    public void setData(CardData data) {
         this.data = data;
     }
 
     /**
      * Gets the cards related to this card.
+     *
      * @return
      */
     public Relation[] getChildren() {
@@ -56,6 +61,7 @@ public class CarouselCard {
 
     /**
      * Sets the card related to this card.
+     *
      * @param children The related cards to be set.
      */
     public void setChildren(Relation[] children) {
@@ -63,7 +69,9 @@ public class CarouselCard {
     }
 
 
-    /*************************For testing purposes only ********************************/
+    /*************************
+     * For testing purposes only
+     ********************************/
 
     public String getCardId() {
         return cardId;
@@ -71,7 +79,8 @@ public class CarouselCard {
 
     public void setCardId(int cardId) {
 
-        this.cardId = Integer.toString(cardId);;
+        this.cardId = Integer.toString(cardId);
+        ;
     }
 
     public int getSceneId() {

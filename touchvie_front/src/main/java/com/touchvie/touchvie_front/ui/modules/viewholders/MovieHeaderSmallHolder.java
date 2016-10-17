@@ -56,7 +56,7 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
             mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
         }
 
-        if(cardData.getContainers()!=null){
+       /* if(cardData.getContainers()!=null){
             for(Container container : cardData.getContainers()){
                 if(TypeOfContainer.CATALOG.getName().equals(container.getType())){
                     if(container.getData()!=null){
@@ -84,6 +84,6 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
                     }
                 }
             }
-        }
+        }*/
     }
 }

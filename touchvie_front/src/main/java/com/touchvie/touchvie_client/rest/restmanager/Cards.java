@@ -20,6 +20,7 @@ import com.touchvie.touchvie_client.rest.datawrappers.AuthData;
 import com.touchvie.touchvie_client.rest.datawrappers.NetworkData;
 import com.touchvie.touchvie_client.rest.listeners.AuthListener;
 import com.touchvie.touchvie_client.rest.listeners.CardDataListener;
+import com.touchvie.touchvie_client.rest.listeners.MiniCardListener;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -147,7 +148,7 @@ public class Cards extends RestService{
 
     }
 
-    public boolean getMiniCard(final ArrayList<String> cardId, final String addProducts, final CardDataListener listener){
+    public boolean getMiniCard(final ArrayList<String> cardId, final String addProducts, final MiniCardListener listener){
         RequestQueue queue = VolleyProvider.getRequestQueue();
 
         Uri.Builder builder = Uri.parse(baseUrl + getCardUrl +  android.text.TextUtils.join(",", cardId)).buildUpon();
@@ -164,7 +165,7 @@ public class Cards extends RestService{
 
             @Override
             public void onResponse(MiniCard response) {
-                listener.onCardDataReceived(response);
+                listener.onMiniCardReceived(response);
             }
         }, new Response.ErrorListener() {
 
@@ -172,7 +173,7 @@ public class Cards extends RestService{
             public void onErrorResponse(VolleyError error) {
 
                 if (error == null || error.networkResponse == null) {
-                    listener.onCardDataError(null);
+                    listener.onMiniCardError(null);
                     return;
                 }
                 if (NetworkMsg.UNAUTHORIZED == error.networkResponse.statusCode) {
@@ -212,7 +213,7 @@ public class Cards extends RestService{
 
                 }
                 authResult.setHttpCode(error.networkResponse.statusCode);
-                listener.onCardDataError(authResult);
+                listener.onMiniCardError(authResult);
             }
         }) {
 
@@ -225,18 +226,18 @@ public class Cards extends RestService{
                     e.printStackTrace();
                 }
                 ObjectMapper mapper = new ObjectMapper();
-                MiniCard card = null;
+                MiniCard miniCard = null;
                 try {
-                    card = mapper.readValue(jsonString, MiniCard.class);
+                    miniCard = mapper.readValue(jsonString, MiniCard.class);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                if (card == null) {
-                    card = new MiniCard();
+                if (miniCard == null) {
+                    miniCard = new MiniCard();
                 }
-                card.setHttpCode(response.statusCode);
-                Response<MiniCard> result = Response.success(card, HttpHeaderParser.parseCacheHeaders(response));
+                miniCard.setHttpCode(response.statusCode);
+                Response<MiniCard> result = Response.success(miniCard, HttpHeaderParser.parseCacheHeaders(response));
                 return result;
             }
 

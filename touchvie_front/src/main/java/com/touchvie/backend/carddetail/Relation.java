@@ -1,5 +1,7 @@
 package com.touchvie.backend.carddetail;
 
+import com.touchvie.backend.CardData;
+
 import java.io.Serializable;
 
 /**
@@ -21,7 +23,7 @@ public class Relation implements Serializable {
     /**
      * The related related to the related that owns the relation.
      */
-    private RelData[] data;
+    private CardData[] data;
 
     /**
      * Gets the type of the relation.
@@ -47,11 +49,11 @@ public class Relation implements Serializable {
         this.content_type = content_type;
     }
 
-    public RelData[] getData() {
+    public CardData[] getData() {
         return data;
     }
 
-    public void setData(RelData[] data) {
+    public void setData(CardData[] data) {
         this.data = data;
     }
 }

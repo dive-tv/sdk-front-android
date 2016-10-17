@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.CarouselView;
@@ -21,14 +22,14 @@ import java.util.ArrayList;
  */
 public class CarouselCell implements Serializable {
 
-    ArrayList<MiniCard> cards;
+    ArrayList<CardData> cards;
     int sceneNr;
 
-    public ArrayList<MiniCard> getCards() {
+    public ArrayList<CardData> getCards() {
         return cards;
     }
 
-    public void setCards(ArrayList<MiniCard> cards) {
+    public void setCards(ArrayList<CardData> cards) {
         this.cards = cards;
     }
 
@@ -57,11 +58,11 @@ public class CarouselCell implements Serializable {
 
         if (getCards() != null && getCards().size() > 0) {
             for (int i = 0; i < getCards().size(); i++) {
-                if (getCards().get(i).getType().equals("curiosity")) {
-                    CarouselViewCuriosity temp = new CarouselViewCuriosity(context, getCards().get(i));
+                if (getCards().get(i).getMiniCard().getType().equals("curiosity")) {
+                    CarouselViewCuriosity temp = new CarouselViewCuriosity(context, getCards().get(i).getMiniCard());
                     views.add(temp);
                 } else {
-                    CarouselViewGeneric temp = new CarouselViewGeneric(context, getCards().get(i));
+                    CarouselViewGeneric temp = new CarouselViewGeneric(context, getCards().get(i).getMiniCard());
                     views.add(temp);
                 }
             }

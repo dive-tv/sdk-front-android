@@ -41,7 +41,7 @@ public class MovieHeaderHolder extends ModuleHolder {
      */
     public MovieHeaderHolder(View itemView) {
         super(itemView);
-        mBackground =(ImageView)itemView.findViewById(R.id.imgv_mheader_background);
+     /*   mBackground =(ImageView)itemView.findViewById(R.id.imgv_mheader_background);
         mTitle =(TextView)itemView.findViewById(R.id.txtv_mheader_title);
         mYear=(TextView)itemView.findViewById(R.id.txtv_mheader_year);
         mDirector =(TextView)itemView.findViewById(R.id.txtv_mheader_director);
@@ -49,7 +49,7 @@ public class MovieHeaderHolder extends ModuleHolder {
         mTimeLay =(LinearLayout) itemView.findViewById(R.id.lay_mheader_time);
         mTime=(TextView)itemView.findViewById(R.id.txtv_mheader_time);
         mPoster=(ImageView) itemView.findViewById(R.id.imgv_mheader_poster);
-        mButton=(TextView)itemView.findViewById(R.id.txtv_mheader_divein);
+        mButton=(TextView)itemView.findViewById(R.id.txtv_mheader_divein);*/
 
     }
 
@@ -68,7 +68,7 @@ public class MovieHeaderHolder extends ModuleHolder {
             mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         }
 
-        if(cardData.getContainers()!=null){
+       /* if(cardData.getContainers()!=null){
 
             for(Container container : cardData.getContainers()){
                 if(TypeOfContainer.CATALOG.getName().equals(container.getType())){
@@ -121,7 +121,7 @@ public class MovieHeaderHolder extends ModuleHolder {
                     mButton.setVisibility(View.GONE);
                 }
             }
-        }
+        }*/
 
     }
 }

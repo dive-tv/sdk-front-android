@@ -40,7 +40,7 @@ public class OverviewNavigationHolder extends TextHolder {
             }
         });
 
-        if(cardData.getContainers() !=null){
+      /*  if(cardData.getContainers() !=null){
             for(Container container : cardData.getContainers()) {
                 if (TypeOfContainer.OVERVIEW.getName().equals(container.getType())) {
                     if(container.getData()!=null) {
@@ -82,7 +82,7 @@ public class OverviewNavigationHolder extends TextHolder {
         }else{
             text.setVisibility(GONE);
             sourceLay.setVisibility(GONE);
-        }
+        }*/
 
     }
 }

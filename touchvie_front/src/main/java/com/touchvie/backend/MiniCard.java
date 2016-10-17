@@ -1,27 +1,28 @@
 package com.touchvie.backend;
 
+import com.touchvie.backend.carddetail.ProductData;
+import com.touchvie.touchvie_client.rest.datawrappers.NetworkData;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
-public class MiniCard implements Serializable {
-    String card_id;
-    String title;
-    String subtitle;
-    String type;
-    Image image;
-    String source;
-    int anchor_x;
-    int anchor_y;
-    Boolean is_exact;
-    String url;
+public class MiniCard extends NetworkData implements Serializable {
+    private String card_id;
+    private String type;
+    private String locale;
+    private String title;
+    private String subtitle;
+    private Image image;
+    private ArrayList<ProductData> products;
 
-    public String getCard_id() {
+    public String getCardId() {
         return card_id;
     }
 
-    public void setCard_id(String card_id) {
+    public void setCardId(String card_id) {
         this.card_id = card_id;
     }
 
@@ -57,44 +58,19 @@ public class MiniCard implements Serializable {
         this.image = image;
     }
 
-    public String getSource() {
-        return source;
+    public String getLocale() {
+        return locale;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setLocale(String locale) {
+        this.locale = locale;
     }
 
-    public int getAnchor_x() {
-        return anchor_x;
+    public ArrayList<ProductData> getProducts() {
+        return products;
     }
 
-    public void setAnchor_x(int anchor_x) {
-        this.anchor_x = anchor_x;
+    public void setProducts(ArrayList<ProductData> products) {
+        this.products = products;
     }
-
-    public int getAnchor_y() {
-        return anchor_y;
-    }
-
-    public void setAnchor_y(int anchor_y) {
-        this.anchor_y = anchor_y;
-    }
-
-    public Boolean getIs_exact() {
-        return is_exact;
-    }
-
-    public void setIs_exact(Boolean is_exact) {
-        this.is_exact = is_exact;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
 }

@@ -1,6 +1,6 @@
 package com.touchvie.backend.carddetail.containers;
 
-import com.touchvie.backend.MiniCard;
+import com.touchvie.backend.CardData;
 
 /**
  * Created by Tagsonomy S.L. on 17/10/2016.
@@ -10,7 +10,7 @@ public class TvEvent {
     private String channel_id;
     private String channel_name;
     private int start_data;
-    private MiniCard card;
+    private CardData card;
     private int alarm_minutes_before;
 
     public String getChannelId() {
@@ -37,11 +37,11 @@ public class TvEvent {
         this.start_data = start_data;
     }
 
-    public MiniCard getCard() {
+    public CardData getCard() {
         return card;
     }
 
-    public void setCard(MiniCard card) {
+    public void setCard(CardData card) {
         this.card = card;
     }
 

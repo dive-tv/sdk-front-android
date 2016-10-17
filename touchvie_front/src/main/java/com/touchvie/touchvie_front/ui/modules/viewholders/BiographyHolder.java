@@ -33,7 +33,7 @@ public class BiographyHolder extends TextHolder implements ExpandableListener {
         title.setText(context.getResources().getString(R.string.biography));
         title.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
 
-        if(cardData.getContainers() !=null){
+      /*  if(cardData.getContainers() !=null){
             for(Container container : cardData.getContainers()) {
                 if (TypeOfContainer.BIOGRAPHY.getName().equals(container.getType())) {
                     if(container.getData()!=null) {
@@ -81,7 +81,7 @@ public class BiographyHolder extends TextHolder implements ExpandableListener {
             }
         }else{
             text.setVisibility(GONE);
-        }
+        }*/
     }
 
     @Override

@@ -31,7 +31,7 @@ public class DescriptionHolder extends TextHolder implements ExpandableListener 
         title.setVisibility(GONE);
         link.setVisibility(GONE);
 
-        if(cardData.getContainers() !=null){
+      /*  if(cardData.getContainers() !=null){
             for(Container container : cardData.getContainers()) {
                 if (TypeOfContainer.DESCRIPTION.getName().equals(container.getType())) {
                     if(container.getData()!=null) {
@@ -82,7 +82,7 @@ public class DescriptionHolder extends TextHolder implements ExpandableListener 
             text.setVisibility(GONE);
             more.setVisibility(GONE);
             sourceLay.setVisibility(GONE);
-        }
+        }*/
 
     }
 
