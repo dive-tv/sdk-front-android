@@ -1,0 +1,75 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
+        },
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
+        },
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.old.NavigationModule",
+          "targets": [
+            {
+              "sectionId": "second",
+              "text": "GO TO SECOND SECTION"
+            }
+          ]
+        },
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.TabsModule",
+          "targets": [
+            {
+              "sectionId": "second",
+              "text": "SECOND TAB"
+            },
+            {
+              "sectionId": "third",
+              "text": "THIRD TAB"
+            }
+          ]
+        },
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
+        }
+      ]
+    },
+    {
+      "title": "second",
+      "modules": [
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.RelatedMoviesModule"
+        },
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.Navigation",
+          "targets": [
+            {
+              "sectionId": "main",
+              "text": "BACK TO MAIN"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "third",
+      "modules": [
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
+        },
+        {
+          "type": "com.touchvie.touchvie_front.ui.modules.Navigation",
+          "targets": [
+            {
+              "sectionId": "main",
+              "text": "BACK TO MAIN"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
