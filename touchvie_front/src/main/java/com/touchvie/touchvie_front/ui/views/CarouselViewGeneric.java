@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
@@ -19,7 +20,7 @@ import com.touchvie.touchvie_front.R;
 
 public class CarouselViewGeneric extends CarouselView {
 
-    public CarouselViewGeneric(Context context, MiniCard card) {
+    public CarouselViewGeneric(Context context, CardData card) {
         super(context, card);
     }
 
@@ -30,14 +31,14 @@ public class CarouselViewGeneric extends CarouselView {
         final ImageView mImageView = (ImageView) baseView.findViewById(R.id.carousel_item_generic_base_img);
         TextView mTextView = (TextView) baseView.findViewById(R.id.carousel_item_generic_base_txt);
 
-        if (card.getImage() != null) {
+        if (card.getMiniCard().getImage() != null) {
             mImageView.setVisibility(View.VISIBLE);
             mImageView.post(new Runnable() {
                 @Override
                 public void run() {
-                    if (card.getImage() != null) {
+                    if (card.getMiniCard().getImage() != null) {
                         Picasso.with(context)
-                                .load(ClientManager.getInstance().getImageUrl(card.getImage().getFull(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi)) //DisplayMetrics.DENSITY_HIGH = @2x
+                                .load(ClientManager.getInstance().getImageUrl(card.getMiniCard().getImage().getFull(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi)) //DisplayMetrics.DENSITY_HIGH = @2x
                                 .priority(Picasso.Priority.HIGH)
                                 .noFade()
                                 .into(mImageView);
@@ -48,8 +49,8 @@ public class CarouselViewGeneric extends CarouselView {
             mImageView.setVisibility(View.GONE);
         }
 
-        if (card.getTitle() != null && card.getTitle().length() > 0) {
-            mTextView.setText(card.getTitle());
+        if (card.getMiniCard().getTitle() != null && card.getMiniCard().getTitle().length() > 0) {
+            mTextView.setText(card.getMiniCard().getTitle());
         } else {
             mTextView.setText("");
         }

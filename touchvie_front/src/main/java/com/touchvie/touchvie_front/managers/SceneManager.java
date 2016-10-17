@@ -77,7 +77,7 @@ public class SceneManager implements CarouselCardListener {
             }
             sceneCards.add(card.getCardId());
             cards.put(card.getCardId(), card);
-            mPicasso.load(card.getData().getImage().getFull()).fetch();
+            mPicasso.load(card.getData().getMiniCard().getImage().getFull()).fetch();
             if (card.getChildren()!=null && card.getChildren().length>0){
                 int maxRel = (card.getChildren().length>=2?2:card.getChildren().length);
               /*  for (int i=0;i<maxRel;i++){

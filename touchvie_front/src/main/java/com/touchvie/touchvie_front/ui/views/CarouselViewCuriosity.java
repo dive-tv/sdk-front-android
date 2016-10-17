@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.touchvie.backend.CardData;
 import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_front.R;
 
@@ -15,7 +16,7 @@ import com.touchvie.touchvie_front.R;
 
 public class CarouselViewCuriosity extends CarouselView {
 
-    public CarouselViewCuriosity(Context context, MiniCard card) {
+    public CarouselViewCuriosity(Context context, CardData card) {
         super(context, card);
     }
 
@@ -25,8 +26,8 @@ public class CarouselViewCuriosity extends CarouselView {
         FrameLayout baseView = (FrameLayout) inflater.inflate(R.layout.carousel_item_curiosity, null);
         TextView mTextView = (TextView) baseView.findViewById(R.id.carousel_item_curiosity_text);
 
-        if (card.getTitle() != null && card.getTitle().length() > 0) {
-            mTextView.setText(card.getTitle());
+        if (card.getMiniCard().getTitle() != null && card.getMiniCard().getTitle().length() > 0) {
+            mTextView.setText(card.getMiniCard().getTitle());
         } else {
             mTextView.setText("");
         }

@@ -59,10 +59,10 @@ public class CarouselCell implements Serializable {
         if (getCards() != null && getCards().size() > 0) {
             for (int i = 0; i < getCards().size(); i++) {
                 if (getCards().get(i).getMiniCard().getType().equals("curiosity")) {
-                    CarouselViewCuriosity temp = new CarouselViewCuriosity(context, getCards().get(i).getMiniCard());
+                    CarouselViewCuriosity temp = new CarouselViewCuriosity(context, getCards().get(i));
                     views.add(temp);
                 } else {
-                    CarouselViewGeneric temp = new CarouselViewGeneric(context, getCards().get(i).getMiniCard());
+                    CarouselViewGeneric temp = new CarouselViewGeneric(context, getCards().get(i));
                     views.add(temp);
                 }
             }

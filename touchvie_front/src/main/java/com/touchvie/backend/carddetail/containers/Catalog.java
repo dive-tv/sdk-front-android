@@ -7,7 +7,7 @@ package com.touchvie.backend.carddetail.containers;
 public class Catalog extends ContainerData {
     private String background_image;
     private String director;
-    private String genres;
+    private String[] genres;
     private String original_title;
     private int runtime;
     private int year;
@@ -33,11 +33,11 @@ public class Catalog extends ContainerData {
         this.director = director;
     }
 
-    public String getGenres() {
+    public String[] getGenres() {
         return genres;
     }
 
-    public void setGenres(String genres) {
+    public void setGenres(String[] genres) {
         this.genres = genres;
     }
 

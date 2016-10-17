@@ -12,6 +12,7 @@ import com.touchvie.backend.Card;
 import com.touchvie.backend.CatalogData;
 import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.TypeOfContainer;
+import com.touchvie.backend.carddetail.containers.Catalog;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
@@ -41,7 +42,7 @@ public class MovieHeaderHolder extends ModuleHolder {
      */
     public MovieHeaderHolder(View itemView) {
         super(itemView);
-     /*   mBackground =(ImageView)itemView.findViewById(R.id.imgv_mheader_background);
+        mBackground =(ImageView)itemView.findViewById(R.id.imgv_mheader_background);
         mTitle =(TextView)itemView.findViewById(R.id.txtv_mheader_title);
         mYear=(TextView)itemView.findViewById(R.id.txtv_mheader_year);
         mDirector =(TextView)itemView.findViewById(R.id.txtv_mheader_director);
@@ -49,7 +50,7 @@ public class MovieHeaderHolder extends ModuleHolder {
         mTimeLay =(LinearLayout) itemView.findViewById(R.id.lay_mheader_time);
         mTime=(TextView)itemView.findViewById(R.id.txtv_mheader_time);
         mPoster=(ImageView) itemView.findViewById(R.id.imgv_mheader_poster);
-        mButton=(TextView)itemView.findViewById(R.id.txtv_mheader_divein);*/
+        mButton=(TextView)itemView.findViewById(R.id.txtv_mheader_divein);
 
     }
 
@@ -68,39 +69,39 @@ public class MovieHeaderHolder extends ModuleHolder {
             mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         }
 
-       /* if(cardData.getContainers()!=null){
+        if(cardData.getContainers()!=null){
 
             for(Container container : cardData.getContainers()){
                 if(TypeOfContainer.CATALOG.getName().equals(container.getType())){
                     if(container.getData()!=null){
-                        if(((CatalogData)container.getData()).getDirector() !=null){
-                            mDirector.setText(((CatalogData)container.getData()).getDirector());
+                        if(((Catalog)container.getData()).getDirector() !=null){
+                            mDirector.setText(((Catalog)container.getData()).getDirector());
                             mDirector.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
                         }
 
-                        if(((CatalogData)container.getData()).getRuntime() !=null){
+                        if(((Catalog)container.getData()).getRuntime() > 0){
                             mTimeLay.setVisibility(View.VISIBLE);
-                           mTime.setText(Utils.getTime(((CatalogData)container.getData()).getRuntime(), context));
+                           mTime.setText(Utils.getTime(((Catalog)container.getData()).getRuntime(), context));
                             mTime.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }else{
                             mTimeLay.setVisibility(View.GONE);
                         }
 
-                        if(((CatalogData)container.getData()).getSync() !=null && ((CatalogData)container.getData()).getSync().isInteractive()==true){
+                        if(((Catalog)container.getData()).getSync() !=null && ((Catalog)container.getData()).getSync().isSynchronizable()==true){
                             mButton.setVisibility(View.VISIBLE);
                         }else{
                             mButton.setVisibility(View.GONE);
                         }
 
-                        if(((CatalogData)container.getData()).getBackgroundImage() !=null){
-                            picasso.load(ClientManager.getInstance().getImageUrl(((CatalogData)container.getData()).getBackgroundImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+                        if(((Catalog)container.getData()).getBackgroundImage() !=null){
+                            picasso.load(ClientManager.getInstance().getImageUrl(((Catalog)container.getData()).getBackgroundImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                                     .into(mBackground);
                         }
 
-                        if(((CatalogData)container.getData()).getGenres() !=null){
+                        if(((Catalog)container.getData()).getGenres() !=null){
                             StringBuilder sb = new StringBuilder();
                             boolean first=true;
-                            for(String genre: ((CatalogData)container.getData()).getGenres()){
+                            for(String genre: ((Catalog)container.getData()).getGenres()){
                                 if(!first){
                                     sb.append(",");
                                 }
@@ -110,8 +111,8 @@ public class MovieHeaderHolder extends ModuleHolder {
                             mGenres.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }
 
-                        if(((CatalogData)container.getData()).getYear() !=null){
-                            mYear.setText(((CatalogData)container.getData()).getYear());
+                        if(((Catalog)container.getData()).getYear() >0){
+                            mYear.setText(((Catalog)container.getData()).getYear());
                             mYear.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_LIGHT));
                         }
 
@@ -121,7 +122,7 @@ public class MovieHeaderHolder extends ModuleHolder {
                     mButton.setVisibility(View.GONE);
                 }
             }
-        }*/
+        }
 
     }
 }

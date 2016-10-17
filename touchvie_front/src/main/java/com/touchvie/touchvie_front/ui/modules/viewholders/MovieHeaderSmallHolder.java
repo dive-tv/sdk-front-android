@@ -9,8 +9,9 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
 import com.touchvie.backend.CatalogData;
-import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.TypeOfContainer;
+import com.touchvie.backend.carddetail.Container;
+import com.touchvie.backend.carddetail.containers.Catalog;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
 import com.touchvie.touchvie_front.R;
@@ -27,6 +28,7 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
     protected TextView mYear;
     protected TextView mDirector;
     protected TextView mGenres;
+
     /**
      * Default constructor
      *
@@ -34,42 +36,42 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
      */
     public MovieHeaderSmallHolder(View itemView) {
         super(itemView);
-        mPoster=(ImageView)itemView.findViewById(R.id.imgv_mheaders_poster);
-        mTitle=(TextView)itemView.findViewById(R.id.txtv_title);
-        mYear=(TextView)itemView.findViewById(R.id.txtv_year);
-        mDirector=(TextView)itemView.findViewById(R.id.txtv_director);
-        mGenres=(TextView)itemView.findViewById(R.id.tvtv_genres);
+        mPoster = (ImageView) itemView.findViewById(R.id.imgv_mheaders_poster);
+        mTitle = (TextView) itemView.findViewById(R.id.txtv_title);
+        mYear = (TextView) itemView.findViewById(R.id.txtv_year);
+        mDirector = (TextView) itemView.findViewById(R.id.txtv_director);
+        mGenres = (TextView) itemView.findViewById(R.id.tvtv_genres);
     }
 
     @Override
     public void configure(Card cardData, Picasso picasso, Context context) {
 
-        if(cardData.getImage() !=null && cardData.getImage().getFull() !=null){
+        if (cardData.getImage() != null && cardData.getImage().getFull() != null) {
             picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                     .into(mPoster);
-        }else{
+        } else {
             mPoster.setVisibility(View.GONE);
         }
 
-        if(cardData.getTitle()!=null){
+        if (cardData.getTitle() != null) {
             mTitle.setText(cardData.getTitle());
             mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
         }
 
-       /* if(cardData.getContainers()!=null){
-            for(Container container : cardData.getContainers()){
-                if(TypeOfContainer.CATALOG.getName().equals(container.getType())){
-                    if(container.getData()!=null){
-                        if(((CatalogData)container.getData()).getDirector() !=null){
-                            mDirector.setText(((CatalogData)container.getData()).getDirector());
+        if (cardData.getContainers() != null) {
+            for (Container container : cardData.getContainers()) {
+                if (TypeOfContainer.CATALOG.getName().equals(container.getType())) {
+                    if (container.getData() != null) {
+                        if (((Catalog) container.getData()).getDirector() != null) {
+                            mDirector.setText(((Catalog) container.getData()).getDirector());
                             mDirector.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
                         }
 
-                        if(((CatalogData)container.getData()).getGenres() !=null){
+                        if (((Catalog) container.getData()).getGenres() != null) {
                             StringBuilder sb = new StringBuilder();
-                            boolean first=true;
-                            for(String genre: ((CatalogData)container.getData()).getGenres()){
-                                if(!first){
+                            boolean first = true;
+                            for (String genre : ((Catalog) container.getData()).getGenres()) {
+                                if (!first) {
                                     sb.append(",");
                                 }
                                 sb.append(genre);
@@ -77,13 +79,13 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
                             mGenres.setText(sb.toString());
                             mGenres.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }
-                        if(((CatalogData)container.getData()).getYear() !=null){
-                            mYear.setText(((CatalogData)container.getData()).getYear());
+                        if (((Catalog) container.getData()).getYear() >0) {
+                            mYear.setText(((Catalog) container.getData()).getYear());
                             mYear.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_LIGHT));
                         }
                     }
                 }
             }
-        }*/
+        }
     }
 }
