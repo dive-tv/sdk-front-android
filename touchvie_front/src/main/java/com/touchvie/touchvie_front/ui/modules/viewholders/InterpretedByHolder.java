@@ -35,7 +35,7 @@ public class InterpretedByHolder extends SquareImageItemsHolder {
         });
 
         ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
-        super.setData(rows);
 
+        super.setData(rows);
     }
 }
