@@ -5,13 +5,13 @@
       "main": true,
       "modules": [
         {
-          "type": "description"
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
         },
         {
-          "type": "description"
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
         },
         {
-          "type": "navigation",
+          "type": "com.touchvie.touchvie_front.ui.modules.old.NavigationModule",
           "targets": [
             {
               "sectionId": "second",
@@ -20,7 +20,7 @@
           ]
         },
         {
-          "type": "tabs",
+          "type": "com.touchvie.touchvie_front.ui.modules.TabsModule",
           "targets": [
             {
               "sectionId": "second",
@@ -33,7 +33,7 @@
           ]
         },
         {
-          "type": "description"
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
         }
       ]
     },
@@ -41,10 +41,10 @@
       "title": "second",
       "modules": [
         {
-          "type": "relatedMovies"
+          "type": "com.touchvie.touchvie_front.ui.modules.RelatedMoviesModule"
         },
         {
-          "type": "navigation",
+          "type": "com.touchvie.touchvie_front.ui.modules.Navigation",
           "targets": [
             {
               "sectionId": "main",
@@ -58,10 +58,10 @@
       "title": "third",
       "modules": [
         {
-          "type": "description"
+          "type": "com.touchvie.touchvie_front.ui.modules.Description"
         },
         {
-          "type": "navigation",
+          "type": "com.touchvie.touchvie_front.ui.modules.Navigation",
           "targets": [
             {
               "sectionId": "main",

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/Module"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtv_ilist_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/awards"
+        style="@style/CardModuleTitle"
+        android:textAllCaps="true"
+        android:layout_marginBottom="@dimen/ilist_title_mbottom"
+         />
+
+    <com.tagsonomy.touchvie.ui.view.LinearListLayout
+        android:id="@+id/lay_info_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        />
+</LinearLayout>

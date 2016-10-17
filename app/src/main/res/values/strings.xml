@@ -10,4 +10,33 @@
     <string name="activity_card_detail_name">CardDetail</string>
     <string name="activity_carousel_name">Carousel</string>
 
+    <string name="movies">movies</string>
+    <string name="movie">movie</string>
+    <string name="serie">serie</string>
+    <string name="chapter">chapter</string>
+    <string name="cast">cast</string>
+    <string name="person">person</string>
+    <string name="character">character</string>
+    <string name="objects">objects</string>
+    <string name="vehicle">vehicle</string>
+    <string name="fashion">fashion</string>
+    <string name="home">home</string>
+    <string name="technology">technology</string>
+    <string name="art">art</string>
+    <string name="look">look</string>
+    <string name="weapon">weapon</string>
+    <string name="leisure_sport">leisure_sport</string>
+    <string name="health_beauty">health_beauty</string>
+    <string name="food_drink">food_drink</string>
+    <string name="fauna_flora">fauna_flora</string>
+    <string name="business">business</string>
+    <string name="contexts">contexts</string>
+    <string name="location">location</string>
+    <string name="historic">historic</string>
+    <string name="ost">ost</string>
+    <string name="song">song</string>
+    <string name="trivias">trivias</string>
+    <string name="trivia">trivia</string>
+    <string name="reference">reference</string>
+
 </resources>

@@ -7,7 +7,6 @@
     <dimen name="stroke">1dp</dimen>
 
     <!-- Module Generic -->
-    <dimen name="module_padding">20dp</dimen>
     <dimen name="module_margin">20dp</dimen>
     <dimen name="module_title">13sp</dimen>
 
@@ -28,11 +27,71 @@
     <!-- Carousel header -->
     <dimen name="carousel_section_header_height">20dp</dimen>
 
-    <!-- Carousel rel_cards -->
+    <!-- Carousel related -->
     <dimen name="carousel_cards_height">250dp</dimen>
     <dimen name="carousel_cards_text_height">20dp</dimen>
 
     <!-- Carousel Card Curiosity -->
     <dimen name="carousel_card_curiosity_text_size">20sp</dimen>
+
+    <!-- New Modules -->
+
+    <dimen name="module_padding">15dp</dimen>
+    <dimen name="module_title_margin">17dp</dimen>
+
+    <dimen name="text_13">13dp</dimen>
+    <dimen name="text_15">15dp</dimen>
+    <dimen name="line_mbottom">15dp</dimen>
+    <dimen name="disclaimer_mbottom">21dp</dimen>
+
+    <!-- Overview -->
+    <dimen name="text_text_mbottom">14dp</dimen>
+    <dimen name="text_link_mbottom">24dp</dimen>
+
+
+    <!-- Biography -->
+    <dimen name="bio_text_mbottom">20dp</dimen>
+    <dimen name="bio_dots_mbottom">28dp</dimen>
+
+
+    <!-- Movie Header-->
+    <dimen name="mheader_image_mbottom">26dp</dimen>
+    <dimen name="mheader_image_height">350dp</dimen>
+    <dimen name="mheader_height">376dp</dimen>
+    <dimen name="mheader_clock_mright">9dp</dimen>
+    <dimen name="mheader_clock_mbottom">28dp</dimen>
+    <dimen name="mheader_title_mbottom">11dp</dimen>
+    <dimen name="mheader_title_mtop">68dp</dimen>
+    <dimen name="mheader_director_mbottom">23dp</dimen>
+
+
+    <!-- Movie Header Small-->
+    <dimen name="mheaders_padding_rl">15dp</dimen>
+    <dimen name="mheaders_padding_tb">20dp</dimen>
+    <dimen name="mheaders_title_mbottom">14dp</dimen>
+    <dimen name="mheaders_director_mbottom">29dp</dimen>
+
+
+    <!-- Generic -->
+    <dimen name="poster_width">120dp</dimen>
+    <dimen name="poster_height">175dp</dimen>
+
+    <dimen name="icon_width">24dp</dimen>
+    <dimen name="icon_height">24dp</dimen>
+
+    <dimen name="title_padbottom">10dp</dimen>
+    <dimen name="seeall_padbottom">10dp</dimen>
+
+    <!-- Header-->
+    <dimen name="header_image_mtop">16dp</dimen>
+
+    <!-- Swipe Gallery-->
+    <dimen name="sgallery_source_heigth">50dp</dimen>
+    <dimen name="fimage_source_padding">35dp</dimen>
+
+    <!-- Info List-->
+    <dimen name="ilist_title_mbottom">17dp</dimen>
+    <dimen name="ilist_item_height">50dp</dimen>
+
 
 </resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel_source_footer">
+
+    <FrameLayout
+        android:id="@+id/flay_text_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/line_mbottom"
+        android:background="@color/paleGrey"
+        android:visibility="visible"
+        />
+
+    <TextView
+        android:id="@+id/txtv_footer_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="visible"
+        style="@style/CardSource"
+        android:text="@string/source"
+        android:layout_below="@id/flay_text_line"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="visible"
+        style="@style/CardSourceLink"
+        android:id="@+id/txtv_footer_link"
+        />
+
+    <ImageView
+        android:id="@+id/imgv_footer_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_weight="0"
+        android:layout_alignParentRight="true"
+        />
+
+    <TextView
+        android:id="@+id/txtv_footer_disclaimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="@style/Disclaimer"
+        android:layout_marginBottom="@dimen/disclaimer_mbottom"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
