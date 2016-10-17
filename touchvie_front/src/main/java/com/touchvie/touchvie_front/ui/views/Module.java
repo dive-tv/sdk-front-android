@@ -1,24 +1,31 @@
 package com.touchvie.touchvie_front.ui.views;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 /**
  *
  */
-public class Module extends RecyclerView.ViewHolder {
-
-    /**
-     * Default constructor
-     */
-    public Module(View view) {
-        super(view);
-    }
+public abstract class Module {
 
     /**
      * Type of module
      */
-    public String type;
+    protected String type;
+
+    /**
+     * XML layout to inflate the viewholder of this module.
+     */
+    protected Integer layout;
+
+    /**
+     * Default constructor
+     */
+    public Module() {
+
+    }
 
     /**
      * Sets the module type
@@ -37,4 +44,14 @@ public class Module extends RecyclerView.ViewHolder {
     }
 
 
+    public Integer getLayout() {
+        return layout;
+    }
+
+    public void setLayout(Integer layout) {
+        this.layout = layout;
+    }
+
+
+    public abstract RecyclerView.ViewHolder getViewHolder(LayoutInflater inflater, ViewGroup group);
 }

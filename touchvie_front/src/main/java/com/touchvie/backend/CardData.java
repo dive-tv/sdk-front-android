@@ -10,7 +10,7 @@ public class CardData implements Serializable {
     String title;
     String subtitle;
     String type;
-    String image;
+    Image image;
     String source;
     int anchor_x;
     int anchor_y;
@@ -49,11 +49,11 @@ public class CardData implements Serializable {
         this.type = type;
     }
 
-    public String getImage() {
+    public Image getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Image image) {
         this.image = image;
     }
 

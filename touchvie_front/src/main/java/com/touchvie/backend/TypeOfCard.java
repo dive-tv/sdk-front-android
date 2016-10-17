@@ -5,23 +5,44 @@ package com.touchvie.backend;
  */
 
 public enum TypeOfCard {
-    character,
-    person,
-    weapon,
-    historic,
-    location,
-    vehicle,
-    song,
-    ost,
-    business,
-    fauna_flora,
-    food_drink,
-    health_beauty,
-    leisure_sport,
-    deco,
-    fashion,
-    reference,
-    trivia,
-    look,
-    technology
+
+    MOVIE("movie"),
+    SERIE ("serie"),
+    CHAPTER("chapter"),
+    PERSON ("person"),
+    CHARACTER("character"),
+    VEHICLE("vehicle"),
+    FASHION ("fashion"),
+    LOCATION("location"),
+    HISTORIC("historic"),
+    TRIVIA ("trivia"),
+    QUOTE("quote"),
+    OST("ost"),
+    HOME ("home"),
+    TECHONOLOGY("technology"),
+    ART("art"),
+    SONG ("song"),
+    LOOK("look"),
+    TRAILER ("trailer"),
+    WEAPON("weapon"),
+    LEISURE_SPORT("leisure_sport"),
+    HEALTH_BEAUTY ("health_beauty"),
+    FOOD_DRINK("food_drink"),
+    FAUNA_FLORA("fauna_flora"),
+    BUSINESS ("business"),
+    VIDEOCLIP("videoclip"),
+    ACTION_EMOTION("action_emotion");
+
+
+    private final String name;
+
+    private TypeOfCard(String s) {
+        name = s;
+    }
+
+    public String getName() {
+        return name;
+    }
+
 }
+

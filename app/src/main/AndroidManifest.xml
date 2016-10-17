@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.touchvie.sdkfront">
 
@@ -12,17 +13,17 @@
             android:label="@string/activity_splash_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.touchvie.sdk_front.ui.activities.DiveCarousel"
-            android:label="@string/activity_carousel_name">
-        </activity>
+            android:name="com.touchvie.sdk_front.ui.activities.TestCarousel"
+            android:label="@string/activity_carousel_name"></activity>
         <activity
-            android:name="com.touchvie.sdk_front.ui.activities.CardDetailDive"
-            android:label="@string/activity_card_detail_name">
-        </activity>
+            android:name="com.touchvie.sdk_front.ui.activities.CardDetail"
+            android:label="@string/activity_card_detail_name"></activity>
+        <activity android:name="com.touchvie.sdk_front.ui.activities.CardDetailSelector"></activity>
     </application>
 
 </manifest>

@@ -42,10 +42,11 @@ public class Splash extends FragmentActivity {
         mCarouselBtn = (Button) findViewById(R.id.splash_btn_carousel);
         mCardDetailBtn = (Button) findViewById(R.id.splash_btn_card_detail);
 
+        
         mCarouselBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cardDetail = new Intent(Splash.this, DiveCarousel.class);
+                Intent cardDetail = new Intent(Splash.this, TestCarousel.class);
                 startActivity(cardDetail);
             }
         });
@@ -53,7 +54,7 @@ public class Splash extends FragmentActivity {
         mCardDetailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cardDetail = new Intent(Splash.this, CardDetailDive.class);
+                Intent cardDetail = new Intent(Splash.this, CardDetailSelector.class);
                 startActivity(cardDetail);
             }
         });

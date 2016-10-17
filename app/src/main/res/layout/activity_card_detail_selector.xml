@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_card_detail_selector"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/module_padding"
+    tools:context="com.touchvie.sdk_front.ui.activities.CardDetailSelector"
+    android:background="@color/darkGrey2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/CardDetailTitle"
+            android:text="@string/movies"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_movie"
+            android:text="@string/movie"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_serie"
+            android:text="@string/serie"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_chapter"
+            android:text="@string/chapter"
+            />
+
+
+        <TextView
+            style="@style/CardDetailTitle"
+            android:text="@string/cast"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_person"
+            android:text="@string/person"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_character"
+            android:text="@string/character"/>
+
+
+
+        <TextView
+            style="@style/CardDetailTitle"
+            android:text="@string/objects"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_vehicle"
+            android:text="@string/vehicle"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_fashion"
+            android:text="@string/fashion"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_home"
+            android:text="@string/home"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_technology"
+            android:text="@string/technology"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_art"
+            android:text="@string/art"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_look"
+            android:text="@string/look"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_weapon"
+            android:text="@string/weapon"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_leisuresport"
+            android:text="@string/leisure_sport"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_healthbeauty"
+            android:text="@string/health_beauty"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_fooddrink"
+            android:text="@string/food_drink"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_faunaflora"
+            android:text="@string/fauna_flora"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_business"
+            android:text="@string/business"
+            />
+
+
+        <TextView
+            style="@style/CardDetailTitle"
+            android:text="@string/contexts"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_location"
+            android:text="@string/location"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_historic"
+            android:text="@string/historic"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_ost"
+            android:text="@string/ost"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_song"
+            android:text="@string/song"/>
+
+        <TextView
+            style="@style/CardDetailTitle"
+            android:text="@string/trivias"/>
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_trivia"
+            android:text="@string/trivia"
+            />
+        <TextView
+            style="@style/CardDetailButton"
+            android:id="@+id/txtv_detail_reference"
+            android:text="@string/reference"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

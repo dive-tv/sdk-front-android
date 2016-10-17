@@ -37,7 +37,7 @@ public class CarouselViewGeneric extends CarouselView {
                 public void run() {
                     if (card.getImage() != null) {
                         Picasso.with(context)
-                                .load(ClientManager.getInstance().getImageUrl(card.getImage(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi)) //DisplayMetrics.DENSITY_HIGH = @2x
+                                .load(ClientManager.getInstance().getImageUrl(card.getImage().getFull(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi)) //DisplayMetrics.DENSITY_HIGH = @2x
                                 .priority(Picasso.Priority.HIGH)
                                 .noFade()
                                 .into(mImageView);
