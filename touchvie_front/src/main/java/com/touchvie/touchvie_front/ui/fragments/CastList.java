@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Created by Tagsonomy S.L. on 17/10/2016.
  */
 
-public class CastList extends NoPaddingList {
+public class CastList extends ImageTextList {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -1,8 +1,9 @@
-package com.touchvie.touchvie_front.ui.adapters;
+package com.touchvie.touchvie_front.ui.modules.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,14 +12,14 @@ import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
 import java.util.ArrayList;
 
 /**
- * Created by Tagsonomy S.L. on 17/10/2016.
+ * Created by Tagsonomy S.L. on 18/10/2016.
  */
 
-public class NoPaddingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class SeasonsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private ArrayList<ImageRowData> rows;
 
-    public NoPaddingListAdapter(ArrayList<ImageRowData> rows){
+    public SeasonsAdapter(ArrayList<ImageRowData> rows){
         super();
         this.rows=rows;
     }
@@ -30,7 +31,6 @@ public class NoPaddingListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
     }
 
     @Override
@@ -38,7 +38,8 @@ public class NoPaddingListAdapter extends RecyclerView.Adapter<RecyclerView.View
         return 0;
     }
 
-    public static class NoPaddingListItemHolder extends RecyclerView.ViewHolder {
+
+    public static class RectangularImageItemsItemHolder extends RecyclerView.ViewHolder {
 
         ImageView image;
 
@@ -46,11 +47,15 @@ public class NoPaddingListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         TextView subtitle;
 
-        public NoPaddingListItemHolder(View v) {
+
+        public RectangularImageItemsItemHolder(View v) {
             super(v);
 
         }
     }
 
+
 }
+
+
 

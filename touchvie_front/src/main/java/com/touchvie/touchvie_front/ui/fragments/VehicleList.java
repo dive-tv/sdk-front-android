@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.touchvie.touchvie_front.ui.adapters.NoPaddingListAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
@@ -15,7 +14,7 @@ import java.util.ArrayList;
  * Created by Tagsonomy S.L. on 17/10/2016.
  */
 
-public class VehicleList extends NoPaddingList {
+public class VehicleList extends ImageTextList {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

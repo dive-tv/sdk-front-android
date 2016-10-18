@@ -6,18 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.touchvie.touchvie_front.ui.adapters.NoPaddingListAdapter;
+import com.touchvie.touchvie_front.ui.adapters.ImageTextListAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
 
 import java.util.ArrayList;
 
 
-public class NoPaddingList extends VerticalList {
+public class ImageTextList extends VerticalList {
 
-    protected NoPaddingListAdapter adapter;
+    protected ImageTextListAdapter adapter;
     protected ArrayList<ImageRowData> data;
 
-    public NoPaddingList() {
+    public ImageTextList() {
         // Required empty public constructor
     }
 
@@ -26,8 +26,8 @@ public class NoPaddingList extends VerticalList {
      * this fragment using the provided parameters.
      * @return A new instance of fragment NoPaddingList.
      */
-    public static NoPaddingList newInstance() {
-        NoPaddingList fragment = new NoPaddingList();
+    public static ImageTextList newInstance() {
+        ImageTextList fragment = new ImageTextList();
         return fragment;
     }
 
@@ -45,7 +45,7 @@ public class NoPaddingList extends VerticalList {
         mContainer.setPadding(0, mContainer.getPaddingTop(), 0, mContainer.getPaddingBottom());
 
         data=new ArrayList<>();
-        adapter= new NoPaddingListAdapter(data);
+        adapter= new ImageTextListAdapter(data);
         super.setAdapter(adapter);
 
         return view;

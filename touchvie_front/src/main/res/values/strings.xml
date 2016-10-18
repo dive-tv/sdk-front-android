@@ -25,6 +25,7 @@
     <string name="see_all_interpreted_by">Ver todas &#62;</string>
     <string name="see_all_seasons">Ver todas &#62;</string>
     <string name="see_all_highlights">Ver todos &#62;</string>
+    <string name="see_all_maincast">Ver reparto completo &#62;</string>
 
     <string name="shop_this">Comprar &#62;</string>
 
@@ -37,6 +38,7 @@
     <string name="know_that">Sabias que...</string>
     <string name="shop">Tienda</string>
     <string name="vehicles_shown">Vehículos que aparecen</string>
+    <string name="main_cast">Reparto principal</string>
     <string name="places_shown">Lugares que aparecen</string>
     <string name="highlights">Destacamos</string>
 
