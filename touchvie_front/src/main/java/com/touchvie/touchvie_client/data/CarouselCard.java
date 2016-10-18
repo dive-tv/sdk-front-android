@@ -1,20 +1,21 @@
 package com.touchvie.touchvie_client.data;
 
-import com.touchvie.backend.Card;
 import com.touchvie.backend.CardData;
-import com.touchvie.backend.Relation;
+import com.touchvie.backend.carddetail.Relation;
 
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
  */
 public class CarouselCard {
 
-    /************For testing purposes only ***********************/
+    /************
+     * For testing purposes only
+     ***********************/
 
     private String cardId;
     private int sceneId;
 
-     /*************************************************************/
+    /*************************************************************/
 
     /**
      * The card data received from the server.
@@ -33,6 +34,7 @@ public class CarouselCard {
 
     /**
      * Gets the data of this card.
+     *
      * @return
      */
     public CardData getData() {
@@ -41,6 +43,7 @@ public class CarouselCard {
 
     /**
      * Sets this card's data.
+     *
      * @param data The data to be set.
      */
     public void setData(CardData data) {
@@ -49,6 +52,7 @@ public class CarouselCard {
 
     /**
      * Gets the cards related to this card.
+     *
      * @return
      */
     public Relation[] getChildren() {
@@ -57,6 +61,7 @@ public class CarouselCard {
 
     /**
      * Sets the card related to this card.
+     *
      * @param children The related cards to be set.
      */
     public void setChildren(Relation[] children) {
@@ -64,7 +69,9 @@ public class CarouselCard {
     }
 
 
-    /*************************For testing purposes only ********************************/
+    /*************************
+     * For testing purposes only
+     ********************************/
 
     public String getCardId() {
         return cardId;
@@ -72,7 +79,8 @@ public class CarouselCard {
 
     public void setCardId(int cardId) {
 
-        this.cardId = Integer.toString(cardId);;
+        this.cardId = Integer.toString(cardId);
+        ;
     }
 
     public int getSceneId() {

@@ -1,5 +1,7 @@
 package com.touchvie.backend;
 
+import com.touchvie.backend.carddetail.Relation;
+
 import java.io.Serializable;
 
 /**
@@ -9,7 +11,7 @@ import java.io.Serializable;
 public class MovieRelationGroup implements Serializable {
 
     Movie movie;
-    Relation [] rel_types;
+    Relation[] rel_types;
 
 
     public Movie getMovie() {

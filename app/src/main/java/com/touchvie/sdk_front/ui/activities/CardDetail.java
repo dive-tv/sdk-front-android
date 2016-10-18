@@ -13,6 +13,8 @@ import android.widget.RelativeLayout;
 import com.touchvie.backend.TypeOfCard;
 import com.touchvie.sdk_front.ui.utils.Utils;
 import com.touchvie.sdkfront.R;
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
+import com.touchvie.touchvie_client.rest.listeners.AuthListener;
 import com.touchvie.touchvie_front.builders.CardDetailJson;
 
 import org.json.JSONException;
@@ -28,7 +30,7 @@ public class CardDetail extends FragmentActivity {
     private static CardDetail instance=null;
     private FragmentManager mManager = null;
     private LinearLayout mContainer=null;
-
+    private OauthObjectInterface auth;
 
     /**
      * Returns the instance of the last CardDetailDive activity created.
@@ -60,7 +62,18 @@ public class CardDetail extends FragmentActivity {
         getWindow().setLayout(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 
         mManager = getSupportFragmentManager();
-        CardDetailJson cardDetail = new CardDetailJson(getApplicationContext());
+        auth = new OauthObjectInterface() {
+            @Override
+            public String getToken() {
+                return null;
+            }
+
+            @Override
+            public boolean refreshToken(AuthListener listener) {
+                return false;
+            }
+        };
+        CardDetailJson cardDetail = new CardDetailJson(getApplicationContext(), auth);
 
         String cardId= getCardId(card);
         cardDetail.loadDataConfig(configJson).buildAll(cardId,mManager, mContainer);

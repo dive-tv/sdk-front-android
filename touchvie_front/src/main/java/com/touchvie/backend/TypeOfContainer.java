@@ -10,7 +10,15 @@ public enum TypeOfContainer {
     DESCRIPTION("description"),
     BIOGRAPHY("biography"),
     OVERVIEW("overview"),
-    GALLERY("gallery");
+    GALLERY("gallery"),
+    TEXT("text"),
+    LISTING("listing"),
+    RATING("rating"),
+    MAP("map"),
+    LINK("link"),
+    AWARDS("awards"),
+    SEASONS("seasons"),
+    IMAGE("image");
 
     private final String name;
 

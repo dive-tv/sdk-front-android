@@ -1,11 +1,8 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.LinearListLayout;
 
@@ -28,8 +25,8 @@ public abstract class VerticalListHolder extends ModuleHolder {
 
         super(itemView);
 
-        mContainer=(LinearLayout) itemView.findViewById(R.id.lay_container);
-        mList=(LinearListLayout)itemView.findViewById(R.id.lllay_list_list);
+        mContainer = (LinearLayout) itemView.findViewById(R.id.lay_container);
+        mList = (LinearListLayout) itemView.findViewById(R.id.lllay_list_list);
     }
 
 }

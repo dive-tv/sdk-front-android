@@ -1,6 +1,8 @@
 package com.touchvie.backend;
 
 
+import com.touchvie.backend.carddetail.Source;
+
 import java.io.Serializable;
 
 /**

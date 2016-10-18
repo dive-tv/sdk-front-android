@@ -1,4 +1,4 @@
-package com.touchvie.backend;
+package com.touchvie.backend.carddetail;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    boolean is_liked;
+    private boolean is_liked;
 
     public boolean isLiked() {
         return is_liked;

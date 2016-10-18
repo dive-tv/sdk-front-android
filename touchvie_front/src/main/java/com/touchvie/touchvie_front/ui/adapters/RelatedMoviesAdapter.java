@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Movies;
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
 import com.touchvie.touchvie_front.ui.utils.CropSquareTransformation;
@@ -27,19 +28,20 @@ public class RelatedMoviesAdapter extends BaseAdapter {
     private final CardDetailListener mListener;
     private Context context;
     private LayoutInflater mInflater;
-
+    private OauthObjectInterface auth;
     /**
      * Constructor.
      * @param context
      * @param movies
      * @param mListener
      */
-    public RelatedMoviesAdapter(Context context, Movies[] movies, CardDetailListener mListener) {
+    public RelatedMoviesAdapter(Context context, Movies[] movies, OauthObjectInterface auth, CardDetailListener mListener) {
         this.context = context;
         this.movies = movies;
         this.mInflater = LayoutInflater.from(context);
         this.mPicasso = Picasso.with(context);
         this.mListener = mListener;
+        this.auth = auth;
     }
 
     /**
@@ -130,7 +132,7 @@ public class RelatedMoviesAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 //                mListener.goToNewCard(relatedMovie.getMovie_id())
-                mListener.goToNewCard("2");
+                mListener.goToNewCard("2", auth);
             }
         });
 

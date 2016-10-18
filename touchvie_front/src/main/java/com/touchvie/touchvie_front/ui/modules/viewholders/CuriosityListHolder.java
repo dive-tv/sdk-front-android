@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.ui.modules.adapters.CuriosityListAdapter;
 
 /**
@@ -23,9 +23,9 @@ public class CuriosityListHolder extends VerticalListHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
-        CuriosityListAdapter adapter= new CuriosityListAdapter();
+        CuriosityListAdapter adapter = new CuriosityListAdapter();
         mList.setList(adapter, true);
     }
 }
