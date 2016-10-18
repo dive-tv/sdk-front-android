@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CardData {
     private MiniCard miniCard;
-    private ArrayList<Relation> relation;
+    private Relation[] relation;
 
     public MiniCard getMiniCard() {
         return miniCard;
@@ -20,11 +20,11 @@ public class CardData {
         this.miniCard = miniCard;
     }
 
-    public ArrayList<Relation> getRelation() {
+    public Relation[] getRelation() {
         return relation;
     }
 
-    public void setRelation(ArrayList<Relation> relation) {
+    public void setRelation(Relation[] relation) {
         this.relation = relation;
     }
 }
