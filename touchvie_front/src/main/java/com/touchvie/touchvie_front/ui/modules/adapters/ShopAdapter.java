@@ -7,12 +7,21 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.touchvie.touchvie_front.ui.modules.data.ShopRowData;
+
+import java.util.ArrayList;
+
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
 public class ShopAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    ArrayList<ShopRowData> rows;
+
+    public ShopAdapter(ArrayList<ShopRowData> data){
+        this.rows=data;
+    }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

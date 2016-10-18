@@ -112,4 +112,8 @@
     <dimen name="rimageitems_data_height">60dp</dimen>
     <dimen name="rimageitems_data_padding">10dp</dimen>
 
+    <!-- Module SingleModule -->
+    <dimen name="smodule_image_size">90dp</dimen>
+    <dimen name="smodule_title_mtop">11dp</dimen>
+
 </resources>

@@ -6,9 +6,7 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.modules.adapters.ShopAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
-import com.touchvie.touchvie_front.ui.modules.data.ShopRowData;
 
 import java.util.ArrayList;
 
@@ -16,9 +14,9 @@ import java.util.ArrayList;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class ShopHolder extends HorizontalListHolder {
+public class AppearsInLocationHolder extends RectangularImageItemsHolder {
 
-    public ShopHolder(View itemView) {
+    public AppearsInLocationHolder(View itemView) {
         super(itemView);
     }
 
@@ -26,9 +24,9 @@ public class ShopHolder extends HorizontalListHolder {
     public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
-        mTitle.setText(context.getResources().getString(R.string.shop));
+        mTitle.setText(context.getResources().getString(R.string.appears_in_location));
 
-        mSeeAll.setText(context.getResources().getString(R.string.shop_this));
+        mSeeAll.setText(context.getResources().getString(R.string.see_all_appearsin_location));
         mSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,9 +34,8 @@ public class ShopHolder extends HorizontalListHolder {
             }
         });
 
-        ArrayList<ShopRowData> data = new ArrayList<>(); //TODO: get the needed data from card data.
-        ShopAdapter adapter = new ShopAdapter(data);
-        mList.setAdapter(adapter);
-
+        ArrayList<ImageRowData> rows = new ArrayList<>(); //TODO: get all the data.
+        super.setData(rows);
     }
+
 }

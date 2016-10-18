@@ -16,6 +16,7 @@
 
     <string name="see_all_gallery">Ver todas &#62;</string>
     <string name="see_all_filmography">Ver todas &#62;</string>
+    <string name="see_all_appearsin_location">Ver todas &#62;</string>
     <string name="see_all_appears_in">Ver todas &#62;</string>
     <string name="see_all_cast">Ver todo &#62;</string>
     <string name="see_all_vehicles">Ver todos &#62;</string>
@@ -32,6 +33,7 @@
     <string name="filmography">Filmografía</string>
     <string name="seasons">Temporadas</string>
     <string name="interpreted_by">Interpretado por</string>
+    <string name="appears_in_location">Aparece en</string>
     <string name="appears_in">Aparece en</string>
     <string name="cast">Reparto</string>
     <string name="soundtrack">Banda sonora</string>
@@ -42,7 +44,6 @@
     <string name="places_shown">Lugares que aparecen</string>
     <string name="highlights">Destacamos</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

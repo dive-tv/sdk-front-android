@@ -6,15 +6,18 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_front.ui.modules.adapters.AppearsInAdapter;
+import com.touchvie.touchvie_front.ui.modules.adapters.CuriositiesAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
+import com.touchvie.touchvie_front.ui.modules.data.TextRowData;
 
 import java.util.ArrayList;
 
 /**
- * Created by Tagsonomy S.L. on 13/10/2016.
+ * Created by Tagsonomy S.L. on 18/10/2016.
  */
 
-public class AppearsInHolder extends RectangularImageItemsHolder {
+public class AppearsInHolder extends HorizontalListHolder {
 
     public AppearsInHolder(View itemView) {
         super(itemView);
@@ -34,8 +37,9 @@ public class AppearsInHolder extends RectangularImageItemsHolder {
             }
         });
 
-        ArrayList<ImageRowData> rows = new ArrayList<>(); //TODO: get all the data.
-        super.setData(rows);
-    }
+        ArrayList<ImageRowData> rows = new ArrayList<>();
+        AppearsInAdapter adapter = new AppearsInAdapter(rows);
+        mList.setAdapter(adapter);
 
+    }
 }
