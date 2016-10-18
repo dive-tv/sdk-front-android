@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.builders.ConfigSection;
 import com.touchvie.touchvie_front.ui.adapters.ModulesAdapter;
@@ -49,9 +49,9 @@ public class Section extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
 
     /**
-     * CardData object, with all the data of the card
+     * MiniCard object, with all the data of the card
      */
-    private Card cardData;
+    private CardDetail cardData;
 
     /**
      * Module configuration file
@@ -109,7 +109,7 @@ public class Section extends Fragment {
      *
      * @return A new instance of fragment Home.
      */
-    public static Section newInstance(Card data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener) {
+    public static Section newInstance(CardDetail data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener) {
         Section fragment = new Section();
         Bundle extras = new Bundle();
         extras.putSerializable(Utils.CARD_DATA, data);
@@ -128,7 +128,7 @@ public class Section extends Fragment {
 
         Bundle extras = getArguments();
         if (extras != null) {
-            cardData = (Card) extras.getSerializable(Utils.CARD_DATA);
+            cardData = (CardDetail) extras.getSerializable(Utils.CARD_DATA);
             configSection = (ConfigSection) extras.getSerializable(Utils.CONFIG_SECTION);
             sectionType = (SectionType) extras.getSerializable(Utils.SECTION_TYPE);
             mListener = (CardDetailListener) extras.getParcelable(Utils.CARD_DETAIL_LISTENER);

@@ -6,7 +6,8 @@ import android.os.Parcel;
 import android.support.v4.app.FragmentManager;
 import android.widget.LinearLayout;
 
-import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
 import com.touchvie.touchvie_front.builders.BaseCardDetailBuilder;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.builders.ConfigSection;
@@ -18,9 +19,9 @@ import java.util.HashMap;
 /**
  *
  */
-public class CardDetail implements CardDetailListener {
+public class CardDetailManager implements CardDetailListener {
 
-    private final CardDetail instance;
+    private final CardDetailManager instance;
     private final Context context;
     /**
      * Card Type
@@ -37,7 +38,7 @@ public class CardDetail implements CardDetailListener {
     private final FragmentManager mFragmentManager;
     private final LinearLayout container;
     private String mainSection;
-    private Card data;
+    private CardDetail data;
 
     /**
      * Default constructor
@@ -49,7 +50,7 @@ public class CardDetail implements CardDetailListener {
      * @param manager   :   fragment manager
      * @param container : Linear layout
      */
-    public CardDetail(Context context, Card data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
+    public CardDetailManager(Context context, CardDetail data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
         this.mFragmentManager = manager;
         this.context = context;
         this.container = container;
@@ -130,8 +131,8 @@ public class CardDetail implements CardDetailListener {
     }
 
     @Override
-    public void goToNewCard(String cardId) {
-        BaseCardDetailBuilder cardDetail = new BaseCardDetailBuilder(context) {
+    public void goToNewCard(String cardId, OauthObjectInterface auth) {
+        BaseCardDetailBuilder cardDetail = new BaseCardDetailBuilder(context, auth) {
             @Override
             protected BaseCardDetailBuilder getThis() {
                 return null;
@@ -162,6 +163,7 @@ public class CardDetail implements CardDetailListener {
         return mFragmentManager;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -171,5 +173,4 @@ public class CardDetail implements CardDetailListener {
     public void writeToParcel(Parcel parcel, int i) {
 
     }
-
 }

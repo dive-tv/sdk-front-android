@@ -6,17 +6,22 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.Card;
-import com.touchvie.backend.DataConfig;
-import com.touchvie.touchvie_client.listeners.CardDataListener;
+import com.touchvie.backend.carddetail.CardDetail;
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
+import com.touchvie.touchvie_client.rest.RestManager;
+import com.touchvie.touchvie_client.rest.datawrappers.NetworkData;
+import com.touchvie.touchvie_client.rest.listeners.CardDataListener;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.Utils;
-import com.touchvie.touchvie_front.ui.managers.CardDetail;
+import com.touchvie.touchvie_front.ui.managers.CardDetailManager;
 import com.touchvie.touchvie_front.validators.ModuleValidator;
 
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 
@@ -28,9 +33,11 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
     private FragmentManager mManager;
     private LinearLayout mLayout;
+    private CardDataListener listener;
 
     /**
      * Method to get the object of a class derived from BaseCardDetailBuilder.
+     *
      * @return
      */
     protected abstract T getThis();
@@ -51,7 +58,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
     /**
      * Data received from the server.
      */
-    protected Card data;
+    protected CardDetail card;
 
 
     /**
@@ -73,11 +80,12 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
     protected Context context = null;
 
+    private OauthObjectInterface auth;
     /**
      * Default constructor
      */
-    public BaseCardDetailBuilder(Context ctx) {
-
+    public BaseCardDetailBuilder(Context ctx, OauthObjectInterface auth) {
+        this.auth = auth;
         context = ctx;
     }
 
@@ -95,6 +103,8 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         this.mManager = manager;
         this.mLayout = container;
         requestCard(cardID);
+        listener = this;
+//        RestManager.getInstance().getCard("bf1b00c5-b779-3e73-a9f6-1cf836c674e5", listener, auth);
 
     }
 
@@ -113,6 +123,8 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         this.mLayout = container;
         requestCard(cardID);
 
+//        RestManager.getInstance().getCard( "bf1b00c5-b779-3e73-a9f6-1cf836c674e5", listener, auth);
+
     }
 
 
@@ -122,7 +134,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
      * @param cardId The card identifier.
      * @return
      */
-    protected Card getCardData(String cardId) {
+    protected com.touchvie.backend.carddetail.CardDetail getCardData(String cardId) {
         return null;
     }
 
@@ -150,7 +162,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
         //Compose all the modules with the data.
 
-        new CardDetail(context, data, idSection, "main", mManager, mLayout);
+        new CardDetailManager(context, card, idSection, "main", mManager, mLayout);
 
 /*
         for (String id : idSection.keySet()) {
@@ -168,16 +180,16 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
     }
 
-    /**
-     * CallBack of data received
-     *
-     * @param data  The card data received.
-     */
     @Override
-    public void onCardReceived(Card data) {
-
-        this.data = data;
+    public void onCardDataReceived(CardDetail card) {
+        this.card = card;
+        System.out.println("KKKKKKKKKKKKKKKKK   oncardReceived");
         composeCardDetail();
+    }
+
+    @Override
+    public void onCardDataError(NetworkData response) {
+
     }
 
     protected T addSection(String sectionId, ConfigSection section) {
@@ -193,7 +205,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         this.mainSectionKey = mainSectionKey;
     }
 
-
     /**
      * FOR TESTING PURPOSES
      *
@@ -205,7 +216,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         try {
             Resources res = context.getResources();
             InputStream in_s;
-            in_s = res.openRawResource(R.raw.carddetail);
+            in_s = res.openRawResource(R.raw.carddetail2);
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
             jsonString = new String(b);
@@ -213,12 +224,26 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
             return;
             //jsonString = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
         }
-        Card cardData = new GsonBuilder().create().fromJson(jsonString, Card.class);
+//        CardDetail cardData = new GsonBuilder().create().fromJson(jsonString, CardDetail.class);
+        CardDetail cardData=null;
+        ObjectMapper mapper = new ObjectMapper();
+        CardDetail card = null;
+        try {
+            cardData = mapper.readValue(jsonString, CardDetail.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (cardData == null) {
-            cardData = new Card();
+            cardData = new CardDetail();
         }
         onCardReceived(cardData);
     }
 
+
+    public void onCardReceived(CardDetail card) {
+        this.card = card;
+        System.out.println("KKKKKKKKKKKKKKKKK   oncardReceived");
+        composeCardDetail();
+    }
 
 }

@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.builders.ConfigModule;
 import com.touchvie.touchvie_front.ui.listeners.CardDetailListener;
 import com.touchvie.touchvie_front.ui.modules.viewholders.ModuleHolder;
@@ -22,30 +22,31 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private final Context context;
     private final CardDetailListener mListener;
-    private Card cardData;
+    private CardDetail cardData;
     private final ConfigModule[] configModules;
-    HashMap<String, Integer> classIndex= new HashMap<>();
-    HashMap<Integer, String> indexClass= new HashMap<>();
+    HashMap<String, Integer> classIndex = new HashMap<>();
+    HashMap<Integer, String> indexClass = new HashMap<>();
 
     private Picasso mPicasso = null;
 
-    private final String defaultModulePackage="com.touchvie.touchvie_front.ui.modules.";
+    private final String defaultModulePackage = "com.touchvie.touchvie_front.ui.modules.";
 
     /**
      * Constructor
+     *
      * @param context
      * @param cardData
      * @param configModules
      * @param mListener
      */
 
-    public ModulesAdapter(Context context, Card cardData, ConfigModule[] configModules, CardDetailListener mListener) {
+    public ModulesAdapter(Context context, CardDetail cardData, ConfigModule[] configModules, CardDetailListener mListener) {
 
         this.context = context;
         this.cardData = cardData;
         this.configModules = configModules;
         this.mListener = mListener;
-        this.mPicasso=Picasso.with(context);
+        this.mPicasso = Picasso.with(context);
         getDifferentModulesNumber();
     }
 
@@ -60,19 +61,19 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public int getItemViewType(int position) {
 
-        String key=configModules[position].getType();
-        return (classIndex.containsKey(key)?classIndex.get(key):0);
+        String key = configModules[position].getType();
+        return (classIndex.containsKey(key) ? classIndex.get(key) : 0);
     }
 
-    protected void getDifferentModulesNumber(){
-        if(configModules==null || configModules.length==0){
+    protected void getDifferentModulesNumber() {
+        if (configModules == null || configModules.length == 0) {
             return;
-        }else{
-            int index=0;
+        } else {
+            int index = 0;
 
-            for(ConfigModule configModule: configModules){
-                String type=configModule.getType();
-                if(classIndex.get(type)==null){
+            for (ConfigModule configModule : configModules) {
+                String type = configModule.getType();
+                if (classIndex.get(type) == null) {
                     classIndex.put(type, index);
                     indexClass.put(index, type);
                     index++;
@@ -80,6 +81,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
         }
     }
+
     /**
      * This method creates different RecyclerView.ViewHolder objects based on the item view type.\
      *
@@ -91,15 +93,15 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        if(indexClass.size()==0){
+        if (indexClass.size() == 0) {
             return null;
         }
-        String moduleName=indexClass.get(viewType);
-        if(!moduleName.contains(".")){
-            moduleName=defaultModulePackage+moduleName;
+        String moduleName = indexClass.get(viewType);
+        if (!moduleName.contains(".")) {
+            moduleName = defaultModulePackage + moduleName;
         }
         try {
-            viewHolder=((Module)(Class.forName(moduleName).newInstance())).getViewHolder(inflater, viewGroup);
+            viewHolder = ((Module) (Class.forName(moduleName).newInstance())).getViewHolder(inflater, viewGroup);
         } catch (ClassNotFoundException e) {
             e.printStackTrace(); //TODO: return empty viewholder
             return null;
@@ -124,8 +126,8 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
-        if(viewHolder instanceof ModuleHolder){
-            ((ModuleHolder)viewHolder).configure( cardData, mPicasso, context);
+        if (viewHolder instanceof ModuleHolder) {
+            ((ModuleHolder) viewHolder).configure(cardData, mPicasso, context);
         }
 
       /*  if (viewHolder instanceof ImageModule) {

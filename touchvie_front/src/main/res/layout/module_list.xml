@@ -7,6 +7,6 @@
     style="@style/Module"
     android:id="@+id/lay_container">
 
-    <include layout="@layout/list"/>
+    <include layout="@layout/static_list"/>
 
 </LinearLayout>

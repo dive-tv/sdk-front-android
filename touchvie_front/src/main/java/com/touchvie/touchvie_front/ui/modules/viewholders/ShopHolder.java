@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.adapters.ShopAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
@@ -22,7 +22,7 @@ public class ShopHolder extends HorizontalListHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
         mTitle.setText(context.getResources().getString(R.string.shop));
@@ -35,8 +35,8 @@ public class ShopHolder extends HorizontalListHolder {
             }
         });
 
-        ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get the needed data from card data. Decide whether the elements will be ImageRowData or a special data.
-        ShopAdapter adapter= new ShopAdapter();
+        ArrayList<ImageRowData> rows = new ArrayList<>(); //TODO: get the needed data from card data. Decide whether the elements will be ImageRowData or a special data.
+        ShopAdapter adapter = new ShopAdapter();
         mList.setAdapter(adapter);
 
     }

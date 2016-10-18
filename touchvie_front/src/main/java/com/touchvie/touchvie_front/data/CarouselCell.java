@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.touchvie.backend.CardData;
+import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.CarouselView;
 import com.touchvie.touchvie_front.ui.views.CarouselViewCuriosity;
@@ -57,7 +58,7 @@ public class CarouselCell implements Serializable {
 
         if (getCards() != null && getCards().size() > 0) {
             for (int i = 0; i < getCards().size(); i++) {
-                if (getCards().get(i).getType().equals("curiosity")) {
+                if (getCards().get(i).getMiniCard().getType().equals("curiosity")) {
                     CarouselViewCuriosity temp = new CarouselViewCuriosity(context, getCards().get(i));
                     views.add(temp);
                 } else {

@@ -1,6 +1,8 @@
 package com.touchvie.backend;
 
 
+import com.touchvie.backend.carddetail.Data;
+
 /**
  * Created by Tagsonomy S.L. on 10/10/2016.
  */

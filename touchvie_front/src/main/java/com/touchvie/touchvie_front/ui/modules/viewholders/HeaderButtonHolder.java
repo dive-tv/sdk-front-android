@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
@@ -25,12 +25,12 @@ public class HeaderButtonHolder extends HeaderHolder {
      */
     public HeaderButtonHolder(View view) {
         super(view);
-        mButton=(TextView)view.findViewById(R.id.txtv_bheader_button);
+        mButton = (TextView) view.findViewById(R.id.txtv_bheader_button);
 
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
 
