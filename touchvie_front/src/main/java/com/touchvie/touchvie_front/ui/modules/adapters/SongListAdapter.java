@@ -4,11 +4,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.touchvie.touchvie_front.ui.modules.data.TwoTextRowData;
+
+import java.util.ArrayList;
+
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
 public class SongListAdapter extends BaseAdapter {
+
+    ArrayList<TwoTextRowData> rows;
+
+    public SongListAdapter(ArrayList<TwoTextRowData> rows){
+        this.rows=rows;
+    }
+
 
     @Override
     public int getCount() {

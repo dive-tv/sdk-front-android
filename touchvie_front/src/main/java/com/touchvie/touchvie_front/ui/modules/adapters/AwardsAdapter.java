@@ -125,7 +125,7 @@ public class AwardsAdapter extends BaseAdapter {
         }
 
         final ContainerAwards row_pos = rowItem.get(position);
-        holder.title.setText(row_pos.getTitle());
+        holder.title.setText(row_pos.getText());
         holder.title.setTypeface(sourceSansProSemiBold);
         holder.value.setText(" (" + Integer.toString((row_pos.getWinner().length + row_pos.getNominee().length)) + ")");
         holder.value.setTypeface(sourceSansProRegular);
