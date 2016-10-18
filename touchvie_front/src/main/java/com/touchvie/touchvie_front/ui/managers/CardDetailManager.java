@@ -19,7 +19,7 @@ import java.util.HashMap;
 /**
  *
  */
-public class CardDetailManager implements CardDetailListener {
+public class CardDetailManager implements CardDetailListener  {
 
     private final CardDetailManager instance;
     private final Context context;
@@ -162,15 +162,5 @@ public class CardDetailManager implements CardDetailListener {
     public FragmentManager requestFragmentManager() {
         return mFragmentManager;
     }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-    }
+    
 }

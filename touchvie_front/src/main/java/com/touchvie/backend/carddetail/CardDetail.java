@@ -1,6 +1,7 @@
 package com.touchvie.backend.carddetail;
 
 
+import com.touchvie.backend.carddetail.relations.Relation;
 import com.touchvie.touchvie_client.rest.datawrappers.NetworkData;
 
 /**

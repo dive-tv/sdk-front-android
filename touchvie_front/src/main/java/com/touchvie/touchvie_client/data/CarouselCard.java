@@ -1,7 +1,7 @@
 package com.touchvie.touchvie_client.data;
 
 import com.touchvie.backend.CardData;
-import com.touchvie.backend.carddetail.Relation;
+import com.touchvie.backend.carddetail.relations.Relation;
 
 /**
  * Created by Tagsonomy S.L. on 19/09/2016.
