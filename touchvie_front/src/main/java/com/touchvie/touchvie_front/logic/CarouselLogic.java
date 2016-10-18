@@ -5,6 +5,9 @@ import android.content.res.Resources;
 
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.CardData;
+import com.touchvie.backend.carddetail.relations.RelationTypes;
+import com.touchvie.backend.carddetail.relations.SingleRel;
+import com.touchvie.backend.carddetail.relations.TypeOfContentType;
 import com.touchvie.touchvie_client.data.CarouselCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.data.CarouselCell;
@@ -58,16 +61,27 @@ public class CarouselLogic {
                 temp = newCard.getData();
                 cellCards.add(temp);
                 if (newCard.getChildren() != null) {
-                    outerloop:
                     for (int i = 0; i < newCard.getChildren().length - 1; i++) {
-                        for (int j = 0; i < newCard.getChildren()[i].getData().length - 1; j++) {
-                            CardData temp2;
-                            temp2 = newCard.getChildren()[i].getData()[j];
-                            cellCards.add(temp2);
-                            rel++;
-                            if (rel == 2)
-                                break outerloop;
+
+//                        for (int j = 0; i < newCard.getChildren()[i].getData().length - 1; j++) {
+                        CardData temp2;
+//                            temp2 = newCard.gethildren()[i].getData()[j];
+                        if (RelationTypes.SINGLE.equals(newCard.getChildren()[i].getType())) {
+                            temp2 = ((SingleRel) newCard.getChildren()[i]).getData();
                         }
+                        else {
+                            switch (newCard.getChildren()[i].getContent_type()){
+                                case TypeOfContentType.CASTING.getName():
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        cellCards.add(temp2);
+                        rel++;
+                        if (rel == 2)
+                            break;
+//                        }
                     }
                     ArrayList<CardData> tempNewCell;
                     tempNewCell = cellCards;
