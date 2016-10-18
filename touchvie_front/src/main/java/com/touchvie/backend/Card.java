@@ -1,15 +1,10 @@
 package com.touchvie.backend;
 
-import android.content.Context;
-
 import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.carddetail.ImageData;
 import com.touchvie.backend.carddetail.ProductData;
-import com.touchvie.backend.carddetail.Relation;
+import com.touchvie.backend.carddetail.relations.Relation;
 import com.touchvie.backend.carddetail.User;
-import com.touchvie.touchvie_client.rest.restmanager.RestService;
-
-import java.io.Serializable;
 
 /**
  * Created by Tagsonomy S.L. on 16/09/2016.

@@ -232,6 +232,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
             cardData = mapper.readValue(jsonString, CardDetail.class);
         } catch (IOException e) {
             e.printStackTrace();
+            return;
         }
         if (cardData == null) {
             cardData = new CardDetail();

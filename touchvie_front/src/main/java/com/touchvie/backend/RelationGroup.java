@@ -1,6 +1,6 @@
 package com.touchvie.backend;
 
-import com.touchvie.backend.carddetail.Relation;
+import com.touchvie.backend.carddetail.relations.Relation;
 
 import java.io.Serializable;
 
