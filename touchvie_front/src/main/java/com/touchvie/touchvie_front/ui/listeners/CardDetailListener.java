@@ -9,7 +9,7 @@ import com.touchvie.touchvie_front.ui.fragments.Section;
 /**
  * Created by Tagsonomy S.L. on 20/09/2016.
  */
-public interface CardDetailListener {
+public interface CardDetailListener extends Parcelable{
 
     /**
      * Interface to go to a determined section through navigation modules

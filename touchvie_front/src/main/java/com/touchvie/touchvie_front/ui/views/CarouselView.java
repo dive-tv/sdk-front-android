@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.FrameLayout;
 
 import com.touchvie.backend.CardData;
+import com.touchvie.backend.MiniCard;
 
 /**
  * Created by rodrigo.moral on 03/10/2016.
@@ -12,10 +13,10 @@ import com.touchvie.backend.CardData;
 public class CarouselView {
 
     Context context;
-    CardData card;
+    MiniCard card;
     FrameLayout layout;
 
-    public CarouselView(Context context, CardData card) {
+    public CarouselView(Context context, MiniCard card) {
         this.context = context;
         this.card = card;
         createLayout();
