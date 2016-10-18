@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
+import com.touchvie.touchvie_front.ui.modules.data.TextData;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
 import java.util.ArrayList;

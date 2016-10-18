@@ -25,6 +25,7 @@ public class Utils {
     public static final String FULLSCREEN_FRAGMENT="FULLSCREEN_FRAGMENT";
     public static final String POSITION="POSITION";
     public static final String IMAGES="IMAGES";
+    public static final String ROW_DATA="ROW_DATA";
 
     /*****************************************************************/
     public static final String SWIPE_GALLERY ="SWIPE_GALLERY";

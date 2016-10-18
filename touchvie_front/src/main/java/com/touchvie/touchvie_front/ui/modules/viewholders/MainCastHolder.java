@@ -6,22 +6,17 @@ import android.view.View;
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.modules.adapters.RectangularImageItemsAdapter;
-import com.touchvie.touchvie_front.ui.modules.adapters.SeasonsAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
 
 import java.util.ArrayList;
 
 /**
- * Created by Tagsonomy S.L. on 13/10/2016.
+ * Created by Tagsonomy S.L. on 18/10/2016.
  */
 
-public class SeasonsHolder extends RectangularImageItemsHolder {
+public class MainCastHolder  extends SquareImageItemsHolder {
 
-    protected SeasonsAdapter adapter;
-    protected ArrayList<ImageRowData> data;
-
-    public SeasonsHolder(View itemView) {
+    public MainCastHolder(View itemView) {
         super(itemView);
     }
 
@@ -29,9 +24,9 @@ public class SeasonsHolder extends RectangularImageItemsHolder {
     public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
-        mTitle.setText(context.getResources().getString(R.string.seasons));
+        mTitle.setText(context.getResources().getString(R.string.main_cast));
 
-        mSeeAll.setText(context.getResources().getString(R.string.see_all_seasons));
+        mSeeAll.setText(context.getResources().getString(R.string.see_all_maincast));
         mSeeAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +35,7 @@ public class SeasonsHolder extends RectangularImageItemsHolder {
         });
 
         ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
-        adapter= new SeasonsAdapter(data);
-        super.setAdapter(adapter);
+        super.setData(rows);
+
     }
 }
