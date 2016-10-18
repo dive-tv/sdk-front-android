@@ -15,7 +15,7 @@ public class ConfigSection implements Serializable {
     protected ArrayList<ConfigModule> modules = new ArrayList<>();
 
     /**
-     * The text of this section
+     * The title of this section
      */
     protected String title;
 
@@ -90,7 +90,7 @@ public class ConfigSection implements Serializable {
     }
 
     /**
-     * Gets the text of this section.
+     * Gets the title of this section.
      * @return
      */
     public String getTitle() {
@@ -98,8 +98,8 @@ public class ConfigSection implements Serializable {
     }
 
     /**
-     * Sets the text of this section.
-     * @param title The text to be set.
+     * Sets the title of this section.
+     * @param title The title to be set.
      */
     public void setTitle(String title) {
         this.title = title;

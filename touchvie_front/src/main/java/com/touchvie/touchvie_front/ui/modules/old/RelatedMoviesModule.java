@@ -47,10 +47,10 @@ public class RelatedMoviesModule extends RecyclerView.ViewHolder {
        /* if (cardData != null && cardData.getRelated_movies() != null) {
             RelatedMovies relatedMovies = cardData.getRelated_movies();
             //Title
-            if (relatedMovies.getText() != null && relatedMovies.getText().length() > 0) {
-                relatedMoviesVH.getText().setText(relatedMovies.getText());
+            if (relatedMovies.getTitle() != null && relatedMovies.getTitle().length() > 0) {
+                relatedMoviesVH.getTitle().setText(relatedMovies.getTitle());
             } else {
-                relatedMoviesVH.getText().setText("");
+                relatedMoviesVH.getTitle().setText("");
             }
             //Related Movies
             if (relatedMovies.getMovies() != null && relatedMovies.getMovies().length > 0) {
