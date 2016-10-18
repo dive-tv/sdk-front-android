@@ -116,7 +116,7 @@ public class AwardsAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.cards_list_to_two_columns_info_row, null);
             holder = new BasicInfoHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.cards_list_to_two_columns_info_row_title);
+            holder.text = (TextView) convertView.findViewById(R.id.cards_list_to_two_columns_info_row_title);
             holder.value = (TextView) convertView.findViewById(R.id.cards_list_to_two_columns_info_row_number);
             holder.icon = (TextView) convertView.findViewById(R.id.cards_list_to_two_columns_info_row_icon);
             convertView.setTag(holder);
@@ -125,8 +125,8 @@ public class AwardsAdapter extends BaseAdapter {
         }
 
         final ContainerAwards row_pos = rowItem.get(position);
-        holder.title.setText(row_pos.getTitle());
-        holder.title.setTypeface(sourceSansProSemiBold);
+        holder.text.setText(row_pos.getText());
+        holder.text.setTypeface(sourceSansProSemiBold);
         holder.value.setText(" (" + Integer.toString((row_pos.getWinner().length + row_pos.getNominee().length)) + ")");
         holder.value.setTypeface(sourceSansProRegular);
 

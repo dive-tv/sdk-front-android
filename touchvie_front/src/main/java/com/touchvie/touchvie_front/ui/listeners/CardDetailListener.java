@@ -34,10 +34,10 @@ public interface CardDetailListener extends Parcelable {
     Section requestSectionForTab(String sectionName);
 
     /**
-     * Request the title of the Section, used in the Tab Module
+     * Request the text of the Section, used in the Tab Module
      *
      * @param sectionName
-     * @return the title of the Sectoin
+     * @return the text of the Sectoin
      */
     String requestSectionTitleForTab(String sectionName);
 

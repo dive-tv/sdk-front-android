@@ -114,7 +114,7 @@ public class RelatedMoviesAdapter extends BaseAdapter {
             holder.photo.setVisibility(View.GONE);
         }
 
-        //title
+        //text
         if (relatedMovie.getTitle() != null && relatedMovie.getTitle().length() > 0) {
             holder.title.setText(relatedMovie.getTitle());
         } else {
