@@ -60,15 +60,6 @@ public class GalleryHolder extends ModuleHolder {
             if (!found) {
                 mSeeAll.setVisibility(View.GONE);
             }
-        } else {
-            mSeeAll.setVisibility(View.GONE);
-            ArrayList<Image> images = new ArrayList<>(); //TODO: get images from card data!!!!!!
-            for (int i = 0; i < 6; i++) {
-                images.add(new Image());
-                images.get(images.size() - 1).setFull("");
-            }
-            GalleryAdapter adapter = new GalleryAdapter(context, images);
-            mGrid.setAdapter(adapter);
         }
     }
 }

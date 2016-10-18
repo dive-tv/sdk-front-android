@@ -26,9 +26,9 @@ public class MovieListHolder extends NoPaddingListHolder {
     public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
+        MovieListAdapter adapter= new MovieListAdapter();
+        mList.setList(adapter, true, null);
 
-        MovieListAdapter adapter = new MovieListAdapter();
-        mList.setList(adapter, true);
     }
 }
 

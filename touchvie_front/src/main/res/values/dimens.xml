@@ -93,6 +93,12 @@
     <dimen name="ilist_title_mbottom">17dp</dimen>
     <dimen name="ilist_item_height">50dp</dimen>
 
+    <!-- Full curiosity-->
+    <dimen name="fcuriosity_container_padtop">27dp</dimen>
+    <dimen name="fcuriosity_container_padbottom">32dp</dimen>
+    <dimen name="fcuriosity_container_padside">22dp</dimen>
+    <dimen name="fcuriosity_title_mbottom">50dp</dimen>
+
     <!-- Module SquareImageItems -->
     <dimen name="simageitems_image_height">144dp</dimen>
     <dimen name="simageitems_data_height">50dp</dimen>
