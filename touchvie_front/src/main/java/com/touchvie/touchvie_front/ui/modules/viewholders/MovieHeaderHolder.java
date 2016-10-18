@@ -8,10 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
-import com.touchvie.backend.CatalogData;
-import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.TypeOfContainer;
+import com.touchvie.backend.carddetail.CardDetail;
+import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.carddetail.containers.Catalog;
 import com.touchvie.touchvie_client.data.ImageSize;
 import com.touchvie.touchvie_client.manager.ClientManager;
@@ -42,67 +41,67 @@ public class MovieHeaderHolder extends ModuleHolder {
      */
     public MovieHeaderHolder(View itemView) {
         super(itemView);
-        mBackground =(ImageView)itemView.findViewById(R.id.imgv_mheader_background);
-        mTitle =(TextView)itemView.findViewById(R.id.txtv_mheader_title);
-        mYear=(TextView)itemView.findViewById(R.id.txtv_mheader_year);
-        mDirector =(TextView)itemView.findViewById(R.id.txtv_mheader_director);
-        mGenres =(TextView)itemView.findViewById(R.id.txtv_mheader_genres);
-        mTimeLay =(LinearLayout) itemView.findViewById(R.id.lay_mheader_time);
-        mTime=(TextView)itemView.findViewById(R.id.txtv_mheader_time);
-        mPoster=(ImageView) itemView.findViewById(R.id.imgv_mheader_poster);
-        mButton=(TextView)itemView.findViewById(R.id.txtv_mheader_divein);
+        mBackground = (ImageView) itemView.findViewById(R.id.imgv_mheader_background);
+        mTitle = (TextView) itemView.findViewById(R.id.txtv_mheader_title);
+        mYear = (TextView) itemView.findViewById(R.id.txtv_mheader_year);
+        mDirector = (TextView) itemView.findViewById(R.id.txtv_mheader_director);
+        mGenres = (TextView) itemView.findViewById(R.id.txtv_mheader_genres);
+        mTimeLay = (LinearLayout) itemView.findViewById(R.id.lay_mheader_time);
+        mTime = (TextView) itemView.findViewById(R.id.txtv_mheader_time);
+        mPoster = (ImageView) itemView.findViewById(R.id.imgv_mheader_poster);
+        mButton = (TextView) itemView.findViewById(R.id.txtv_mheader_divein);
 
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
-        if(cardData.getImage() !=null){
+        if (cardData.getImage() != null) {
             picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                     .into(mPoster);
 
-        }else{
-           mPoster.setVisibility(View.GONE);
+        } else {
+            mPoster.setVisibility(View.GONE);
         }
-        if(cardData.getTitle() !=null){
+        if (cardData.getTitle() != null) {
             mTitle.setText(cardData.getTitle());
             mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         }
 
-        if(cardData.getContainers()!=null){
+        if (cardData.getInfo() != null) {
 
-            for(Container container : cardData.getContainers()){
-                if(TypeOfContainer.CATALOG.getName().equals(container.getType())){
-                    if(container.getData()!=null){
-                        if(((Catalog)container.getData()).getDirector() !=null){
-                            mDirector.setText(((Catalog)container.getData()).getDirector());
+            for (Container container : cardData.getInfo()) {
+                if (TypeOfContainer.CATALOG.getName().equals(container.getType())) {
+                    if (container.getData() != null) {
+                        if (((Catalog) container.getData()).getDirector() != null) {
+                            mDirector.setText(((Catalog) container.getData()).getDirector());
                             mDirector.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
                         }
 
-                        if(((Catalog)container.getData()).getRuntime() > 0){
+                        if (((Catalog) container.getData()).getRuntime() > 0) {
                             mTimeLay.setVisibility(View.VISIBLE);
-                           mTime.setText(Utils.getTime(((Catalog)container.getData()).getRuntime(), context));
+                            mTime.setText(Utils.getTime(((Catalog) container.getData()).getRuntime(), context));
                             mTime.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
-                        }else{
+                        } else {
                             mTimeLay.setVisibility(View.GONE);
                         }
 
-                        if(((Catalog)container.getData()).getSync() !=null && ((Catalog)container.getData()).getSync().isSynchronizable()==true){
+                        if (((Catalog) container.getData()).getSync() != null && ((Catalog) container.getData()).getSync().isSynchronizable() == true) {
                             mButton.setVisibility(View.VISIBLE);
-                        }else{
+                        } else {
                             mButton.setVisibility(View.GONE);
                         }
 
-                        if(((Catalog)container.getData()).getBackgroundImage() !=null){
-                            picasso.load(ClientManager.getInstance().getImageUrl(((Catalog)container.getData()).getBackgroundImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+                        if (((Catalog) container.getData()).getBackgroundImage() != null) {
+                            picasso.load(ClientManager.getInstance().getImageUrl(((Catalog) container.getData()).getBackgroundImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                                     .into(mBackground);
                         }
 
-                        if(((Catalog)container.getData()).getGenres() !=null){
+                        if (((Catalog) container.getData()).getGenres() != null) {
                             StringBuilder sb = new StringBuilder();
-                            boolean first=true;
-                            for(String genre: ((Catalog)container.getData()).getGenres()){
-                                if(!first){
+                            boolean first = true;
+                            for (String genre : ((Catalog) container.getData()).getGenres()) {
+                                if (!first) {
                                     sb.append(",");
                                 }
                                 sb.append(genre);
@@ -111,13 +110,13 @@ public class MovieHeaderHolder extends ModuleHolder {
                             mGenres.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }
 
-                        if(((Catalog)container.getData()).getYear() >0){
-                            mYear.setText(((Catalog)container.getData()).getYear());
+                        if (((Catalog) container.getData()).getYear() > 0) {
+                            mYear.setText(((Catalog) container.getData()).getYear());
                             mYear.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_LIGHT));
                         }
 
                     }
-                }else{
+                } else {
                     mTimeLay.setVisibility(View.GONE);
                     mButton.setVisibility(View.GONE);
                 }

@@ -8,7 +8,8 @@ import com.touchvie.touchvie_client.rest.datawrappers.NetworkData;
  */
 
 public interface CardDataListener {
-    public void onCardDataReceived(CardDetail card);
+
+    void onCardDataReceived(CardDetail card);
 
     public void onCardDataError(NetworkData response);
 

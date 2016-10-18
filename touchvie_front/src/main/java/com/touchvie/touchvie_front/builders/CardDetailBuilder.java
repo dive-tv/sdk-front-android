@@ -2,6 +2,8 @@ package com.touchvie.touchvie_front.builders;
 
 import android.content.Context;
 
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
+
 /**
  * Class to build a card detail without a configuration json.
  */
@@ -10,8 +12,8 @@ public class CardDetailBuilder extends BaseCardDetailBuilder<CardDetailBuilder> 
     /**
      * Default constructor
      */
-    public CardDetailBuilder(Context context) {
-        super(context);
+    public CardDetailBuilder(Context context, OauthObjectInterface auth) {
+        super(context, auth);
     }
 
 

@@ -1,26 +1,33 @@
 package com.touchvie.backend;
 
+import android.content.Context;
+
 import com.touchvie.backend.carddetail.Container;
+import com.touchvie.backend.carddetail.ImageData;
+import com.touchvie.backend.carddetail.ProductData;
+import com.touchvie.backend.carddetail.Relation;
 import com.touchvie.backend.carddetail.User;
+import com.touchvie.touchvie_client.rest.restmanager.RestService;
 
 import java.io.Serializable;
 
 /**
  * Created by Tagsonomy S.L. on 16/09/2016.
  */
-public class Card implements Serializable {
+public class Card {
 
-    String card_id;
-    String type;
-    String locale;
-    String title;
-    String subtitle;
-    Image image;
-    Container[] containers;
-    RelationGroup relations;
-    User user;
+    private String card_id;
+    private String type;
+    private String locale;
+    private String title;
+    private String subtitle;
+    private ImageData image;
+    private ProductData[] products;
+    private Container[] info;
+    private Relation[] relations;
+    private User user;
 
-    public String getCarId() {
+    public String getCardId() {
         return card_id;
     }
 
@@ -60,27 +67,35 @@ public class Card implements Serializable {
         this.subtitle = subtitle;
     }
 
-    public Image getImage() {
+    public ImageData getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(ImageData image) {
         this.image = image;
     }
 
-    public Container[] getContainers() {
-        return containers;
+    public ProductData[] getProducts() {
+        return products;
     }
 
-    public void setContainers(Container[] containers) {
-        this.containers = containers;
+    public void setProducts(ProductData[] products) {
+        this.products = products;
     }
 
-    public RelationGroup getRelations() {
+    public Container[] getInfo() {
+        return info;
+    }
+
+    public void setInfo(Container[] info) {
+        this.info = info;
+    }
+
+    public Relation[] getRelations() {
         return relations;
     }
 
-    public void setRelations(RelationGroup relations) {
+    public void setRelations(Relation[] relations) {
         this.relations = relations;
     }
 
@@ -91,7 +106,4 @@ public class Card implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-
-
-
 }

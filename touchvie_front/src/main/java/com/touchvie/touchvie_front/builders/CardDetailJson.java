@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.DataConfig;
 import com.touchvie.touchvie_front.R;
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
 
 import org.json.JSONObject;
 
@@ -20,8 +21,8 @@ public class CardDetailJson extends BaseCardDetailBuilder<CardDetailJson> {
     /**
      * Default constructor
      */
-    public CardDetailJson(Context context) {
-        super(context);
+    public CardDetailJson(Context context, OauthObjectInterface auth) {
+        super(context,auth);
     }
 
     /**

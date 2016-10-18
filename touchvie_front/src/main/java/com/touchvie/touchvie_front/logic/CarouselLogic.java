@@ -128,8 +128,10 @@ public class CarouselLogic {
     }
 
     private boolean checkGroupableTree(CarouselCard card, CarouselCard last) {
-        if (tree.get(last.getData().getMiniCard().getType()) != null && tree.get(last.getData().getMiniCard().getType()).get(card.getData().getMiniCard().getType()) != null) {
-            return true;
+        if (last.getData().getMiniCard()!=null) {
+            if (tree.get(last.getData().getMiniCard().getType()) != null && tree.get(last.getData().getMiniCard().getType()).get(card.getData().getMiniCard().getType()) != null) {
+                return true;
+            }
         }
         return false;
     }
@@ -156,11 +158,19 @@ public class CarouselLogic {
 
         tree = new HashMap<>();
         tree1 = new HashMap<>();
+        System.out.println("KKKKKKKKKKKKKKKKKKKKK   gourpableTree.size: : " + groupableTree.getTrees().length);
+        System.out.println("KKKKKKKKKKKKKKKKKKKKK   tree: " + jsonString);
         for (int i = 0; i < groupableTree.getTrees().length; i++) {
             if (groupableTree.getTrees()[i].getChildren() != null && groupableTree.getTrees()[i].getChildren().length > 0) {
+                System.out.println("KKKKKKKKKKKKKKKKKKKKKK   groupableTree.getTrees()[i].getChildren(): " + groupableTree.getTrees()[i].getChildren().toString());
                 if (groupableTree.getTrees()[i].getChildren()[0].getChildren() != null && groupableTree.getTrees()[i].getChildren()[0].getChildren().length > 0) {
+                    System.out.println("KKKKKKKKKKKKKKKKKK   i: "+ i + "  length: " +groupableTree.getTrees()[i].getChildren()[0].getChildren().length);
+                    System.out.println("KKKKKKKKKKKKKKKKKK   i: "+ i + "  " +groupableTree.getTrees()[i].getTypeOfCard());
+                    System.out.println("KKKKKKKKKKKKKKKKKK   i: "+ i + "  " +groupableTree.getTrees()[i].getChildren()[0].getTypeOfCard().toString());
+                    System.out.println("KKKKKKKKKKKKKKKKKK    "+ groupableTree.getTrees()[i].getChildren()[0].getChildren()[0].getTypeOfCard().toString());
                     tree1.put(groupableTree.getTrees()[i].getChildren()[0].getTypeOfCard().toString(), groupableTree.getTrees()[i].getChildren()[0].getChildren()[0].getTypeOfCard().toString());
                 } else {
+                    System.out.println("KKKKKKKKKKKKKKKKKK    i: " + i + "   " + groupableTree.getTrees()[i].getChildren()[0].getTypeOfCard().toString() + "  :  null");
                     tree1.put(groupableTree.getTrees()[i].getChildren()[0].getTypeOfCard().toString(), null);
                 }
                 tree.put(groupableTree.getTrees()[i].getTypeOfCard().toString(), tree1);

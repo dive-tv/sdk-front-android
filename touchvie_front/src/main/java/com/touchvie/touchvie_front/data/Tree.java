@@ -7,14 +7,14 @@ import com.touchvie.backend.TypeOfCard;
  */
 
 public class Tree {
-    private TypeOfCard type;
+    private String type;
     private Tree[] children;
 
-    public TypeOfCard getTypeOfCard(){
+    public String getTypeOfCard(){
         return type;
     }
 
-    public void setTypeOfCard(TypeOfCard type){
+    public void setTypeOfCard(String type){
         this.type = type;
     }
 

@@ -13,6 +13,7 @@ import com.android.volley.toolbox.JsonRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.touchvie.backend.MiniCard;
 import com.touchvie.backend.carddetail.CardDetail;
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
 import com.touchvie.touchvie_client.rest.NetworkMsg;
 import com.touchvie.touchvie_client.rest.Utils;
 import com.touchvie.touchvie_client.rest.VolleyProvider;
@@ -37,12 +38,14 @@ public class Cards extends RestService{
     private String PARAM_IMAGE_SIZE = "image_size";
     private String getMiniCardUrl = "/cards/mini/";
     private String PARAM_ADD_PRODUCTS = "add_products";
+    private OauthObjectInterface oauth;
 
     public Cards(Context ctx) {
         super(ctx);
     }
 
-    public boolean getCard(final String cardId, final CardDataListener listener){
+    public boolean getCard(final String cardId, final CardDataListener listener, final OauthObjectInterface oauth){
+        this.oauth = oauth;
         RequestQueue queue = VolleyProvider.getRequestQueue();
         Uri.Builder builder = Uri.parse(baseUrl + getCardUrl + cardId).buildUpon();
 
@@ -71,7 +74,7 @@ public class Cards extends RestService{
                     AuthListener authListener = new AuthListener() {
                         @Override
                         public void onGetDiveToken(AuthData auth) {
-                            getCard(cardId, listener);
+                            getCard(cardId, listener, oauth);
                         }
 
                         @Override
@@ -79,8 +82,7 @@ public class Cards extends RestService{
                         }
                     };
 
-                    Auth auth=new Auth(context);
-                    auth.getDiveToken(null, null, null, Utils.getStoredRefreshToken(context), true, 0, 3, authListener);
+                    oauth.refreshToken(authListener);
                     return;
                 }
 
@@ -188,8 +190,7 @@ public class Cards extends RestService{
                         }
                     };
 
-                    Auth auth=new Auth(context);
-                    auth.getDiveToken(null, null, null, Utils.getStoredRefreshToken(context), true, 0, 3, authListener);
+                    oauth.refreshToken(authListener);
                     return;
                 }
 

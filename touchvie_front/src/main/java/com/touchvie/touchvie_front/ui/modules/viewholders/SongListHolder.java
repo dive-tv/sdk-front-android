@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.ui.modules.adapters.SongListAdapter;
 
 /**
@@ -23,7 +24,7 @@ public class SongListHolder extends VerticalListHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         SongListAdapter adapter= new SongListAdapter();
         mList.setList(adapter, true);

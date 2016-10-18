@@ -1,14 +1,11 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.ExpandableTextView;
 
@@ -32,18 +29,17 @@ public abstract class TextHolder extends ModuleHolder {
 
     public TextHolder(View view) {
         super(view);
-        title=(TextView)view.findViewById(R.id.txtv_title);
-        text=(ExpandableTextView)view.findViewById(R.id.xtxtv_body);
-        link =(TextView)view.findViewById(R.id.txtv_text_link);
+        title = (TextView) view.findViewById(R.id.txtv_title);
+        text = (ExpandableTextView) view.findViewById(R.id.xtxtv_body);
+        link = (TextView) view.findViewById(R.id.txtv_text_link);
         more = (ImageView) view.findViewById(R.id.imgv_text_more);
-        source=(TextView)view.findViewById(R.id.txtv_footer_source);
-        sourceLink =(TextView)view.findViewById(R.id.txtv_footer_link);
+        source = (TextView) view.findViewById(R.id.txtv_footer_source);
+        sourceLink = (TextView) view.findViewById(R.id.txtv_footer_link);
         sourceImage = (ImageView) view.findViewById(R.id.imgv_footer_img);
-        disclaimer =(TextView)view.findViewById(R.id.txtv_footer_disclaimer);
-        sourceLay=(RelativeLayout)view.findViewById(R.id.rel_source_footer);
-        separator=(FrameLayout)view.findViewById(R.id.flay_text_line);
+        disclaimer = (TextView) view.findViewById(R.id.txtv_footer_disclaimer);
+        sourceLay = (RelativeLayout) view.findViewById(R.id.rel_source_footer);
+        separator = (FrameLayout) view.findViewById(R.id.flay_text_line);
     }
-
 
 
 }

@@ -3,6 +3,7 @@ package com.touchvie.touchvie_front.ui.listeners;
 import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
 
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
 import com.touchvie.touchvie_front.ui.fragments.Section;
 
 /**
@@ -22,7 +23,7 @@ public interface CardDetailListener extends Parcelable {
      *
      * @param cardId
      */
-    void goToNewCard(String cardId);
+    void goToNewCard(String cardId, OauthObjectInterface auth);
 
     /**
      * Request a new Section to Card Detail, to put it in our view pager

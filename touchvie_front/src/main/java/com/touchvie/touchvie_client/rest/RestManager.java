@@ -5,8 +5,13 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.touchvie.touchvie_client.rest.restmanager.Auth;
+import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
+import com.touchvie.touchvie_client.rest.listeners.CardDataListener;
+import com.touchvie.touchvie_client.rest.listeners.MiniCardListener;
+import com.touchvie.touchvie_client.rest.restmanager.Cards;
+import com.touchvie.touchvie_client.rest.restmanager.interfaces.CardManagerInterface;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -14,10 +19,10 @@ import java.util.Locale;
  * Created by Tagsonomy S.L. on 04/10/2016.
  */
 
-public class RestManager  {
+public class RestManager implements CardManagerInterface {
     public static Context context = null;
 
-    private Auth authManager;
+    private Cards cardManager;
 
     private static volatile RestManager instance;
 
@@ -44,8 +49,7 @@ public class RestManager  {
     public RestManager(Context ctx) {
         context = ctx;
 
-
-        authManager = new Auth(ctx);
+        cardManager = new Cards(ctx);
 
         mVProvider = VolleyProvider.getInstance(ctx);
         settings = context.getSharedPreferences(Utils.SHARED_PREFERENCES, Context.MODE_PRIVATE);
@@ -90,6 +94,8 @@ public class RestManager  {
      */
 
     public static synchronized RestManager getInstance() {
+        if (instance == null)
+            instance = new RestManager(context);
         return instance;
     }
 
@@ -136,5 +142,15 @@ public class RestManager  {
 
     }
 
+
+    @Override
+    public boolean getCard(String cardId, CardDataListener listener, OauthObjectInterface auth) {
+        return cardManager.getCard(cardId, listener, auth);
+    }
+
+    @Override
+    public boolean getMiniCard(ArrayList<String> cardId, String addProducts, MiniCardListener listener) {
+        return getMiniCard(cardId, addProducts, listener);
+    }
 }
 

@@ -5,9 +5,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
-import com.touchvie.backend.TextData;
 import com.touchvie.backend.TypeOfContainer;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.carddetail.containers.Text;
 import com.touchvie.touchvie_client.data.ImageSize;
@@ -27,13 +26,13 @@ public class DescriptionHolder extends TextHolder implements ExpandableListener 
         super(view);
     }
 
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         title.setVisibility(GONE);
         link.setVisibility(GONE);
 
-        if (cardData.getContainers() != null) {
-            for (Container container : cardData.getContainers()) {
+        if (cardData.getInfo() != null) {
+            for (Container container : cardData.getInfo()) {
                 if (TypeOfContainer.DESCRIPTION.getName().equals(container.getType())) {
                     if (container.getData() != null) {
                         if (((Text) container.getData()).getText() != null) {

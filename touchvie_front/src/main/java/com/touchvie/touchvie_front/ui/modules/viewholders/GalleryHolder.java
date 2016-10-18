@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
-import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.Image;
 import com.touchvie.backend.TypeOfContainer;
+import com.touchvie.backend.carddetail.CardDetail;
+import com.touchvie.backend.carddetail.Container;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.adapters.GalleryAdapter;
 import com.touchvie.touchvie_front.ui.utils.Utils;
@@ -39,16 +39,16 @@ public class GalleryHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
         mTitle.setText(context.getResources().getString(R.string.gallery));
 
         mSeeAll.setText(context.getResources().getString(R.string.see_all_gallery));
         mSeeAll.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
-        if (cardData.getContainers() != null) {
+        if (cardData.getInfo() != null) {
             boolean found = false;
-            for (Container container : cardData.getContainers()) {
+            for (Container container : cardData.getInfo()) {
                 if (TypeOfContainer.GALLERY.getName().equals(container.getContentType())) {
                     ArrayList<Image> images = new ArrayList<>(); //TODO: get images from card data!!!!!!
                     GalleryAdapter adapter = new GalleryAdapter(context, images);

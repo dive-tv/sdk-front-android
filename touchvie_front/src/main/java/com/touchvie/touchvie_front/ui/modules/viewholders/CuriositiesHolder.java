@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.adapters.CuriositiesAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.TextRowData;
@@ -22,7 +22,7 @@ public class CuriositiesHolder extends HorizontalListHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         super.configure(cardData, picasso, context);
         mTitle.setText(context.getResources().getString(R.string.know_that));
@@ -35,8 +35,8 @@ public class CuriositiesHolder extends HorizontalListHolder {
             }
         });
 
-        ArrayList<TextRowData> rows= new ArrayList<>();
-        CuriositiesAdapter adapter= new CuriositiesAdapter(rows);
+        ArrayList<TextRowData> rows = new ArrayList<>();
+        CuriositiesAdapter adapter = new CuriositiesAdapter(rows);
         mList.setAdapter(adapter);
 
     }

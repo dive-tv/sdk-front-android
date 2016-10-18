@@ -7,9 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.touchvie.backend.Card;
-import com.touchvie.backend.CatalogData;
 import com.touchvie.backend.TypeOfContainer;
+import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.backend.carddetail.Container;
 import com.touchvie.backend.carddetail.containers.Catalog;
 import com.touchvie.touchvie_client.data.ImageSize;
@@ -44,7 +43,7 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(Card cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         if (cardData.getImage() != null && cardData.getImage().getFull() != null) {
             picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
@@ -58,8 +57,8 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
             mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
         }
 
-        if (cardData.getContainers() != null) {
-            for (Container container : cardData.getContainers()) {
+        if (cardData.getInfo() != null) {
+            for (Container container : cardData.getInfo()) {
                 if (TypeOfContainer.CATALOG.getName().equals(container.getType())) {
                     if (container.getData() != null) {
                         if (((Catalog) container.getData()).getDirector() != null) {
@@ -79,7 +78,7 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
                             mGenres.setText(sb.toString());
                             mGenres.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }
-                        if (((Catalog) container.getData()).getYear() >0) {
+                        if (((Catalog) container.getData()).getYear() > 0) {
                             mYear.setText(((Catalog) container.getData()).getYear());
                             mYear.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_LIGHT));
                         }
