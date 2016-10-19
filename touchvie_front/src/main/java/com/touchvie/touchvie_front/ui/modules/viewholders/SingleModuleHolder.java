@@ -1,8 +1,10 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -37,7 +39,7 @@ public class SingleModuleHolder  extends ModuleHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
 
         mContainerTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));

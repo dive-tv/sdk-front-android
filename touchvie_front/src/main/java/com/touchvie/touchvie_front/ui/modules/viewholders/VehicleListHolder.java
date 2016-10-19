@@ -1,7 +1,9 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
@@ -26,9 +28,9 @@ public class VehicleListHolder extends NoPaddingListHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
 
-        super.configure(cardData, picasso, context);
+        super.configure(cardData, picasso, context, mFragmentManager, container);
         ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
         super.setData(rows, true, null);
 

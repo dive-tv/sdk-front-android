@@ -6,7 +6,7 @@ import com.touchvie.backend.MiniCard;
  * Created by Tagsonomy S.L. on 18/10/2016.
  */
 
-public class DupleRel {
+public class DupleRel extends RelationData{
     private String rel_type;
     private MiniCard from;
     private MiniCard to;

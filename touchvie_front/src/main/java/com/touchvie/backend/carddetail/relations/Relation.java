@@ -1,16 +1,6 @@
 package com.touchvie.backend.carddetail.relations;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
-/**
- * Created by Tagsonomy S.L. on 23/09/2016.
- */
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "type", visible = true, defaultImpl = Void.class)
-@JsonSubTypes({ @Type(value = SingleRel.class, name = RelationTypes.SINGLE),
-        @Type(value = DupleRel.class, name = RelationTypes.DUPLE)
-})
 /**
  * Created by Tagsonomy S.L. on 16/10/2016.
  */
@@ -18,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 public class Relation {
     private String type;
     private String content_type;
+    private RelationData[] data;
 
     public String getType() {
         return type;
@@ -33,6 +24,14 @@ public class Relation {
 
     public void setContent_type(String contentType) {
         this.content_type = contentType;
+    }
+
+    public RelationData[] getData() {
+        return data;
+    }
+
+    public void setData(RelationData[] data) {
+        this.data = data;
     }
 }
 

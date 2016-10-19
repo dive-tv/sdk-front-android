@@ -22,14 +22,14 @@ import java.util.ArrayList;
  */
 public class CarouselCell implements Serializable {
 
-    ArrayList<CardData> cards;
+    ArrayList<MiniCard> cards;
     int sceneNr;
 
-    public ArrayList<CardData> getCards() {
+    public ArrayList<MiniCard> getCards() {
         return cards;
     }
 
-    public void setCards(ArrayList<CardData> cards) {
+    public void setCards(ArrayList<MiniCard> cards) {
         this.cards = cards;
     }
 
@@ -58,7 +58,7 @@ public class CarouselCell implements Serializable {
 
         if (getCards() != null && getCards().size() > 0) {
             for (int i = 0; i < getCards().size(); i++) {
-                if (getCards().get(i).getMiniCard().getType().equals("curiosity")) {
+                if (getCards().get(i).getType().equals("curiosity")) {
                     CarouselViewCuriosity temp = new CarouselViewCuriosity(context, getCards().get(i));
                     views.add(temp);
                 } else {
