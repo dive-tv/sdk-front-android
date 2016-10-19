@@ -29,9 +29,9 @@ public class InterpretedByHolder extends SquareImageItemsHolder {
     }
 
     @Override
-    public void configure(final CardDetail cardData, Picasso picasso, final Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(final CardDetail cardData, Picasso picasso, final Context context, FragmentManager fragmentManager, LinearLayout container) {
 
-        super.configure(cardData, picasso, context, mFragmentManager, container);
+        super.configure(cardData, picasso, context, fragmentManager, container);
         mTitle.setText(context.getResources().getString(R.string.interpreted_by));
 
         mSeeAll.setText(context.getResources().getString(R.string.see_all_interpreted_by));

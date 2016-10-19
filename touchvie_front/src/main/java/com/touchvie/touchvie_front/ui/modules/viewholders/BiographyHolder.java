@@ -30,7 +30,7 @@ public class BiographyHolder extends TextHolder implements ExpandableListener {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout containerLinear) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout containerLinear) {
 
         title.setText(context.getResources().getString(R.string.biography));
         title.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));

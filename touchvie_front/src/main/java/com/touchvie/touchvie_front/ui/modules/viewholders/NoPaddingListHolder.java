@@ -31,7 +31,7 @@ public abstract class NoPaddingListHolder extends VerticalListHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
 
         mContainer.setPadding(0, mContainer.getPaddingTop(), 0, mContainer.getPaddingBottom());
 

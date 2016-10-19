@@ -28,7 +28,7 @@ public class DescriptionHolder extends TextHolder implements ExpandableListener 
         super(view);
     }
 
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout containerLinear) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout containerLinear) {
 
         title.setVisibility(GONE);
         link.setVisibility(GONE);

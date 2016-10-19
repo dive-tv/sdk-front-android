@@ -32,9 +32,9 @@ public class AppearsInLocationHolder extends RectangularImageItemsHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
 
-        super.configure(cardData, picasso, context, mFragmentManager, container);
+        super.configure(cardData, picasso, context, fragmentManager, container);
         mTitle.setText(context.getResources().getString(R.string.appears_in_location));
 
         mSeeAll.setText(context.getResources().getString(R.string.see_all_appearsin_location));

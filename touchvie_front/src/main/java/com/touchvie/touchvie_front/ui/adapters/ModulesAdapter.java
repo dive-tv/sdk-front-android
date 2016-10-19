@@ -40,18 +40,18 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      * @param cardData
      * @param configModules
      * @param mListener
-     * @param mFragmentManager
+     * @param fragmentManager
      * @param container
      */
 
-    public ModulesAdapter(Context context, CardDetail cardData, ConfigModule[] configModules, CardDetailListener mListener, FragmentManager mFragmentManager, LinearLayout container) {
+    public ModulesAdapter(Context context, CardDetail cardData, ConfigModule[] configModules, CardDetailListener mListener, FragmentManager fragmentManager, LinearLayout container) {
 
         this.context = context;
         this.cardData = cardData;
         this.configModules = configModules;
         this.mListener = mListener;
         this.mPicasso = Picasso.with(context);
-        this.mFragmentManager=mFragmentManager;
+        this.mFragmentManager=fragmentManager;
         this.container = container;
         getDifferentModulesNumber();
     }

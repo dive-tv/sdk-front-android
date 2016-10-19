@@ -41,7 +41,7 @@ public class GalleryHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout containerLinear) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout containerLinear) {
 
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
         mTitle.setText(context.getResources().getString(R.string.gallery));

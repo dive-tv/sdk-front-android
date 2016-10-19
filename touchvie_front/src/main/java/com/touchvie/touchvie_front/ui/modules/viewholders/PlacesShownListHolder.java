@@ -28,9 +28,9 @@ public class PlacesShownListHolder extends NoPaddingListHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
 
-        super.configure(cardData, picasso, context, mFragmentManager, container);
+        super.configure(cardData, picasso, context, fragmentManager, container);
 
         ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
         super.setData(rows, true, null);

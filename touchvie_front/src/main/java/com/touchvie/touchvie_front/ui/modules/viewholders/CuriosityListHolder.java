@@ -30,7 +30,7 @@ public class CuriosityListHolder extends VerticalListHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
 
         rows=new ArrayList<>();
         adapter= new CuriosityListAdapter(rows);

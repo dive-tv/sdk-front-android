@@ -34,7 +34,7 @@ public class FullCuriosityHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
 
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         mText.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));

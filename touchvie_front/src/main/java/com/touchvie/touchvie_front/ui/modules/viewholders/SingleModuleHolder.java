@@ -39,7 +39,7 @@ public class SingleModuleHolder  extends ModuleHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
 
         mContainerTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));

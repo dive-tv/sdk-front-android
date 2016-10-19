@@ -113,8 +113,8 @@ public class Section extends Fragment {
      *
      * @return A new instance of fragment Home.
      */
-    public Section newInstance(CardDetail data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener, FragmentManager mFragmentManager, LinearLayout container) {
-        this.mFragmentManager = mFragmentManager;
+    public Section newInstance(CardDetail data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener, FragmentManager fragmentManager, LinearLayout container) {
+        this.mFragmentManager = fragmentManager;
         this.container = container;
         Section fragment = new Section();
         Bundle extras = new Bundle();

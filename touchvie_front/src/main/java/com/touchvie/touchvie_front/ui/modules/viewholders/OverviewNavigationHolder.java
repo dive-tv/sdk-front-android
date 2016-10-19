@@ -29,7 +29,7 @@ public class OverviewNavigationHolder extends TextHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout containerLinear) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout containerLinear) {
 
         title.setText(context.getResources().getString(R.string.synopsis));
         more.setVisibility(GONE);

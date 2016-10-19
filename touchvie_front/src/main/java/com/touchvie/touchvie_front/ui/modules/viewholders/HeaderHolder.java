@@ -37,7 +37,7 @@ public class HeaderHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
 
         if (cardData.getTitle() != null) {
             title.setText(cardData.getTitle());
