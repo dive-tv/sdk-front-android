@@ -27,6 +27,8 @@
     <string name="see_all_seasons">Ver todas &#62;</string>
     <string name="see_all_highlights">Ver todos &#62;</string>
     <string name="see_all_maincast">Ver reparto completo &#62;</string>
+    <string name="see_all_more_looks">Ver todos &#62;</string>
+    <string name="see_all_complete_the_look">Ver todo &#62;</string>
 
     <string name="shop_this">Comprar &#62;</string>
 
@@ -48,6 +50,11 @@
     <string name="highlights">Destacamos</string>
     <string name="basic_info">Datos básicos</string>
     <string name="specifications">Especificaciones</string>
+
+    <string name="video">video</string>
+    <string name="trailer">trailer</string>
+    <string name="more_look_like_this">Más looks como éste</string>
+    <string name="complete_the_look">Completa el look</string>
 
 
 

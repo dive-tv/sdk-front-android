@@ -26,6 +26,7 @@ public class Utils {
     public static final String POSITION="POSITION";
     public static final String IMAGES="IMAGES";
     public static final String ROW_DATA="ROW_DATA";
+    public static final String TRAILER_ID="TRAILER_ID";
 
     /*****************************************************************/
     public static final String SWIPE_GALLERY ="SWIPE_GALLERY";

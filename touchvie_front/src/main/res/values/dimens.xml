@@ -116,4 +116,7 @@
     <dimen name="smodule_image_size">90dp</dimen>
     <dimen name="smodule_title_mtop">11dp</dimen>
 
+    <!-- Module Video -->
+    <dimen name="video_thumbnail_height">200dp</dimen>
+
 </resources>

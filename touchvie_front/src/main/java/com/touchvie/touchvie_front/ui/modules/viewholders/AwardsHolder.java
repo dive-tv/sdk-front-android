@@ -10,8 +10,6 @@ import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.backend.carddetail.containers.Awards;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.adapters.AwardsAdapter;
-import com.touchvie.touchvie_front.ui.modules.adapters.TwoColsModuleAdapter;
-import com.touchvie.touchvie_front.ui.modules.data.TwoTextRowData;
 
 import java.util.ArrayList;
 

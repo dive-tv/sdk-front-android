@@ -7,7 +7,6 @@ import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
-import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
 import static android.view.View.GONE;
