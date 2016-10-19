@@ -49,8 +49,8 @@ public class HighlightsHolder extends SquareImageItemsHolder {
                     arrayTitle.add(title);
                     row.setTitle(arrayTitle);
                     TextData subTitle = new TextData();
-                    title.setText(((SingleRel) relData).getData().getSubtitle());
-                    title.setUrl(null);
+                    subTitle.setText(((SingleRel) relData).getData().getSubtitle());
+                    subTitle.setUrl(null);
                     ArrayList<TextData> arraySubTitle = new ArrayList<>();
                     arrayTitle.add(subTitle);
                     row.setTitle(arraySubTitle);

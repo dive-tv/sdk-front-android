@@ -56,8 +56,8 @@ public class InterpretedByHolder extends SquareImageItemsHolder {
                     arrayTitle.add(title);
                     row.setTitle(arrayTitle);
                     TextData subTitle = new TextData();
-                    title.setText(((DupleRel)relData).getTo().getSubtitle());
-                    title.setUrl(null);
+                    subTitle.setText(((DupleRel)relData).getTo().getSubtitle());
+                    subTitle.setUrl(null);
                     ArrayList<TextData> arraySubTitle=new ArrayList<>();
                     arrayTitle.add(subTitle);
                     row.setTitle(arraySubTitle);

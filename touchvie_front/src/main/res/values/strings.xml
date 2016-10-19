@@ -35,6 +35,9 @@
     <string name="interpreted_by">Interpretado por</string>
     <string name="appears_in_location">Aparece en</string>
     <string name="appears_in">Aparece en</string>
+    <string name="as">Como</string>
+    <string name="filmed_in">Rodado en</string>
+    <string name="featured">Aparece en</string>
     <string name="cast">Reparto</string>
     <string name="soundtrack">Banda sonora</string>
     <string name="know_that">Sabias que...</string>

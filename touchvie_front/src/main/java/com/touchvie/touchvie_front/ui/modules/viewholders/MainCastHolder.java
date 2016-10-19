@@ -36,7 +36,8 @@ public class MainCastHolder  extends SquareImageItemsHolder {
             }
         });
 
-        ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
+        ArrayList<ImageRowData> rows= new ArrayList<>();
+
         super.setData(rows);
 
     }
