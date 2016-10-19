@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.touchvie.backend.Award;
-import com.touchvie.backend.AwardsGroup;
+import com.touchvie.backend.carddetail.containers.Awards;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
 import java.util.List;
@@ -23,56 +22,34 @@ public class AwardsAdapter extends BaseAdapter {
 
     private Context context;
 
-    private List<AwardsGroup> awardsGroups;
+    private List<Awards> awards;
 
     private Typeface latoRegular;
 
     private LayoutInflater mInflater;
 
-    private int awardsCount=0;
-
-    private int awardsGroupCount=0;
 
     /**
      * Instantiates a new awards adapter.
      *
      * @param context the context
      */
-    public AwardsAdapter(Context context, List<AwardsGroup> items) {
+    public AwardsAdapter(Context context, List<Awards> items) {
         this.context = context;
-        this.awardsGroups = items;
+        this.awards = items;
         this.mInflater = LayoutInflater.from(context);
         latoRegular = Utils.getFont(this.context, Utils.TypeFaces.LATO_REGULAR);
-        setAwardsCount();
     }
 
-    private void setAwardsCount(){
-
-        for(AwardsGroup group: awardsGroups){
-
-            awardsGroupCount++;
-
-            if(group.getNominee() !=null){
-                for(Award award: group.getNominee()){
-                    awardsCount++;
-                }
-            }
-            if(group.getWinner() !=null){
-                for(Award award: group.getWinner()){
-                    awardsCount++;
-                }
-            }
-        }
-    }
 
     /**
-     * The number of items in the list. It is determined by the number of speeches in our array.
+     * The number of items in the list.
      *
      * @returns {int} length. The number of items in the providers list.
      */
     @Override
     public int getCount() {
-        return awardsCount;
+        return awards.size();
     }
 
     /**
@@ -86,7 +63,7 @@ public class AwardsAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
 
-        return awardsGroups.get(position);
+        return awards.get(position);
     }
 
     /**
@@ -98,7 +75,7 @@ public class AwardsAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
 
-        return awardsGroups.indexOf(getItem(position));
+        return awards.indexOf(getItem(position));
     }
 
     /**
@@ -112,36 +89,7 @@ public class AwardsAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-      /*  BasicInfoHolder holder;
-        if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.cards_list_to_two_columns_info_row, null);
-            holder = new BasicInfoHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.cards_list_to_two_columns_info_row_title);
-            holder.value = (TextView) convertView.findViewById(R.id.cards_list_to_two_columns_info_row_number);
-            holder.icon = (TextView) convertView.findViewById(R.id.cards_list_to_two_columns_info_row_icon);
-            convertView.setTag(holder);
-        } else {
-            holder = (BasicInfoHolder) convertView.getTag();
-        }
-
-        final ContainerAwards row_pos = rowItem.get(position);
-        holder.title.setText(row_pos.getText());
-        holder.title.setTypeface(sourceSansProSemiBold);
-        holder.value.setText(" (" + Integer.toString((row_pos.getWinner().length + row_pos.getNominee().length)) + ")");
-        holder.value.setTypeface(sourceSansProRegular);
-
-        holder.icon.setText(">");
-        holder.icon.setTypeface(touchvieFont);
-
-        convertView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                aws.setNavigationEvent(aws.lastTo, Utils.AWSEvents.awards_card.toString(), null);
-                mListener.onCallSingleAwardCard(row_pos);
-            }
-        });
-
-        */
+        //TODO: create view for awards
         return convertView;
 
     }

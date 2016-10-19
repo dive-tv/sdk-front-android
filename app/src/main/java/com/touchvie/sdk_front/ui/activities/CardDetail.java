@@ -94,10 +94,10 @@ public class CardDetail extends FragmentActivity {
 
         switch(card){
             case MOVIE:
-                configFile=R.raw.movieconfig;
+                configFile=R.raw.movieconfig2;
                 break;
             default:
-                configFile=R.raw.movieconfig;
+                configFile=R.raw.movieconfig2;
                 break;
         }
 

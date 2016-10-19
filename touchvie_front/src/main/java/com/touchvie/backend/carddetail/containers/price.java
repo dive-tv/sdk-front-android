@@ -4,7 +4,7 @@ package com.touchvie.backend.carddetail.containers;
  * Created by Tagsonomy S.L. on 17/10/2016.
  */
 
-public class price {
+public class Price {
     private String title;
     private String value;
 

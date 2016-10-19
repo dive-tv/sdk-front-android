@@ -1,0 +1,36 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "Header"
+        },
+        {
+          "type": "BiographyNavigation"
+        },
+        {
+          "type": "InterpretedBySingle"
+        },
+        {
+          "type": "Shop"
+        },
+        {
+          "type": "HighlightedLooks"
+        },
+        {
+          "type": "Curiosities"
+        }
+      ]
+    },
+    {
+      "title": "fullcard",
+      "modules": [
+        {
+          "type": "Biography"
+        }
+      ]
+    }
+  ]
+}

@@ -5,40 +5,40 @@ import android.view.View;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
-import com.touchvie.backend.carddetail.containers.Awards;
-import com.touchvie.touchvie_front.R;
-import com.touchvie.touchvie_front.ui.modules.adapters.AwardsAdapter;
 import com.touchvie.touchvie_front.ui.modules.adapters.TwoColsModuleAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.TwoTextRowData;
 
 import java.util.ArrayList;
 
 /**
- * Created by Tagsonomy S.L. on 05/10/2016.
+ * Created by Tagsonomy S.L. on 19/10/2016.
  */
 
-public class AwardsHolder extends VerticalListHolder {
+public abstract class TwoColsModuleHolder extends VerticalListHolder {
 
-    protected AwardsAdapter adapter;
-    protected ArrayList<Awards> data;
+    protected TwoColsModuleAdapter adapter;
+    protected ArrayList<TwoTextRowData> data;
 
     /**
      * Default constructor
      *
      * @param itemView
      */
-    public AwardsHolder(View itemView) {
+    public TwoColsModuleHolder(View itemView) {
         super(itemView);
     }
 
     @Override
     public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
-        mTitle.setText(context.getResources().getString(R.string.awards));
-
         data = new ArrayList<>();
-        adapter = new AwardsAdapter(context, data);  //TODO: get all the data.
+        adapter = new TwoColsModuleAdapter(data);
         super.setAdapter(adapter, true, null);
-
     }
+
+    protected void setData(ArrayList<TwoTextRowData> data) {
+        this.data.addAll(data);
+        adapter.notifyDataSetChanged();
+    }
+
 }

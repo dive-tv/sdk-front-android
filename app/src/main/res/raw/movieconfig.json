@@ -5,72 +5,52 @@
       "main": true,
       "modules": [
         {
-          "type": "Header"
-        },
-        {
-          "type": "ButtonHeader"
-        },
-        {
           "type": "MovieHeader"
-        },
-        {
-          "type": "MovieHeaderSmall"
-        },
-        {
-          "type": "Description"
-        },
-        {
-          "type": "Biography"
         },
         {
           "type": "OverviewNavigation"
         },
         {
-          "type": "Filmography"
-        },
-        {
-          "type": "InterpretedBy"
-        },
-        {
-          "type": "Seasons"
-        },
-        {
           "type": "Cast"
-        },
-        {
-          "type": "Vehicles"
-        },
-        {
-          "type": "Curiosities"
         },
         {
           "type": "Shop"
         },
         {
-          "type": "Soundtrack"
+          "type": "Curiosities"
         },
         {
-          "type": "FullCuriosity"
+          "type": "PlacesShown"
         },
         {
-          "type": "Gallery"
+          "type": "Vehicles"
+        },
+        {
+          "type": "HighLights"
+        },
+        {
+          "type": "Recommended"
         }
 
       ]
     },
     {
-      "title": "second",
+      "title": "fullcard",
       "modules": [
         {
-          "type": "RelatedMoviesModule"
-        }
-      ]
-    },
-    {
-      "title": "third",
-      "modules": [
+          "type": "Overview"
+        },
         {
-          "type": "Description"
+          "type": "Trailer"
+        },
+        {
+          "type": "BasicData"
+        },
+        {
+          "type": "Gallery"
+        },
+        {
+          "type": "Awards"
         }
       ]
     }

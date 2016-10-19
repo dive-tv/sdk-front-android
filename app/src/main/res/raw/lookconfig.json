@@ -1,0 +1,23 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "ButtonHeader"
+        },
+        {
+          "type": "Shop"
+        },
+        {
+          "type": "WornBy"
+        },
+        {
+          "type": "MoreLookLikeThis"
+        }
+
+      ]
+    }
+  ]
+}

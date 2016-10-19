@@ -1,0 +1,19 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "Header"
+        },
+        {
+          "type": "Songs"
+        },
+        {
+          "type": "PlayedIn"
+        }
+      ]
+    }
+  ]
+}

@@ -21,5 +21,6 @@ public abstract class VerticalListModule extends Module {
         setLayout(R.layout.module_list);
     }
 
+
 }
 

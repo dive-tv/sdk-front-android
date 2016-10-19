@@ -9,14 +9,14 @@ import com.touchvie.touchvie_front.ui.modules.data.TwoTextRowData;
 import java.util.ArrayList;
 
 /**
- * Created by Tagsonomy S.L. on 13/10/2016.
+ * Created by Tagsonomy S.L. on 19/10/2016.
  */
 
-public class SongListAdapter extends BaseAdapter {
+public class TwoColsModuleAdapter  extends BaseAdapter {
 
     ArrayList<TwoTextRowData> rows;
 
-    public SongListAdapter(ArrayList<TwoTextRowData> rows){
+    public TwoColsModuleAdapter(ArrayList<TwoTextRowData> rows){
         this.rows=rows;
     }
 
@@ -41,4 +41,3 @@ public class SongListAdapter extends BaseAdapter {
         return null;
     }
 }
-

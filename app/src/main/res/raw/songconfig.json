@@ -1,0 +1,26 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "Header"
+        },
+        {
+          "type": "MusicShops"
+        },
+        {
+          "type": "DescriptionNavigation"
+        },
+        {
+          "type": "SongBelongsTo"
+        },
+        {
+          "type": "Shop"
+        }
+
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "Header"
+        },
+        {
+          "type": "DescriptionNavigation"
+        },
+        {
+          "type": "AppearsInLocation"
+        },
+        {
+          "type": "Shop"
+        }
+      ]
+    },
+    {
+      "title": "fullcard",
+      "modules": [
+        {
+          "type": "Description"
+        }
+      ]
+    }
+  ]
+}

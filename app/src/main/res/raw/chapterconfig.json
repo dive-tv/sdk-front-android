@@ -1,0 +1,23 @@
+{
+  "sections": [
+    {
+      "title": "main",
+      "main": true,
+      "modules": [
+        {
+          "type": "ChapterHeader"
+        },
+        {
+          "type": "OverviewNavigation"
+        },
+        {
+          "type": "MainCast"
+        },
+        {
+          "type": "Shop"
+        }
+
+      ]
+    }
+  ]
+}

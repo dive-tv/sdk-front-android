@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.LinearListLayout;
@@ -17,6 +18,7 @@ public abstract class VerticalListHolder extends ModuleHolder {
 
     protected LinearLayout mContainer;
     protected LinearListLayout mList;
+    protected TextView mTitle;
 
     /**
      * Default constructor
@@ -28,6 +30,7 @@ public abstract class VerticalListHolder extends ModuleHolder {
 
         super(itemView);
 
+        mTitle= (TextView)itemView.findViewById(R.id.txtv_title);
         mContainer = (LinearLayout) itemView.findViewById(R.id.lay_container);
         mList = (LinearListLayout) itemView.findViewById(R.id.lllay_list_list);
     }

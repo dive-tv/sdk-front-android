@@ -5,33 +5,17 @@
       "main": true,
       "modules": [
         {
-          "type": "MovieHeader"
+          "type": "Header"
         },
         {
-          "type": "OverviewNavigation"
+          "type": "BiographyNavigation"
         },
         {
-          "type": "Cast"
+          "type": "Filmography"
         },
         {
           "type": "Shop"
-        },
-        {
-          "type": "Curiosities"
-        },
-        {
-          "type": "PlacesShown"
-        },
-        {
-          "type": "Vehicles"
-        },
-        {
-          "type": "HighLights"
-        },
-        {
-          "type": "Recommended"
         }
-
       ]
     },
     {
@@ -51,14 +35,6 @@
         },
         {
           "type": "Awards"
-        }
-      ]
-    },
-    {
-      "title": "cast",
-      "modules": [
-        {
-          "type": "CastList"
         }
       ]
     }

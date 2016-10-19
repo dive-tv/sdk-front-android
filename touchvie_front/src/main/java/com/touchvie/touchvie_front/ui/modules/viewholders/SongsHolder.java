@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
-import com.touchvie.touchvie_front.ui.modules.adapters.SongListAdapter;
+import com.touchvie.touchvie_front.ui.modules.adapters.SongsAdapter;
 import com.touchvie.touchvie_front.ui.modules.data.TwoTextRowData;
 
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ import java.util.ArrayList;
  * Created by Tagsonomy S.L. on 13/10/2016.
  */
 
-public class SongListHolder extends VerticalListHolder {
+public class SongsHolder extends VerticalListHolder {
 
-    protected SongListAdapter adapter;
+    protected SongsAdapter adapter;
     protected ArrayList<TwoTextRowData> rows;
 
     /**
@@ -24,15 +24,16 @@ public class SongListHolder extends VerticalListHolder {
      *
      * @param itemView
      */
-    public SongListHolder(View itemView) {
+    public SongsHolder(View itemView) {
         super(itemView);
     }
 
     @Override
     public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
+        mTitle.setVisibility(View.GONE);
         rows=new ArrayList<>();
-        adapter= new SongListAdapter(rows);
+        adapter= new SongsAdapter(rows);
         super.setAdapter(adapter, false, null);
 
     }

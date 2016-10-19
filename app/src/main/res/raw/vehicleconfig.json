@@ -5,22 +5,16 @@
       "main": true,
       "modules": [
         {
-          "type": "SerieHeader"
+          "type": "Header"
         },
         {
-          "type": "OverviewNavigation"
+          "type": "DescriptionNavigation"
         },
         {
-          "type": "Seasons"
+          "type": "AppearsIn"
         },
         {
-          "type": "MainCast"
-        },
-        {
-          "type": "Shop"
-        },
-        {
-          "type": "Recommended"
+          "type": "Curiosities"
         }
       ]
     },
@@ -28,10 +22,7 @@
       "title": "fullcard",
       "modules": [
         {
-          "type": "Overview"
-        },
-        {
-          "type": "Trailer"
+          "type": "Description"
         },
         {
           "type": "BasicData"
@@ -40,7 +31,7 @@
           "type": "Gallery"
         },
         {
-          "type": "Awards"
+          "type": "Video"
         }
       ]
     }
