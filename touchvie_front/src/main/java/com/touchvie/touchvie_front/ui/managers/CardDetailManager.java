@@ -36,7 +36,7 @@ public class CardDetailManager implements CardDetailListener  {
     public HashMap<String, ConfigSection> configSectionsDict = new HashMap<>();
 
     private final FragmentManager mFragmentManager;
-    private final LinearLayout container;
+    private final LinearLayout containerLinear;
     private String mainSection;
     private CardDetail data;
 
@@ -53,7 +53,7 @@ public class CardDetailManager implements CardDetailListener  {
     public CardDetailManager(Context context, CardDetail data, HashMap<String, ConfigSection> idSection, String mainKey, FragmentManager manager, LinearLayout container) {
         this.mFragmentManager = manager;
         this.context = context;
-        this.container = container;
+        this.containerLinear = container;
         this.data = data;
         instance = this;
 
@@ -69,8 +69,9 @@ public class CardDetailManager implements CardDetailListener  {
             }
         }
 
-        Section newSection = Section.newInstance(this.data, configSectionsDict.get(mainSection), Section.SectionType.recycler_view, instance);
-        mFragmentManager.beginTransaction().replace(this.container.getId(), newSection).addToBackStack(mainSection).commit();
+        Section newSection = new Section();
+        newSection.newInstance(this.data, configSectionsDict.get(mainSection), Section.SectionType.recycler_view, instance, mFragmentManager, container);
+        mFragmentManager.beginTransaction().replace(this.containerLinear.getId(), newSection).addToBackStack(mainSection).commit();
     }
 
     /**
@@ -125,8 +126,9 @@ public class CardDetailManager implements CardDetailListener  {
     @Override
     public void goToSection(String sectionName) {
         if (configSectionsDict.containsKey(sectionName)) {
-            Section newSection = Section.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.recycler_view, instance);
-            mFragmentManager.beginTransaction().replace(this.container.getId(), newSection).addToBackStack(mainSection).commit();
+            Section newSection = new Section();
+            newSection.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.recycler_view, instance,mFragmentManager,containerLinear);
+            mFragmentManager.beginTransaction().replace(this.containerLinear.getId(), newSection).addToBackStack(mainSection).commit();
         }
     }
 
@@ -138,14 +140,16 @@ public class CardDetailManager implements CardDetailListener  {
                 return null;
             }
         };
-        cardDetail.buildAll(cardId, mFragmentManager, container);
+        cardDetail.buildAll(cardId, mFragmentManager, containerLinear);
 
     }
 
     @Override
     public Section requestSectionForTab(String sectionName) {
         if (configSectionsDict.containsKey(sectionName)) {
-            return Section.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.linear_layout, instance);
+            Section newSection = new Section();
+            newSection.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.linear_layout, instance,mFragmentManager,containerLinear);
+            return newSection;
         }
         return null;
     }

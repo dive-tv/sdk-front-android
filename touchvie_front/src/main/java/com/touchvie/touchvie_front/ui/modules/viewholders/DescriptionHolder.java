@@ -1,8 +1,10 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.TypeOfContainer;
@@ -26,7 +28,7 @@ public class DescriptionHolder extends TextHolder implements ExpandableListener 
         super(view);
     }
 
-    public void configure(CardDetail cardData, Picasso picasso, Context context) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager mFragmentManager, LinearLayout containerLinear) {
 
         title.setVisibility(GONE);
         link.setVisibility(GONE);

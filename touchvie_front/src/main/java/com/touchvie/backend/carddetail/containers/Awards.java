@@ -6,8 +6,8 @@ package com.touchvie.backend.carddetail.containers;
 
 public class Awards extends ContainerData {
     private String title;
-    private price nominee;
-    private price winner;
+    private Price[] nominee;
+    private Price[] winner;
 
     public String getTitle() {
         return title;
@@ -17,19 +17,19 @@ public class Awards extends ContainerData {
         this.title = title;
     }
 
-    public price getNominee() {
+    public Price[] getNominee() {
         return nominee;
     }
 
-    public void setNominee(price nominee) {
+    public void setNominee(Price[] nominee) {
         this.nominee = nominee;
     }
 
-    public price getWinner() {
+    public Price[] getWinner() {
         return winner;
     }
 
-    public void setWinner(price winner) {
+    public void setWinner(Price[] winner) {
         this.winner = winner;
     }
 }

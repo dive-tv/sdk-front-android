@@ -1,9 +1,11 @@
 package com.touchvie.touchvie_front.ui.adapters;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
@@ -26,27 +28,31 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private final ConfigModule[] configModules;
     HashMap<String, Integer> classIndex = new HashMap<>();
     HashMap<Integer, String> indexClass = new HashMap<>();
-
+    private FragmentManager mFragmentManager;
+    private LinearLayout container;
     private Picasso mPicasso = null;
 
     private final String defaultModulePackage = "com.touchvie.touchvie_front.ui.modules.";
 
     /**
      * Constructor
-     *
-     * @param context
+     *  @param context
      * @param cardData
      * @param configModules
      * @param mListener
+     * @param mFragmentManager
+     * @param container
      */
 
-    public ModulesAdapter(Context context, CardDetail cardData, ConfigModule[] configModules, CardDetailListener mListener) {
+    public ModulesAdapter(Context context, CardDetail cardData, ConfigModule[] configModules, CardDetailListener mListener, FragmentManager mFragmentManager, LinearLayout container) {
 
         this.context = context;
         this.cardData = cardData;
         this.configModules = configModules;
         this.mListener = mListener;
         this.mPicasso = Picasso.with(context);
+        this.mFragmentManager=mFragmentManager;
+        this.container = container;
         getDifferentModulesNumber();
     }
 
@@ -127,7 +133,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
         if (viewHolder instanceof ModuleHolder) {
-            ((ModuleHolder) viewHolder).configure(cardData, mPicasso, context);
+            ((ModuleHolder) viewHolder).configure(cardData, mPicasso, context,mFragmentManager, container);
         }
 
       /*  if (viewHolder instanceof ImageModule) {
