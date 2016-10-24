@@ -44,10 +44,10 @@ public class InterpretedByHolder extends SquareImageItemsHolder {
         });
 
         ArrayList<ImageRowData> rows = new ArrayList<>();
-        ImageRowData row=null;
         for (Relation rel:cardData.getRelations()){
             if (CASTING.equals(rel.getContent_type())){
                 for (RelationData relData:rel.getData()){
+                    ImageRowData row=null;
                     row.setImage(((DupleRel)relData).getTo().getImage().getFull());
                     TextData title = new TextData();
                     title.setText(((DupleRel)relData).getTo().getTitle());
