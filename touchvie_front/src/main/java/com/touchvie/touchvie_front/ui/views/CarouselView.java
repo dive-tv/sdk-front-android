@@ -3,7 +3,6 @@ package com.touchvie.touchvie_front.ui.views;
 import android.content.Context;
 import android.widget.FrameLayout;
 
-import com.touchvie.backend.CardData;
 import com.touchvie.backend.MiniCard;
 
 /**

@@ -1,6 +1,6 @@
 package com.touchvie.touchvie_client.data;
 
-import com.touchvie.backend.CardData;
+import com.touchvie.backend.MiniCard;
 import com.touchvie.backend.carddetail.relations.Relation;
 
 /**
@@ -20,34 +20,24 @@ public class CarouselCard {
     /**
      * The card data received from the server.
      */
-    private CardData data;
+    private MiniCard miniCard;
 
     /**
      * The cards that are related to this card.
      */
-    private Relation[] children;
+    private Relation[] relations;
 
     /**
      * The number of scene this card is in
      */
     private int sceneNumber;
 
-    /**
-     * Gets the data of this card.
-     *
-     * @return
-     */
-    public CardData getData() {
-        return data;
+    public MiniCard getMiniCard() {
+        return miniCard;
     }
 
-    /**
-     * Sets this card's data.
-     *
-     * @param data The data to be set.
-     */
-    public void setData(CardData data) {
-        this.data = data;
+    public void setMiniCard(MiniCard miniCard) {
+        this.miniCard = miniCard;
     }
 
     /**
@@ -55,17 +45,17 @@ public class CarouselCard {
      *
      * @return
      */
-    public Relation[] getChildren() {
-        return children;
+    public Relation[] getRelations() {
+        return relations;
     }
 
     /**
      * Sets the card related to this card.
      *
-     * @param children The related cards to be set.
+     * @param relations The related cards to be set.
      */
-    public void setChildren(Relation[] children) {
-        this.children = children;
+    public void setRelations(Relation[] relations) {
+        this.relations = relations;
     }
 
 

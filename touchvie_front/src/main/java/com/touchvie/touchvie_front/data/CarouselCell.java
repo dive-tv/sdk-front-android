@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.touchvie.backend.CardData;
 import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.views.CarouselView;

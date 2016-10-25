@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.google.gson.GsonBuilder;
-import com.touchvie.backend.CardData;
 import com.touchvie.backend.MiniCard;
 import com.touchvie.backend.carddetail.relations.DupleRel;
 import com.touchvie.backend.carddetail.relations.RelationData;
@@ -58,7 +57,7 @@ public class CarouselLogic {
             newCard = card;
             if (lastCard == null) {
                 MiniCard temp;
-                temp = card.getData().getMiniCard();
+                temp = card.getMiniCard();
                 cellCards.add(temp);
                 lastCard = newCard;
                 setNewCell = false;
@@ -66,16 +65,16 @@ public class CarouselLogic {
             }
             if (checkGroupableTree(newCard, lastCard)) {
                 MiniCard temp;
-                temp = newCard.getData().getMiniCard();
+                temp = newCard.getMiniCard();
                 cellCards.add(temp);
-                if (newCard.getChildren() != null) {
-                    for (int i = 0; i < newCard.getChildren().length - 1; i++) {
+                if (newCard.getRelations() != null) {
+                    for (int i = 0; i < newCard.getRelations().length - 1; i++) {
 
-//                        for (int j = 0; i < newCard.getChildren()[i].getData().length - 1; j++) {
+//                        for (int j = 0; i < newCard.getRelations()[i].getData().length - 1; j++) {
                         MiniCard temp2;
 //                            temp2 = newCard.gethildren()[i].getData()[j];
-                        if (RelationTypes.SINGLE.equals(newCard.getChildren()[i].getType())) {
-                            for (RelationData relData:newCard.getChildren()[i].getData()) {
+                        if (RelationTypes.SINGLE.equals(newCard.getRelations()[i].getType())) {
+                            for (RelationData relData:newCard.getRelations()[i].getData()) {
                                 temp2 = ((SingleRel)relData).getData();
                                 cellCards.add(temp2);
                                 rel++;
@@ -84,9 +83,9 @@ public class CarouselLogic {
                             }
                         }
                         else {
-                            switch (newCard.getChildren()[i].getContent_type()) {
+                            switch (newCard.getRelations()[i].getContent_type()) {
                                 case CASTING:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp2 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp2);
                                         rel++;
@@ -95,7 +94,7 @@ public class CarouselLogic {
                                     }
                                     break;
                                 case MOVIE_LOCATIONS:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp2 = ((DupleRel)relData).getTo();
                                         cellCards.add(temp2);
                                         rel++;
@@ -104,7 +103,7 @@ public class CarouselLogic {
                                     }
                                         break;
                                 case FILMOGRAPHY:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp2 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp2);
                                         rel++;
@@ -113,7 +112,7 @@ public class CarouselLogic {
                                     }
                                     break;
                                 case WORN_BY:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp2 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp2);
                                         rel++;
@@ -122,7 +121,7 @@ public class CarouselLogic {
                                     }
                                     break;
                                 case FEATURES_IN:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp2 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp2);
                                         rel++;
@@ -160,17 +159,17 @@ public class CarouselLogic {
                 newCell = new CarouselCell();
                 cellCards = new ArrayList<>();
                 MiniCard temp2;
-                temp2 = newCard.getData().getMiniCard();
+                temp2 = newCard.getMiniCard();
                 cellCards.add(temp2);
-                if (newCard.getChildren() != null) {
+                if (newCard.getRelations() != null) {
                     outerloop:
-                    for (int i = 0; i < newCard.getChildren().length - 1; i++) {
+                    for (int i = 0; i < newCard.getRelations().length - 1; i++) {
 
-//                        for (int j = 0; i < newCard.getChildren()[i].getData().length - 1; j++) {
+//                        for (int j = 0; i < newCard.getRelations()[i].getData().length - 1; j++) {
                         MiniCard temp3;
 //                            temp2 = newCard.gethildren()[i].getData()[j];
-                        if (RelationTypes.SINGLE.equals(newCard.getChildren()[i].getType())) {
-                            for (RelationData relData:newCard.getChildren()[i].getData()) {
+                        if (RelationTypes.SINGLE.equals(newCard.getRelations()[i].getType())) {
+                            for (RelationData relData:newCard.getRelations()[i].getData()) {
                                 temp3 = ((SingleRel) relData).getData();
                                 cellCards.add(temp3);
                                 rel++;
@@ -180,9 +179,9 @@ public class CarouselLogic {
 
                         }
                         else {
-                            switch (newCard.getChildren()[i].getContent_type()) {
+                            switch (newCard.getRelations()[i].getContent_type()) {
                                 case CASTING:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp3 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp3);
                                         rel++;
@@ -191,7 +190,7 @@ public class CarouselLogic {
                                     }
                                     break;
                                 case MOVIE_LOCATIONS:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp3 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp3);
                                         rel++;
@@ -200,7 +199,7 @@ public class CarouselLogic {
                                     }
                                     break;
                                 case FILMOGRAPHY:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp3 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp3);
                                         rel++;
@@ -209,7 +208,7 @@ public class CarouselLogic {
                                     }
                                     break;
                                 case WORN_BY:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp3 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp3);
                                         rel++;
@@ -218,7 +217,7 @@ public class CarouselLogic {
                                     }
                                     break;
                                 case FEATURES_IN:
-                                    for (RelationData relData:newCard.getChildren()[i].getData()) {
+                                    for (RelationData relData:newCard.getRelations()[i].getData()) {
                                         temp3 = ((DupleRel) relData).getTo();
                                         cellCards.add(temp3);
                                         rel++;
@@ -252,8 +251,8 @@ public class CarouselLogic {
     }
 
     private boolean checkGroupableTree(CarouselCard card, CarouselCard last) {
-        if (last.getData().getMiniCard()!=null) {
-            if (tree.get(last.getData().getMiniCard().getType()) != null && tree.get(last.getData().getMiniCard().getType()).get(card.getData().getMiniCard().getType()) != null) {
+        if (last.getMiniCard()!=null) {
+            if (tree.get(last.getMiniCard().getType()) != null && tree.get(last.getMiniCard().getType()).get(card.getMiniCard().getType()) != null) {
                 return true;
             }
         }

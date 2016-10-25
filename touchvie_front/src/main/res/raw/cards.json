@@ -41,7 +41,7 @@
         "image": "http://static.touchvie.com/sources/tmdb.jpg"
       }
     },
-    "products": {}
+    "products": []
   },
   {
     "card_id": "e2240dde-1e76-11e6-97ac-0684985cbbe3",
@@ -61,7 +61,7 @@
         "image": "http://static.touchvie.com/sources/tmdb.jpg"
       }
     },
-    "products": {}
+    "products": []
   },
   {
     "card_id": "e8c11c44-1e76-11e6-97ac-0684985cbbe3",
@@ -81,7 +81,7 @@
         "image": "http://static.touchvie.com/sources/tmdb.jpg"
       }
     },
-    "products": {}
+    "products": []
   },
   {
     "card_id": "e10960ac-1e76-11e6-97ac-0684985cbbe3",
@@ -90,7 +90,7 @@
     "title": "La transición de los Manolos",
     "subtitle": null,
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "e2088596-1e76-11e6-97ac-0684985cbbe3",
@@ -99,7 +99,7 @@
     "title": "Análisis jocoso de la película",
     "subtitle": null,
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "e20c53fe-1e76-11e6-97ac-0684985cbbe3",
@@ -108,7 +108,7 @@
     "title": "Un vestidor en aumento",
     "subtitle": null,
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "e13fdc41-1e76-11e6-97ac-0684985cbbe3",
@@ -117,7 +117,7 @@
     "title": "Halston, la marca fetiche de la película",
     "subtitle": null,
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "e14be1f1-1e76-11e6-97ac-0684985cbbe3",
@@ -126,7 +126,7 @@
     "title": "Aires orientales",
     "subtitle": null,
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "55e58395-94d6-11e5-b7c2-0684985cbbe3",
@@ -135,7 +135,7 @@
     "title": "The Death Star The Stormtroopers",
     "subtitle": "John Williams",
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "40910973-9281-11e5-b7c2-0684985cbbe3",
@@ -144,7 +144,7 @@
     "title": "Estrella de la Muerte",
     "subtitle": null,
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "71b88c0c-dfdb-11e5-97ac-0684985cbbe3",
@@ -152,7 +152,7 @@
     "title": "Guerra Civil Galáctica",
     "subtitle": null,
     "image": {},
-    "products": {}
+    "products": []
   },
   {
     "card_id": "48cf6bd3-9281-11e5-b7c2-0684985cbbe3",
@@ -172,79 +172,6 @@
         "image": "http://www.travelgeni.com/wp-content/uploads/2015/04/hotel-sidi-driss-matmata-tunisia1.jpg"
       }
     },
-    "products": {}
-  },
-  {
-    "card_id": "8879b07b-9f1a-11e5-b7c2-0684985cbbe3",
-    "type": "deco",
-    "locale": "es_ES",
-    "title": "Chrysanthemun Comforter Set. Modern Home ",
-    "subtitle": null,
-    "image": "8879b07b-9f1a-11e5-b7c2-0684985cbbe3/8879b07b-9f1a-11e5-b7c2-0684985cbbe3_0.jpg",
-    "source": "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=34627138",
-    "anchor_x": 54,
-    "anchor_y": 35,
-    "is_exact": true,
-    "url": "https://pre-card-web.touchvie.com/HX394pzrLGeKapEFyAj5JS"
-  },
-  {
-    "card_id": "a29d8f0c-9753-11e5-b7c2-0684985cbbe3",
-    "title": "St. Helens",
-    "subtitle": "184 S 6th St, Saint Helens, Columbia, Oregon, Estados Unidos",
-    "type": "real_place",
-    "image": "a29d8f0c-9753-11e5-b7c2-0684985cbbe3/a29d8f0c-9753-11e5-b7c2-0684985cbbe3_3.jpg",
-    "source": "https://s-media-cache-ak0.pinimg.com/736x/97/8d/76/978d767b291e6b45e8b920109ad6cdad.jpg",
-    "anchor_x": 50,
-    "anchor_y": 50,
-    "is_exact": false,
-    "url": "https://pre-card-web.touchvie.com/bj3dhXFhomLsECLLwKSBwW"
-  },
-  {
-    "card_id": "a983f297-c992-11e5-97ac-0684985cbbe3",
-    "title": "Serie de luces de libélula",
-    "subtitle": null,
-    "type": "deco",
-    "image": "a983f297-c992-11e5-97ac-0684985cbbe3/a983f297-c992-11e5-97ac-0684985cbbe3_0.jpg",
-    "source": "http://www.sears.com/en_intnl/dap/shopping-tourism.html",
-    "anchor_x": 50,
-    "anchor_y": 38,
-    "is_exact": true,
-    "url": "https://pre-card-web.touchvie.com/KNeshNdrTQ3pFQFRP95ABY"
-  },
-  {
-    "card_id": "dfa21903-1e76-11e6-97ac-0684985cbbe3",
-    "title": "Cristalería con borde dorado",
-    "subtitle": null,
-    "type": "deco",
-    "image": "dfa21903-1e76-11e6-97ac-0684985cbbe3/dfa21903-1e76-11e6-97ac-0684985cbbe3_0.jpg",
-    "source": "http://ad.zanox.com/ppc/?32136073C878223219&amp;ULP=[[58019233/item?tp=7748&amp;utm_source=zanox_es&amp;utm_medium=affiliazione&amp;utm_campaign=affiliazione_es]]",
-    "anchor_x": 50,
-    "anchor_y": 50,
-    "is_exact": false,
-    "url": "https://pre-card-web.touchvie.com/JmsyU4WFqoPfczyC85hynh"
-  },
-  {
-    "card_id": "df9a1bb4-1e76-11e6-97ac-0684985cbbe3",
-    "title": "The New Yorker",
-    "subtitle": "Revista ",
-    "type": "sports",
-    "image": "df9a1bb4-1e76-11e6-97ac-0684985cbbe3/df9a1bb4-1e76-11e6-97ac-0684985cbbe3_0.jpg",
-    "source": "http://www.taringa.net/post/imagenes/14680763/Tapas-de-la-revista-The-New-Yorker.html",
-    "anchor_x": 50,
-    "anchor_y": 50,
-    "is_exact": false,
-    "url": "https://pre-card-web.touchvie.com/fZyP2HVnQHwQVnygWjefnh"
-  },
-  {
-    "card_id": "df9de76d-1e76-11e6-97ac-0684985cbbe3",
-    "title": "Indian Kajal Khol",
-    "subtitle": "Blue Heaven ",
-    "type": "beauty",
-    "image": "df9de76d-1e76-11e6-97ac-0684985cbbe3/df9de76d-1e76-11e6-97ac-0684985cbbe3_0.jpg",
-    "source": "http://www.flipkart.com/blue-heaven-gold-kajal-set-6-pc-2-5-g/p/itme5yq4gkbvg9kz",
-    "anchor_x": 49,
-    "anchor_y": 44,
-    "is_exact": true,
-    "url": "https://pre-card-web.touchvie.com/G5SL4w7beq8bhyCbDJEpnh"
+    "products": []
   }
 ]

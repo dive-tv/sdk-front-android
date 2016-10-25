@@ -77,14 +77,14 @@ public class SceneManager implements CarouselCardListener {
             }
             sceneCards.add(card.getCardId());
             cards.put(card.getCardId(), card);
-            if (card.getData()!=null && card.getData().getMiniCard()!=null && card.getData().getMiniCard().getImage()!=null && card.getData().getMiniCard().getImage().getFull()!=null){
-                mPicasso.load(card.getData().getMiniCard().getImage().getFull()).fetch();
+            if ( card.getMiniCard()!=null && card.getMiniCard().getImage()!=null && card.getMiniCard().getImage().getFull()!=null){
+                mPicasso.load(card.getMiniCard().getImage().getFull()).fetch();
             }
-            if (card.getChildren()!=null && card.getChildren().length>0){
-                int maxRel = (card.getChildren().length>=2?2:card.getChildren().length);
+            if (card.getRelations()!=null && card.getRelations().length>0){
+                int maxRel = (card.getRelations().length>=2?2:card.getRelations().length);
               /*  for (int i=0;i<maxRel;i++){
-                    if (card.getChildren()[i]!=null && card.getChildren()[i].getRelated()!=null && card.getChildren()[i].getRelated()[0].getImage()!=null)
-                        mPicasso.load(card.getChildren()[i].getRelated()[0].getImage().getFull()).fetch();
+                    if (card.getRelations()[i]!=null && card.getRelations()[i].getRelated()!=null && card.getRelations()[i].getRelated()[0].getImage()!=null)
+                        mPicasso.load(card.getRelations()[i].getRelated()[0].getImage().getFull()).fetch();
                 }*/
             }
         }

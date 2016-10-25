@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.touchvie.backend.CardData;
 import com.touchvie.backend.MiniCard;
 import com.touchvie.touchvie_front.R;
 
