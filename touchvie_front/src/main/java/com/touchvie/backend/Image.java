@@ -13,8 +13,8 @@ public class Image implements Serializable{
 
     String thumb;
     String full;
-    float anchor_x;
-    float anchor_y;
+    int anchor_x;
+    int anchor_y;
     Source source;
 
     public String getThumb() {
@@ -33,19 +33,19 @@ public class Image implements Serializable{
         this.full = full;
     }
 
-    public float getAnchorX() {
+    public int getAnchorX() {
         return anchor_x;
     }
 
-    public void setAnchorX(float anchor_x) {
+    public void setAnchorX(int anchor_x) {
         this.anchor_x = anchor_x;
     }
 
-    public float getAnchorY() {
+    public int getAnchorY() {
         return anchor_y;
     }
 
-    public void setAnchorY(float anchor_y) {
+    public void setAnchorY(int anchor_y) {
         this.anchor_y = anchor_y;
     }
 

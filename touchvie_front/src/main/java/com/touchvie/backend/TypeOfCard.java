@@ -8,7 +8,6 @@ public enum TypeOfCard {
 
     MOVIE("movie"),
     SERIE ("serie"),
-    CHAPTER("chapter"),
     PERSON ("person"),
     CHARACTER("character"),
     VEHICLE("vehicle"),
@@ -30,8 +29,11 @@ public enum TypeOfCard {
     FOOD_DRINK("food_drink"),
     FAUNA_FLORA("fauna_flora"),
     BUSINESS ("business"),
+    REFERENCE("reference"),
     VIDEOCLIP("videoclip"),
-    ACTION_EMOTION("action_emotion");
+    CHAPTER("chapter"),
+    ACTION_EMOTION("action_emotion"),
+    NO_CARD("no_card");
 
 
     private final String name;
@@ -42,6 +44,17 @@ public enum TypeOfCard {
 
     public String getName() {
         return name;
+    }
+
+    public static TypeOfCard getTypeOfCard(String type){
+
+        for(TypeOfCard typeOfCard: TypeOfCard.values()){
+            if(typeOfCard.getName().equals(type)){
+                return typeOfCard;
+            }
+        }
+        return NO_CARD;
+
     }
 
 }
