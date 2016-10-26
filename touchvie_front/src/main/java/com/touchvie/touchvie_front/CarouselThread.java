@@ -5,10 +5,13 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 
+import com.touchvie.touchvie_client.data.CarouselCard;
+import com.touchvie.touchvie_client.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.managers.SceneManager;
 import com.touchvie.touchvie_front.simulators.ClientSimulator;
 import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
-import com.touchvie.touchvie_front.ui.listeners.TestListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by Tagsonomy S.L. on 23/09/2016.
@@ -25,8 +28,12 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
     private CarouselListener listener=null;
 
     public final static int MSG_PUSH_CARD=102;
+    public final static int MSG_PAINT_CAROUSELCARDS=103;
+    public final static int MSG_PRELOAD_CAROUSELCARDS=104;
 
-    private ClientSimulator simulator=null;
+    private CarouselCardListener carouselCardListener=null;
+
+  //  private ClientSimulator simulator=null;
 
 
     /**
@@ -69,7 +76,9 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
         listener.setHandler(handler);
         listener=null;
         SceneManager sceneManager= new SceneManager(context,callback);
-        this.simulator= new ClientSimulator(sceneManager, context);
+        carouselCardListener=sceneManager;
+        callback.sendMessage(handler.obtainMessage(Utils.SEND_CARDLISTENER));
+       // this.simulator= new ClientSimulator(sceneManager, context);
     }
 
     /**
@@ -85,7 +94,13 @@ public class CarouselThread extends HandlerThread implements  Handler.Callback {
         switch (msg.what) {
 
             case MSG_PUSH_CARD:
-                simulator.pushCards();
+               // simulator.pushCards();
+                break;
+            case MSG_PAINT_CAROUSELCARDS:
+                carouselCardListener.onCardsForPaintReceived((ArrayList<String>) msg.obj);
+                break;
+            case MSG_PRELOAD_CAROUSELCARDS:
+                carouselCardListener.onCardsForPreloadReceived((ArrayList<CarouselCard>)msg.obj);
                 break;
             default:
                 break;

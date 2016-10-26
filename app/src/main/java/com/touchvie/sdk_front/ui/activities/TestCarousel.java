@@ -1,15 +1,18 @@
 package com.touchvie.sdk_front.ui.activities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.Window;
 
 import com.touchvie.sdk_front.ui.utils.Utils;
 import com.touchvie.sdkfront.R;
+import com.touchvie.touchvie_client.listeners.CarouselCardListener;
 import com.touchvie.touchvie_front.ui.fragments.Carousel;
+import com.touchvie.touchvie_front.ui.listeners.CarouselFragmentListener;
 
-public class TestCarousel extends FragmentActivity {
+public class TestCarousel extends FragmentActivity implements CarouselFragmentListener {
 
     /**
      * The fragment manager of this activity.
@@ -33,5 +36,10 @@ public class TestCarousel extends FragmentActivity {
 
         Carousel carousel = new Carousel();
         mManager.beginTransaction().replace(R.id.carousel, carousel).addToBackStack(Utils.CAROUSEL_FLAG).commit();
+    }
+
+    @Override
+    public void setCarouselCardListener(Handler listener) {
+
     }
 }

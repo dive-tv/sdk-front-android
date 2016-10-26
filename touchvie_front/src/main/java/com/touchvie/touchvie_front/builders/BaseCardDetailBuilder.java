@@ -183,7 +183,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
     @Override
     public void onCardDataReceived(CardDetail card) {
         this.card = card;
-        System.out.println("KKKKKKKKKKKKKKKKK   oncardReceived");
         composeCardDetail();
     }
 
@@ -243,7 +242,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 
     public void onCardReceived(CardDetail card) {
         this.card = card;
-        System.out.println("KKKKKKKKKKKKKKKKK   oncardReceived");
         composeCardDetail();
     }
 

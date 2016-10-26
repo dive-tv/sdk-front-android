@@ -7,6 +7,7 @@ import java.util.Random;
  */
 public class Utils {
     public final static int PUSH=1;
+    public final static int SEND_CARDLISTENER=2;
 
     private static final String NO_MAIN_ERROR ="No main section defined";
 

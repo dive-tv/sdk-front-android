@@ -17,6 +17,8 @@ import com.touchvie.touchvie_front.Utils;
 import com.touchvie.touchvie_front.data.CarouselCell;
 import com.touchvie.touchvie_front.data.Scene;
 import com.touchvie.touchvie_front.ui.adapters.CarouselAdapter;
+import com.touchvie.touchvie_front.ui.listeners.CarouselCardListener;
+import com.touchvie.touchvie_front.ui.listeners.CarouselFragmentListener;
 import com.touchvie.touchvie_front.ui.listeners.CarouselListener;
 
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
     private Integer subsceneIndex = 0;
 
     private CarouselListener mListener;
+    private CarouselFragmentListener mParent;
 
     private StickyListHeadersListView carouselView = null;
     private ArrayList<CarouselCell> carouselItems = null;
@@ -129,6 +132,12 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        if (context instanceof CarouselFragmentListener) {
+            mParent = (CarouselFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement CarouselFragmentListener");
+        }
     }
 
     @Override
@@ -157,6 +166,10 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
         mAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onSendCarouselCardListenerReceived(){
+        mParent.setCarouselCardListener(carouselHandler);
+    }
 
     /**
      * Handles all the messages addressed to the UI thread.
@@ -169,6 +182,9 @@ public class Carousel extends Fragment implements Handler.Callback, CarouselList
         switch (msg.what) {
             case Utils.PUSH:
                 onRowsToDraw((ArrayList<CarouselCell>) msg.obj);
+                break;
+            case Utils.SEND_CARDLISTENER:
+                onSendCarouselCardListenerReceived();
                 break;
         }
         return false;

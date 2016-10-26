@@ -19,4 +19,6 @@ public interface CarouselListener {
     void onRowsToDraw(ArrayList<CarouselCell> carouselCells);
 
     void setHandler(Handler handler);
+
+    void onSendCarouselCardListenerReceived();
 }

@@ -147,7 +147,6 @@ public class Section extends Fragment {
         modulesAdapter = new ModulesAdapter(getContext(), cardData, configSection.getConfigModules(), mListener, mFragmentManager, this.container);
         switch (sectionType) {
             case recycler_view:
-                System.out.println("KKKKKKKKKKKKKKKKKKKKKK  Section OncreateView recycler_view");
                 view = inflater.inflate(R.layout.section_base_recycler, container, false);
                 RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
                 mLayoutManager = new LinearLayoutManager(getContext());
@@ -155,13 +154,11 @@ public class Section extends Fragment {
                 recyclerView.setAdapter(modulesAdapter);
                 break;
             case linear_layout:
-                System.out.println("KKKKKKKKKKKKKKKKKKKKKK  Section OncreateView linear_layout");
                 view = inflater.inflate(R.layout.section_base_linear, container, false);
                 RecyclerListLayout recyclerListLayout = (RecyclerListLayout) view.findViewById(R.id.recycler_list_layout);
                 recyclerListLayout.setList(modulesAdapter, false);
                 break;
             default:
-                System.out.println("KKKKKKKKKKKKKKKKKKKKKK  Section OncreateView recycler_view");
                 view = inflater.inflate(R.layout.section_base_recycler, container, false);
                 RecyclerView defaultView = (RecyclerView) view.findViewById(R.id.recycler_view);
                 mLayoutManager = new LinearLayoutManager(getContext());

@@ -161,8 +161,6 @@ public class Cards extends RestService{
 //        Crashlytics.log(Log.ERROR, "RestManager URL: ", uriToSend.toString());
         Request request = null;
 
-        System.out.println("KKKKKKKKKKKKKK   url: " + uriToSend.toString());
-
         request = new JsonRequest<MiniCard>(Request.Method.GET, uriToSend.toString(), null, new Response.Listener<MiniCard>() {
 
             @Override

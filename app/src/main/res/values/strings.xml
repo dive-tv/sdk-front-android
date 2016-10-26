@@ -39,4 +39,7 @@
     <string name="trivia">trivia</string>
     <string name="reference">reference</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
