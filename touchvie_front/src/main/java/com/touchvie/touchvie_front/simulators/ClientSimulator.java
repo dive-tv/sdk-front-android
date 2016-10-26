@@ -210,7 +210,7 @@ public class ClientSimulator  {
                     carouselCard.setCardId(id);
                     carouselCard.setSceneId(sectionIndex);
                     carouselCard.setMiniCard(data);
-                    carouselCard.setRelations(relations);
+                   // carouselCard.setRelations(relations);
                     cards.add(carouselCard);
                     id++;
                 }
@@ -219,4 +219,5 @@ public class ClientSimulator  {
 
         }
     }
+
 }

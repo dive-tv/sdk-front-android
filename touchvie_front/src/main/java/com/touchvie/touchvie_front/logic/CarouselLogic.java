@@ -163,7 +163,7 @@ public class CarouselLogic {
                 cellCards.add(temp2);
                 if (newCard.getRelations() != null) {
                     outerloop:
-                    for (int i = 0; i < newCard.getRelations().length - 1; i++) {
+                    for (int i = 0; i < newCard.getRelations().length; i++) {
 
 //                        for (int j = 0; i < newCard.getRelations()[i].getData().length - 1; j++) {
                         MiniCard temp3;
