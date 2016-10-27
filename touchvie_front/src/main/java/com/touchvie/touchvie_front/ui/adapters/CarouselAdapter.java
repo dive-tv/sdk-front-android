@@ -127,7 +127,8 @@ public class CarouselAdapter extends BaseAdapter implements SectionIndexer, Stic
             holder = (HeaderViewHolder) convertView.getTag();
         }
         //set header text as first char in name
-        String headerTxt = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNr() - carouselItems.get(position).getSceneNr() + 1);
+      //  String headerTxt = String.valueOf(carouselItems.get(carouselItems.size() - 1).getSceneNr() - carouselItems.get(position).getSceneNr() + 1);
+        String headerTxt=Integer.toString( carouselItems.get(position).getSceneNr());
         holder.headerText.setText(headerTxt);
         return convertView;
     }

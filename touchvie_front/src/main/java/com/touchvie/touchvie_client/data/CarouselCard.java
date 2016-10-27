@@ -67,21 +67,10 @@ public class CarouselCard {
         return cardId;
     }
 
-    public void setCardId(int cardId) {
+    public void setCardId(String cardId) {
 
-        this.cardId = Integer.toString(cardId);
-        ;
+        this.cardId = cardId;
     }
-
-    public int getSceneId() {
-        return sceneId;
-    }
-
-    public void setSceneId(int sceneId) {
-        this.sceneId = sceneId;
-    }
-
-    /********************************************************************************/
 
     public int getSceneNumber() {
         return sceneNumber;

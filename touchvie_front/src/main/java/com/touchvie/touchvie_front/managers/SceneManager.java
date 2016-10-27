@@ -70,12 +70,13 @@ public class SceneManager implements CarouselCardListener {
         }
 
         for (CarouselCard card : cardsToPreload) {
-            ArrayList<String> sceneCards = scenes.get(card.getSceneId());
+            ArrayList<String> sceneCards = scenes.get(card.getSceneNumber());
             if (sceneCards == null) {
                 sceneCards = new ArrayList<>();
-                scenes.put(card.getSceneId(), sceneCards);
+                scenes.put(card.getSceneNumber(), sceneCards);
             }
             sceneCards.add(card.getCardId());
+
             cards.put(card.getCardId(), card);
             if ( card.getMiniCard()!=null && card.getMiniCard().getImage()!=null && card.getMiniCard().getImage().getFull()!=null){
                 mPicasso.load(card.getMiniCard().getImage().getFull()).fetch();

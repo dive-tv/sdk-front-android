@@ -148,10 +148,10 @@ public class ClientSimulator  {
             if(subsceneIndex ==-1){
                 cardsToPreload.add(card);
                 lastCardPreloadedIndex++;
-                subsceneIndex=card.getSceneId();
+                subsceneIndex=card.getSceneNumber();
                 continue;
             }
-            if(card.getSceneId()!=subsceneIndex){
+            if(card.getSceneNumber()!=subsceneIndex){
                 break;
             }
             cardsToPreload.add(card);
@@ -207,8 +207,8 @@ public class ClientSimulator  {
             for (int i=0; i<10; i++) {
                 for (MiniCard data : miniCards) {
                     CarouselCard carouselCard = new CarouselCard();
-                    carouselCard.setCardId(id);
-                    carouselCard.setSceneId(sectionIndex);
+                    carouselCard.setCardId( Integer.toString(id));
+                    carouselCard.setSceneNumber(sectionIndex);
                     carouselCard.setMiniCard(data);
                    // carouselCard.setRelations(relations);
                     cards.add(carouselCard);
