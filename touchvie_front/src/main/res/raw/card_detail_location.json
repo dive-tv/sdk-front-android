@@ -1,0 +1,189 @@
+{
+  "card_id": "3f88ae98-6b9c-11e5-b7c2-0684985cbbe3",
+  "locale": "es_ES",
+  "title": "Washington D.C., EE.UU.",
+  "subtitle": null,
+  "type": "location",
+  "image": {
+    "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_0_thumb_m.jpg",
+    "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_0_full_m.jpg",
+    "anchor_x": 50,
+    "anchor_y": 50,
+    "source": {
+      "name": null,
+      "url": "Wikipedia",
+      "disclaimer": null,
+      "image": null
+    }
+  },
+  "products": [],
+  "info": [
+    {
+      "type": "text",
+      "content_type": "description",
+      "data": [
+        {
+          "text": "Washington D.C., oficialmente denominado Distrito de Columbia, es la capital de los Estados Unidos. Se trata de una entidad diferente a los cincuenta estados que componen dicha nación, y depende directamente del Gobierno federal de los Estados Unidos. El Distrito de Columbia fue fundado el 16 de julio de 1790, y en 1791 se oficializó, dentro del distrito, una nueva ciudad denominada Washington, al este de la ya existente Georgetown. En 1871 se unificaron los gobiernos de estas dos ciudades y del resto de poblaciones del distrito en una sola entidad, D.C. Se localiza a orillas del río Potomac y está rodeado por los estados de Virginia al oeste, y de Maryland al norte, este y sur. La ciudad de Washington nació como una ciudad planificada, y fue desarrollada a finales del siglo XVIII para servir como la capital nacional permanente, después de que diversas localidades ostentaran dicha posición desde la independencia del país, en 1776; en tanto, el distrito federal fue formado para marcar la diferencia entre la capital nacional y los estados. La ciudad fue nombrada en honor a George Washington, el primer presidente de los Estados Unidos. El nombre del distrito, Columbia, es el nombre poético de Estados Unidos de América, en referencia a Cristóbal Colón (llamado en inglés Christopher Columbus), descubridor de América. Los centros de las tres ramas del Gobierno de los Estados Unidos se ubican en el Distrito. También están situadas en la ciudad las sedes del Banco Mundial, el FMI, la OEA, el BID, y otras instituciones nacionales e internacionales. Debido a su importancia a nivel político, Washington es un lugar de frecuentes manifestaciones y protestas, particularmente en el National Mall. Además es un destino popular entre los turistas, debido a los numerosos monumentos y lugares de interés. La ciudad es un centro de la historia y cultura estadounidense, y en ella se encuentran el complejo de museos más grande del mundo (el Instituto Smithsoniano), además de galerías de arte, universidades, catedrales, centros e instituciones de arte dramático, y escenarios de música nativa. ",
+          "source": {
+            "name": null,
+            "url": "https://es.wikipedia.org/wiki/Washington_D._C.",
+            "disclaimer": null,
+            "image": null
+          }
+        }
+      ]
+    },
+    {
+      "type": "map",
+      "content_type": "location",
+      "data": [
+        {
+          "zoom": 13,
+          "latitude": 38.907192,
+          "longitude": -77.03687
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "content_type": "gallery",
+      "data": [
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_1_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_1_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_3_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_3_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_4_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_4_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_5_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_5_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_6_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_6_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_8_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_8_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_9_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_9_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_10_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_10_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_11_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_11_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_12_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_12_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        },
+        {
+          "thumb": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_13_thumb_m.jpg",
+          "full": "https://pre-img.dive.tv/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3/3f88ae98-6b9c-11e5-b7c2-0684985cbbe3_13_full_m.jpg",
+          "anchor_x": 50,
+          "anchor_y": 50,
+          "source": {
+            "name": null,
+            "url": "Wikipedia",
+            "disclaimer": null,
+            "image": null
+          }
+        }
+      ]
+    }
+  ],
+  "user": {
+    "is_liked": false
+  }
+}

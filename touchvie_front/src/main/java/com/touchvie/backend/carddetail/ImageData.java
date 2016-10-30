@@ -5,11 +5,11 @@ package com.touchvie.backend.carddetail;
  */
 
 public class ImageData {
-    private String thumb;
-    private String full;
-    private int anchor_x;
-    private int anchor_Y;
-    private Source source;
+    String thumb;
+    String full;
+    int anchor_x;
+    int anchor_y;
+    Source source;
 
     public String getThumb() {
         return thumb;
@@ -36,11 +36,11 @@ public class ImageData {
     }
 
     public int getAnchorY() {
-        return anchor_Y;
+        return anchor_y;
     }
 
     public void setAnchorY(int anchor_Y) {
-        this.anchor_Y = anchor_Y;
+        this.anchor_y = anchor_Y;
     }
 
     public Source getSource() {

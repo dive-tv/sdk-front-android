@@ -1,0 +1,19 @@
+{
+  "card_id": "45deeac7-6b9c-11e5-b7c2-0684985cbbe3",
+  "locale": "es_ES",
+  "title": " Man with small film camera",
+  "subtitle": "1",
+  "type": "look",
+  "image": {
+    "thumb": null,
+    "full": null,
+    "anchor_x": null,
+    "anchor_y": null,
+    "source": null
+  },
+  "products": [],
+  "info": [],
+  "user": {
+    "is_liked": false
+  }
+}

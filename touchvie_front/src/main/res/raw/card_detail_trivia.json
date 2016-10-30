@@ -1,0 +1,30 @@
+{
+  "card_id": "3ef56e6a-6b9c-11e5-b7c2-0684985cbbe3",
+  "locale": "es_ES",
+  "title": "Terminator podría aparecer en cualquier momento",
+  "subtitle": null,
+  "type": "trivia",
+  "image": {
+    "thumb": null,
+    "full": null,
+    "anchor_x": null,
+    "anchor_y": null,
+    "source": null
+  },
+  "products": [],
+  "info": [
+    {
+      "type": "text",
+      "content_type": "curiosity",
+      "data": [
+        {
+          "text": "El campo de concentración donde se encuentran los muntantes, y las ruinas que los rodean son una referencia ala película Terminator (1984), donde aparece un campo cubierto de huesos iluminado por la luna.",
+          "source": null
+        }
+      ]
+    }
+  ],
+  "user": {
+    "is_liked": false
+  }
+}

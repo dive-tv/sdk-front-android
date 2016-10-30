@@ -10,9 +10,9 @@ import java.io.Serializable;
 
 public class Container implements Serializable {
 
-    private String type;
-    private String content_type;
-    private ContainerData data;
+    String type;
+    String content_type;
+    ContainerData data;
 
     public String getType() {
         return type;

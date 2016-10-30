@@ -2,6 +2,7 @@ package com.touchvie.touchvie_front.ui.listeners;
 
 import android.os.Parcelable;
 import android.support.v4.app.FragmentManager;
+import android.widget.LinearLayout;
 
 import com.touchvie.touchvie_client.interfaces.OauthObjectInterface;
 import com.touchvie.touchvie_front.ui.fragments.Section;
@@ -47,5 +48,7 @@ public interface CardDetailListener extends Parcelable{
      * @return the fragment manager
      */
     FragmentManager requestFragmentManager();
+
+    LinearLayout requestContainerLayout();
 
 }

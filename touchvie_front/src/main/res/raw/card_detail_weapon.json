@@ -1,0 +1,40 @@
+{
+  "card_id": "47461a22-b9eb-11e5-97ac-0684985cbbe3",
+  "locale": "es_ES",
+  "title": "Smith & Wesson Model 29",
+  "subtitle": "Revólver",
+  "type": "weapon",
+  "image": {
+    "thumb": "https://pre-img.dive.tv/47461a22-b9eb-11e5-97ac-0684985cbbe3/47461a22-b9eb-11e5-97ac-0684985cbbe3_0_thumb_m.jpg",
+    "full": "https://pre-img.dive.tv/47461a22-b9eb-11e5-97ac-0684985cbbe3/47461a22-b9eb-11e5-97ac-0684985cbbe3_0_full_m.jpg",
+    "anchor_x": 58,
+    "anchor_y": 30,
+    "source": {
+      "name": null,
+      "url": "commons.wikimedia.org",
+      "disclaimer": null,
+      "image": null
+    }
+  },
+  "products": [],
+  "info": [
+    {
+      "type": "text",
+      "content_type": "description",
+      "data": [
+        {
+          "text": "El S&W Modelo 29 es un potente revólver de doble acción con capacidad para seis cartuchos .44 Magnum, fabricado por la empresa estadounidense Smith & Wesson. Se hizo famoso gracias a la serie de películas \"Harry el Sucio\", protagonizadas por Clint Eastwood. El Modelo 29 fue vendido con cañones de 4, 5, 6½, 8⅜ y más tarde 10⅝ pulgadas como modelos estándar. Cañones de otras longitudes se pueden obtener bajo pedido al Smith & Wesson's Custom Shop o ser fabricados por armeros. La variante con cañón de 5 pulgadas tiene un resalte inferior a lo largo de todo el cañón. Los acabados disponibles incluyen acero pulido pavonado o cromado.",
+          "source": {
+            "name": null,
+            "url": "https://es.wikipedia.org/wiki/S%26W_Modelo_29",
+            "disclaimer": null,
+            "image": null
+          }
+        }
+      ]
+    }
+  ],
+  "user": {
+    "is_liked": false
+  }
+}

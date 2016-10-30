@@ -28,8 +28,6 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private final ConfigModule[] configModules;
     HashMap<String, Integer> classIndex = new HashMap<>();
     HashMap<Integer, String> indexClass = new HashMap<>();
-    private FragmentManager mFragmentManager;
-    private LinearLayout container;
     private Picasso mPicasso = null;
 
     private final String defaultModulePackage = "com.touchvie.touchvie_front.ui.modules.";
@@ -40,19 +38,15 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
      * @param cardData
      * @param configModules
      * @param mListener
-     * @param fragmentManager
-     * @param container
      */
 
-    public ModulesAdapter(Context context, CardDetail cardData, ConfigModule[] configModules, CardDetailListener mListener, FragmentManager fragmentManager, LinearLayout container) {
+    public ModulesAdapter(Context context, CardDetail cardData, ConfigModule[] configModules, CardDetailListener mListener) {
 
         this.context = context;
         this.cardData = cardData;
         this.configModules = configModules;
         this.mListener = mListener;
         this.mPicasso = Picasso.with(context);
-        this.mFragmentManager=fragmentManager;
-        this.container = container;
         getDifferentModulesNumber();
     }
 
@@ -133,7 +127,7 @@ public class ModulesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
         if (viewHolder instanceof ModuleHolder) {
-            ((ModuleHolder) viewHolder).configure(cardData, mPicasso, context,mFragmentManager, container);
+            ((ModuleHolder) viewHolder).configure(cardData, mPicasso, context);
         }
 
       /*  if (viewHolder instanceof ImageModule) {

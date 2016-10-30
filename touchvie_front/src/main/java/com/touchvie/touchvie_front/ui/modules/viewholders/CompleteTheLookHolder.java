@@ -1,9 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.backend.carddetail.CardDetail;
@@ -23,9 +21,9 @@ public class CompleteTheLookHolder extends SquareImageItemsHolder {
     }
 
     @Override
-    public void configure(final CardDetail cardData, Picasso picasso, final Context context, FragmentManager fragmentManager, LinearLayout container) {
+    public void configure(final CardDetail cardData, Picasso picasso, final Context context) {
 
-        super.configure(cardData, picasso, context, fragmentManager, container);
+        super.configure(cardData, picasso, context);
         mTitle.setText(context.getResources().getString(R.string.complete_the_look));
 
         mSeeAll.setText(context.getResources().getString(R.string.see_all_complete_the_look));

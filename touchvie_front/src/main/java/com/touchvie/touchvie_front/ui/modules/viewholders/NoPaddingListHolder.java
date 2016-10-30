@@ -1,9 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_front.ui.modules.adapters.NoPaddingListAdapter;
@@ -31,7 +29,7 @@ public abstract class NoPaddingListHolder extends VerticalListHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         mContainer.setPadding(0, mContainer.getPaddingTop(), 0, mContainer.getPaddingBottom());
 

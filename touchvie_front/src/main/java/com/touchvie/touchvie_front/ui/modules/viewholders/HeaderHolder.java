@@ -1,11 +1,9 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -37,7 +35,7 @@ public class HeaderHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         if (cardData.getTitle() != null) {
             title.setText(cardData.getTitle());

@@ -1,0 +1,19 @@
+{
+  "card_id": "45dc344c-6b9c-11e5-b7c2-0684985cbbe3",
+  "locale": "es_ES",
+  "title": "Hombre con una cámara pequeña ",
+  "subtitle": null,
+  "type": "character",
+  "image": {
+    "thumb": null,
+    "full": null,
+    "anchor_x": null,
+    "anchor_y": null,
+    "source": null
+  },
+  "products": [],
+  "info": [],
+  "user": {
+    "is_liked": false
+  }
+}

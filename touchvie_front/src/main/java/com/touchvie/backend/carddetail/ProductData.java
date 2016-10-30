@@ -5,21 +5,24 @@ package com.touchvie.backend.carddetail;
  */
 
 public class ProductData {
-    private String product_id;
-    private String category;
-    private String title;
-    private String merchant;
-    private String image;
-    private String url;
-    private float price;
-    private String currency;
-    private boolean matching;
-    private String country;
-    private String region;
-    private String city;
-    private String address;
-    private int postal_code;
-    private float rating;
+    String product_id;
+    String category;
+    String title;
+    String merchant;
+    String image;
+    String url;
+    float price;
+    String currency;
+    boolean matching;
+    String country;
+    String region;
+    String city;
+    String address;
+    int postal_code;
+    float rating;
+    Source source;
+    Boolean is_exact;
+    Boolean is_up_to_date;
 
     public String getProduct_id() {
         return product_id;
@@ -139,5 +142,28 @@ public class ProductData {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+    public Source getSource() {
+        return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
+    }
+
+    public Boolean is_exact() {
+        return is_exact;
+    }
+
+    public void setIs_exact(Boolean is_exact) {
+        this.is_exact = is_exact;
+    }
+
+    public Boolean is_up_to_date() {
+        return is_up_to_date;
+    }
+
+    public void setIs_up_to_date(Boolean is_up_to_date) {
+        this.is_up_to_date = is_up_to_date;
     }
 }

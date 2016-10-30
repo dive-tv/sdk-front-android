@@ -1,9 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.squareup.picasso.Picasso;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
@@ -27,9 +25,9 @@ public class CastListHolder extends NoPaddingListHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
-        super.configure(cardData, picasso, context, fragmentManager, container);
+        super.configure(cardData, picasso, context);
 
         ArrayList<ImageRowData> rows= new ArrayList<>(); //TODO: get all the data.
         super.setData(rows, true, null);

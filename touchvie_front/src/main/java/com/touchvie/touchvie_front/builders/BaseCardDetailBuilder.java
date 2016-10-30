@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.GsonBuilder;
 import com.touchvie.backend.Card;
@@ -104,8 +106,6 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         this.mLayout = container;
         requestCard(cardID);
         listener = this;
-//        RestManager.getInstance().getCard("bf1b00c5-b779-3e73-a9f6-1cf836c674e5", listener, auth);
-
     }
 
     /**
@@ -215,7 +215,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
         try {
             Resources res = context.getResources();
             InputStream in_s;
-            in_s = res.openRawResource(R.raw.carddetail2);
+            in_s = res.openRawResource(R.raw.card_detail_movie);
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
             jsonString = new String(b);
@@ -226,7 +226,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
 //        CardDetail cardData = new GsonBuilder().create().fromJson(jsonString, CardDetail.class);
         CardDetail cardData=null;
         ObjectMapper mapper = new ObjectMapper();
-        CardDetail card = null;
+        mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
         try {
             cardData = mapper.readValue(jsonString, CardDetail.class);
         } catch (IOException e) {
@@ -234,7 +234,7 @@ public abstract class BaseCardDetailBuilder<T extends BaseCardDetailBuilder<T>> 
             return;
         }
         if (cardData == null) {
-            cardData = new CardDetail();
+           return;
         }
         onCardReceived(cardData);
     }

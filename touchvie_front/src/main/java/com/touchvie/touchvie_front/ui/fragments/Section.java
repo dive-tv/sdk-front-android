@@ -113,9 +113,8 @@ public class Section extends Fragment {
      *
      * @return A new instance of fragment Home.
      */
-    public Section newInstance(CardDetail data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener, FragmentManager fragmentManager, LinearLayout container) {
-        this.mFragmentManager = fragmentManager;
-        this.container = container;
+    public static Section newInstance(CardDetail data, ConfigSection configSection, SectionType sectionType, CardDetailListener listener) {
+
         Section fragment = new Section();
         Bundle extras = new Bundle();
         extras.putSerializable(Utils.CARD_DATA, data);
@@ -144,7 +143,8 @@ public class Section extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view;
-        modulesAdapter = new ModulesAdapter(getContext(), cardData, configSection.getConfigModules(), mListener, mFragmentManager, this.container);
+
+        modulesAdapter = new ModulesAdapter(getContext(), cardData, configSection.getConfigModules(), mListener);
         switch (sectionType) {
             case recycler_view:
                 view = inflater.inflate(R.layout.section_base_recycler, container, false);

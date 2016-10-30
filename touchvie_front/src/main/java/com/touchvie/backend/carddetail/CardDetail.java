@@ -9,16 +9,16 @@ import com.touchvie.touchvie_client.rest.datawrappers.NetworkData;
  */
 
 public class CardDetail extends NetworkData {
-    private String card_id;
-    private String type;
-    private String locale;
-    private String title;
-    private String subtitle;
-    private ImageData image;
-    private ProductData[] products;
-    private Container[] info;
-    private Relation[] relations;
-    private User user;
+    String card_id;
+    String type;
+    String locale;
+    String title;
+    String subtitle;
+    ImageData image;
+    ProductData[] products;
+    Container[] info;
+    Relation[] relations;
+    User user;
 
     public String getCardId() {
         return card_id;

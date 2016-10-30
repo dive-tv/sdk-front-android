@@ -1,0 +1,76 @@
+{
+  "card_id": "5045193b-6ddc-11e5-b7c2-0684985cbbe3",
+  "locale": "es_ES",
+  "title": "Cartera Hombre",
+  "subtitle": null,
+  "type": "fashion",
+  "image": {
+    "thumb": "https://pre-img.dive.tv/5045193b-6ddc-11e5-b7c2-0684985cbbe3/5045193b-6ddc-11e5-b7c2-0684985cbbe3_0_thumb_m.jpg",
+    "full": "https://pre-img.dive.tv/5045193b-6ddc-11e5-b7c2-0684985cbbe3/5045193b-6ddc-11e5-b7c2-0684985cbbe3_0_full_m.jpg",
+    "anchor_x": 51,
+    "anchor_y": 76,
+    "source": {
+      "name": null,
+      "url": "http://images.asos-media.com/inv/media/0/4/2/6/5286240/brown/image1xxl.jpg",
+      "disclaimer": null,
+      "image": null
+    }
+  },
+  "products": [
+    {
+      "product_id": "6#cd186365bd90a69fa904e0940292bdb8",
+      "category": "fashion",
+      "source": {
+        "name": "Asos",
+        "url": "http://www.asos.com",
+        "disclaimer": null,
+        "image": "https://cdn.touchvie.com/img/sources/ico_asos.png"
+      },
+      "title": "Cartera marrón de cuero sintético de New Look",
+      "image": "http://images.asos-media.com/inv/media/2/5/8/4/6564852/brown/image1xxl.jpg",
+      "url": "http://ad.zanox.com/ppc/?31897922C538823889&ULP=[[es/New-Look/New-Look-Faux-Leather-Wallet-in-Brown/Prod/pgeproduct.aspx&iid=6564852&istCompanyId=a0c5c12e-fd26-4987-9a2d-7b36a70b7ab6&istItemId=xtaittllaq&istBid=t&channelref=affiliate]]",
+      "price": 9.99,
+      "currency": "EUR",
+      "is_exact": false,
+      "is_up_to_date": false
+    },
+    {
+      "product_id": "6#35d1dc4e83322d879875e64e6ea5eb91",
+      "category": "fashion",
+      "source": {
+        "name": "Asos",
+        "url": "http://www.asos.com",
+        "disclaimer": null,
+        "image": "https://cdn.touchvie.com/img/sources/ico_asos.png"
+      },
+      "title": "Cartera de cuero plegable de Polo Ralph Lauren",
+      "image": "http://images.asos-media.com/inv/media/2/1/9/4/2814912/brown/image1xxl.jpg",
+      "url": "http://ad.zanox.com/ppc/?31897922C538823889&ULP=[[es/Polo-Ralph-Lauren/Polo-Ralph-Lauren-Leather-Billfold-Wallet/Prod/pgeproduct.aspx&iid=2814912&istCompanyId=a0c5c12e-fd26-4987-9a2d-7b36a70b7ab6&istItemId=wxpmaqrit&istBid=t&channelref=affiliate]]",
+      "price": 68.99,
+      "currency": "EUR",
+      "is_exact": false,
+      "is_up_to_date": true
+    },
+    {
+      "product_id": "6#60b7afa9b8741dde23b4654f808962b8",
+      "category": "fashion",
+      "source": {
+        "name": "Asos",
+        "url": "http://www.asos.com",
+        "disclaimer": null,
+        "image": "https://cdn.touchvie.com/img/sources/ico_asos.png"
+      },
+      "title": "Cartera plegable de cuero con bolsillo monedero de Polo Ralph Lauren",
+      "image": "http://images.asos-media.com/inv/media/9/1/0/2/4852019/brown/image1xxl.jpg",
+      "url": "http://ad.zanox.com/ppc/?31897922C538823889&ULP=[[es/Polo-Ralph-Lauren/Polo-Ralph-Lauren-Leather-Billfold-Wallet-With-Coin-Pocket/Prod/pgeproduct.aspx&iid=4852019&istCompanyId=a0c5c12e-fd26-4987-9a2d-7b36a70b7ab6&istItemId=pwprqpqxt&istBid=t&channelref=affiliate]]",
+      "price": 78.99,
+      "currency": "EUR",
+      "is_exact": false,
+      "is_up_to_date": true
+    }
+  ],
+  "info": [],
+  "user": {
+    "is_liked": false
+  }
+}

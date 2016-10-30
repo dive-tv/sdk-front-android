@@ -69,8 +69,7 @@ public class CardDetailManager implements CardDetailListener  {
             }
         }
 
-        Section newSection = new Section();
-        newSection.newInstance(this.data, configSectionsDict.get(mainSection), Section.SectionType.recycler_view, instance, mFragmentManager, container);
+        Section newSection =Section.newInstance(this.data, configSectionsDict.get(mainSection), Section.SectionType.recycler_view, instance);
         mFragmentManager.beginTransaction().replace(this.containerLinear.getId(), newSection).addToBackStack(mainSection).commit();
     }
 
@@ -127,7 +126,7 @@ public class CardDetailManager implements CardDetailListener  {
     public void goToSection(String sectionName) {
         if (configSectionsDict.containsKey(sectionName)) {
             Section newSection = new Section();
-            newSection.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.recycler_view, instance,mFragmentManager,containerLinear);
+            newSection.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.recycler_view, instance);
             mFragmentManager.beginTransaction().replace(this.containerLinear.getId(), newSection).addToBackStack(mainSection).commit();
         }
     }
@@ -148,7 +147,7 @@ public class CardDetailManager implements CardDetailListener  {
     public Section requestSectionForTab(String sectionName) {
         if (configSectionsDict.containsKey(sectionName)) {
             Section newSection = new Section();
-            newSection.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.linear_layout, instance,mFragmentManager,containerLinear);
+            newSection.newInstance(data, configSectionsDict.get(sectionName), Section.SectionType.linear_layout, instance);
             return newSection;
         }
         return null;
@@ -165,6 +164,11 @@ public class CardDetailManager implements CardDetailListener  {
     @Override
     public FragmentManager requestFragmentManager() {
         return mFragmentManager;
+    }
+
+    @Override
+    public LinearLayout requestContainerLayout() {
+        return this.containerLinear;
     }
 
     @Override

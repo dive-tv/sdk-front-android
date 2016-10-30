@@ -8,13 +8,13 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private boolean is_liked;
+    boolean is_liked;
 
-    public boolean isLiked() {
+    boolean isLiked() {
         return is_liked;
     }
 
-    public void setIsLiked(boolean is_liked) {
+    void setIsLiked(boolean is_liked) {
         this.is_liked = is_liked;
     }
 

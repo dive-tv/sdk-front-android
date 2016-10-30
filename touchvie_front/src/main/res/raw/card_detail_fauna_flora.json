@@ -1,0 +1,40 @@
+{
+  "card_id": "662a0aa8-baa6-11e5-97ac-0684985cbbe3",
+  "locale": "es_ES",
+  "title": "Búfalo americano",
+  "subtitle": null,
+  "type": "fauna_flora",
+  "image": {
+    "thumb": "https://pre-img.dive.tv/662a0aa8-baa6-11e5-97ac-0684985cbbe3/662a0aa8-baa6-11e5-97ac-0684985cbbe3_0_thumb_m.jpg",
+    "full": "https://pre-img.dive.tv/662a0aa8-baa6-11e5-97ac-0684985cbbe3/662a0aa8-baa6-11e5-97ac-0684985cbbe3_0_full_m.jpg",
+    "anchor_x": 8,
+    "anchor_y": 22,
+    "source": {
+      "name": null,
+      "url": "http://marcos-marcosnavarro-marcos.blogspot.com.es/2015/05/bisonte-americano-bufalo.html",
+      "disclaimer": null,
+      "image": null
+    }
+  },
+  "products": [],
+  "info": [
+    {
+      "type": "text",
+      "content_type": "description",
+      "data": [
+        {
+          "text": "El bisonte americano (Bison bison), también denominado búfalo, y —palabra en desuso— cíbolo, es una especie de gran mamífero artiodáctilo de la familia de los bóvidos (Bovidae). Poblaba las planicies del norte de México, los Estados Unidos y Canadá en grandes manadas, abarcando desde el Gran Lago del Esclavo hasta México y desde el este de Oregón hasta los Montes Apalaches. \n\nEn referencia a esta especie, el término \"búfalo,\" que data de 1635, tiene más historia que el concepto \"bisonte,\" registrado en 1774.\n\nLa cacería del bisonte americano se precipitó después de la llegada de los ingleses a la costa este del continente, pues el valor de las pieles era bastante elevado y funcionó como un catalizador para la matanza de miles de animales. Cuando muchas de las naciones nativas, incluyendo la Miami, Shawnee y Potawatomi, fueron desplazadas, el bisonte americano fue cazado casi hasta su extinción en el siglo XIX, quedando sólo 750 ejemplares hacia 1890. \n\nEl Zoológico del Bronx, en Estados Unidos, mantuvo una de las manadas sobrevivientes, de la cual fue restablecida la población en el Parque Nacional Yellowstone y otras reservas naturales. La actual población de bisontes americanos es de aproximadamente 350.000 ejemplares, cuando la población anterior está estimada en 60–100 millones antes de la llegada de los europeos a América.",
+          "source": {
+            "name": null,
+            "url": "https://es.wikipedia.org/wiki/Bison_bison",
+            "disclaimer": null,
+            "image": null
+          }
+        }
+      ]
+    }
+  ],
+  "user": {
+    "is_liked": false
+  }
+}

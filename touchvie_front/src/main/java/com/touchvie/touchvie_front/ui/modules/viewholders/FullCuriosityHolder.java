@@ -1,9 +1,7 @@
 package com.touchvie.touchvie_front.ui.modules.viewholders;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -34,7 +32,7 @@ public class FullCuriosityHolder extends ModuleHolder {
     }
 
     @Override
-    public void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container) {
+    public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         mText.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));

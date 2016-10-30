@@ -6,9 +6,9 @@ package com.touchvie.backend.carddetail.relations;
  */
 
 public class Relation {
-    private String type;
-    private String content_type;
-    private RelationData[] data;
+    String type;
+    String content_type;
+    RelationData[] data;
 
     public String getType() {
         return type;

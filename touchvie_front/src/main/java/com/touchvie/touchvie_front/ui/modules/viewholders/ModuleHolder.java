@@ -24,5 +24,5 @@ public abstract class ModuleHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    public abstract void configure(CardDetail cardData, Picasso picasso, Context context, FragmentManager fragmentManager, LinearLayout container);
+    public abstract void configure(CardDetail cardData, Picasso picasso, Context context);
 }
