@@ -45,8 +45,8 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
     @Override
     public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
-        if (cardData.getImage() != null && cardData.getImage().getFull() != null) {
-            picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+        if (cardData.getImage() != null && cardData.getImage().getThumb() != null) {
+            picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getThumb(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                     .into(mPoster);
         } else {
             mPoster.setVisibility(View.GONE);
@@ -60,16 +60,19 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
         if (cardData.getInfo() != null) {
             for (Container container : cardData.getInfo()) {
                 if (TypeOfContainer.CATALOG.getName().equals(container.getType())) {
-                    if (container.getData() != null) {
-                        if (((Catalog) container.getData()).getDirector() != null) {
-                            mDirector.setText(((Catalog) container.getData()).getDirector());
+                    if (container.getData() != null  && container.getData().length>=1 ) {
+                        Catalog containerCatalog=(Catalog)container.getData()[0];
+                        if(containerCatalog==null)
+                            return;
+                        if (containerCatalog.getDirector() != null) {
+                            mDirector.setText(containerCatalog.getDirector());
                             mDirector.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
                         }
 
-                        if (((Catalog) container.getData()).getGenres() != null) {
+                        if (containerCatalog.getGenres() != null) {
                             StringBuilder sb = new StringBuilder();
                             boolean first = true;
-                            for (String genre : ((Catalog) container.getData()).getGenres()) {
+                            for (String genre : containerCatalog.getGenres()) {
                                 if (!first) {
                                     sb.append(",");
                                 }
@@ -78,8 +81,8 @@ public class MovieHeaderSmallHolder extends ModuleHolder {
                             mGenres.setText(sb.toString());
                             mGenres.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }
-                        if (((Catalog) container.getData()).getYear() > 0) {
-                            mYear.setText(((Catalog) container.getData()).getYear());
+                        if (containerCatalog.getYear() > 0) {
+                            mYear.setText(containerCatalog.getYear());
                             mYear.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_LIGHT));
                         }
                     }

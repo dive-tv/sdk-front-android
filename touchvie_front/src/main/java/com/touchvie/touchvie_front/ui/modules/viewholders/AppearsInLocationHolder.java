@@ -50,7 +50,7 @@ public class AppearsInLocationHolder extends RectangularImageItemsHolder {
                     ImageRowData row=null;
                     switch (((DupleRel)relData).getRelType()) {
                         case FILMED_IN:
-                            row.setImage(((DupleRel) relData).getTo().getImage().getFull());
+                            row.setImage(((DupleRel) relData).getTo().getImage().getThumb());
                             TextData title = new TextData();
                             title.setText(context.getResources().getString(R.string.filmed_in));
                             title.setUrl(null);
@@ -66,7 +66,7 @@ public class AppearsInLocationHolder extends RectangularImageItemsHolder {
                             rows.add(row);
                             break;
                         case AS:
-                            row.setImage(((DupleRel) relData).getTo().getImage().getFull());
+                            row.setImage(((DupleRel) relData).getTo().getImage().getThumb());
                             TextData titleAs = new TextData();
                             titleAs.setText(context.getResources().getString(R.string.as));
                             titleAs.setUrl(null);
@@ -82,7 +82,7 @@ public class AppearsInLocationHolder extends RectangularImageItemsHolder {
                             rows.add(row);
                             break;
                         case FEATURED:
-                            row.setImage(((DupleRel) relData).getFrom().getImage().getFull());
+                            row.setImage(((DupleRel) relData).getFrom().getImage().getThumb());
                             TextData titleFeatured = new TextData();
                             titleFeatured.setText(context.getResources().getString(R.string.featured));
                             titleFeatured.setUrl(null);

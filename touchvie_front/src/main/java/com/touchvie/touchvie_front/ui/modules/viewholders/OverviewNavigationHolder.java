@@ -43,20 +43,21 @@ public class OverviewNavigationHolder extends TextHolder {
         if (cardData.getInfo() != null) {
             for (Container container : cardData.getInfo()) {
                 if (TypeOfContainer.OVERVIEW.getName().equals(container.getType())) {
-                    if (container.getData() != null) {
-                        if (((Text) container.getData()).getText() != null) {
-                            text.setText(((Text) container.getData()).getText());
+                    if (container.getData() != null && container.getData().length==1) {
+                        Text containerText=(Text)container.getData()[0];
+                        if (containerText.getText() != null) {
+                            text.setText(containerText.getText());
                             text.setExpandable(false);
                             text.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }
-                        if (((Text) container.getData()).getSource() == null) {
+                        if (containerText.getSource() == null) {
                             sourceLay.setVisibility(GONE);
                         } else {
                             source.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
-                            if (((Text) container.getData()).getSource().getName() != null) {
-                                sourceLink.setText(((Text) container.getData()).getSource().getName());
+                            if (containerText.getSource().getName() != null) {
+                                sourceLink.setText(containerText.getSource().getName());
                                 sourceLink.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
-                                if (((Text) container.getData()).getSource().getUrl() != null) {
+                                if (containerText.getSource().getUrl() != null) {
                                     sourceLink.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View view) {
@@ -65,13 +66,13 @@ public class OverviewNavigationHolder extends TextHolder {
                                     });
                                 }
                             }
-                            if (((Text) container.getData()).getSource().getImage() != null) {
-                                picasso.load(ClientManager.getInstance().getImageUrl(((Text) container.getData()).getSource().getImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+                            if (containerText.getSource().getImage() != null) {
+                                picasso.load(ClientManager.getInstance().getImageUrl(containerText.getSource().getImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                                         .into(sourceImage);
                             }
 
-                            if (((Text) container.getData()).getSource().getDisclaimer() != null) {
-                                disclaimer.setText(((Text) container.getData()).getSource().getDisclaimer());
+                            if (containerText.getSource().getDisclaimer() != null) {
+                                disclaimer.setText(containerText.getSource().getDisclaimer());
                                 disclaimer.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_ITALIC));
                             }
                         }

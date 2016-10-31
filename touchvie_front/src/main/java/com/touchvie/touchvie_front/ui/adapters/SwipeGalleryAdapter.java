@@ -88,7 +88,7 @@ public class SwipeGalleryAdapter extends PagerAdapter {
 
         if(image.getFull() !=null &&  image.getFull().length()>0 && URLUtil.isValidUrl(image.getFull()) ){
             mPicasso
-                    .load(ClientManager.getInstance().getImageUrl(image.getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH))
+                    .load(ClientManager.getInstance().getImageUrl(image.getThumb(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH))
                     .into(imgDisplay);
         }
 

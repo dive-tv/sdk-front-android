@@ -29,15 +29,21 @@ public class CarouselViewGeneric extends CarouselView {
         FrameLayout baseView = (FrameLayout) inflater.inflate(R.layout.carousel_item_generic, null);
         final ImageView mImageView = (ImageView) baseView.findViewById(R.id.carousel_item_generic_base_img);
         TextView mTextView = (TextView) baseView.findViewById(R.id.carousel_item_generic_base_txt);
-
         if (card.getImage() != null) {
             mImageView.setVisibility(View.VISIBLE);
             mImageView.post(new Runnable() {
                 @Override
                 public void run() {
-                    if (card.getImage() != null && card.getImage().getFull() !=null) {
+                    if (card.getImage() != null && card.getImage().getThumb() !=null) {
                         Picasso.with(context)
-                                .load(ClientManager.getInstance().getImageUrl(card.getImage().getFull(), ImageSize.small, context.getResources().getDisplayMetrics().densityDpi)) //DisplayMetrics.DENSITY_HIGH = @2x
+                                .load(card.getImage().getThumb())
+                                .priority(Picasso.Priority.HIGH)
+                                .noFade()
+                                .placeholder(R.drawable.ico_nophoto_medium)
+                                .into(mImageView);
+                    }else{
+                        Picasso.with(context)
+                                .load(R.drawable.ico_nophoto_medium)
                                 .priority(Picasso.Priority.HIGH)
                                 .noFade()
                                 .into(mImageView);

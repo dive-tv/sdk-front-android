@@ -11,9 +11,9 @@ import com.touchvie.backend.MiniCard;
 
 public class CarouselView {
 
-    Context context;
-    MiniCard card;
-    FrameLayout layout;
+    protected Context context;
+    protected MiniCard card;
+    protected FrameLayout layout;
 
     public CarouselView(Context context, MiniCard card) {
         this.context = context;

@@ -39,7 +39,7 @@ public class HighlightsHolder extends SquareImageItemsHolder {
             if (MOVIE_HIGHLIGHTED.equals(rel.getContent_type())) {
                 for (RelationData relData : rel.getData()) {
                     ImageRowData row=null;
-                    row.setImage(((SingleRel) relData).getData().getImage().getFull());
+                    row.setImage(((SingleRel) relData).getData().getImage().getThumb());
                     TextData title = new TextData();
                     title.setText(((SingleRel) relData).getData().getTitle());
                     title.setUrl(null);

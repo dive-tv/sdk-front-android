@@ -50,8 +50,8 @@ public class HeaderHolder extends ModuleHolder {
             subtitle.setVisibility(View.GONE);
         }
 
-        if (cardData.getImage() != null && cardData.getImage().getFull() != null) {
-            picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+        if (cardData.getImage() != null && cardData.getImage().getThumb() != null) {
+            picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getThumb(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                     .into(image);
         } else {
             image.setVisibility(View.GONE);

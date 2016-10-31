@@ -69,10 +69,7 @@ public class CarouselLogic {
                 cellCards.add(temp);
                 if (newCard.getRelations() != null) {
                     for (int i = 0; i < newCard.getRelations().length - 1; i++) {
-
-//                        for (int j = 0; i < newCard.getRelations()[i].getData().length - 1; j++) {
                         MiniCard temp2;
-//                            temp2 = newCard.gethildren()[i].getData()[j];
                         if (RelationTypes.SINGLE.equals(newCard.getRelations()[i].getType())) {
                             for (RelationData relData:newCard.getRelations()[i].getData()) {
                                 temp2 = ((SingleRel)relData).getData();
@@ -141,7 +138,6 @@ public class CarouselLogic {
                     newCell.setSceneNr(card.getSceneNumber());
                     cellCards = null;
                     cells.add(newCell);
-//                    cellCards.clear();
                     setNewCell = true;
                     continue;
                 } else {
@@ -247,6 +243,7 @@ public class CarouselLogic {
             }
             lastCard = newCard;
         }
+
         return cells;
     }
 

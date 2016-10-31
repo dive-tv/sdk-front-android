@@ -48,7 +48,7 @@ public class InterpretedByHolder extends SquareImageItemsHolder {
             if (CASTING.equals(rel.getContent_type())){
                 for (RelationData relData:rel.getData()){
                     ImageRowData row=new ImageRowData();
-                    row.setImage(((DupleRel)relData).getTo().getImage().getFull());
+                    row.setImage(((DupleRel)relData).getTo().getImage().getThumb());
                     TextData title = new TextData();
                     title.setText(((DupleRel)relData).getTo().getTitle());
                     title.setUrl(null);

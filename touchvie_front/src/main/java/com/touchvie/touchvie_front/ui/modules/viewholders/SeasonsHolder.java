@@ -54,7 +54,7 @@ public class SeasonsHolder extends HorizontalListHolder {
                     for(int i=0; i<length; i++){
                         Seasons season= (Seasons)container.getData()[i];
                         SeasonRowData rowData= new SeasonRowData();
-                        rowData.setImage(season.getImage().getFull());
+                        rowData.setImage(season.getImage().getThumb());
                         rowData.setYear(season.getYear());
                         rowData.setSeason(context.getString(R.string.season_number,season.getSeasonIndex()));
                         rows.add(rowData);

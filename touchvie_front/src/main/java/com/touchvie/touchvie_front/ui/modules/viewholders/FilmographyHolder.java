@@ -49,7 +49,7 @@ public class FilmographyHolder extends RectangularImageItemsHolder {
             if (FILMOGRAPHY.equals(rel.getContent_type())){
                 for (RelationData relData:rel.getData()){
                     ImageRowData row=null;
-                    row.setImage(((DupleRel)relData).getTo().getImage().getFull());
+                    row.setImage(((DupleRel)relData).getTo().getImage().getThumb());
                     TextData title = new TextData();
                     title.setText(context.getResources().getString(R.string.interpretes));
                     title.setUrl(null);

@@ -57,7 +57,7 @@ public class MovieHeaderHolder extends ModuleHolder {
     public void configure(CardDetail cardData, Picasso picasso, Context context) {
 
         if (cardData.getImage() != null) {
-            picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+            picasso.load(ClientManager.getInstance().getImageUrl(cardData.getImage().getThumb(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                     .into(mPoster);
 
         } else {
@@ -72,35 +72,38 @@ public class MovieHeaderHolder extends ModuleHolder {
 
             for (Container container : cardData.getInfo()) {
                 if (TypeOfContainer.CATALOG.getName().equals(container.getType())) {
-                    if (container.getData() != null) {
-                        if (((Catalog) container.getData()).getDirector() != null) {
-                            mDirector.setText(((Catalog) container.getData()).getDirector());
+                    if (container.getData() != null && container.getData().length>=1) {
+                        Catalog containerCatalog=(Catalog)container.getData()[0];
+                        if(containerCatalog==null)
+                            return;
+                        if (containerCatalog.getDirector() != null ) {
+                            mDirector.setText(containerCatalog.getDirector());
                             mDirector.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_SEMIBOLD));
                         }
 
-                        if (((Catalog) container.getData()).getRuntime() > 0) {
+                        if (containerCatalog.getRuntime() > 0) {
                             mTimeLay.setVisibility(View.VISIBLE);
-                            mTime.setText(Utils.getTime(((Catalog) container.getData()).getRuntime(), context));
+                            mTime.setText(Utils.getTime(containerCatalog.getRuntime(), context));
                             mTime.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         } else {
                             mTimeLay.setVisibility(View.GONE);
                         }
 
-                        if (((Catalog) container.getData()).getSync() != null && ((Catalog) container.getData()).getSync().isSynchronizable() == true) {
+                        if (containerCatalog.getSync() != null && containerCatalog.getSync().isSynchronizable() == true) {
                             mButton.setVisibility(View.VISIBLE);
                         } else {
                             mButton.setVisibility(View.GONE);
                         }
 
-                        if (((Catalog) container.getData()).getBackgroundImage() != null) {
-                            picasso.load(ClientManager.getInstance().getImageUrl(((Catalog) container.getData()).getBackgroundImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
+                        if (containerCatalog.getBackgroundImage() != null) {
+                            picasso.load(ClientManager.getInstance().getImageUrl(containerCatalog.getBackgroundImage(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH)) //TODO transformation, insert density.
                                     .into(mBackground);
                         }
 
-                        if (((Catalog) container.getData()).getGenres() != null) {
+                        if (containerCatalog.getGenres() != null) {
                             StringBuilder sb = new StringBuilder();
                             boolean first = true;
-                            for (String genre : ((Catalog) container.getData()).getGenres()) {
+                            for (String genre : containerCatalog.getGenres()) {
                                 if (!first) {
                                     sb.append(",");
                                 }
@@ -110,8 +113,8 @@ public class MovieHeaderHolder extends ModuleHolder {
                             mGenres.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
                         }
 
-                        if (((Catalog) container.getData()).getYear() > 0) {
-                            mYear.setText(((Catalog) container.getData()).getYear());
+                        if (containerCatalog.getYear() > 0) {
+                            mYear.setText(containerCatalog.getYear());
                             mYear.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_LIGHT));
                         }
 

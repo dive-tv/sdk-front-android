@@ -109,7 +109,7 @@ public class GalleryAdapter extends BaseAdapter {
 
         if (image.getFull() != null && image.getFull().length() > 0) {
             mPicasso
-                    .load(ClientManager.getInstance().getImageUrl(image.getFull(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH))
+                    .load(ClientManager.getInstance().getImageUrl(image.getThumb(), ImageSize.medium, DisplayMetrics.DENSITY_XHIGH))
                     .into(holder.image);
         }
 
