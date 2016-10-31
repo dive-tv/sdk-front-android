@@ -11,15 +11,15 @@ public class ProductData {
     String merchant;
     String image;
     String url;
-    float price;
+    Float price;
     String currency;
-    boolean matching;
+    Boolean matching;
     String country;
     String region;
     String city;
     String address;
-    int postal_code;
-    float rating;
+    Integer postal_code;
+    Float rating;
     Source source;
     Boolean is_exact;
     Boolean is_up_to_date;
@@ -72,11 +72,11 @@ public class ProductData {
         this.url = url;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -88,11 +88,11 @@ public class ProductData {
         this.currency = currency;
     }
 
-    public boolean isMatching() {
+    public Boolean isMatching() {
         return matching;
     }
 
-    public void setMatching(boolean matching) {
+    public void setMatching(Boolean matching) {
         this.matching = matching;
     }
 
@@ -128,19 +128,19 @@ public class ProductData {
         this.address = address;
     }
 
-    public int getPostal_code() {
+    public Integer getPostal_code() {
         return postal_code;
     }
 
-    public void setPostal_code(int postal_code) {
+    public void setPostal_code(Integer postal_code) {
         this.postal_code = postal_code;
     }
 
-    public float getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(float rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
     }
     public Source getSource() {

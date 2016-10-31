@@ -1,51 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rimageitems_container"
-    android:layout_width="@dimen/rimageitems_image_width"
+    android:id="@+id/simageitems_container"
+    android:layout_width="@dimen/simageitems_image_height"
     android:layout_height="wrap_content"
-    android:background="@color/darkGrey"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <FrameLayout
-        android:layout_width="@dimen/rimageitems_image_width"
-        android:layout_height="@dimen/rimageitems_image_height"
-        android:layout_marginBottom="@dimen/rimageitems_separator"
-        android:background="@color/black">
+        android:layout_width="@dimen/simageitems_image_height"
+        android:layout_height="@dimen/simageitems_image_height"
+        android:layout_marginBottom="@dimen/stroke"
+        >
 
         <ImageView
-            android:id="@+id/season_image"
+            android:id="@+id/shop_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/black"
             android:scaleType="centerCrop" />
     </FrameLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/rimageitems_data_height"
-        android:background="@color/black"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingEnd="@dimen/rimageitems_data_padding"
-        android:paddingLeft="@dimen/rimageitems_data_padding"
-        android:paddingRight="@dimen/rimageitems_data_padding"
-        android:paddingStart="@dimen/rimageitems_data_padding">
+        android:layout_height="@dimen/shop_button_height"
+        android:orientation="horizontal"
+        >
 
-        <TextView
-            android:id="@+id/season_year"
-            style="@style/CardMovieGenre"
-            android:layout_width="match_parent"
+        <FrameLayout
+            android:layout_width="@dimen/shop_button_width"
+            android:layout_height="@dimen/shop_button_height"
+            android:background="@color/offYellow"
+            android:layout_alignParentRight="true"
+            android:id="@+id/shop_button">
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1" />
+            android:src="@drawable/ico_shopping"
+            android:layout_gravity="center"
 
-        <TextView
-            android:id="@+id/season_season"
-            style="@style/MinicardTitleLink"
+           />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_toLeftOf="@id/shop_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:lines="1" />
-    </LinearLayout>
+            android:layout_height="@dimen/simageitems_data_height"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/simageitems_data_padding_right"
+            android:paddingLeft="@dimen/simageitems_data_padding_left"
+            android:paddingRight="@dimen/simageitems_data_padding_right"
+            android:paddingStart="@dimen/simageitems_data_padding_left">
+
+            <TextView
+                android:id="@+id/shop_price"
+                style="@style/MinicardTitleLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1" />
+
+            <TextView
+                android:id="@+id/shop_shop"
+                style="@style/CardMovieGenre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="1" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

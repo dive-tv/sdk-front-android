@@ -119,4 +119,15 @@
     <!-- Module Video -->
     <dimen name="video_thumbnail_height">200dp</dimen>
 
+    <!-- Module Shop -->
+    <dimen name="shop_button_height">40dp</dimen>
+    <dimen name="shop_button_width">45dp</dimen>
+
+    <!-- Module Curiosity -->
+    <dimen name="curiosity_padding">15dp</dimen>
+
+    <!-- Module Cast -->
+    <dimen name="cast_padding_top_bottom">10dp</dimen>
+    <dimen name="cast_padding_left_right">14dp</dimen>
+
 </resources>

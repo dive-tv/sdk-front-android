@@ -10,7 +10,7 @@ public class ShopRowData {
 
     private String image;
     private String shop;
-    private Float price;
+    private String price;
 
     public String getImage() {
         return image;
@@ -28,11 +28,11 @@ public class ShopRowData {
         this.shop = shop;
     }
 
-    public Float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

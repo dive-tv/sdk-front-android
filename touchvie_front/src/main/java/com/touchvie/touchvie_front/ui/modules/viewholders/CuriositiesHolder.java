@@ -36,7 +36,7 @@ public class CuriositiesHolder extends HorizontalListHolder {
         });
 
         ArrayList<TextRowData> rows = new ArrayList<>();
-        CuriositiesAdapter adapter = new CuriositiesAdapter(rows);
+        CuriositiesAdapter adapter = new CuriositiesAdapter(context, rows);
         mList.setAdapter(adapter);
 
     }

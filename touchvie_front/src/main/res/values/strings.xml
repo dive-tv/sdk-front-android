@@ -57,6 +57,6 @@
     <string name="complete_the_look">Completa el look</string>
     <string name="interpretes">Interpreta a</string>
     <string name="season_number">%1$a Temp.</string>
-
+    <string name="price">%1$&#8364;</string>
 
 </resources>

@@ -47,7 +47,7 @@ public class AppearsInLocationHolder extends RectangularImageItemsHolder {
         for (Relation rel:cardData.getRelations()){
             if (MOVIE_LOCATIONS.equals(rel.getContent_type())){
                 for (RelationData relData:rel.getData()){
-                    ImageRowData row=null;
+                    ImageRowData row=new ImageRowData();
                     switch (((DupleRel)relData).getRelType()) {
                         case FILMED_IN:
                             row.setImage(((DupleRel) relData).getTo().getImage().getThumb());

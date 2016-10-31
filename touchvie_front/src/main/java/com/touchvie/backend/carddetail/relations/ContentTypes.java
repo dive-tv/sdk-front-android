@@ -23,6 +23,7 @@ public class ContentTypes {
     public final static String  TRACKLIST="tracklist";
     public final static String  SOUND_IN="sounds_in";
     public final static String  ITEM_TRIVIAS="item_trivias";
+    public final static String  MOVIE_SONGS="movie_songs";
     //Duple Realtions
     public final static String  CASTING="casting";
     public final static String  MOVIE_LOCATIONS="movie_locations";
