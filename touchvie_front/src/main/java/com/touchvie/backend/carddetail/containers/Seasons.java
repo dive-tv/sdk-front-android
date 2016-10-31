@@ -8,7 +8,7 @@ public class Seasons extends ContainerData {
     private int season_index;
     private int chapter_number;
     private String creators;
-    private Image image;
+    private com.touchvie.backend.Image image;
     private int year;
 
     public int getSeasonIndex() {
@@ -35,11 +35,11 @@ public class Seasons extends ContainerData {
         this.creators = creators;
     }
 
-    public Image getImage() {
+    public com.touchvie.backend.Image getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(com.touchvie.backend.Image image) {
         this.image = image;
     }
 

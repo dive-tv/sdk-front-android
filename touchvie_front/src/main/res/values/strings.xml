@@ -55,9 +55,8 @@
     <string name="trailer">trailer</string>
     <string name="more_look_like_this">Más looks como éste</string>
     <string name="complete_the_look">Completa el look</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="interpretes">Interpreta a</string>
+    <string name="season_number">%1$a Temp.</string>
 
 
 </resources>

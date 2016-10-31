@@ -12,7 +12,7 @@ public class Container implements Serializable {
 
     String type;
     String content_type;
-    ContainerData data;
+    ContainerData[] data;
 
     public String getType() {
         return type;
@@ -30,11 +30,11 @@ public class Container implements Serializable {
         this.content_type = content_type;
     }
 
-    public ContainerData getData() {
+    public ContainerData[] getData() {
         return data;
     }
 
-    public void setData(ContainerData data) {
+    public void setData(ContainerData[] data) {
         this.data = data;
     }
 }
