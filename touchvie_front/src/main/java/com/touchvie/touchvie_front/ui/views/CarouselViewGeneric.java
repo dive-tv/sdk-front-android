@@ -29,7 +29,6 @@ public class CarouselViewGeneric extends CarouselView {
         FrameLayout baseView = (FrameLayout) inflater.inflate(R.layout.carousel_item_generic, null);
         final ImageView mImageView = (ImageView) baseView.findViewById(R.id.carousel_item_generic_base_img);
         TextView mTextView = (TextView) baseView.findViewById(R.id.carousel_item_generic_base_txt);
-        if (card.getImage() != null) {
             mImageView.setVisibility(View.VISIBLE);
             mImageView.post(new Runnable() {
                 @Override
@@ -45,14 +44,13 @@ public class CarouselViewGeneric extends CarouselView {
                         Picasso.with(context)
                                 .load(R.drawable.ico_nophoto_medium)
                                 .priority(Picasso.Priority.HIGH)
+                                .fit()
                                 .noFade()
+                                .placeholder(R.drawable.ico_nophoto_medium)
                                 .into(mImageView);
                     }
                 }
             });
-        } else {
-            mImageView.setVisibility(View.GONE);
-        }
 
         if (card.getTitle() != null && card.getTitle().length() > 0) {
             mTextView.setText(card.getTitle());
