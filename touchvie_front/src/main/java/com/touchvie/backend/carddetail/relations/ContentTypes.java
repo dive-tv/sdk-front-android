@@ -17,6 +17,13 @@ public class ContentTypes {
     public final static String  TECHNOLOGY_APEARS_IN="technology_appears_in";
     public final static String  ART_APEARS_IN="art_appears_in";
     public final static String  TRIVIA_APEARS_IN="trivia_appears_in";
+    public final static String  HOME_APEARS_IN="home_appears_in";
+    public final static String  WEAPON_APEARS_IN="weapon_appears_in";
+    public final static String  LEISURE_SPORT_APEARS_IN="leisure_sport_appears_in";
+    public final static String  HEALTH_BEAUTY_APEARS_IN="health_beauty_appears_in";
+    public final static String  FAUNA_FLORA_APEARS_IN="fauna_flora_appears_in";
+    public final static String  BUSINESS_APEARS_IN="business_appears_in";
+    public final static String  HISTORIC_APEARS_IN="historic_appears_in";
     public final static String  FULL_LOOKS="full_looks";
     public final static String  LOOK_FASHION="look_fashion";
     public final static String  OTHER_LOOKS="other_looks";
@@ -24,6 +31,7 @@ public class ContentTypes {
     public final static String  SOUND_IN="sounds_in";
     public final static String  ITEM_TRIVIAS="item_trivias";
     public final static String  MOVIE_SONGS="movie_songs";
+    public final static String  PLAYED_BY="played_by";
     //Duple Realtions
     public final static String  CASTING="casting";
     public final static String  MOVIE_LOCATIONS="movie_locations";

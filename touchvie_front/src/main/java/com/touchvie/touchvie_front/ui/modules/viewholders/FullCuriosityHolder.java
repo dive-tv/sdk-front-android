@@ -5,7 +5,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.touchvie.backend.TypeOfContainer;
 import com.touchvie.backend.carddetail.CardDetail;
+import com.touchvie.backend.carddetail.Container;
+import com.touchvie.backend.carddetail.containers.Text;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.utils.Utils;
 
@@ -36,6 +39,30 @@ public class FullCuriosityHolder extends ModuleHolder {
 
         mTitle.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_BOLD));
         mText.setTypeface(Utils.getFont(context, Utils.TypeFaces.LATO_REGULAR));
+
+
+        if(cardData.getTitle() !=null){
+            mTitle.setText(cardData.getTitle());
+        }else{
+            mTitle.setVisibility(View.GONE);
+        }
+
+        boolean found=false;
+        if (cardData.getInfo() != null) {
+            for (Container container : cardData.getInfo()) {
+                if (TypeOfContainer.DESCRIPTION.getName().equals(container.getType())) {
+                    if (container.getData() != null && container.getData().length==1 ) {
+                        Text containerText = (Text) container.getData()[0];
+                        mText.setText(containerText.getText());
+                        found=true;
+                    }
+                    break;
+                }
+            }
+        }
+        if(!found){
+            mText.setVisibility(View.GONE);
+        }
 
         //TODO: get data from carddata and insert into texts.
 

@@ -8,6 +8,7 @@ import com.touchvie.backend.carddetail.CardDetail;
 import com.touchvie.backend.carddetail.relations.DupleRel;
 import com.touchvie.backend.carddetail.relations.Relation;
 import com.touchvie.backend.carddetail.relations.RelationData;
+import com.touchvie.backend.carddetail.relations.SingleRel;
 import com.touchvie.touchvie_front.R;
 import com.touchvie.touchvie_front.ui.modules.data.ImageRowData;
 import com.touchvie.touchvie_front.ui.modules.data.TextData;
@@ -15,6 +16,7 @@ import com.touchvie.touchvie_front.ui.modules.data.TextData;
 import java.util.ArrayList;
 
 import static com.touchvie.backend.carddetail.relations.ContentTypes.CASTING;
+import static com.touchvie.backend.carddetail.relations.ContentTypes.PLAYED_BY;
 
 /**
  * Created by Tagsonomy S.L. on 13/10/2016.
@@ -45,18 +47,18 @@ public class InterpretedByHolder extends SquareImageItemsHolder {
         if(cardData.getRelations()==null)
             return;
         for (Relation rel:cardData.getRelations()){
-            if (CASTING.equals(rel.getContent_type())){
+            if (PLAYED_BY.equals(rel.getContent_type())){
                 for (RelationData relData:rel.getData()){
                     ImageRowData row=new ImageRowData();
-                    row.setImage(((DupleRel)relData).getTo().getImage().getThumb());
+                    row.setImage(((SingleRel)relData).getData().getImage().getThumb());
                     TextData title = new TextData();
-                    title.setText(((DupleRel)relData).getTo().getTitle());
+                    title.setText(((SingleRel)relData).getData().getTitle());
                     title.setUrl(null);
                     ArrayList<TextData> arrayTitle=new ArrayList<>();
                     arrayTitle.add(title);
                     row.setTitle(arrayTitle);
                     TextData subTitle = new TextData();
-                    subTitle.setText(((DupleRel)relData).getTo().getSubtitle());
+                    subTitle.setText(((SingleRel)relData).getData().getSubtitle());
                     subTitle.setUrl(null);
                     ArrayList<TextData> arraySubTitle=new ArrayList<>();
                     arrayTitle.add(subTitle);
