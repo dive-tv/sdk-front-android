@@ -45,6 +45,9 @@ public class CastHolder extends HorizontalListHolder {
 
         ArrayList<CastRowData> rows = new ArrayList<>();
         CastAdapter adapter = new CastAdapter(context, rows);
+        if(cardData.getRelations() ==null || cardData.getRelations().length<=0){
+            return;
+        }
         for (Relation rel:cardData.getRelations()) {
             if (CASTING.equals(rel.getContent_type())) {
                 for (RelationData relData : rel.getData()) {
